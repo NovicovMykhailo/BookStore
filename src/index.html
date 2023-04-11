@@ -1,14 +1,44 @@
+
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <title>BookStore</title>
+     <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="shortcut icon" href="./favico/logo.svg" type="image/x-icon" />
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <header>
+      <a href="#" class="logo">
+        <img src="./images/main_logo.svg" alt="logo Image" />
+      </a>
+      <nav></nav>
+    </header>
+    <main>
+      <div class="side-blocks">
+        <section class="categories">
+          <h2 class="visually-hidden">Book Categories</h2>
+          <ul class="book-categories">
+            <!-- left side book categories place -->
+          </ul>
+        </section>
+        <section class="support-ukraine">
+          <h2 class="visually-hidden">Support Ukraine</h2>
+          <ul class="support-companies">
+            <!-- left side support ukraine companies -->
+          </ul>
+        </section>
+      </div>
+      <section class="book-cards">
+        <h2 class="visually-hidden">Book Cards</h2>
+        <div>
+          <!-- books markups -->
+        </div>
+      </section>
+    </main>
+
+    <script src="index.js"></script>
   </body>
 </html>
