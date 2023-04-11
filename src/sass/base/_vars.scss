@@ -1,9 +1,18 @@
-:root{
-    --main-text-color: #111111;
-    --secondary-text-color: #11111199;
-    --white-text-color: #FFFFFF;
-    --blue-accent-color: #4F2EE8;
-    --yellow-accent-color:#EAC645;
+// typography
+$main-text-color: #111111;
+$grey-text-color: #11111199;
+$white-text-color: #ffffff;
+$captions-text-color:#B4AFAF;
 
-    --animation-flow: 300ms ease 0ms
-}
+// colorset
+$body-bg-color-light: #F6F6F6;
+$blue-accent-color: #4f2ee8;
+$yellow-accent-color: #eac645;
+// transition
+
+$animation-flow: 300ms ease 0ms;
+
+// dark theme
+
+$body-bg-color-dark: #202024;
+$gray-text-dark-theme:#FFFFFF99;
