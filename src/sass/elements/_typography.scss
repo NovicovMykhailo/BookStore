@@ -1,0 +1,79 @@
+.block-title {
+  font-family: 'DMSans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: $captions-text-color;
+}
+.card-title {
+  font-family: 'DMSans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+
+  color: $main-text-color;
+}
+.card-caption {
+  font-family: 'DMSans';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+
+  letter-spacing: -0.04em;
+  color: $captions-text-color;
+}
+.section-title {
+  //   <h2 class="section-title" data-text="news"> looking good news </h2>  - model
+  //                                          ⬆         ===      ⬆
+  font-family: 'DMSans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 52px;
+
+  text-transform: capitalize;
+
+  letter-spacing: -0.04em;
+  color: $main-text-color;
+  &:after {
+    content: attr(data-text);
+    color: $blue-accent-color;
+    transform: translateX(-100%);
+    position: absolute;
+  }
+}
+.category-text {
+  font-family: 'DMSans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  transition: all $animation-flow;
+
+  color: $grey-text-color;
+}
+.selected-category {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $blue-accent-color;
+}
+.description-text {
+  font-family: 'DMSans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+
+  letter-spacing: -0.04em;
+
+  color: $main-text-color;
+}
