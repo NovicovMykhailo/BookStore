@@ -32,7 +32,7 @@
   &::before {
     content: '';
     display: block;
-    cursor:pointer;
+    cursor: pointer;
 
     width: 40px;
     height: 20px;
@@ -44,7 +44,9 @@
   }
   &::after {
     content: '';
-    cursor:pointer;
+    cursor: pointer;
+    background-image: url(/src/images/switch-texture.svg),
+      linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
     width: 18px;
     height: 18px;
     display: block;
@@ -53,7 +55,10 @@
     left: 1px;
     border-radius: 50%;
     transition: all $animation-flow;
-    background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1),
       1px 2px 4px rgba(0, 0, 0, 0.1);
   }
@@ -62,7 +67,7 @@
       background: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);
     }
     &::after {
-       transform: translateX(110%);
+      transform: translateX(110%);
     }
   }
 }
