@@ -11,7 +11,7 @@ header {
 }
 .logo {
   height: 24px;
-  transition: all var(--animation-flow);
+  transition: all $animation-flow;
 }
 .logo:hover {
   transform: scale(1.2);
@@ -32,22 +32,22 @@ nav {
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: all var(--animation-flow);
+  transition: all $animation-flow;
   padding: 8px 16px;
   border-radius: 36px;
 }
 .nav-shopping-list:hover {
-  color: var(--blue-accent-color);
+  color: $blue-accent-color;
 }
 .sholing_list-icon {
   fill: tomato;
 }
 
 .btn-yellow {
-  background-color: var(--yellow-accent-color);
+  background-color: $yellow-accent-color;
   padding: 8px 16px;
   border-radius: 36px;
-  transition: all var(--animation-flow);
+  transition: all $animation-flow;
 }
 .btn-yellow:hover,
 .nav-shopping-list:hover {
