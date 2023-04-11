@@ -28,37 +28,10 @@ nav {
   margin-left: 99px;
   text-transform: uppercase;
 }
-.nav-shopping-list {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: all $animation-flow;
-  padding: 8px 16px;
-  border-radius: 36px;
-}
-.nav-shopping-list:hover {
-  color: $blue-accent-color;
-}
-.sholing_list-icon {
-  fill: tomato;
-}
 
-.btn-yellow {
-  background-color: $yellow-accent-color;
-  padding: 8px 16px;
-  border-radius: 36px;
-  transition: all $animation-flow;
-}
-.btn-yellow:hover,
-.nav-shopping-list:hover {
-  transform: translateY(-3px);
-  /* box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); */
-}
-.btn-yellow:active,
-.nav-shopping-list:active {
-  transform: translateY(0px);
-  /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); */
-}
+
+
+
 main{
   display: flex;
 }
