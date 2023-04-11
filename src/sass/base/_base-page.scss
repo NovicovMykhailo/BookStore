@@ -10,12 +10,25 @@ header {
   border-radius: 0px 0px 8px 8px;
 }
 .logo {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
   height: 24px;
+  transition: all $animation-flow;
+  z-index: 10;
+}
+.logo-text{
+  fill: $main-text-color;
   transition: all $animation-flow;
 }
 .logo:hover {
   transform: scale(1.2);
+  // & .logo-text{
+  //   fill: $grey-text-color
+  // }
 }
+
 
 nav {
   display: flex;
