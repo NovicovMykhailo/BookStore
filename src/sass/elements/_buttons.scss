@@ -1,0 +1,27 @@
+.btn-default {
+  font-family: 'DMSans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+
+  color: $main-text-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 28px;
+  gap: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  border-radius: 40px;
+  border: 2px solid #4f2ee8;
+
+  transition: all $animation-flow;
+  &:hover,
+  &:focus {
+    background: #4f2ee8;
+    color: $white-text-color;
+  }
+}
