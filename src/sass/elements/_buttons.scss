@@ -73,7 +73,7 @@
 }
 .scroll-up-btn {
   cursor: pointer;
-  display: block;
+  
   position: sticky;
   bottom: 20px;
   left: 50%;
@@ -83,7 +83,7 @@
   border: none;
   border-radius: 50%;
 
-  display: flex;
+  display: none;
   align-self: center;
   justify-content: center;
   align-items: center;

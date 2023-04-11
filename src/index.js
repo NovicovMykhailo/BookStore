@@ -1,4 +1,2 @@
-/*
- * mobile-menu
-*/
-// import './js/mobile-menu.js';
+
+import './js/scroll-top-btn.js'

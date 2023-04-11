@@ -19,7 +19,9 @@
   },
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
-    "modern-normalize": "^1.1.0"
+    "lodash.throttle": "^4.1.1",
+    "modern-normalize": "^1.1.0",
+    "notiflix": "^3.2.6"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
