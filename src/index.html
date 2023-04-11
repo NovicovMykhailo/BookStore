@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BookStore</title>
-     <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="stylesheet" href="./sass/index.scss" />
     <link rel="shortcut icon" href="./favico/logo.svg" type="image/x-icon" />
   </head>
   <body>
@@ -15,7 +14,7 @@
         <img src="./images/main_logo.svg" alt="logo Image" />
       </a>
       <nav>
-        <input type="checkbox" name="checkbox" id="" class="theme-switch">
+        <input type="checkbox" name="checkbox" id="" class="theme-switch" />
       </nav>
     </header>
     <main>
@@ -36,11 +35,16 @@
       <section class="book-cards">
         <h2 class="visually-hidden">Book Cards</h2>
         <div>
-          
           <!-- books markups -->
         </div>
       </section>
     </main>
+    <button type="button" class="scroll-up-btn" id="btn-back-to-top">
+      <svg class="scroll-btn" width="64" height="64">
+        <use href="./images/svg-sprite.svg#icon-scroll-up"></use>
+      </svg>
+      <i class="fas fa-arrow-up#icon-scroll-up"></i>
+    </button>
 
     <script src="index.js"></script>
   </body>
