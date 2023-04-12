@@ -6,4 +6,8 @@
 @import 'elements/buttons';
 @import 'base/base-page';
 @import 'base/body';
-@import 'base/container'
+@import 'base/container';
+
+// Import elements
+@import 'elements/filter';
+@import 'elements/gallery'

@@ -1,0 +1,72 @@
+.gallery {
+	margin-top: 40px;
+
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.gallery__main-title {
+	margin-bottom: 40px;
+	// display: flex;
+	// justify-content: center;
+
+	font-family: 'DM Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 38px;
+	/* identical to box height, or 119% */
+
+	letter-spacing: -0.04em;
+}
+
+.gallery__list {
+	// max-width: 335px;
+
+	display: flex;
+	// justify-content: center;
+	flex-direction: column;
+}
+
+.gallery__item {
+	margin-bottom: 40px;
+	max-width: 335px;
+
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.gallery_img {
+	border-radius: 8px;
+	margin-bottom: 14px;
+}
+
+.gallery__title {
+	margin-bottom: 14px;
+
+	font-family: 'DM Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 18px;
+	/* identical to box height, or 112% */
+
+	letter-spacing: -0.04em;
+	text-transform: uppercase;
+
+	color: #111111;
+}
+
+.gallery__author {
+	font-family: 'DM Sans';
+	font-style: italic;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14px;
+	/* identical to box height, or 117% */
+
+	letter-spacing: -0.04em;
+
+	color: #B4AFAF;
+}
