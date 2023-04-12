@@ -1,0 +1,42 @@
+.book-card {
+  list-style: none;
+  overflow: hidden;
+  width: 335px;
+  height: 535px;
+
+  @media screen and (min-width: $tablet) {
+    width: 218px;
+    height: 366px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 180px;
+    height: 306px;
+  }
+  &__image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 14px;
+  }
+}
+.info-item__title {
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 0;
+  margin-bottom: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: calc(18 / 16);
+
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+.info-item__author {
+  margin: 0;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  letter-spacing: -0.04em;
+
+  color: $captions-text-color;
+}
