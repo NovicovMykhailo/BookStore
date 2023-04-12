@@ -1,0 +1,38 @@
+img {
+  animation-name: spin;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// animation: [name] [duration] [timing-function] [delay] [iteration-count] [direction] [fill-mode] [play-state]
+
+// .box {
+//   animation: magic 2s infinite;
+// }
+
+// .box {
+//   animation: magic 2s 0.5s ease-in-out;
+// }
+
+// .box {
+//   animation: magic 2s ease-in-out 0.5s forwards;
+// }
+
+// .box {
+//   animation: magic 2s forwards infinite ease-out 0.5s;
+// }
+
+// @keyframes magic {
+//   /* ... */
+// }
