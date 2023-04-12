@@ -8,3 +8,4 @@ export function createBookCard(book) {
     </div>
     </li>`;
 }
+// для заголовка будет дописн метод сокращения с добавлением ...
