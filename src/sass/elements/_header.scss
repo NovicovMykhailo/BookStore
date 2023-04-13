@@ -1,5 +1,9 @@
 .header__mobile-menu {
-  fill: black;
+  stroke: $main-text-color;
+}
+
+.header__link-icon {
+  stroke: $main-text-color;
 }
 
 .menu-toggle {
