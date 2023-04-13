@@ -1,29 +1,29 @@
 .filter {
 	margin-top: 40px;
-	// background-color: red;
+	margin-bottom: 40px;
 }
 
 .filter__list {
 	max-height: 228px;
+	width: 335px;
 	overflow: scroll;
 
 	&::-webkit-scrollbar {
 		width: 8px;
-		// border-color: red;
 	}
-
 
 	&::-webkit-scrollbar-thumb {
 		width: 8px;
 		height: 114px;
 		border-radius: 12px;
-		border: 12px solid #E0E0E0;
+		border: 12px solid $scroll-color;
 	}
 }
 
 
 .filter__item {
 	padding-bottom: 24px;
+	padding-right: 20px;
 
 	font-family: 'DMSans';
 	font-style: normal;
