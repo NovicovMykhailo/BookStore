@@ -63,6 +63,10 @@
   transition: all $animation-flow;
 
   color: $grey-text-color;
+  &:hover {
+    scale: 1.01;
+    transform: translateX(10px);
+  }
 }
 .selected-category {
   font-weight: 700;
@@ -104,10 +108,7 @@
     z-index: -10;
   }
   &:hover {
-
-
     transform: translateY(-2px);
-
 
     &::before {
       transform: scaleX(1);
@@ -132,4 +133,3 @@
   border-radius: 36px;
   transition: all $animation-flow;
 }
-
