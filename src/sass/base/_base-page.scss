@@ -18,7 +18,7 @@ header {
   transition: all $animation-flow;
   z-index: 10;
 }
-.logo-text{
+.logo-text {
   fill: $main-text-color;
   transition: all $animation-flow;
 }
@@ -28,7 +28,6 @@ header {
   //   fill: $grey-text-color
   // }
 }
-
 
 nav {
   display: flex;
@@ -42,20 +41,21 @@ nav {
   text-transform: uppercase;
 }
 
-
-
-
-main{
+main {
   display: flex;
 }
-.side-blocks{
+.side-blocks {
   display: flex;
   flex-direction: column;
   width: 400px;
   gap: 86px;
+
+  @media screen and(max-width: 767px) {
+    display: none;
+  }
 }
 
-.book-cards{
+.book-cards {
   display: flex;
   justify-content: center;
   gap: 40px;

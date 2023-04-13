@@ -6,7 +6,7 @@
   animation: spin 10s linear infinite;
 
   // (для проверки положения согласно макету)
-  transform: rotate(-15deg); 
+  // transform: rotate(-15deg);
 }
 
 @keyframes spin {
@@ -26,4 +26,8 @@
   min-width: 375px;
   min-height: 439px;
   overflow: hidden;
+
+  @media screen and(min-width: $tablet) {
+    display: none;
+  }
 }
