@@ -5,7 +5,7 @@
   left: 0%;
   top: 0%;
 
-  padding: 0 20px;
+  padding: 0 13px;
 
   width: inherit;
   height: inherit;
@@ -39,13 +39,9 @@
 
 .wrapper {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   width: 100vw;
   height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
 
   background: radial-gradient(
     183.6% 183.01% at 59.76% -23.42%,
@@ -58,7 +54,7 @@
   position: relative;
   width: 450px;
   height: auto;
-  transform: translateY(253px) translateX(-249px) rotate(-15deg);
+  transform: translateY(350px) translateX(-100px) rotate(-15deg);
 
   @media screen and(min-width: $tablet) {
     display: none;
