@@ -18,9 +18,38 @@
           <use href="./images/svg-sprite.svg#booklogo-book"></use>
         </svg>
       </a>
-      <nav>
-        <input type="checkbox" name="checkbox" id="" class="theme-switch" />
+      <nav class="nav">
+        <ul class="nav__list list">
+          <li class="nav__item">
+            <a href="#" class="nav__link active link"> Home</a>
+          </li>
+          <li class="nav__item">
+            <a href="" class="nav__link link">
+              Shopping list
+              <!-- <svg class="header__link-icon" width="20" height="20">
+                <use href="./images/svg-sprite.svg#"></use></svg
+            > -->
+            </a>
+          </li>
+        </ul>
       </nav>
+
+      <input
+        type="checkbox"
+        name="checkbox"
+        id="theme-switch"
+        class="theme-switch"
+      />
+
+      <button
+        class="menu-toggle js-open-menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg class="header__mobile-menu" width="28" height="28">
+          <use href="./images/svg-sprite.svg#ham-menu-icon"></use>
+        </svg>
+      </button>
     </header>
     <main>
       <div class="side-blocks">

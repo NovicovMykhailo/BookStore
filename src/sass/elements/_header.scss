@@ -1,0 +1,23 @@
+.header__mobile-menu {
+  fill: black;
+}
+
+.menu-toggle {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  margin-left: 14px;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}

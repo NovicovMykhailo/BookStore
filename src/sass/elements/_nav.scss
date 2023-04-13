@@ -1,0 +1,31 @@
+.nav {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+
+    align-items: center;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+    font-style: normal;
+    margin-right: auto;
+    margin-left: 32px;
+    text-transform: uppercase;
+    @media screen and (min-width: 1280px) {
+      margin-left: 99px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+.nav__link {
+  display: block;
+  padding: 8px 16px;
+}

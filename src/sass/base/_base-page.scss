@@ -18,7 +18,7 @@ header {
   transition: all $animation-flow;
   z-index: 10;
 }
-.logo-text{
+.logo-text {
   fill: $main-text-color;
   transition: all $animation-flow;
 }
@@ -29,33 +29,29 @@ header {
   // }
 }
 
+// nav {
+//   display: flex;
+//   gap: 16px;
+//   align-items: center;
+//   font-size: 14px;
+//   line-height: 18px;
+//   font-weight: 500;
+//   font-style: normal;
+//   margin-left: 99px;
+//   text-transform: uppercase;
+// }
 
-nav {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 500;
-  font-style: normal;
-  margin-left: 99px;
-  text-transform: uppercase;
-}
-
-
-
-
-main{
+main {
   display: flex;
 }
-.side-blocks{
+.side-blocks {
   display: flex;
   flex-direction: column;
   width: 400px;
   gap: 86px;
 }
 
-.book-cards{
+.book-cards {
   display: flex;
   justify-content: center;
   gap: 40px;
