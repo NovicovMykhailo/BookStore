@@ -29,5 +29,6 @@
 
   @media screen and(min-width: $tablet) {
     display: none;
+    opacity: 0;
   }
 }
