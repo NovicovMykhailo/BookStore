@@ -59,13 +59,18 @@
 
   <!-- modal pop-up -->
   <div class="modal__pop-up">
-    <button class="" type="button">x</button>
+    <button class="pop-up__btn-close" type="button">
+      <!-- <svg class="btn-close-icon" width="12" height="12">
+        <use href="./images/svg-sprite.svg#x-close-icon"></use>
+      </svg> -->
+      x
+    </button>
     <div class="pop-up__book">
       <img class="book__image" src="./images/shopping-list-empty-bg/shoping-list-empty-mobile_sm.png" alt="">
       <div>
         <div>
-          <h2 class="book__list-name">HELLO BEAUTIFUL</h2>
-          <p class="book__author">Ann Napolitano</p>
+          <h2 class="book__list-name info-item__title">HELLO BEAUTIFUL</h2>
+          <p class="book__author info-item__author">Ann Napolitano</p>
         </div>
         <p class="book__description">In a homage to Louisa May Alcott’s “Little Women,” a young man’s dark past
           resurfaces as he gets to the know
@@ -74,7 +79,7 @@
         <ul class="book__list">
           <li class="book__item">
             <a class="book__buy-links" href="" target="_blank" rel="noopener noreferrer" aria-label="Amazon">
-              <picture>
+              <picture class="buy-links__icon">
                 <source srcset="./images/BookStoreIcons/amazon.png 1x, ./images/BookStoreIcons/amazon-2x.png 2x">
                 <img src="./images/BookStoreIcons/amazon.png" alt="Amazon">
               </picture>
@@ -82,7 +87,7 @@
           </li>
           <li class="book__item">
             <a class="book__buy-links" href="" target="_blank" rel="noopener noreferrer" aria-label="Apple Books">
-              <picture>
+              <picture class="buy-links__icon">
                 <source
                   srcset="./images/BookStoreIcons/apple-books.png 1x, ./images/BookStoreIcons/apple-books-2x.png 2x">
                 <img src="./images/BookStoreIcons/apple-books.png" alt="Apple Books">
@@ -91,7 +96,7 @@
           </li>
           <li class="book__item">
             <a class="book__buy-links" href="" target="_blank" rel="noopener noreferrer" aria-label="Bookshop">
-              <picture>
+              <picture class="buy-links__icon">
                 <source srcset="./images/BookStoreIcons/book-shop.png 1x, ./images/BookStoreIcons/book-shop-2x.png 2x">
                 <img src="./images/BookStoreIcons/book-shop.png" alt="Bookshop">
               </picture>
@@ -101,8 +106,8 @@
       </div>
     </div>
     <button class="pop-up__btn-add btn-default" type="button">add to shopping list</button>
-    <button class="pop-up__btn-remove btn-default" type="button">remove from the shopping list</button>
-    <p class="pop-up__text-info">Сongratulations! You have added the book to the shopping list. To delete, press the
+    <button class="pop-up__btn-remove btn-default visually-hidden" type="button">remove from the shopping list</button>
+    <p class="pop-up__text-info visually-hidden">Сongratulations! You have added the book to the shopping list. To delete, press the
       button “Remove from the
       shopping list”.
     </p>
