@@ -1,11 +1,11 @@
 // animation: [name] [duration] [timing-function] [delay] [iteration-count] [direction] [fill-mode] [play-state]
 
 .mobile-bg {
-position: absolute;
-top: 170px;
-  // animation: spin 10s linear infinite;
+  position: absolute;
+  top: 170px;
+  animation: spin 10s linear infinite;
 
-  transform: rotate(-15deg);
+  // transform: rotate(-15deg);
 }
 
 @keyframes spin {
@@ -18,7 +18,7 @@ top: 170px;
   }
 }
 
-.mobile-bg__wrapper {
+.mobile-bg-wrapper {
   outline: 1px solid greenyellow;
 
   position: relative;
