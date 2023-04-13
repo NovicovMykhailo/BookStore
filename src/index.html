@@ -1,60 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BookStore</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <link rel="shortcut icon" href="./favico/logo.svg" type="image/x-icon" />
-  </head>
-  <body>
-    <header>
-      <a href="#" class="logo">
-        <svg class="logo-icon" width="22" height="22">
-          <use href="./images/svg-sprite.svg#booklogo-icon"></use>
-        </svg>
-        <svg class="logo-text" width="53" height="17">
-          <use href="./images/svg-sprite.svg#booklogo-book"></use>
-        </svg>
-      </a>
-      <nav>
-        <input type="checkbox" name="checkbox" id="" class="theme-switch" />
-      </nav>
-    </header>
-    <main>
-      <div class="side-blocks">
-        <section class="categories">
-          <h2 class="visually-hidden">Book Categories</h2>
-          <ul class="book-categories">
-            <!-- left side book categories place -->
-          </ul>
-        </section>
-        <section class="support-ukraine">
-          <h2 class="visually-hidden">Support Ukraine</h2>
-          <ul class="support-companies">
-            <!-- left side support ukraine companies -->
-          </ul>
-        </section>
-      </div>
-      <section class="book-cards">
-        <h2 class="visually-hidden">Book Cards</h2>
-        <div>
-          <!-- <button class="trash-btn" type="button">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookStore</title>
+  <link rel="stylesheet" href="./sass/index.scss" />
+  <link rel="shortcut icon" href="./favico/logo.svg" type="image/x-icon" />
+</head>
+
+<body>
+  <header>
+    <a href="#" class="logo">
+      <svg class="logo-icon" width="22" height="22">
+        <use href="./images/svg-sprite.svg#booklogo-icon"></use>
+      </svg>
+      <svg class="logo-text" width="53" height="17">
+        <use href="./images/svg-sprite.svg#booklogo-book"></use>
+      </svg>
+    </a>
+    <nav>
+      <input type="checkbox" name="checkbox" id="" class="theme-switch" />
+    </nav>
+  </header>
+  <main>
+    <div class="side-blocks">
+      <section class="categories">
+        <h2 class="visually-hidden">Book Categories</h2>
+        <ul class="book-categories">
+          <!-- left side book categories place -->
+        </ul>
+      </section>
+      <section class="support-ukraine">
+        <h2 class="visually-hidden">Support Ukraine</h2>
+        <ul class="support-companies">
+          <!-- left side support ukraine companies -->
+        </ul>
+      </section>
+    </div>
+    <section class="book-cards">
+      <h2 class="visually-hidden">Book Cards</h2>
+      <div>
+        <!-- <button class="trash-btn" type="button">
             <svg class="trash-icon" width="18" height="18">
               <use href="/src/images/svg-sprite.svg#trash-icon"></use>
             </svg>
           </button> -->
-          <!-- books markups -->
-        </div>
-      </section>
-    </main>
-    <button type="button" class="scroll-up-btn">
-      <svg class="scroll-btn" width="64" height="64">
-        <use href="./images/svg-sprite.svg#scroll-up"></use>
-      </svg>
-    </button>
+        <!-- books markups -->
+      </div>
+    </section>
+  </main>
+  <button type="button" class="scroll-up-btn">
+    <svg class="scroll-btn" width="64" height="64">
+      <use href="./images/svg-sprite.svg#scroll-up"></use>
+    </svg>
+  </button>
 
-    <script src="index.js" type="module"></script>
-  </body>
+  <!-- modal pop-up -->
+  <!-- <div class="modal__pop-up">
+    <div class="pop-up__book">
+      <img class="book__image" src="./images/shopping-list-empty-bg/shoping-list-empty-mobile_sm.png" alt="">
+      <div>
+        <div>
+          <h2 class="book__list-name">HELLO BEAUTIFUL</h2>
+          <p class="book__author">Ann Napolitano</p>
+        </div>
+        <p class="book__description">In a homage to Louisa May Alcott’s “Little Women,” a young man’s dark past
+          resurfaces as he gets to the know
+          the family
+          of his college sweetheart.</p>
+        <div>
+          <a class="book__buy-links" href="" target="_blank" rel="noopener noreferrer" aria-label="Amazon">
+            <picture>
+              <source srcset="./images/BookStoreIcons/amazon.png 1x, ./images/BookStoreIcons/amazon-2x.png 2x">
+              <img src="./images/BookStoreIcons/amazon.png" alt="Amazon">
+            </picture>
+          </a>
+          <a class="book__buy-links" href="" target="_blank" rel="noopener noreferrer" aria-label="Apple Books">
+            <picture>
+              <source
+                srcset="./images/BookStoreIcons/apple-books.png 1x, ./images/BookStoreIcons/apple-books-2x.png 2x">
+              <img src="./images/BookStoreIcons/apple-books.png" alt="Apple Books">
+            </picture>
+          </a>
+          <a class="book__buy-links" href="" target="_blank" rel="noopener noreferrer" aria-label="Bookshop">
+            <picture>
+              <source srcset="./images/BookStoreIcons/book-shop.png 1x, ./images/BookStoreIcons/book-shop-2x.png 2x">
+              <img src="./images/BookStoreIcons/book-shop.png" alt="Bookshop">
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+    <button class="pop-up__btn-add" type="button">add to shopping list</button>
+    <button class="pop-up__btn-remove" type="button">remove from the shopping list</button>
+    <p class="pop-up__text-info">Сongratulations! You have added the book to the shopping list. To delete, press the
+      button “Remove from the
+      shopping list”.
+    </p>
+  </div> -->
+
+  <script src="index.js" type="module"></script>
+</body>
+
 </html>
