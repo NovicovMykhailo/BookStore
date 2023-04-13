@@ -1,0 +1,101 @@
+.modal__pop-up {
+  display: flex;
+  flex-direction: column;
+  
+  width: 335px;
+  height: 762px;
+  padding: 40px 24px;
+}
+
+.book__image {
+  width: 287px;
+  height: 408px;
+  margin-bottom: 14px;
+
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  overflow: hidden;
+}
+
+.book__list-name {
+  margin-bottom: 4px;
+
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+
+  letter-spacing: -0.04em;
+
+  color: $main-text-color;
+}
+
+.book__author {
+  margin-bottom: 18px;
+
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+
+  letter-spacing: -0.04em;
+
+  color: $captions-text-color;
+}
+
+.book__description {
+  margin-bottom: 14px;
+
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+
+  letter-spacing: -0.04em;
+
+  color: $main-text-color;
+}
+
+.book__list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+}
+
+.pop-up__text-info {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+
+  text-align: center;
+  letter-spacing: -0.04em;
+
+  color: rgba(17, 17, 17, 0.5);
+}
+
+.pop-up__btn-add {
+  min-width: 211px;
+  min-height: 46px;
+
+  padding: 14px 28px;
+
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.pop-up__btn-remove {
+  min-width: 279px;
+  min-height: 46px;
+
+  padding: 14px 23px;
+
+  font-size: 14px;
+  line-height: 18px;
+}
