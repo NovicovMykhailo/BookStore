@@ -10,9 +10,9 @@
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
+  // 0% {
+  //   transform: rotate(0deg);
+  // }
 
   100% {
     transform: rotate(360deg);
@@ -20,7 +20,7 @@
 }
 
 .mobile-bg-wrapper {
-  outline: 1px solid greenyellow;
+  // outline: 1px solid greenyellow;
 
   position: relative;
   min-width: 375px;
