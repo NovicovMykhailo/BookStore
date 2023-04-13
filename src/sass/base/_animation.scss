@@ -1,8 +1,11 @@
 // animation: [name] [duration] [timing-function] [delay] [iteration-count] [direction] [fill-mode] [play-state]
 
 .mobile-bg {
-  // min-width: ;
-  animation: spin 10s linear infinite;
+position: absolute;
+top: 170px;
+  // animation: spin 10s linear infinite;
+
+  transform: rotate(-15deg);
 }
 
 @keyframes spin {
