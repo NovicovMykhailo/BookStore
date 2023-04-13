@@ -2,11 +2,11 @@
 
 .mobile-bg {
   position: absolute;
-  top: 170px;
+  top: 120px;
   animation: spin 10s linear infinite;
 
   // (для проверки положения согласно макету)
-  // transform: rotate(-15deg); 
+  transform: rotate(-15deg); 
 }
 
 @keyframes spin {
@@ -20,7 +20,7 @@
 }
 
 .mobile-bg-wrapper {
-  // outline: 1px solid greenyellow;
+  outline: 1px solid greenyellow;
 
   position: relative;
   min-width: 375px;
