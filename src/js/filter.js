@@ -1,6 +1,9 @@
-import {BookAPI} from "./book-api";
+import { BookAPI } from "./book-api";
+import { createBookCard } from "./book-card-template";
 
 const bookApi = new BookAPI();
+
+// console.log("test");
 
 const filterListEl = document.querySelector(".filter__list");
 // const filterItemAllEl = document.querySelectorAll(".filter__item");
