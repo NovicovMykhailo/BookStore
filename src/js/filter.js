@@ -2,8 +2,8 @@ import { BookAPI } from "./book-api";
 import { createBookCard } from "./book-card-template";
 
 const bookApi = new BookAPI();
+console.log(createBookCard({book_image: "href",title: "title",author: "author"}));
 
-// console.log("test");
 
 const filterListEl = document.querySelector(".filter__list");
 // const filterItemAllEl = document.querySelectorAll(".filter__item");
