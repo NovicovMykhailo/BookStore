@@ -1,62 +1,71 @@
 // animation: [name] [duration] [timing-function] [delay] [iteration-count] [direction] [fill-mode] [play-state]
 
 .mobile-bg {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+
+  padding: 0 20px;
+
   width: inherit;
   height: inherit;
-  position: absolute;
-
-  transform: rotate(-15deg);
-}
-
-.mobile-bg.primary {
-  right: 0%;
-  top: 0%;
 
   animation: primary 5s linear infinite;
 }
 
-.mobile-bg.secondary {
-  top: 0%;
-  // left: 0%;
+.primary {
+  animation: primary 5s linear infinite;
+}
 
+.secondary {
   animation: secondary 5s linear infinite;
 }
 
+
 @keyframes primary {
   from {
-    right: 0%;
+    left: 0%;
   }
   to {
-    right: -100%;
+    left: -100%;
   }
 }
 
 @keyframes secondary {
   from {
-    right: 100%;
+    left: 100%;
   }
   to {
-    right: 0%;
+    left: 0%;
   }
 }
 
-.mobile-bg-wrapper {
-  outline: 1px solid greenyellow;
 
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+
+  background: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #ffffff 100%
+  );
+}
+
+.mobile-bg-wrapper {
   position: relative;
-  min-width: 450px;
-  min-height: 439px;
-  overflow: hidden;
+  width: 450px;
+  height: auto;
+  transform: translateY(253px) translateX(-249px) rotate(-15deg);
 
   @media screen and(min-width: $tablet) {
     display: none;
     opacity: 0;
   }
-}
-
-.slider {
-  max-width: 335px;
-  max-height: 352px;
-
-  overflow: hidden;
 }
