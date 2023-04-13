@@ -1,29 +1,50 @@
 // animation: [name] [duration] [timing-function] [delay] [iteration-count] [direction] [fill-mode] [play-state]
 
 .mobile-bg {
+  width: inherit;
+  height: inherit;
   position: absolute;
-  top: 120px;
-  animation: spin 14s linear infinite;
 
-  // (для проверки положения согласно макету)
-  // transform: rotate(-15deg);
+  transform: rotate(-15deg);
 }
 
-@keyframes spin {
-  // 0% {
-  //   transform: rotate(0deg);
-  // }
+.mobile-bg.primary {
+  right: 0%;
+  top: 0%;
 
-  100% {
-    transform: rotate(360deg);
+  animation: primary 5s linear infinite;
+}
+
+.mobile-bg.secondary {
+  top: 0%;
+  // left: 0%;
+
+  animation: secondary 5s linear infinite;
+}
+
+@keyframes primary {
+  from {
+    right: 0%;
+  }
+  to {
+    right: -100%;
+  }
+}
+
+@keyframes secondary {
+  from {
+    right: 100%;
+  }
+  to {
+    right: 0%;
   }
 }
 
 .mobile-bg-wrapper {
-  // outline: 1px solid greenyellow;
+  outline: 1px solid greenyellow;
 
   position: relative;
-  min-width: 375px;
+  min-width: 450px;
   min-height: 439px;
   overflow: hidden;
 
@@ -31,4 +52,11 @@
     display: none;
     opacity: 0;
   }
+}
+
+.slider {
+  max-width: 335px;
+  max-height: 352px;
+
+  overflow: hidden;
 }
