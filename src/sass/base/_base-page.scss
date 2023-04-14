@@ -47,14 +47,19 @@ nav {
 }
 
 .main-page {
-	@media screen and (min-width: $tablet) {
+	@media screen and (min-width: $tablet) and (max-width: calc($desktop - 1px)) {
 		display: flex;
 		flex-direction: column;
 	}
+
+	@media screen and (min-width: $desktop) {
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		margin-top: 40px;
+		width: calc($desktop - 48px);
+	}
 }
-
-
-main {}
 
 .side-blocks {
 	margin-top: 40px;
@@ -76,6 +81,14 @@ main {}
 		display: flex;
 		flex-wrap: nowrap;
 		gap: 32px;
+	}
+
+	@media screen and (min-width: $desktop) {
+		flex-direction: column;
+		max-width: 356px;
+		margin-left: 0;
+		margin-right: 0;
+		margin-top: 0;
 	}
 }
 

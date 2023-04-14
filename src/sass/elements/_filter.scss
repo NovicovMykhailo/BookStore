@@ -17,6 +17,10 @@
 		max-height: 472px;
 	}
 
+	@media screen and (min-width: $tablet) {
+		width: 356px;
+	}
+
 	&::-webkit-scrollbar {
 		width: 8px;
 	}

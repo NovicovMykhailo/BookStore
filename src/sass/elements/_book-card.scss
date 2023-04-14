@@ -1,7 +1,16 @@
 .gallery {
-	width: calc($tablet - 62px);
-	margin-left: auto;
-	margin-right: auto;
+
+	@media screen and (min-width: $tablet) {
+		width: calc($tablet - 62px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	@media screen and (min-width: $desktop) {
+		width: 996px;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 .gallery__list {
@@ -14,6 +23,10 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 25px;
+	}
+
+	@media screen and (min-width: $desktop) {
+		gap: 24px;
 	}
 }
 
@@ -106,6 +119,10 @@
 		width: 704px;
 		font-size: 48px;
 		line-height: 1.08;
+	}
+
+	@media screen and (min-width: $desktop) {
+		width: 100%;
 	}
 }
 
