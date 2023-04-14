@@ -6,6 +6,7 @@ const bookApi = new BookAPI();
 
 const filterListEl = document.querySelector(".filter__list");
 
+
 bookApi.getBooksCategoriesList().then(
 	data => {
 		const filterMarkup = data.data.map(value => {

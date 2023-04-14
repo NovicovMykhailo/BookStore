@@ -1,135 +1,148 @@
 //block with books
 .block-title {
-  font-family: 'DMSans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+	font-family: 'DMSans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 24px;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
 
-  color: $captions-text-color;
+	color: $captions-text-color;
 }
+
 .card-title {
-  font-family: 'DMSans';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 18px;
-  letter-spacing: -0.04em;
+	font-family: 'DMSans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 18px;
+	letter-spacing: -0.04em;
 
-  color: $main-text-color;
+	color: $main-text-color;
 }
+
 .card-caption {
-  font-family: 'DMSans';
-  font-style: italic;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
+	font-family: 'DMSans';
+	font-style: italic;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14px;
 
-  letter-spacing: -0.04em;
-  color: $captions-text-color;
+	letter-spacing: -0.04em;
+	color: $captions-text-color;
 }
+
 //books by category
 .section-title {
-  //   <h2 class="section-title" data-text="news"> looking good news </h2>  - model
-  //                                          ⬆         ===      ⬆
-  font-family: 'DMSans';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 52px;
+	//   <h2 class="section-title" data-text="news"> looking good news </h2>  - model
+	//                                          ⬆         ===      ⬆
+	font-family: 'DMSans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 48px;
+	line-height: 52px;
 
-  text-transform: capitalize;
+	text-transform: capitalize;
 
-  letter-spacing: -0.04em;
-  color: $main-text-color;
-  &:after {
-    content: attr(data-text);
-    color: $blue-accent-color;
-    transform: translateX(-100%);
-    position: absolute;
-  }
+	letter-spacing: -0.04em;
+	color: $main-text-color;
+
+	&:after {
+		content: attr(data-text);
+		color: $blue-accent-color;
+		transform: translateX(-100%);
+		position: absolute;
+	}
 }
+
 //category list text styles
 .category-text {
-  font-family: 'DMSans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 24px;
-  letter-spacing: -0.02em;
-  cursor: pointer;
-  transition: all $animation-flow;
+	font-family: 'DMSans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 24px;
+	letter-spacing: -0.02em;
+	cursor: pointer;
+	transition: all $animation-flow;
 
-  color: $grey-text-color;
-  &:hover {
-    scale: 1.01;
-    transform: translateX(10px);
-  }
+	color: $grey-text-color;
+
+	&:hover {
+		scale: 1.01;
+		transform: translateX(10px);
+	}
 }
+
 .selected-category {
-  font-weight: 700;
-  text-transform: uppercase;
+	font-weight: 700;
+	text-transform: uppercase;
 
-  color: $blue-accent-color;
+	color: $blue-accent-color;
 }
+
 //card description text styles
 .description-text {
-  font-family: 'DMSans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
+	font-family: 'DMSans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 18px;
 
-  letter-spacing: -0.04em;
+	letter-spacing: -0.04em;
 
-  color: $main-text-color;
+	color: $main-text-color;
 }
+
 .nav-item {
-  position: relative;
-  padding: 8px 16px;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
+	position: relative;
+	padding: 8px 16px;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 18px;
 
-  background-color: transparent;
-  transition: all $animation-flow;
-  z-index: 10;
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    transform: scaleX(0);
-    border-radius: 36px;
-    background-color: $yellow-accent-color;
-    transition: all $animation-flow;
-    opacity: 0;
-    z-index: -10;
-  }
-  &:hover {
-    transform: translateY(-2px);
+	background-color: transparent;
+	transition: all $animation-flow;
+	z-index: 10;
 
-    &::before {
-      transform: scaleX(1);
-      opacity: 1;
-    }
-    &:active {
-      transform: translateY(0px);
-      &::before {
-        transform: scaleX(1);
-        opacity: 1;
-      }
-    }
-  }
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		transform: scaleX(0);
+		border-radius: 36px;
+		background-color: $yellow-accent-color;
+		transition: all $animation-flow;
+		opacity: 0;
+		z-index: -10;
+	}
+
+	&:hover {
+		transform: translateY(-2px);
+
+		&::before {
+			transform: scaleX(1);
+			opacity: 1;
+		}
+
+		&:active {
+			transform: translateY(0px);
+
+			&::before {
+				transform: scaleX(1);
+				opacity: 1;
+			}
+		}
+	}
 }
 
 .nav-active {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 18px;
-  background-color: $yellow-accent-color;
-  padding: 8px 16px;
-  border-radius: 36px;
-  transition: all $animation-flow;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 18px;
+	background-color: $yellow-accent-color;
+	padding: 8px 16px;
+	border-radius: 36px;
+	transition: all $animation-flow;
 }

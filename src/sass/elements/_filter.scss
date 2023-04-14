@@ -1,12 +1,21 @@
 .filter {
-	margin-top: 40px;
 	margin-bottom: 40px;
+
+	@media screen and (min-width: $tablet) {
+		margin-top: 0px;
+		width: 337px;
+		height: 472px;
+	}
 }
 
 .filter__list {
 	max-height: 228px;
 	width: 335px;
 	overflow: scroll;
+
+	@media screen and (min-width: $tablet) {
+		max-height: 472px;
+	}
 
 	&::-webkit-scrollbar {
 		width: 8px;
@@ -29,24 +38,21 @@
 	font-style: normal;
 	font-weight: 400;
 	font-size: 16px;
-	line-height: 18px;
-	/* identical to box height, or 112% */
+	line-height: 1.12;
 
 	letter-spacing: -0.02em;
 
-	color: rgba(17, 17, 17, 0.6);
+	color: $grey-text-color;
+
+	@media screen and (min-width: $tablet) {
+		font-size: 18px;
+		line-height: 1.33;
+	}
 }
 
 .filter__item--active {
-	// font-family: 'DM Sans';
-
 	font-weight: 700;
-	font-size: 16px;
-	line-height: 18px;
-	/* identical to box height, or 112% */
-
-	letter-spacing: -0.02em;
 	text-transform: uppercase;
 
-	color: #4F2EE8;
+	color: $blue-accent-color;
 }
