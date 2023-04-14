@@ -1,126 +1,72 @@
-
 import { BookAPI } from './book-api.js';
 import { createBookCard } from './book-card-template.js';
 
+let currentRenderWidth = window.innerWidth;
+let amountRenderedBooks = 1;
 
-const booksContainer = document.querySelector('.books-container');
-const booksList = booksContainer.querySelector('.books-list');
-const booksListItem = booksList.querySelector('.books-list__item');
-const bookCardsList = booksListItem.querySelector('.book-card__list');
-const seeMoreBtn = booksListItem.querySelector('.btn-default');
+addEventListener('resize', event => {
+  if (
+    (window.innerWidth > 767 && currentRenderWidth < 768) ||
+    (window.innerWidth > 1439 && currentRenderWidth < 1440) ||
+    (window.innerWidth < 1440 && currentRenderWidth > 1439) ||
+    (window.innerWidth < 768 && currentRenderWidth > 767)
+  ) {
+    location.reload();
+  }
+});
 
-const bookApi = new BookAPI();
+const booksContainer = document.querySelector('.book-cards');
 
 
-function renderBookCards(books) {
-  console.log(books)
-  const bookCards = books.map((book) => createBookCard(book));
-  bookCardsList.innerHTML = bookCards.join('');
+function createMainUl(obj) {
+  if (currentRenderWidth < 768) {
+    amountRenderedBooks = 1;
+  } else if (currentRenderWidth > 767 && currentRenderWidth < 1440) {
+    amountRenderedBooks = 3;
+  } else {
+    amountRenderedBooks = 5;
+  }
+
+  const sectionTitle = document.createElement('h2');
+  sectionTitle.classList.add('section-title');
+  sectionTitle.setAttribute('data-text', 'Books');
+  sectionTitle.textContent = 'Best Sellers Books';
+
+  booksContainer.prepend(sectionTitle);
+
+  const mainList = document.createElement('ul');
+  booksContainer.appendChild(mainList).classList.add('main-list');
+  document.querySelector('.main-list').innerHTML =
+    createMarcup(obj).join('');
 }
+
+
+function createMarcup(obj) {
+  return obj.map(e => {
+    const { list_name, books } = e;
+    return ` <li class="books-list list">
+            <h3 class="block-title">${list_name}</h3>
+                <ul class="book-card__list list" ()>
+                  ${books
+                    .slice(0, amountRenderedBooks)
+                    .map(createBookCard)
+                    .join('')}
+                </ul>
+              <button class="btn-default">see more</button>
+        </li>`;
+  });
+}
+const bookApi = new BookAPI();
 
 
 
 async function fetchAndRenderBooks() {
   try {
     const response = await bookApi.getTopBooks();
-    const books = response.data;
-    renderBookCards(books);
+    createMainUl(response.data);
   } catch (error) {
     console.error(error);
   }
 }
 
-seeMoreBtn.addEventListener('click', async () => {
-  try {
-    const response = await bookApi.getSelectedCategoryBooks();
-    const books = response.data;
-    renderBookCards(books);
-    
-  } catch (error) {
-    console.error(error);
-  }
-});
-
 fetchAndRenderBooks();
-
-
-
-
-
-
-
-// const bookAPI = new BookAPI();
-// const container = document.querySelector('.books-container')
-// const btn = document.querySelector('.btn-default')
-
-
-// async function renderBooksList() {
-
-  
-//   container.innerHTML = '';
-
-//   try {
-//     // получение списка категорий
-//     const categories = await bookAPI.getBooksCategoriesList();
-
-
-//     // получение бестселлеров
-//     const topBooks = await bookAPI.getTopBooks();
-
-//     topBooks.data.map(e => {
-//       console.log(e.list_name);
-//       let list = e.books.map(createBookCard);
-//       container.insertAdjacentHTML('beforeend', list.join(''))
-//     });
-
-  
-
-    
-
-    
-    // for (const category of categories.data) {
-    //   // получение книги с категории
-    //   bookAPI.category = category;
-    //   const books = await bookAPI.getSelectedCategoryBooks();
-
-    //   // создание заголовка категории
-    //   const categoryTitle = document.querySelector('block-title');
-    //   container.appendChild(categoryTitle);
-  
-
-    //   // создание списка книг
-    //   const booksList = document.createElement('ul');
-    //   for (const book of books.data) {
-    //     const bookCard = createBookCard(book);
-    //     const bookListItem = document.createElement('li');
-    //     bookListItem.innerHTML = bookCard;
-    //     booksList.appendChild(bookListItem);
-    //   }
-    //   container.appendChild(booksList);
-    // }
-
-    // // создание заголовка для бестселлера
-    // const topBooksTitle = document.createElement('h2');
-    // topBooksTitle.className = 'section-title'
-    // container.appendChild(topBooksTitle);
-
-    // // создание списка бестселлеров
-
-    // const topBooksList = document.createElement('ul');
-    // topBooksList.className = 'books-list';
-    // for (const book of topBooks.data) {
-    //   const bookCard = createBookCard(book);
-    //   const bookListItem = document.createElement('li');
-    //   bookListItem.innerHTML = bookCard;
-    //   topBooksList.appendChild(bookListItem);
-    // }
-    // container.appendChild(topBooksList);
-  // } catch (error) {
-  //   console.error(error);
-  // }
-
-  // const topBooksBtn = document.createElement('button');
-  // topBooksBtn.className = 'btn-default'
-// }
-
-// renderBooksList();
