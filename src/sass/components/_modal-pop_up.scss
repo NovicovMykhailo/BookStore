@@ -10,7 +10,7 @@
   border: 2px solid $main-text-color;
   border-radius: 18px;
 
-  background: $white-text-color;
+  background: $body-bg-color-light;
 
   @media screen and (min-width: $tablet) {
       width: 579px;
@@ -41,18 +41,22 @@
 
   width: 28px;
   height: 28px;
+  padding: 0;
 
   color: $main-text-color;
-  background: $white-text-color;
+  background: transparent;
   border: none;
 
   cursor: pointer;
 
   transition: all $animation-flow;
 
-  &:hover,
-  &:focus {
-    color: $blue-accent-color;
+  object-fit: contain;
+
+  &:hover .btn-close-icon,
+  &:focus .btn-close-icon {
+    transform: rotate(360deg);
+    stroke: $blue-accent-color;
   }
 
   @media screen and (min-width: $tablet) {
@@ -62,7 +66,8 @@
 }
 
 .btn-close-icon {
-  fill: currentColor;
+  stroke: currentColor;
+  transition: all $animation-flow;
 }
 
 .pop-up__book {
@@ -166,7 +171,7 @@
   font-size: 14px;
   line-height: calc(18 / 14);
 
-  background-color: $white-text-color;
+  background-color: transparent;
 
   @media screen and (min-width: $tablet) {
       min-width: 499px;
@@ -189,7 +194,7 @@
   font-size: 14px;
   line-height: calc(18 / 14);
 
-  background-color: $white-text-color;
+  background-color: transparent;
 
   @media screen and (min-width: $tablet) {
       min-width: 499px;
