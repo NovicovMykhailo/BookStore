@@ -12,11 +12,9 @@
 	max-height: 228px;
 	width: 335px;
 	overflow: scroll;
-
 	@media screen and (min-width: $tablet) {
 		max-height: 472px;
 	}
-
 	@media screen and (min-width: $tablet) {
 		width: 356px;
 	}
