@@ -6,16 +6,17 @@
           <use href="./images/svg-sprite.svg#x-close-icon"></use>
         </svg>
       </button>
-      <label for="name"></label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        placeholder="name"
-        class="form-input input-name"
-        required
-      />
-      <label for="email" class="icon-wrapper">
+      <label class="form-label form-label-name" for="name">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="name"
+          class="form-input input-name"
+          required
+      /></label>
+
+      <label for="email" class="form-label form-label-email">
         <input
           type="email"
           id="email"
@@ -29,7 +30,7 @@
         </svg>
       </label>
 
-      <label for="password" class="icon-wrapper"
+      <label for="password" class="form-label form-label-password"
         ><input
           type="password"
           id="password"
