@@ -100,8 +100,6 @@ form {
   }
   &:hover,
   &:focus {
-    // box-shadow: 0px 0px 10px 2px $blue-accent-color,
-    //   0px 0px 20px 4px $blue-accent-color, 0px 0px 30px 6px $blue-accent-color;
     box-shadow: 0 0 3px 2px #4f2ee8, 0 0px #4f2ee8, 0 0 12px 1px #4f2ee8;
     transform: translateY(-5px);
     z-index: 2;
@@ -235,7 +233,3 @@ form {
   // fill: $main-text-color;   для тёмной темы
   // stroke: $white-text-color;
 }
-// .form-input:focus + .modal__input-icon,
-// .form-input:hover + .modal__input-icon {
-//   transform: translateY(-5px);
-// }
