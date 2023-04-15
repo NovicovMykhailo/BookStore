@@ -3,7 +3,7 @@ import { BookAPI } from "./book-api";
 import { createBookCard } from "./book-card-template";
 import { colorLastWordInTitle } from "./color-last-words";
 import { fetchAndRenderBooks } from "./top-book";
-import { backToTop } from "./scroll-top-btn";
+// import { backToTop } from "./scroll-top-btn";
 
 // Create first markup
 fetchAndRenderBooks();
@@ -17,7 +17,7 @@ btnAllListener.addEventListener("click", (event) => {
 	if (event.target.localName === "button") {
 		varWithCurrentCategoryValue = event.target.getAttribute('data-list-name');
 		addGalleryMarkupAndChangeFilter(event);
-		backToTop();
+		// backToTop();
 	} else {
 		// Тут потрібно визивати модалку!!
 		console.log(event.target);
