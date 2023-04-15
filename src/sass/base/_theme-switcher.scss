@@ -12,7 +12,10 @@
   fill: #F3F3F3;
 }
 
+.dark-theme .btn-default{
+    color: $gray-text-dark-theme;
+}
+
 // .dark-theme .(class-scroll-bar) {
-//      background: rgba(17, 17, 17, 0.6);
-//      border-radius: 12px;
+//   background: $scrollbar-color
 //}
