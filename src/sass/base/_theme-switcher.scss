@@ -1,0 +1,18 @@
+.dark-theme {
+  background-color: $body-bg-color-dark;
+  color: $gray-text-dark-theme;
+}
+
+.dark-theme header {
+  border: $header-border-dark;
+  background-color: $body-bg-color-dark;
+}
+
+.dark-theme .logo-text {
+  fill: #F3F3F3;
+}
+
+// .dark-theme .(class-scroll-bar) {
+//      background: rgba(17, 17, 17, 0.6);
+//      border-radius: 12px;
+//}
