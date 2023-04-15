@@ -1,0 +1,37 @@
+.dark-theme {
+  background-color: $body-bg-color-dark;
+  color: $gray-text-dark-theme;
+}
+
+.dark-theme header {
+  border: $header-border-dark;
+  background-color: $body-bg-color-dark;
+}
+
+.dark-theme .logo-text {
+  fill: #f3f3f3;
+}
+
+.dark-theme .btn-default {
+  color: $gray-text-dark-theme;
+}
+
+.dark-theme .filter__item {
+  color: $gray-text-dark-theme;
+}
+
+.dark-theme .filter__item--active {
+  color: $yellow-accent-color;
+}
+
+.dark-theme .book-card__title {
+  color: $white-text-color;
+}
+
+// .dark-theme .(class-scroll-bar) {
+//   background: $scrollbar-color
+//}
+
+// .dark-theme .(class-current-category) {
+//   color: $yellow-accent-color;
+//}

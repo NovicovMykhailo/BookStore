@@ -1,20 +1,30 @@
-
 html {
-  scroll-behavior: smooth;
-    -webkit-tap-highlight-color: transparent; 
+	scroll-behavior: smooth;
+	-webkit-tap-highlight-color: transparent;
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
-  height:0px;
+	width: 0px;
+	height: 0px;
 
 }
 
 body {
-  font-family: "DMSans", sans-serif;
+	font-family: "DMSans", sans-serif;
 
-  padding: 0 24px;
-  background-color: $body-bg-color-light;
-  color: $main-text-color;
+	padding: 0 20px;
+
+	@media screen and (min-width: $tablet) {
+		padding: 0 32px;
+	}
+
+	@media screen and (min-width: $desktop) {
+		padding: 0 24px;
+	}
+
+	background-color: $body-bg-color-light;
+	color: $main-text-color;
+
+    // transition: all $animation-flow;
 
 }
