@@ -14,4 +14,4 @@ export function colorLastWordInTitle() {
 }
 
 // Color before start
-// colorLastWordInTitle(); 
+colorLastWordInTitle(); 
