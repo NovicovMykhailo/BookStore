@@ -1,0 +1,25 @@
+.dark-theme {
+  background-color: $body-bg-color-dark;
+  color: $gray-text-dark-theme;
+}
+
+.dark-theme header {
+  border: $header-border-dark;
+  background-color: $body-bg-color-dark;
+}
+
+.dark-theme .logo-text {
+  fill: #F3F3F3;
+}
+
+.dark-theme .btn-default{
+    color: $gray-text-dark-theme;
+}
+
+// .dark-theme .(class-scroll-bar) {
+//   background: $scrollbar-color
+//}
+
+// .dark-theme .(class-current-category) {
+//   color: $yellow-accent-color;
+//}
