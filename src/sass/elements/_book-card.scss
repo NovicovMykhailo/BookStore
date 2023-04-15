@@ -31,9 +31,10 @@
 }
 
 .book-card {
-	margin-top: 40px;
-	margin-left: auto;
-	margin-right: auto;
+	margin-top: 0px;
+	width: 100%;
+	// margin-left: auto;
+	// margin-right: auto;
 
 	list-style: none;
 
@@ -132,10 +133,11 @@
 
 .book-card__list {
 
+
 	@media screen and (max-width: calc($tablet - 1px)) {
 		height: 535px;
-		margin-left: auto;
-		margin-right: auto;
+		// margin-left: auto;
+		// margin-right: auto;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
