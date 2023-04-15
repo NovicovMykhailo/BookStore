@@ -10,7 +10,6 @@
 
   color: $captions-text-color;
 }
-
 .card-title {
   font-family: 'DMSans';
   font-style: normal;
@@ -21,7 +20,6 @@
 
   color: $main-text-color;
 }
-
 .card-caption {
   font-family: 'DMSans';
   font-style: italic;
@@ -32,7 +30,6 @@
   letter-spacing: -0.04em;
   color: $captions-text-color;
 }
-
 //books by category
 .section-title {
   //   <h2 class="section-title" data-text="news"> looking good news </h2>  - model
@@ -55,7 +52,6 @@
     position: absolute;
   }
 }
-
 //category list text styles
 .category-text {
   font-family: 'DMSans';
@@ -74,14 +70,12 @@
     transform: translateX(10px);
   }
 }
-
 .selected-category {
   font-weight: 700;
   text-transform: uppercase;
 
   color: $blue-accent-color;
 }
-
 //card description text styles
 .description-text {
   font-family: 'DMSans';
@@ -94,7 +88,6 @@
 
   color: $main-text-color;
 }
-
 .nav-item {
   position: relative;
   padding: 8px 16px;
@@ -136,7 +129,6 @@
     }
   }
 }
-
 .nav-active {
   font-weight: 700;
   font-size: 14px;
