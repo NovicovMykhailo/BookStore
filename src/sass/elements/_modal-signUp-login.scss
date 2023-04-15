@@ -12,12 +12,10 @@
   display: grid;
   align-content: center;
 }
+
 .modal__backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
-}
-.modal__backdrop.is-hidden .modal__block {
-  transform: translate(-50%, -50%) scale(0.9);
 }
 
 .modal__close-button {
@@ -29,6 +27,7 @@
   background-color: transparent;
   cursor: pointer;
 }
+
 .modal__closeIcon {
   stroke: currentColor;
   &:hover {
@@ -49,6 +48,7 @@
     height: 28px;
   }
 }
+
 .form-container {
   position: relative;
   width: 335px;
@@ -64,6 +64,7 @@
     width: 579px;
   }
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -79,9 +80,10 @@ form {
   position: relative;
   width: 100%;
 }
+
 .form-input {
   width: 100%;
-  padding: 16px 45px 16px 24px;
+  padding: 16px 24px;
   border: none;
   outline: 3px solid $main-text-color;
   border-radius: 40px;
@@ -94,10 +96,7 @@ form {
   transition: all 0.3s ease;
   position: relative;
   z-index: 1;
-  &:focus + .modal__input-icon,
-  &:hover + .modal__input-icon {
-    transform: translateY(-5px);
-  }
+
   &:hover,
   &:focus {
     box-shadow: 0 0 3px 2px #4f2ee8, 0 0px #4f2ee8, 0 0 12px 1px #4f2ee8;
@@ -106,10 +105,16 @@ form {
     outline: none;
   }
 
+  &:hover + .modal__input-icon,
+  &:focus + .modal__input-icon {
+    transform: translateY(-5px);
+  }
+
   &::placeholder {
     color: $main-text-color;
     text-transform: uppercase;
   }
+
   &::before {
     content: '';
     position: absolute;
@@ -127,6 +132,7 @@ form {
     z-index: -1;
     transition: opacity 0.3s ease;
   }
+
   &:hover::before,
   &:focus::before {
     opacity: 1;
@@ -159,6 +165,7 @@ form {
   overflow: hidden;
   transition: all $animation-flow;
   cursor: pointer;
+
   &::before {
     content: '';
     position: absolute;
@@ -171,10 +178,12 @@ form {
     transform: translateX(-100%);
     transition: all 0.3s ease-in-out;
   }
+
   &:hover,
   &:focus {
     color: $white-text-color;
   }
+
   &:hover::before,
   &:focus::before {
     transform: translateX(0%);
@@ -186,10 +195,12 @@ form {
     margin-bottom: 16px;
   }
 }
+
 .btn-group {
   display: flex;
   justify-content: center;
 }
+
 .modal__btn {
   padding: 0;
   border: none;
@@ -203,11 +214,13 @@ form {
   letter-spacing: -0.01em;
   text-transform: uppercase;
   cursor: pointer;
+
   &:hover,
   &:focus {
     color: $blue-accent-color;
     text-decoration-line: underline;
   }
+
   &:last-child {
     margin-left: 20px;
   }
