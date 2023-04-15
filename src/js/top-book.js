@@ -15,9 +15,6 @@ addEventListener('resize', event => {
   }
 });
 
-const booksContainer = document.querySelector('.book-cards');
-
-
 function createMainUl(obj) {
   if (currentRenderWidth < 768) {
     amountRenderedBooks = 1;
@@ -27,19 +24,20 @@ function createMainUl(obj) {
     amountRenderedBooks = 5;
   }
 
-  const sectionTitle = document.createElement('h2');
-  sectionTitle.classList.add('section-title');
-  sectionTitle.setAttribute('data-text', 'Books');
-  sectionTitle.textContent = 'Best Sellers Books';
+//   const sectionTitle = document.createElement('h2');
+//   sectionTitle.classList.add('section-title');
+//   sectionTitle.setAttribute('data-text', 'Books');
+//   sectionTitle.textContent = 'Best Sellers Books';
 
-  booksContainer.prepend(sectionTitle);
+//   booksContainer.prepend(sectionTitle);
 
-  const mainList = document.createElement('ul');
-  booksContainer.appendChild(mainList).classList.add('main-list');
-  document.querySelector('.main-list').innerHTML =
+//   const mainList = document.createElement('ul'); gallery__list
+//   booksContainer.appendChild(mainList).classList.add('main-list');
+//   document.querySelector('.main-list').innerHTML =
+	
+  document.querySelector('.gallery__list').innerHTML =
     createMarcup(obj).join('');
 }
-
 
 function createMarcup(obj) {
   return obj.map(e => {
@@ -52,7 +50,7 @@ function createMarcup(obj) {
                     .map(createBookCard)
                     .join('')}
                 </ul>
-              <button class="btn-default">see more</button>
+              <button class="btn-default btn-all-categories-js" data-list-name="${list_name}">see more</button>
         </li>`;
   });
 }
@@ -60,7 +58,7 @@ const bookApi = new BookAPI();
 
 
 
-async function fetchAndRenderBooks() {
+export async function fetchAndRenderBooks() {
   try {
     const response = await bookApi.getTopBooks();
     createMainUl(response.data);
@@ -68,5 +66,3 @@ async function fetchAndRenderBooks() {
     console.error(error);
   }
 }
-
-fetchAndRenderBooks();
