@@ -5,6 +5,7 @@ import { colorLastWordInTitle } from "./color-last-words";
 const bookApi = new BookAPI();
 
 const filterListEl = document.querySelector(".filter__list");
+console.log(filterListEl);
 
 
 bookApi.getBooksCategoriesList().then(
