@@ -17,13 +17,15 @@
   display: none;
 }
 
-.slider {
-  // min-width: 0;
-  position: relative;
+// .slider {
+//   // min-width: 0;
+//   position: relative;
 
-  width: 159px;
-  height: 188px;
-}
+//   // width: 159px;
+//   // height: 188px;
+// }
+
+// slick slider styles
 
 .slick-list {
   overflow: hidden;
@@ -55,4 +57,16 @@
   display: none;
   opacity: 0;
   pointer-events: none;
+}
+
+// swiper slider styles
+
+.swiper {
+	padding: 0;
+  height: 188px;
+}
+
+.swiper-slide img {
+  max-width: 100%;
+	max-height: calc((188 - 20 * 3) / 3);
 }
