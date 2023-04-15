@@ -5,35 +5,9 @@ const arrayOfSupportCompanies = document.querySelectorAll(
 );
 const arrayOfSupportImgs = document.querySelectorAll('.support-img');
 
-// console.log(arrayOfSupportCompanies);
-// console.log(arrayOfSupportImgs);
-
 scrollDownBtn.addEventListener('click', onScrollDownBtnClick);
 
 const saveChImg = document.querySelector('.save-children-img');
-// console.log(saveChImg.src);
-
-// function onScrollDownBtnClick() {
-//   const arrOfCompanyImgSrc = [];
-
-//   arrayOfSupportCompanies.forEach(company => {
-//     arrOfCompanyImgSrc.push(company.children[0].src);
-//   });
-//   console.log(arrOfCompanyImgSrc);
-// }
-
-// function onScrollDownBtnClick() {
-//   const arrOfCompanyImgSrc = [];
-
-//   arrayOfSupportCompanies.forEach(company => {
-//     arrOfCompanyImgSrc.push(company.children[0].src);
-
-//     console.log(company.nextElementSibling);
-//   });
-//   console.log(arrOfCompanyImgSrc);
-// }
-// console.log(company.nextElementSibling);
-// console.log(company.nextSibling);
 
 const srces = [
   (src = './images/SupportUkraineCompanies/SaveChildren.png'),
