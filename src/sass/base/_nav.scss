@@ -31,3 +31,13 @@
   justify-content: center;
   gap: 4px;
 }
+
+.nav__mob-menu {
+  display: flex;
+  margin-top: 247px;
+  margin-left: 129px;
+}
+.nav__list-mob-menu {
+  flex-direction: column;
+  align-items: center;
+}

@@ -57,6 +57,7 @@
       </button>
     </header>
     <main>
+      <!-- <h2>hello world</h2> -->
       <div class="side-blocks">
         <section class="categories">
           <h2 class="visually-hidden">Book Categories</h2>
@@ -90,11 +91,27 @@
     </button>
 
     <div class="menu-container js-menu-container" id="mobile-menu">
-      <button class="menu-toggle js-close-menu">
+      <!-- <button class="menu-toggle js-close-menu">
         <svg class="menu__icon" width="28" height="28">
           <use href="./images/svg-sprite.svg#x-close-icon"></use>
         </svg>
-      </button>
+      </button> -->
+
+      <nav class="nav nav__mob-menu">
+        <ul class="nav__list nav__list-mob-menu list">
+          <li class="nav-item nav-active">
+            <a href="#" class="nav__link active link"> Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav__link link">
+              Shopping list
+              <svg class="header__link-icon" width="20" height="20">
+                <use href="./images/svg-sprite.svg#bag"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
 
     <script src="index.js" type="module"></script>

@@ -70,10 +70,10 @@
 
   width: 100vw;
   height: 100vh;
-  padding: 48px 0;
-  padding-left: 40px;
+  // padding: 48px 0;
+  // padding-left: 40px;
   background-color: gray;
-  z-index: 999;
+  z-index: -1;
 
   transform: translateX(100%);
   transition: transform 250ms ease-in-out;
