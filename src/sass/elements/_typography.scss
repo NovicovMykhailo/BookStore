@@ -44,7 +44,6 @@
 
   letter-spacing: -0.04em;
   color: $main-text-color;
-
   &:after {
     content: attr(data-text);
     color: $blue-accent-color;
@@ -64,7 +63,6 @@
   transition: all $animation-flow;
 
   color: $grey-text-color;
-
   &:hover {
     scale: 1.01;
     transform: translateX(10px);
@@ -98,7 +96,6 @@
   background-color: transparent;
   transition: all $animation-flow;
   z-index: 10;
-
   &::before {
     content: '';
     position: absolute;
@@ -110,7 +107,6 @@
     opacity: 0;
     z-index: -10;
   }
-
   &:hover {
     transform: translateY(-2px);
 
@@ -118,10 +114,8 @@
       transform: scaleX(1);
       opacity: 1;
     }
-
     &:active {
       transform: translateY(0px);
-
       &::before {
         transform: scaleX(1);
         opacity: 1;
@@ -129,6 +123,7 @@
     }
   }
 }
+
 .nav-active {
   font-weight: 700;
   font-size: 14px;
