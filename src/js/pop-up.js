@@ -34,3 +34,20 @@ bookCards.forEach(bookCard => {
       });
   });
 });
+
+
+// fancybox ???
+
+// bookCards.forEach(bookCard => {
+//   const bookId = bookCard.querySelector('.book-card__id').textContent;
+//   bookCard.addEventListener('click', () => {
+//     const bookAPI = new BookAPI();
+//     bookAPI.id = bookId;
+//     bookAPI.getBookInfo().then(response => {
+//       const book = response.data;
+//       const modalPopUpCard = createModalPopUpCard(book);
+//       document.body.insertAdjacentHTML('beforeend', modalPopUpCard);
+//       $.fancybox.open(`#${book._id}`);
+//     });
+//   });
+// });
