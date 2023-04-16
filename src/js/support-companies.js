@@ -1,7 +1,7 @@
 // import  supportCompanies from './json/supportUkraine.json';
-// import  supportCompanies from './support.js';
+import  {supportCompanies} from './support-data.js';
 
-export default function createSupportList() {
+function createSupportList() {
   const companiesList = document.querySelector('.support-companies');
   let counter = 0;
   
@@ -10,7 +10,7 @@ export default function createSupportList() {
       counter += 1;
      return `<li class="company__item"> ${leadingZeros(counter)}
     <a class="company__link" href="${url}" target="_blank" rel="noopener noreferrer">
-      <img class="company__img" srcset="${img} 1x, ${img2} 2x" alt="${title}" loading="lazy" />
+      <img class="company__img" src="${img2}" srcset="${img} 1x, ${img2} 2x" alt="${title}"  loading="lazy" />
      </a>
     </li>`;
     })
@@ -20,16 +20,17 @@ export default function createSupportList() {
 };
 
 function leadingZeros(num) {
-    return String(num.padStart(2, '0'))
+    return String(num).padStart(2, '0')
 };
 
 const loadMoreBtnEl = document.querySelector('.support_load-more');
 
-const swiper = new Swiper('.swiper', {
-  direction: 'vertical',
-  loop: true,
+// const swiper = new Swiper('.swiper', {
+//   direction: 'vertical',
+//   loop: true,
   
-  navigation: {
-    nextEl: '.swiper-button-next',
-  },
-});
+//   navigation: {
+//     nextEl: '.swiper-button-next',
+//   },
+// });
+createSupportList();

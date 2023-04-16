@@ -8,6 +8,11 @@
   border-radius: 16px;
   max-width: 335px;
   max-height: 352px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 24px 40px;
 }
 
 .support__wrapper {
@@ -20,7 +25,7 @@
   margin-bottom: 40px;
 }
 
-.support__title {
+.support-ukraine__title {
   font-weight: 700;
   font-size: 28px;
   line-height: 1.14;
@@ -39,26 +44,30 @@
 }
 
 .support-companies {
-  padding-left: 40px;
-  margin-bottom: 16px;
+  // padding-left: 40px;
+  // margin-bottom: 16px;
   height: 188px;
-  overflow: hidden;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   color: $white-text-color;
 }
 
 .company__item {
   display: flex;
-  margin: 0 auto;
+  // margin: 0 auto;
+  align-items: center;
+  height: 32px;
   gap: 16px;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.04em;
 }
 
-.company__img {
-  filter: invert(100%);
-  -webkit-filter: invert(100%);
-}
+// .company__img {
+
+// }
 
 .support__load-more {
   width: 25px;
@@ -69,7 +78,7 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
- margin-bottom: 20px;
+  margin-bottom: 20px;
   cursor: pointer;
 }
 
