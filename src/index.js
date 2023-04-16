@@ -6,3 +6,5 @@ import './js/color-last-words.js';
 import './js/theme-switcher.js';
 import './js/render-support.js';
 
+import './js/theme-switcher.js'
+import './js/modal-signUp-login'
