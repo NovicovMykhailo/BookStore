@@ -5,6 +5,7 @@
   font-size: 18px;
   line-height: 24px;
   letter-spacing: -0.01em;
+  background-color: transparent;
 
   color: $main-text-color;
   display: flex;
@@ -77,8 +78,8 @@
   cursor: pointer;
 
   position: sticky;
-  bottom: 20px;
-  left: 50%;
+  bottom: 140px;
+  left: 100%;
   width: 70px;
   height: 70px;
 

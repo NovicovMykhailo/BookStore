@@ -1,0 +1,72 @@
+.main-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.book-cards {
+  // margin-top: 40px;
+  justify-content: center;
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.book-card__title {
+  margin-bottom: 40px;
+}
+
+.gallery__list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+//   @media screen and (min-width: 1440px) {
+//     margin-top: 32px;
+//   }
+}
+// .book-card{
+//     margin-top: 0px !important;
+//     margin-left: 0px !important;
+//     margin-right: 0px !important;
+//     width:100% !important;
+// }
+
+.books-list {
+  display: flex;
+  flex-direction: column;
+  // gap: 18px;
+
+  & > button {
+    align-self: flex-end;
+    font-weight: 700;
+    size: 14px;
+    padding: 14px 28px;
+    margin-top: 8px;
+
+    @media screen and (min-width: 768px) {
+      margin-top: 20px;
+    }
+    @media screen and (min-width: 1440px) {
+      margin-top: 32px;
+    }
+  }
+}
+
+.book-card__list {
+  display: flex;
+  gap: 24px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.section-title {
+  font-size: 32px;
+  line-height: 38px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 48px;
+    line-height: 52px;
+  }
+}
