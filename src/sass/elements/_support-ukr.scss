@@ -39,7 +39,7 @@
   font-size: 28px;
   line-height: 1.14;
   letter-spacing: -0.04em;
-  color: $white-text-color;
+  color: #ffffff;
 
   &hover,
   &focus {
@@ -57,20 +57,20 @@
   gap: 12px;
 }
 .support-companies {
+  // padding-left: 40px;
+  // margin-bottom: 16px;
+  // height: 188px;
+  overflow: scroll;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  padding-left: 40px;
-  margin-bottom: 16px;
-  height: 188px;
-  overflow: scroll;
   gap: 20px;
   color: $white-text-color;
 }
 
 .company__item {
   display: flex;
-   align-items: center;
+  // margin: 0 auto;
+  align-items: center;
   height: 32px;
   gap: 16px;
   font-size: 14px;
@@ -79,15 +79,13 @@
 }
 
 .support__load-more {
-  width: 32px;
-  height: 32px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   border: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  margin-bottom: 20px;
   align-self: center;
 
   cursor: pointer;

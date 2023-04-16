@@ -37,7 +37,14 @@
             </ul>
           </section>
           <section class="support-ukraine">
-            <h2 class="support-ukraine__title">Support Ukraine</h2>
+            <h2 class="support-ukraine__title">
+              <span class="support-title-container">
+                Support Ukraine
+                <svg class="logo-ukr" width="20" height="32">
+                  <use href="./images/svg-sprite.svg#ukraine-arms"></use>
+                </svg>
+              </span>
+            </h2>
             <ul class="support-companies"></ul>
             <button type="button" class="support__load-more">
               <svg class="button__icon" width="64" height="64">
@@ -62,7 +69,7 @@
                     </button> -->
         <!-- books markups -->
       </section>
-      <include src="./partials/modal-form-login.html"></include>
+     
     </main>
 
     <button type="button" class="scroll-up-btn">
@@ -70,7 +77,7 @@
         <use href="./images/svg-sprite.svg#scroll-up"></use>
       </svg>
     </button>
-
+    <include src="./partials/modal-form-login.html"></include>
     <script src="index.js" type="module"></script>
   </body>
 </html>
