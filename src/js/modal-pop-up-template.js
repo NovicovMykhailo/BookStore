@@ -1,5 +1,5 @@
 export function createModalPopUpCard(book) {
-  const { _id, list_name, author, book_image, description, buy_links } = book;
+  const { _id, title, author, book_image, description, buy_links } = book;
   const urls = buy_links
   .filter(buyLink => ["Amazon", "Apple Books", "Bookshop"].includes(buyLink.name))
   .map(buyLink => buyLink.url);
@@ -15,13 +15,13 @@ export function createModalPopUpCard(book) {
           <img class="book__image" src="${book_image}" alt="">
           <div>
             <div>
-              <h2 class="book__list-name info-item__title">${list_name}</h2>
+              <h2 class="book__title info-item__title">${title}</h2>
               <p class="book__author info-item__author">${author}</p>
             </div>
             <p class="book__description">${description}</p>
             <ul class="book__list">
               <li class="book__item">
-                <a class="book__buy-links" href="${buyLink.url[0]}" target="_blank" rel="noopener noreferrer" aria-label="Amazon">
+                <a class="book__buy-links" href="${urls[0]}" target="_blank" rel="noopener noreferrer" aria-label="Amazon">
                   <picture class="buy-links__icon">
                     <source srcset="./images/BookStoreIcons/amazon.png 1x, ./images/BookStoreIcons/amazon-2x.png 2x">
                     <img src="./images/BookStoreIcons/amazon.png" alt="Amazon">
@@ -29,7 +29,7 @@ export function createModalPopUpCard(book) {
                 </a>
               </li>
               <li class="book__item">
-                <a class="book__buy-links" href="${buyLink.url[1]}" target="_blank" rel="noopener noreferrer" aria-label="Apple Books">
+                <a class="book__buy-links" href="${urls[1]}" target="_blank" rel="noopener noreferrer" aria-label="Apple Books">
                   <picture class="buy-links__icon">
                     <source
                       srcset="./images/BookStoreIcons/apple-books.png 1x, ./images/BookStoreIcons/apple-books-2x.png 2x">
@@ -38,7 +38,7 @@ export function createModalPopUpCard(book) {
                 </a>
               </li>
               <li class="book__item">
-                <a class="book__buy-links" href="${buyLink.url[2]}" target="_blank" rel="noopener noreferrer" aria-label="Bookshop">
+                <a class="book__buy-links" href="${urls[2]}" target="_blank" rel="noopener noreferrer" aria-label="Bookshop">
                   <picture class="buy-links__icon">
                     <source
                       srcset="./images/BookStoreIcons/book-shop.png 1x, ./images/BookStoreIcons/book-shop-2x.png 2x">
