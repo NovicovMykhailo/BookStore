@@ -4,11 +4,11 @@ const swiper = new Swiper('.swiper', {
   navigation: {
     nextEl: '.support__load-more',
   },
-  // keyboard: {
-  //   enabled: true,
-  //   onlyInviewPort: true,
-  //   pageUpDown: true,
-  // },
+  keyboard: {
+    enabled: true,
+    onlyInviewPort: true,
+    pageUpDown: true,
+  },
   simulateTouch: false,
   slidesPerGroup: 1,
 
