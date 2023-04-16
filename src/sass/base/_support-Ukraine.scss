@@ -36,6 +36,7 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
+
   color: $white-text-color;
 }
 
@@ -44,6 +45,7 @@
   font-size: 28px;
   line-height: 1.14;
   letter-spacing: -0.04em;
+
   color: $white-text-color;
 
   &hover,
@@ -76,8 +78,19 @@
   cursor: pointer;
 
   fill: $blue-accent-color;
+
+  @media screen and(min-width: $tablet) {
+    width: 38px;
+    height: 38px;
+  }
 }
 
 .button__icon {
   fill: currentColor;
 }
+
+// .support-companies__img {
+//   // min-height: 35px;
+
+//   color: $white-text-color;
+// }

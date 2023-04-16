@@ -1,19 +1,7 @@
 import supportCompanies from './support-data.js';
 
-const supportCompaniesRef = document.querySelector('.support-companies');
-const srces = [
-  (src = './images/SupportUkraineCompanies/SaveChildren.png'),
-  (src = './images/SupportUkraineCompanies/HOPE.png'),
-  (src = './images/SupportUkraineCompanies/MedCorps.png'),
-  (src = './images/SupportUkraineCompanies/Razom.png'),
-  (src = './images/SupportUkraineCompanies/AAH.png'),
-  (src = './images/SupportUkraineCompanies/Prytuls.png'),
-  (src = './images/SupportUkraineCompanies/United24.png'),
-  (src = './images/SupportUkraineCompanies/WordVision.png'),
-  (src = './images/SupportUkraineCompanies/MedSans.png'),
-];
-
 function createSupportCompaniesList(supportCompanies) {
+  const supportCompaniesRef = document.querySelector('.support-companies');
   let counter = 0;
 
   const markup = supportCompanies
@@ -31,7 +19,7 @@ function createSupportCompaniesList(supportCompanies) {
       srcset="${img} 1x, ${img2} 2x" 
       alt="${title}" 
       loading="lazy" 
-      height ="32" />
+      height ="32"/>
      </a>
     </div>`;
     })
