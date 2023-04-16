@@ -37,8 +37,6 @@
   justify-content: center;
   gap: 12px;
   color: $white-text-color;
-
-  // outline: 1px solid black;
 }
 
 .support__title {
@@ -46,7 +44,7 @@
   font-size: 28px;
   line-height: 1.14;
   letter-spacing: -0.04em;
-  color: #ffffff;
+  color: $white-text-color;
 
   &hover,
   &focus {
@@ -63,10 +61,6 @@
   color: $white-text-color;
 }
 
-// .support-companies__img {
-//  color: #ffffff;
-// }
-
 .support__load-more {
   display: flex;
   justify-content: center;
@@ -81,7 +75,7 @@
   border-radius: 50%;
   cursor: pointer;
 
-  fill: #4f2ee8;
+  fill: $blue-accent-color;
 }
 
 .button__icon {

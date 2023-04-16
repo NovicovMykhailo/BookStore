@@ -4,7 +4,6 @@ const swiper = new Swiper('.swiper', {
   navigation: {
     nextEl: '.support__load-more',
   },
-
   keyboard: {
     enabled: true,
     onlyInviewPort: true,
@@ -13,7 +12,7 @@ const swiper = new Swiper('.swiper', {
   simulateTouch: false,
   slidesPerGroup: 1,
 
-  spaceBetween: 20,
+  // spaceBetween: 20,
   speed: 250,
 
   breakpoints: {
