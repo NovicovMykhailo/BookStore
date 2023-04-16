@@ -8,7 +8,7 @@ function createSupportCompaniesList(supportCompanies) {
     .map(({ url, img, img2, title }) => {
       counter += 1;
       return `<div class="swiper-slide">
-      <p>${leadingZero(counter)}</p>
+      <span>${leadingZero(counter)}</span>
     <a
     class="support-companies__link"
     href="${url}" 
@@ -19,7 +19,7 @@ function createSupportCompaniesList(supportCompanies) {
       srcset="${img} 1x, ${img2} 2x" 
       alt="${title}" 
       loading="lazy" 
-      height ="32"/>
+      height ="46"/>
      </a>
     </div>`;
     })

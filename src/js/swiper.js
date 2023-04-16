@@ -1,5 +1,5 @@
-// import Swiper from 'swiper';
-// import 'swiper/css';
+// import Swiper from 'swiper/bundle';
+
 
 const swiper = new Swiper('.swiper', {
   direction: 'vertical',
