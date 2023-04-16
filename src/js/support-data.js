@@ -74,4 +74,3 @@ export const supportCompanies =
       img2: prytula2x,
     },
   ];
-
