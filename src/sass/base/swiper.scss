@@ -4,19 +4,15 @@
 
   margin: 20 0 16 0;
 
-  // @media screen and(min-width: $tablet) {
-  //   height: 292px;
-  //   margin: 40 0 32 0;
-  // }
+  @media screen and(min-width: $tablet) {
+    height: 292px;
+    margin: 40 0 32 0;
+  }
 
-  // @media screen and(min-width: $desktop) {
-  //   margin: 40 0;
-  // }
+  @media screen and(min-width: $desktop) {
+    margin: 40 0;
+  }
 }
-
-// .swiper-wrapper {
-//   outline: 1px solid blue;
-// }
 
 .swiper .swiper-slide {
   display: inline-flex;
@@ -28,7 +24,3 @@
   line-height: 1.29;
   letter-spacing: -0.04em;
 }
-
-// .swiper-slide a {
-//   min-height: 32px;
-// }

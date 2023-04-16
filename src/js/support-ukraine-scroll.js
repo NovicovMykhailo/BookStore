@@ -1,13 +1,6 @@
 import supportCompanies from './support-data.js';
 
 const supportCompaniesRef = document.querySelector('.support-companies');
-const scrollDownBtn = document.querySelector('.scroll-down-btn');
-// const arrOfSupportCompanies = supportCompaniesRef.children;
-
-createSupportCompaniesList(supportCompanies);
-
-// scrollDownBtn.addEventListener('click', onScrollDownBtnClick);
-
 const srces = [
   (src = './images/SupportUkraineCompanies/SaveChildren.png'),
   (src = './images/SupportUkraineCompanies/HOPE.png'),
@@ -51,10 +44,7 @@ function leadingZero(number) {
   if (number < 10) {
     return String(number).padStart(2, '0');
   }
-  return number;
+  return String(number);
 }
 
-// for (let i = 0; i <= arrOfSupportCompanies.length - 1; i += 1) {
-//   arrOfSupportCompanies[i].children[0].src =
-//     arrOfSupportCompanies[i + 1].children[0].src;
-// }
+createSupportCompaniesList(supportCompanies);
