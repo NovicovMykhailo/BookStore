@@ -1,4 +1,5 @@
 .support-ukraine {
+  display: none;
   background: radial-gradient(
     183.6% 183.01% at 59.76% -23.42%,
     $blue-accent-color 18.03%,
@@ -6,13 +7,21 @@
   );
   box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
   border-radius: 16px;
-  max-width: 335px;
-  max-height: 352px;
 
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding: 24px 40px;
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 24px 40px 14px 40px;
+    width: 335px;
+    height: 472px;
+  }
+
+  @media screen and (min-width: $desktop) {
+        padding: 24px 40px;
+    width: 356px;
+    height: 480px;
+  }
 }
 
 .support__wrapper {
@@ -42,11 +51,15 @@
 .logo-ukr {
   fill: currentColor;
 }
-
+.support-title-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 .support-companies {
   // padding-left: 40px;
   // margin-bottom: 16px;
-  height: 188px;
+  // height: 188px;
   overflow: scroll;
   display: flex;
   flex-direction: column;
@@ -65,10 +78,6 @@
   letter-spacing: -0.04em;
 }
 
-// .company__img {
-
-// }
-
 .support__load-more {
   width: 25px;
   height: 25px;
@@ -77,11 +86,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  margin-bottom: 20px;
+  align-self: center;
+
   cursor: pointer;
+  width: 38px;
+  height: 38px;
+  @media screen and (min-width: $desktop) {
+  }
 }
 
 .button__icon {
-  fill: currentColor;
+  fill: $main-text-color;
 }
