@@ -1,85 +1,175 @@
+.gallery {
+
+	@media screen and (min-width: $tablet) {
+		width: calc($tablet - 62px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	@media screen and (min-width: $desktop) {
+		width: 996px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.gallery__list {
+	margin-left: auto;
+	margin-right: auto;
+	width: 335px;
+
+	@media screen and (min-width: $tablet) {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 25px;
+	}
+
+	@media screen and (min-width: $desktop) {
+		gap: 24px;
+	}
+}
+
 .book-card {
-  width: 335px;
-  height: 535px;
+	margin-top: 0px;
+	width: 100%;
+	// margin-left: auto;
+	// margin-right: auto;
 
-  list-style: none;
+	list-style: none;
 
-  @media screen and (min-width: $tablet) {
-    width: 218px;
-    height: 366px;
-  }
-  @media screen and (min-width: $desktop) {
-    width: 180px;
-    height: 306px;
-  }
-  &__link {
-    color: inherit;
-    border-radius: 8px;
-  }
-  &__link:hover .book-card__notification,
-  &__link:focus .book-card__notification {
-    transform: translateY(0);
-  }
-  &__thumb {
-    position: relative;
-    margin-bottom: 14px;
-    border-radius: 8px;
+	@media screen and (min-width: $tablet) {
+		margin: 0;
+		width: 218px;
+		height: 366px;
+	}
 
-    overflow: hidden;
-  }
-  &__image {
-    width: 100%;
-    height: 485px;
+	@media screen and (min-width: $desktop) {
+		width: 180px;
+		height: 306px;
+	}
 
-    @media screen and (min-width: $tablet) {
-      height: 316px;
-    }
-    @media screen and (min-width: $desktop) {
-      height: 256px;
-    }
-  }
-  &__notification {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+	&__link {
+		color: inherit;
+		border-radius: 8px;
+	}
 
-    width: 100%;
-    padding-top: 26px;
-    padding-bottom: 26px;
+	&__link:hover .book-card__notification,
+	&__link:focus .book-card__notification {
+		transform: translateY(0);
+	}
 
-    background-color: $yellow-accent-color;
-    font-weight: 500;
-    text-align: center;
-    text-transform: uppercase;
+	&__thumb {
+		position: relative;
+		margin-bottom: 14px;
+		border-radius: 8px;
 
-    transform: translateY(100%);
-    transition: transform $animation-flow;
-  }
+		overflow: hidden;
+	}
+
+	&__image {
+		width: 100%;
+		height: 485px;
+
+		@media screen and (min-width: $tablet) {
+			height: 316px;
+		}
+
+		@media screen and (min-width: $desktop) {
+			height: 256px;
+		}
+	}
+
+	&__notification {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		width: 100%;
+		padding-top: 26px;
+		padding-bottom: 26px;
+
+		background-color: $yellow-accent-color;
+		font-weight: 500;
+		text-align: center;
+		text-transform: uppercase;
+
+		transform: translateY(100%);
+		transition: transform $animation-flow;
+	}
 }
+
+.book-card__title {
+	display: block;
+	width: 335px;
+	margin-right: auto;
+	margin-left: auto;
+
+	font-family: 'DMSans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 1.19;
+
+	letter-spacing: -0.04em;
+
+	@media screen and (min-width: $tablet) {
+		margin-left: 0;
+		margin-right: 0;
+		margin-bottom: 40px;
+		width: 704px;
+		font-size: 48px;
+		line-height: 1.08;
+	}
+
+	@media screen and (min-width: $desktop) {
+		width: 100%;
+	}
+}
+
+.book-card__title--accent-word {
+	color: $blue-accent-color;
+}
+
+.book-card__list {
+
+
+	@media screen and (max-width: calc($tablet - 1px)) {
+		height: 535px;
+		// margin-left: auto;
+		// margin-right: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
 .info-item__title {
-  margin-bottom: 4px;
+	margin-bottom: 4px;
 
-  font-weight: 700;
-  font-size: 16px;
-  line-height: calc(18 / 16);
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
 
-  // Додаємо скорочення назви та ... в кінці
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: calc(18 / 16);
+	letter-spacing: -0.04em;
+	text-transform: uppercase;
+
+	// Додаємо скорочення назви та ... в кінці
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
+
 .info-item__author {
-  font-style: italic;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: calc(14 / 12);
-  letter-spacing: -0.04em;
+	font-style: italic;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: calc(14 / 12);
+	letter-spacing: -0.04em;
 
-  color: $captions-text-color;
+	color: $captions-text-color;
 
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
