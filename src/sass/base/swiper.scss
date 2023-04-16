@@ -1,9 +1,19 @@
+@import '../base/breakpoints';
 .swiper {
   height: 188px;
 
-	margin: 20 0 16 0;
+  margin: 20 0 16 0;
 
   // outline: 1px dashed red;
+
+  @media screen and(min-width: $tablet) {
+    height: 292px;
+    margin: 40 0 32 0;
+  }
+
+  @media screen and(min-width: $desktop) {
+    margin: 40 0;
+  }
 }
 
 // .swiper-wrapper {

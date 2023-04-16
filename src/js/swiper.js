@@ -1,6 +1,5 @@
 const swiper = new Swiper('.swiper', {
   direction: 'vertical',
-
   loop: true,
   navigation: {
     nextEl: '.support__load-more',
@@ -11,8 +10,19 @@ const swiper = new Swiper('.swiper', {
     onlyInviewPort: true,
     pageUpDown: true,
   },
+  simulateTouch: false,
+  slidesPerGroup: 1,
 
-  slidesPerView: 4,
   spaceBetween: 20,
   speed: 250,
+
+  breakpoints: {
+    200: {
+     
+      slidesPerView: 4,
+    },
+    768: {
+      slidesPerView: 4,
+    },
+  },
 });
