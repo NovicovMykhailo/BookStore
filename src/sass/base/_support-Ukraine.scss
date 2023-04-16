@@ -9,8 +9,7 @@
   max-width: 335px;
   max-height: 352px;
 
-
-	padding: 24px 58px 68px 40px;
+  padding: 24 58 68 40;
 }
 
 .support__wrapper {
@@ -45,8 +44,6 @@
   color: $white-text-color;
 }
 
-
-
 // .support-companies__img {
 //  color: #ffffff;
 // }
@@ -61,6 +58,8 @@
   align-items: center;
   margin: 0 auto;
   cursor: pointer;
+
+	fill: #4f2ee8;
 }
 
 .button__icon {
