@@ -45,16 +45,9 @@
   color: $white-text-color;
 }
 
-.company__item {
-  display: flex;
-  margin: 0 auto;
-  gap: 16px;
-  font-size: 14px;
-  line-height: 1.29;
-  letter-spacing: -0.04em;
-}
 
-.company__img {
+
+.support-companies__img {
   filter: invert(100%);
   -webkit-filter: invert(100%);
 }

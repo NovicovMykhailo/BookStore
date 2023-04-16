@@ -3,7 +3,7 @@ const swiper = new Swiper('.swiper', {
 
   loop: true,
   navigation: {
-    nextEl: '.scroll-down-btn',
+    nextEl: '.support__load-more',
   },
 
   keyboard: {
