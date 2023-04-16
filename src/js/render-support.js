@@ -9,7 +9,7 @@ export default function createSupportList(company) {
     .map(({ url, img, img2, title }) => {
       counter += 1;
       return `<li class="company__item">
-      <p>${leadingZeros(counter)}</p>
+      <p class="company__number">${leadingZeros(counter)}</p>
     <a
     class="company__link"
     href="${url}" 

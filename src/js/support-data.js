@@ -14,7 +14,7 @@ import action from '../images/SupportUkraineCompanies/aah.png';
 import action2x from '../images/SupportUkraineCompanies/aah-2x.png';
 import world from '../images/SupportUkraineCompanies/word-vision.png';
 import world2x from '../images/SupportUkraineCompanies/word-vision-2x.png';
-import prytula from '../images/SupportUkraineCompanies/prytula.png';
+// import prytula from '../images/SupportUkraineCompanies/prytula.png';
 import prytula2x from '../images/SupportUkraineCompanies/prytula-2x.png';
 
 export const supportCompanies = 
@@ -74,4 +74,3 @@ export const supportCompanies =
       img2: prytula2x,
     },
   ];
-
