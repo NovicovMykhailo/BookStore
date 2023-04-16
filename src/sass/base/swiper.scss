@@ -1,0 +1,20 @@
+.swiper {
+  height: 296px;
+
+  // outline: 1px dashed red;
+}
+
+// .swiper-wrapper {
+//   outline: 1px solid blue;
+// }
+
+.swiper .swiper-slide {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+}
+
+// .swiper-slide a {
+//   min-height: 32px;
+// }

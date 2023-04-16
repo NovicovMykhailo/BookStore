@@ -1,13 +1,12 @@
+import supportCompanies from './support-data.js';
+
 const supportCompaniesRef = document.querySelector('.support-companies');
 const scrollDownBtn = document.querySelector('.scroll-down-btn');
-const arrayOfSupportCompanies = document.querySelectorAll(
-  '.support-companies__item'
-);
-const arrayOfSupportImgs = document.querySelectorAll('.support-img');
+// const arrOfSupportCompanies = supportCompaniesRef.children;
 
-scrollDownBtn.addEventListener('click', onScrollDownBtnClick);
+createSupportCompaniesList(supportCompanies);
 
-const saveChImg = document.querySelector('.save-children-img');
+// scrollDownBtn.addEventListener('click', onScrollDownBtnClick);
 
 const srces = [
   (src = './images/SupportUkraineCompanies/SaveChildren.png'),
@@ -21,17 +20,41 @@ const srces = [
   (src = './images/SupportUkraineCompanies/MedSans.png'),
 ];
 
-function onScrollDownBtnClick() {
-  const arrOfCompanyImgSrc = [];
-  const firstImg = supportCompaniesRef.firstChild;
+function createSupportCompaniesList(supportCompanies) {
+  let counter = 0;
 
-  for (let i = 0; i <= arrayOfSupportCompanies.length - 1; i += 1) {
-    arrayOfSupportCompanies[i].children[0].src =
-      arrayOfSupportCompanies[i + 1].children[0].src;
+  const markup = supportCompanies
+    .map(({ url, img, img2, title }) => {
+      counter += 1;
+      return `<div class="swiper-slide">
+      <p>${leadingZero(counter)}</p>
+    <a
+    class="support-companies__link"
+    href="${url}" 
+    target="_blank" 
+    rel="noopener noreferrer">
+      <img 
+        class="support-companies__img"
+      srcset="${img} 1x, ${img2} 2x" 
+      alt="${title}" 
+      loading="lazy" 
+      height ="32" />
+     </a>
+    </div>`;
+    })
+    .join('');
 
-    supportCompaniesRef.append(firstImg);
-    firstImg.remove();
-  }
-
-  console.log(arrayOfSupportCompanies);
+  supportCompaniesRef.insertAdjacentHTML('beforeend', markup);
 }
+
+function leadingZero(number) {
+  if (number < 10) {
+    return String(number).padStart(2, '0');
+  }
+  return number;
+}
+
+// for (let i = 0; i <= arrOfSupportCompanies.length - 1; i += 1) {
+//   arrOfSupportCompanies[i].children[0].src =
+//     arrOfSupportCompanies[i + 1].children[0].src;
+// }

@@ -1,0 +1,77 @@
+.support-ukraine {
+  background: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    $blue-accent-color 18.03%,
+    $white-text-color 100%
+  );
+  box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+  border-radius: 16px;
+  max-width: 335px;
+  max-height: 352px;
+
+
+	padding: 24px 58px 20px 40px;
+}
+
+.support__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: $white-text-color;
+
+  // outline: 1px solid black;
+}
+
+.support__title {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.14;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+
+  &hover,
+  &focus {
+    -webkit-text-stroke: 1px solid #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.logo-ukr {
+  fill: currentColor;
+}
+
+.support-companies {
+  color: $white-text-color;
+}
+
+.company__item {
+  display: flex;
+  margin: 0 auto;
+  gap: 16px;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.04em;
+}
+
+.company__img {
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+}
+
+.support__load-more {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.button__icon {
+  fill: currentColor;
+}
