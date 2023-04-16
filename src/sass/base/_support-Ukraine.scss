@@ -10,7 +10,7 @@
   max-height: 352px;
 
 
-	padding: 24px 58px 20px 40px;
+	padding: 24px 58px 68px 40px;
 }
 
 .support__wrapper {
@@ -47,21 +47,19 @@
 
 
 
-.support-companies__img {
-  filter: invert(100%);
-  -webkit-filter: invert(100%);
-}
+// .support-companies__img {
+//  color: #ffffff;
+// }
 
 .support__load-more {
-  width: 25px;
-  height: 25px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: none;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  margin-bottom: 20px;
   cursor: pointer;
 }
 
