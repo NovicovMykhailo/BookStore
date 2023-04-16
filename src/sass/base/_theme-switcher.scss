@@ -28,9 +28,10 @@
   color: $white-text-color;
 }
 
-// .dark-theme .(class-scroll-bar) {
-//   background: $scrollbar-color
-//}
+.dark-theme .filter__list::-webkit-scrollbar-thumb {
+  border: 12px solid$scrollbar-color-dark;
+  // background: $scrollbar-color-dark
+}
 
 // .dark-theme .(class-current-category) {
 //   color: $yellow-accent-color;

@@ -1,82 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BookStore</title>
-  <link rel="stylesheet" href="./sass/index.scss" />
-  <link rel="shortcut icon" href="./favico/logo.svg" type="image/x-icon" />
-</head>
-
-<body>
-  <header>
-    <a href="#" class="logo">
-      <svg class="logo-icon" width="22" height="22">
-        <use href="./images/svg-sprite.svg#booklogo-icon"></use>
-      </svg>
-      <svg class="logo-text" width="53" height="17">
-        <use href="./images/svg-sprite.svg#booklogo-book"></use>
-      </svg>
-    </a>
-    <nav>
-      <input type="checkbox" name="checkbox" id="" class="theme-switch" />
-    </nav>
-  </header>
-  <main>
-    <div class="main-page">
-      <div class="side-blocks">
-        <!-- Filter -->
-        <section class="container_filter filter">
-          <ul class="filter__list">
-            <li class="filter__item filter__item--active" data-mark-active="All categories">
-              All categories
-            </li>
-          </ul>
-        </section>
-        <section class="support-ukraine">
-          <div class="support__wrapper">
-            <h2 class="support__title">Support Ukraine</h2>
-            <svg class="logo-ukr" width="20" height="32">
-              <use href="./images/svg-sprite.svg#ukraine-arms"></use>
-            </svg>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookStore</title>
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="shortcut icon" href="./favico/logo.svg" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">
+        <svg class="logo-icon" width="22" height="22">
+          <use href="./images/svg-sprite.svg#booklogo-icon"></use>
+        </svg>
+        <svg class="logo-text" width="53" height="17">
+          <use href="./images/svg-sprite.svg#booklogo-book"></use>
+        </svg>
+      </a>
+      <nav>
+        <input type="checkbox" name="checkbox" id="" class="theme-switch" />
+      </nav>
+    </header>
+    <main>
+      <div class="main-page">
+        <div class="side-blocks">
+          <!-- Filter -->
+          <section class="container_filter filter">
+            <ul class="filter__list">
+              <li
+                class="filter__item filter__item--active"
+                data-mark-active="All categories"
+              >
+                All categories
+              </li>
+            </ul>
+          </section>
+          <section class="support-ukraine">
+            <h2 class="support-ukraine__title">Support Ukraine</h2>
+            <ul class="support-companies"></ul>
+          </section>
+        </div>
+        <section class="gallery">
+          <div class="gallery_container">
+            <h1 class="book-card__title">Best Sellers Books</h1>
+            <ul class="gallery__list list"></ul>
           </div>
-          <ul class="support-companies">
-            <!-- left side support ukraine companies -->
-          </ul>
-          <button class="support__load-more" type="button">
-            <svg class="button__icon" width="20" height="20">
-              <use href="./images/svg-sprite.svg#arrow-down-icon"></use>
-            </svg>
-          </button>
         </section>
       </div>
-      <section class="gallery">
-        <div class="gallery_container">
-          <h1 class="book-card__title">Best Sellers Books</h1>
-          <ul class="gallery__list list"></ul>
-        </div>
-      </section>
-    </div>
-    <!-- Vika render -->
-    <section class="book-cards">
-      <!-- <button class="trash-btn" type="button">
+      <!-- Vika render -->
+      <section class="book-cards">
+        <!-- <button class="trash-btn" type="button">
                       <svg class="trash-icon" width="18" height="18">
                         <use href="/src/images/svg-sprite.svg#trash-icon"></use>
                       </svg>
                     </button> -->
         <!-- books markups -->
       </section>
+      <include src="./partials/modal-form-login.html"></include>
     </main>
 
-  <button type="button" class="scroll-up-btn">
-    <svg class="scroll-btn" width="64" height="64">
-      <use href="./images/svg-sprite.svg#scroll-up"></use>
-    </svg>
-  </button>
+    <button type="button" class="scroll-up-btn">
+      <svg class="scroll-btn" width="64" height="64">
+        <use href="./images/svg-sprite.svg#scroll-up"></use>
+      </svg>
+    </button>
 
-  <script src="index.js" type="module"></script>
-</body>
-
+    <script src="index.js" type="module"></script>
+  </body>
 </html>

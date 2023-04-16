@@ -25,7 +25,7 @@ export default function createSupportList(company) {
     </li>`;
     })
     .join('');
-
+  
   companiesList.insertAdjacentHTML('beforeend', markup);
 }
 
