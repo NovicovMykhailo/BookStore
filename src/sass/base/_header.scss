@@ -1,6 +1,22 @@
+header {
+  position: relative;
+  z-index: 9999;
+  height: 72px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  background: $white-text-color;
+  border: $header-border;
+  border-radius: 0px 0px 8px 8px;
+}
+
 .header__mobile-menu,
 .header__link-icon {
   stroke: $main-text-color;
+}
+.header__mobile-menu:hover {
+  stroke: $blue-accent-color;
 }
 
 .menu-toggle {
@@ -22,7 +38,50 @@
     display: none;
   }
 }
+//----------singin-btn
+.header__singin-btn {
+  display: none;
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+    min-width: 184px;
+    min-height: 45px;
+    padding: 0 11px;
+    margin-left: 24px;
+
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 29px;
+
+    letter-spacing: -0.02em;
+    font-style: normal;
+
+    color: $white-text-color;
+
+    background: $blue-accent-color;
+    border: 1.5px solid $main-text-color;
+    border-radius: 18px;
+  }
+}
+.header__singin-icon {
+  margin-right: 9px;
+  width: 37px;
+  height: 37px;
+  padding: 9px;
+
+  border-radius: 50%;
+
+  background: $body-bg-color-light;
+  fill: $blue-accent-color;
+}
+.header__singin-down-icon {
+  margin-left: 4px;
+  fill: $white-text-color;
+}
+
+//----------singup-btm
 .header__singup-btn {
   display: none;
   @media screen and (min-width: $tablet) {
@@ -54,7 +113,12 @@
   stroke: $yellow-accent-color;
 }
 
-//   модалье вікно
+//  ------- модалье вікно
+
+.no-scroll {
+  overflow: hidden;
+}
+
 .menu-container {
   position: fixed;
   top: 0;
@@ -70,10 +134,9 @@
 
   width: 100vw;
   height: 100vh;
-  // padding: 48px 0;
-  // padding-left: 40px;
+
   background-color: gray;
-  z-index: -1;
+  z-index: 99;
 
   transform: translateX(100%);
   transition: transform 250ms ease-in-out;

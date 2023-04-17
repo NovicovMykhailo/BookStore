@@ -45,18 +45,6 @@ header {
 //   text-transform: uppercase;
 // }
 
-nav {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 500;
-  font-style: normal;
-  margin-left: 99px;
-  text-transform: uppercase;
-}
-
 .main-page {
   @media screen and (min-width: $tablet) and (max-width: calc($desktop - 1px)) {
     display: flex;
