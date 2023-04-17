@@ -135,7 +135,11 @@ header {
   width: 100vw;
   height: 100vh;
 
-  background-color: gray;
+  background: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    $blue-accent-color 18.03%,
+    $white-text-color 100%
+  );
   z-index: 99;
 
   transform: translateX(100%);
@@ -150,4 +154,29 @@ header {
   visibility: visible;
   pointer-events: visible;
   transform: translateX(0);
+}
+
+.mob-menu__Log-out-btn {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  max-width: 118px;
+  min-height: 48px;
+
+  margin-top: auto;
+  margin-bottom: 20px;
+  margin-left: 20px;
+
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height, or 129% */
+
+  letter-spacing: -0.04em;
+
+  color: $main-text-color;
+  background: $white-text-color;
+  border: 1.5px solid $main-text-color;
+  border-radius: 18px;
 }
