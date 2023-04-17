@@ -6,9 +6,14 @@ import bookshop1x from '../images/BookStoreIcons/book-shop.png';
 import bookshop2x from '../images/BookStoreIcons/book-shop-2x.png';
 import closeBtnIcon from '../images/svg-sprite.svg';
 
+export let currentBookObj = []
+
 
 export function createModalPopUpCard(book) {
   const { _id, title, author, book_image, description, buy_links } = book;
+  currentBookObj = { _id, title, author, book_image, description, buy_links };
+  
+
   const urls = buy_links
     .filter(buyLink =>
       ['Amazon', 'Apple Books', 'Bookshop'].includes(buyLink.name)

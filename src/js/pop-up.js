@@ -1,5 +1,5 @@
 import { BookAPI } from './book-api.js';
-import { createModalPopUpCard } from './modal-pop-up-template.js';
+import { createModalPopUpCard, currentBookObj} from './modal-pop-up-template.js';
 // FancyBox Import
 import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
@@ -15,7 +15,6 @@ const fancyBoxOptions = {
     },
   },
   autoFocus: false,
-  
 
   // ClickAction | ((any?: any) => ClickAction | void)
 };
@@ -39,6 +38,7 @@ function onCardClick(e) {
     bookAPI.getBookInfo().then(response => {
       const book = response.data;
       const modalPopUp = createModalPopUpCard(book);
+      // console.log(currentBookObj)
       document.body.insertAdjacentHTML('beforeend', modalPopUp);
 
       Fancybox.show([{ src: '#modal', type: 'inline' }], fancyBoxOptions);
@@ -50,11 +50,12 @@ function onCardClick(e) {
       // adding a description if there is none
       const bookDescription = document.querySelector('.book__description');
       if (bookDescription.textContent.trim() === '') {
-        bookDescription.textContent = 'There is currently no description available for this book';
-      };
+        bookDescription.textContent =
+          'There is currently no description available for this book';
+      }
     });
-  };
-  
+  }
+
   return;
 }
 
@@ -63,7 +64,6 @@ function closeModal() {
   const modalCloseBtn = document.querySelector('.pop-up__btn-close');
   modalCloseBtn.addEventListener('click', e => {
     if (e.target.localName === 'use' || e.target.localName === 'svg') {
-
       Fancybox.close();
     }
   });
