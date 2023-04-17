@@ -5,6 +5,7 @@ export function createBookCard(book, delay) {
     <div class="book-card__thumb">
     <img class="book-card__image" src="${book_image}" alt="${author} ${title}" loading="lazy" data-id="${_id}">
     <p class="book-card__notification">Quick view</p>
+    <p class="book-card__id visually-hidden">${_id}</p>
     </div>
     <div class="book-card__info">
     <p class="info-item__title">${title}</p>

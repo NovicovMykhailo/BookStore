@@ -1,0 +1,230 @@
+.modal__pop-up {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  width: 335px;
+  min-height: 762px;
+  padding: 40px 24px;
+
+  border: 2px solid $main-text-color;
+  border-radius: 18px;
+
+  background: $body-bg-color-light;
+
+  @media screen and (min-width: $tablet) {
+    width: 579px;
+    min-height: 465px;
+
+    padding: 40px;
+  }
+}
+
+.pop-up__book-container {
+  display: flex;
+  flex-direction: column;
+
+  &>div {
+    @media screen and (min-width: $tablet) {
+      width: 279px;
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    flex-direction: row;
+    gap: 24px;
+  }
+}
+
+.pop-up__btn-close {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 28px;
+  height: 28px;
+  padding: 0;
+
+  color: $main-text-color;
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  transition: all $animation-flow;
+
+  object-fit: contain;
+
+  &:hover .btn-close-icon,
+  &:focus .btn-close-icon {
+    transform: rotate(360deg);
+    stroke: $blue-accent-color;
+  }
+
+  @media screen and (min-width: $tablet) {
+    right: 24px;
+    top: 24px;
+  }
+}
+
+.btn-close-icon {
+  stroke: $main-text-color;
+  transition: all $animation-flow;
+}
+
+.pop-up__book {
+  margin-bottom: auto;
+
+  @media screen and (min-width: $tablet) {
+    margin: 0;
+  }
+}
+
+.book__image {
+  width: 287px;
+  height: auto;
+  margin-bottom: 14px;
+
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  overflow: hidden;
+
+  @media screen and (min-width: $tablet) {
+    width: 192px;
+    height: auto;
+    margin-bottom: 40px;
+  }
+}
+
+.book__title {
+  color: $main-text-color;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 8px;
+
+    font-size: 24px;
+    line-height: calc(28 / 24);
+  }
+}
+
+.book__author {
+  margin-bottom: 18px;
+
+  font-size: 12px;
+  line-height: calc(14 / 12);
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 20px;
+
+    font-size: 14px;
+    line-height: calc(18 / 14);
+  }
+}
+
+.book__description {
+  margin-bottom: 14px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+
+  letter-spacing: -0.04em;
+
+  // white-space: nowrap;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+
+  color: $main-text-color;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 20px;
+
+    font-size: 14px;
+    line-height: calc(18 / 14);
+  }
+}
+
+.book__list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.buy-links__icon {
+  filter: grayscale(100%);
+
+  transition: all $animation-flow;
+
+  &:hover,
+  &:focus {
+    filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+  }
+}
+
+.pop-up__btn-add {
+  min-width: 211px;
+  min-height: 46px;
+
+  padding: 14px 0;
+
+  font-size: 14px;
+  line-height: calc(18 / 14);
+
+  background-color: transparent;
+
+  @media screen and (min-width: $tablet) {
+    min-width: 499px;
+    min-height: 64px;
+
+    padding: 20px 0;
+
+    font-size: 18px;
+    line-height: calc(24 / 18);
+  }
+}
+
+.pop-up__btn-remove {
+  min-width: 279px;
+  min-height: 46px;
+
+  margin-bottom: 8px;
+  padding: 14px 23px;
+
+  font-size: 14px;
+  line-height: calc(18 / 14);
+
+  background-color: transparent;
+
+  @media screen and (min-width: $tablet) {
+    min-width: 499px;
+    min-height: 64px;
+
+    padding: 20px 0;
+
+    font-size: 18px;
+    line-height: calc(24 / 18);
+  }
+}
+
+.pop-up__text-info {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: calc(12 / 10);
+
+  text-align: center;
+  letter-spacing: -0.04em;
+
+  color: rgba(17, 17, 17, 0.5);
+
+  @media screen and (min-width: $tablet) {
+    font-size: 12px;
+    line-height: calc(14 / 12);
+  }
+}
