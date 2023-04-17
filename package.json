@@ -18,11 +18,14 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
-    "@fancyapps/fancybox": "^3.5.7",
+    "@fancyapps/ui": "^5.0.16",
+    "aos": "^2.3.4",
     "axios": "^1.3.5",
+    "buffer": "^6.0.3",
     "lodash.throttle": "^4.1.1",
     "modern-normalize": "^1.1.0",
-    "notiflix": "^3.2.6"
+    "notiflix": "^3.2.6",
+    "swiper": "^9.2.2"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",

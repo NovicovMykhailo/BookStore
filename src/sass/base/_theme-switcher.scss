@@ -9,16 +9,29 @@
 }
 
 .dark-theme .logo-text {
-  fill: #F3F3F3;
+  fill: #f3f3f3;
 }
 
-.dark-theme .btn-default{
-    color: $gray-text-dark-theme;
+.dark-theme .btn-default {
+  color: $gray-text-dark-theme;
 }
 
-// .dark-theme .(class-scroll-bar) {
-//   background: $scrollbar-color
-//}
+.dark-theme .filter__item {
+  color: $gray-text-dark-theme;
+}
+
+.dark-theme .filter__item--active {
+  color: $yellow-accent-color;
+}
+
+.dark-theme .book-card__title {
+  color: $white-text-color;
+}
+
+.dark-theme .filter__list::-webkit-scrollbar-thumb {
+  border: 12px solid$scrollbar-color-dark;
+  // background: $scrollbar-color-dark
+}
 
 // .dark-theme .(class-current-category) {
 //   color: $yellow-accent-color;

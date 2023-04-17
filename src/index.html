@@ -57,33 +57,54 @@
       </button>
     </header>
     <main>
-      <!-- <h2>hello world</h2> -->
-      <div class="side-blocks">
-        <section class="categories">
-          <h2 class="visually-hidden">Book Categories</h2>
-          <ul class="book-categories">
-            <!-- left side book categories place -->
-          </ul>
-        </section>
-        <section class="support-ukraine">
-          <h2 class="visually-hidden">Support Ukraine</h2>
-          <ul class="support-companies">
-            <!-- left side support ukraine companies -->
-          </ul>
+      <div class="main-page">
+        <div class="side-blocks">
+          <!-- Filter -->
+          <section class="container_filter filter">
+            <ul class="filter__list">
+              <li
+                class="filter__item filter__item--active"
+                data-mark-active="All categories"
+              >
+                All categories
+              </li>
+            </ul>
+          </section>
+          <section class="support-ukraine">
+            <h2 class="support-ukraine__title">
+              <span class="support-title-container">
+                Support Ukraine
+                <svg class="logo-ukr" width="20" height="32">
+                  <use href="./images/svg-sprite.svg#ukraine-arms"></use>
+                </svg>
+              </span>
+            </h2>
+            <ul class="support-companies"></ul>
+            <button type="button" class="support__load-more">
+              <svg class="button__icon" width="64" height="64">
+                <use href="./images/svg-sprite.svg#arrow-down-icon"></use>
+              </svg>
+            </button>
+          </section>
+        </div>
+        <section class="gallery">
+          <div class="gallery_container">
+            <h1 class="book-card__title">Best Sellers Books</h1>
+            <ul class="gallery__list list"></ul>
+          </div>
         </section>
       </div>
+      <!-- Vika render -->
       <section class="book-cards">
-        <h2 class="visually-hidden">Book Cards</h2>
-        <div>
-          <!-- <button class="trash-btn" type="button">
-            <svg class="trash-icon" width="18" height="18">
-              <use href="/src/images/svg-sprite.svg#trash-icon"></use>
-            </svg>
-          </button> -->
-          <!-- books markups -->
-        </div>
+        <!-- <button class="trash-btn" type="button">
+                      <svg class="trash-icon" width="18" height="18">
+                        <use href="/src/images/svg-sprite.svg#trash-icon"></use>
+                      </svg>
+                    </button> -->
+        <!-- books markups -->
       </section>
     </main>
+
     <button type="button" class="scroll-up-btn">
       <svg class="scroll-btn" width="64" height="64">
         <use href="./images/svg-sprite.svg#scroll-up"></use>
@@ -114,6 +135,7 @@
       </nav>
     </div>
 
+    <include src="./partials/modal-form-login.html"></include>
     <script src="index.js" type="module"></script>
   </body>
 </html>
