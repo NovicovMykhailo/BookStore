@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BookStore</title>
     <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="shortcut icon" href="./favico/logo.svg" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <header>
-      <a href="#" class="logo">
+      <a href="/" class="logo">
         <svg class="logo-icon" width="22" height="22">
           <use href="./images/svg-sprite.svg#booklogo-icon"></use>
         </svg>
@@ -19,7 +24,7 @@
         </svg>
       </a>
       <nav>
-        <input type="checkbox" name="checkbox" id="" class="theme-switch" />
+        <input type="checkbox" name="checkbox" class="theme-switch" />
       </nav>
     </header>
     <main>
@@ -27,6 +32,7 @@
         <div class="side-blocks">
           <!-- Filter -->
           <section class="container_filter filter">
+            <h1 class="visually-hidden">Book Shop Categories</h1>
             <ul class="filter__list">
               <li
                 class="filter__item filter__item--active"
@@ -45,17 +51,19 @@
                 </svg>
               </span>
             </h2>
-            <ul class="support-companies"></ul>
-            <button type="button" class="support__load-more">
-              <svg class="button__icon" width="64" height="64">
-                <use href="./images/svg-sprite.svg#arrow-down-icon"></use>
-              </svg>
-            </button>
+            <div class="swiper">
+              <div class="swiper-wrapper support-companies"></div>
+              <button type="button" class="support__load-more">
+                <svg class="button__icon">
+                  <use href="./images/svg-sprite.svg#arrow-down-icon"></use>
+                </svg>
+              </button>
+            </div>
           </section>
         </div>
         <section class="gallery">
           <div class="gallery_container">
-            <h1 class="book-card__title">Best Sellers Books</h1>
+            <h2 class="book-card__title">Best Sellers Books</h2>
             <ul class="gallery__list list"></ul>
           </div>
         </section>
@@ -69,7 +77,6 @@
                     </button> -->
         <!-- books markups -->
       </section>
-     
     </main>
 
     <button type="button" class="scroll-up-btn">
@@ -78,6 +85,7 @@
       </svg>
     </button>
     <include src="./partials/modal-form-login.html"></include>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="index.js" type="module"></script>
   </body>
 </html>
