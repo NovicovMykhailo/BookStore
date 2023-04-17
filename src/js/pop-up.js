@@ -48,18 +48,9 @@ function onCardClick(e) {
       const modalCloseBtn = document.querySelector('.pop-up__btn-close');
 
       // adding a description if there is none
-      let bookDescription = document.querySelector('.book__description').textContent;
-      
-      if (bookDescription.trim() === '') {
-        bookDescription = 'There is currently no description available for this book';
-
-        const bookListEl = document.querySelector('.book__list');
-        const descriptionEl = document.createElement('p');
-        descriptionEl.classList.add('book__description');
-        descriptionEl.textContent = bookDescription;
-        bookListEl.insertAdjacentElement('beforebegin', descriptionEl);
-
-        return
+      const bookDescription = document.querySelector('.book__description');
+      if (bookDescription.textContent.trim() === '') {
+        bookDescription.textContent = 'There is currently no description available for this book';
       };
     });
   };
