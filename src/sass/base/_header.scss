@@ -11,12 +11,15 @@ header {
   border-radius: 0px 0px 8px 8px;
 }
 
-.header__mobile-menu,
-.header__link-icon {
+.header__mobile-menu{
   stroke: $main-text-color;
 }
 .header__mobile-menu:hover {
   stroke: $blue-accent-color;
+}
+.header__link-icon {
+stroke: currentColor;
+stroke-width: 2%;
 }
 
 .menu-toggle {
@@ -31,6 +34,7 @@ header {
   border: none;
   border-radius: 50%;
   outline: none;
+  animation: all $animation-flow;
 }
 
 @media (min-width: $tablet) {
@@ -42,6 +46,7 @@ header {
 .header__singin-btn {
   display: none;
   @media screen and (min-width: $tablet) {
+    cursor:pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -143,11 +148,11 @@ header {
   z-index: 99;
 
   transform: translateX(100%);
-  transition: transform 250ms ease-in-out;
-
-  transition-property: transform, opacity;
-  transition-duration: 350ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  // transition: transform 250ms ease-in-out;
+transition: all $animation-flow;
+  // transition-property: transform, opacity;
+  // transition-duration: 350ms;
+  // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .menu-container.is-open {
   opacity: 1;
@@ -162,7 +167,7 @@ header {
   align-items: center;
   justify-content: center;
   gap: 4px;
-  max-width: 118px;
+  max-width: fit-content;
   min-height: 48px;
 
   margin-top: auto;

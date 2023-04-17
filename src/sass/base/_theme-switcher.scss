@@ -36,3 +36,17 @@
 // .dark-theme .(class-current-category) {
 //   color: $yellow-accent-color;
 //}
+
+.dark-theme .nav__link {
+  color: white;
+}
+.dark-theme .header__link-icon {
+  fill: #ffffff;
+}
+.dark-theme .header__mobile-menu {
+  stroke: white;
+  &:hover {
+    stroke: $blue-accent-color;
+  }
+}
+.dark-theme .mob-menu__Log-out-btn{color:black}
