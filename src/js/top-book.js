@@ -1,10 +1,33 @@
 import { BookAPI } from './book-api.js';
 import { createBookCard } from './book-card-template.js';
+import { Block } from 'notiflix/build/notiflix-block-aio';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+import AOS from 'aos'; //animation lib
+AOS.init(); //animation lib init
+
+// window.addEventListener('beforeunload', () => {
+//   if ('topBooks' in localStorage) {
+//     localStorage.removeItem('topBooks');
+//   }
+// });
+
+const spinnerOptions = {
+
+  backgroundColor: 'transparent',
+  svgColor: 'gray',
+  svgSize: '100px',
+  querySelectorLimit: 20,
+};
+
+const notifyOptions = {
+  fontFamily: 'DMSans',
+};
 
 let currentRenderWidth = window.innerWidth;
 let amountRenderedBooks = 1;
 
-addEventListener('resize', event => {
+addEventListener('resize', () => {
   if (
     (window.innerWidth > 767 && currentRenderWidth < 768) ||
     (window.innerWidth > 1439 && currentRenderWidth < 1440) ||
@@ -12,6 +35,7 @@ addEventListener('resize', event => {
     (window.innerWidth < 768 && currentRenderWidth > 767)
   ) {
     location.reload();
+    // fetchAndRenderBooks();
   }
 });
 
@@ -24,30 +48,23 @@ function createMainUl(obj) {
     amountRenderedBooks = 5;
   }
 
-//   const sectionTitle = document.createElement('h2');
-//   sectionTitle.classList.add('section-title');
-//   sectionTitle.setAttribute('data-text', 'Books');
-//   sectionTitle.textContent = 'Best Sellers Books';
-
-//   booksContainer.prepend(sectionTitle);
-
-//   const mainList = document.createElement('ul'); gallery__list
-//   booksContainer.appendChild(mainList).classList.add('main-list');
-//   document.querySelector('.main-list').innerHTML =
-	
   document.querySelector('.gallery__list').innerHTML =
     createMarcup(obj).join('');
 }
 
-function createMarcup(obj) {
+export function createMarcup(obj) {
   return obj.map(e => {
     const { list_name, books } = e;
+    let delay = 0;
     return ` <li class="books-list list">
             <h3 class="block-title">${list_name}</h3>
                 <ul class="book-card__list list" ()>
                   ${books
                     .slice(0, amountRenderedBooks)
-                    .map(createBookCard)
+                    .map(e => {
+                      delay += 50;
+                      return createBookCard(e, delay);
+                    })
                     .join('')}
                 </ul>
               <button class="btn-default btn-all-categories-js" data-list-name="${list_name}">see more</button>
@@ -56,13 +73,24 @@ function createMarcup(obj) {
 }
 const bookApi = new BookAPI();
 
-
-
 export async function fetchAndRenderBooks() {
-  try {
-    const response = await bookApi.getTopBooks();
-    createMainUl(response.data);
-  } catch (error) {
-    console.error(error);
+  if ('topBooks' in localStorage) {
+    // Block.standard('.gallery_container', spinnerOptions);
+    let response = localStorage.getItem('topBooks');
+    createMainUl(JSON.parse(response));
+    AOS.refresh();
+    return;
+  } else {
+    try {
+      Block.standard('.gallery_container', spinnerOptions);
+      const response = await bookApi.getTopBooks();
+      createMainUl(response.data);
+      AOS.refresh();
+      localStorage.setItem('topBooks', JSON.stringify(response.data));
+      Block.remove('.gallery_container');
+    } catch (error) {
+      Notify.failure('Oops somthing went wrong', notifyOptions);
+      console.error(error);
+    }
   }
 }
