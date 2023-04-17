@@ -19,12 +19,14 @@ const fancyBoxOptions = {
 
   // ClickAction | ((any?: any) => ClickAction | void)
 };
+
 // Book Api Init
 const bookAPI = new BookAPI();
 // Cards container select
 let bookCards = document.querySelectorAll('.gallery_container');
 // listening clicks on card
 bookCards.forEach(item => item.addEventListener('click', onCardClick));
+
 // function on click
 function onCardClick(e) {
   e.preventDefault();
@@ -39,39 +41,39 @@ function onCardClick(e) {
       const modalPopUp = createModalPopUpCard(book);
       document.body.insertAdjacentHTML('beforeend', modalPopUp);
 
-      const modalElement = document.getElementById(book._id);
       Fancybox.show([{ src: '#modal', type: 'inline' }], fancyBoxOptions);
       // find Fancybox-close-btn
       const facyCloseBtn = document.querySelector('.f-button.is-close-btn');
       // find modal close btn
       const modalCloseBtn = document.querySelector('.pop-up__btn-close');
 
-      // modalElement.style.display = 'block';
-      //   modalElement.addEventListener('click', event => {
-      //     if (
-      //       event.target === modalElement ||
-      //       event.target.classList.contains('pop-up__btn-close')
-      //     ) {
-      //       modalElement.style.display = 'none';
-      //       modalElement.remove();
-      //     }
-      //   });
-      // })
-      // .catch(error => {
-      //   console.error(error);
+      // adding a description if there is none
+      let bookDescription = document.querySelector('.book__description').textContent;
+      
+      if (bookDescription.trim() === '') {
+        bookDescription = 'There is currently no description available for this book';
+
+        const bookListEl = document.querySelector('.book__list');
+        const descriptionEl = document.createElement('p');
+        descriptionEl.classList.add('book__description');
+        descriptionEl.textContent = bookDescription;
+        bookListEl.insertAdjacentElement('beforebegin', descriptionEl);
+
+        return
+      };
     });
-  }
+  };
+  
   return;
 }
+
 // funcybox custom close button
 function closeModal() {
   const modalCloseBtn = document.querySelector('.pop-up__btn-close');
   modalCloseBtn.addEventListener('click', e => {
     if (e.target.localName === 'use' || e.target.localName === 'svg') {
-      console.log('llo');
 
       Fancybox.close();
-
     }
   });
 }
