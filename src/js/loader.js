@@ -3,7 +3,7 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio';
 showLoadingIndicator();
 
 window.onload = function() {
-  hideLoadingIndicator();
+       Loading.remove();
 };
 
 function showLoadingIndicator() {
@@ -13,8 +13,4 @@ function showLoadingIndicator() {
             backgroundColor: 'rgba(17, 17, 17, 0.6)',
             svgColor: '#4f2ee8',
         })
-}
-
-function hideLoadingIndicator() {
-  Loading.remove();
 }
