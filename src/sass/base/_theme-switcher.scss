@@ -35,3 +35,29 @@
 // .dark-theme .(class-current-category) {
 //   color: $yellow-accent-color;
 //}
+.dark-theme {
+  & .book__description {
+    color: #ffffff;
+  }
+
+  & .modal__pop-up {
+    background: $body-bg-color-dark;
+  }
+
+  & .book__title,
+  .pop-up__btn-add {
+    color: #fff;
+  }
+
+  & .modal__pop-up {
+    border-color: white;
+  }
+
+  & .buy-links__icon.amazon {
+    filter: grayscale(100%) invert(1);
+  }
+
+  & .btn-close-icon {
+    stroke: white;
+  }
+}

@@ -12,17 +12,17 @@ fetchAndRenderBooks();
 
 let btnAllListener = document.querySelector(".gallery__list");
 
-// Listenr for btn and gallery to open modal window
-btnAllListener.addEventListener("click", (event) => {
-	if (event.target.localName === "button") {
-		varWithCurrentCategoryValue = event.target.getAttribute('data-list-name');
-		addGalleryMarkupAndChangeFilter(event);
-		// backToTop();
-	} else {
-		// Тут потрібно визивати модалку!!
-		console.log(event.target);
-	}
-})
+// // Listenr for btn and gallery to open modal window
+// btnAllListener.addEventListener("click", (event) => {
+// 	if (event.target.localName === "button") {
+// 		varWithCurrentCategoryValue = event.target.getAttribute('data-list-name');
+// 		addGalleryMarkupAndChangeFilter(event);
+// 		// backToTop();
+// 	} else {
+// 		// Тут потрібно визивати модалку!!
+// 		console.log(event.target);
+// 	}
+// })
 
 // Initialize bookApi 
 const bookApi = new BookAPI();
@@ -86,8 +86,8 @@ const fetchToApiUseCatagory = (value) => {
 	galleryTitle.innerHTML = value;
 
 	bookApi.getSelectedCategoryBooks().then(data => {
-		let galleryItemElems = data.data.map(({ book_image, title, author}) => {
-			return createBookCard({ book_image: book_image, title: title, author: author });
+		let galleryItemElems = data.data.map((e) => {
+			return createBookCard(e);
 		}).join("");
 		galleryListEl.innerHTML = "";
 		galleryListEl.insertAdjacentHTML("beforeend", galleryItemElems);
