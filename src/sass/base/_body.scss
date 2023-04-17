@@ -29,3 +29,6 @@ body {
     // transition: all $animation-flow;
 
 }
+body.modal-open {
+  overflow: hidden;
+}
