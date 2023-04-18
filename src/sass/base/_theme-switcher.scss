@@ -29,8 +29,7 @@
 }
 
 .dark-theme .filter__list::-webkit-scrollbar-thumb {
-  border: 12px solid$scrollbar-color-dark;
-  // background: $scrollbar-color-dark
+  border: 12px solid $scrollbar-color-dark;
 }
 
 // .dark-theme .(class-current-category) {
@@ -61,4 +60,28 @@
   & .btn-close-icon {
     stroke: white;
   }
+}
+
+.dark-theme {
+  & .nav__link {
+    color: white;
+  }
+  & .header__link-icon {
+    fill: white;
+  }
+  & .header__singup-btn {
+    color: white;
+    &:hover {
+      color: black;
+    }
+  }
+
+  & .header__mobile-menu {
+    stroke: white;
+       &:hover {
+        stroke: $blue-accent-color;
+    }
+   
+  }
+
 }
