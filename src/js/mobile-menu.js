@@ -1,3 +1,7 @@
+import mobToggleIcon from '../images/svg-sprite.svg'
+
+console.log(mobToggleIcon)
+
 export function MobileMenu() {
   const mobileMenu = document.querySelector('.js-menu-container');
   const openMenuBtn = document.querySelector('.js-open-menu');
@@ -9,11 +13,11 @@ export function MobileMenu() {
     mobileMenu.classList.toggle('is-open');
 
     if (isMenuOpen) {
-      menuIcon.setAttribute('href', './images/svg-sprite.svg#ham-menu-icon');
-      document.body.classList.remove('no-scroll'); // дозволяємо прокручування
+      menuIcon.setAttribute('href', `${mobToggleIcon}#ham-menu-icon`);
+      document.body.classList.remove('no-scroll');
     } else {
-      menuIcon.setAttribute('href', './images/svg-sprite.svg#x-close-icon');
-      document.body.classList.add('no-scroll'); // блокуємо прокручування
+      menuIcon.setAttribute('href', `${mobToggleIcon}#x-close-icon`);
+      document.body.classList.add('no-scroll');
     }
   };
 
@@ -24,8 +28,8 @@ export function MobileMenu() {
     if (!e.matches) return;
     mobileMenu.classList.remove('is-open');
     openMenuBtn.setAttribute('aria-expanded', false);
-    menuIcon.setAttribute('href', './images/svg-sprite.svg#ham-menu-icon');
-    document.body.classList.remove('no-scroll'); // дозволяємо прокручування
+    menuIcon.setAttribute('href', `${mobToggleIcon}#ham-menu-icon`);
+    document.body.classList.remove('no-scroll');
   };
   mediaQuery.addListener(handleOrientationChange);
 

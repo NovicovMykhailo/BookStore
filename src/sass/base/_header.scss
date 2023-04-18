@@ -11,15 +11,15 @@ header {
   border-radius: 0px 0px 8px 8px;
 }
 
-.header__mobile-menu{
+.header__mobile-menu {
   stroke: $main-text-color;
 }
 .header__mobile-menu:hover {
   stroke: $blue-accent-color;
 }
 .header__link-icon {
-stroke: currentColor;
-stroke-width: 2%;
+  stroke: currentColor;
+  stroke-width: 2%;
 }
 
 .menu-toggle {
@@ -46,22 +46,19 @@ stroke-width: 2%;
 .header__singin-btn {
   display: none;
   @media screen and (min-width: $tablet) {
-    cursor:pointer;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: 0;
 
     min-width: 184px;
-    min-height: 45px;
-    padding: 0 11px;
+
+    padding: 3px 7px;
     margin-left: 24px;
 
-    font-weight: 700;
+    text-transform: none;
     font-size: 22px;
     line-height: 29px;
 
     letter-spacing: -0.02em;
-    font-style: normal;
 
     color: $white-text-color;
 
@@ -70,6 +67,7 @@ stroke-width: 2%;
     border-radius: 18px;
   }
 }
+
 .header__singin-icon {
   margin-right: 9px;
   width: 37px;
@@ -92,18 +90,17 @@ stroke-width: 2%;
   @media screen and (min-width: $tablet) {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 
     min-width: 184px;
-    min-height: 48px;
-    padding: 0 14px;
+
+    padding: 13px 13px;
     margin-left: 24px;
 
-    font-style: normal;
-
+    text-transform: none;
+    font-weight: 500;
     font-size: 14px;
     line-height: 18px;
-    /* identical to box height, or 129% */
+    // /* identical to box height, or 129% */
 
     letter-spacing: -0.04em;
 
@@ -113,6 +110,30 @@ stroke-width: 2%;
     border: 1.5px solid $main-text-color;
     border-radius: 18px;
   }
+}
+
+.header__singup-btn-mob-menu {
+  justify-content: space-between;
+
+  max-width: 184px;
+
+  padding: 13px 13px;
+  margin-top: 104px;
+  margin-left: 20px;
+
+  text-transform: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  // /* identical to box height, or 129% */
+
+  letter-spacing: -0.04em;
+
+  color: $white-text-color;
+
+  background: $blue-accent-color;
+  border: 1.5px solid $main-text-color;
+  border-radius: 18px;
 }
 .header__singup-icon {
   stroke: $yellow-accent-color;
@@ -149,7 +170,7 @@ stroke-width: 2%;
 
   transform: translateX(100%);
   // transition: transform 250ms ease-in-out;
-transition: all $animation-flow;
+  transition: all $animation-flow;
   // transition-property: transform, opacity;
   // transition-duration: 350ms;
   // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -162,21 +183,19 @@ transition: all $animation-flow;
 }
 
 .mob-menu__Log-out-btn {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
   gap: 4px;
   max-width: fit-content;
-  min-height: 48px;
+  //   min-height: 48px;
+  padding: 13px 17px;
 
   margin-top: auto;
   margin-bottom: 20px;
   margin-left: 20px;
 
+  text-transform: none;
   font-size: 14px;
   line-height: 18px;
-  /* identical to box height, or 129% */
+  //   /* identical to box height, or 129% */
 
   letter-spacing: -0.04em;
 
