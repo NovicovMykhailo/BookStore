@@ -5,7 +5,9 @@ import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword
 } from "firebase/auth";
-import { getDatabase , ref, set, onValue } from "firebase/database";
+import { getDatabase, ref, set, onValue } from "firebase/database";
+// firestore
+import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -26,7 +28,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 const auth = getAuth();
 
-const email = "goit@gmail.com";
+const email = "firesadsad22@gmail.com";
 const password = "1qaz2wsx";
 
 
@@ -38,9 +40,8 @@ const loginEmailPassword = async () => {
 	try {
 		const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
 		console.log(userCredential);
-		console.log("It`s work:" + userCredential.user.email);	
-		writeUserData(userCredential.user.uid, "Test", userCredential.user.email, "Hello I work and change", "id45985bookOne");
-		readDatabase(userCredential.user.uid);
+		console.log("It`s work:" + userCredential.user.email);
+		// writetoDB();
 	} catch (error) {
 		console.log(error);
 	}
@@ -53,44 +54,108 @@ const createAccount = async () => {
 	
 	try {
 		const userCredential = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword);
-		console.log(userCredential.user);	
+		console.log(userCredential.user.uid);
+		writetoDB(userCredential.user.uid);
 	} catch (error) {
 		console.log(error);
 	}
 }
 // createAccount();
-loginEmailPassword();
+
+// loginEmailPassword();
+// firestore
+
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(firebaseApp);
+
+import { collection, addDoc, getDocs, doc, getDoc,query, where, orderBy, limit } from "firebase/firestore"; 
+
+const writetoDB = (userId) => {
+	try {
+  const docRef = addDoc(collection(db, "users"), {
+    first: "Mykola",
+    last: "Hulk",
+	  born: 2001,
+	 userIdNum: userId
+  });
+  console.log("Document written with ID: ", docRef.id);
+} catch (e) {
+  console.error("Error adding document: ", e);
+}
+}
+
+function readData (params) {
+
+	// const q = query(collection(db, "users"), where("capital", "==", true));
+	const q = query(collection(db, "users"), where("userIdNum", "==", "zRrq5yaA6uVILi87Jtd7sC4T6s52"));
+	const querySnapshot = getDocs(q);
+	console.log(querySnapshot);
+
+		// const querySnapshot = getDocs(collection(db, "users"), where("userIdNum", "===", "uYmsI9n9frVa1kuTEmHS9nrJltl2"));
+	querySnapshot.then(data => {
+		data.forEach((doc) => {
+		console.log(doc.data());
+	})
+	})
+}
+readData();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // database
 
-const database = getDatabase();
+// const database = getDatabase();
 
 
-function writeUserData(userId, name, email, information, bookId) {
-	const db = getDatabase();
-	set(ref(db, 'users/' + userId), {
-		username: name,
-		email: email,
-		interistingInformation: information,
-		bookIdDB: bookId
-	});
-}
+// function writeUserData(userId, name, email, information, bookId) {
+// 	const db = getDatabase();
+// 	set(ref(db, 'users/' + userId), {
+// 		username: name,
+// 		email: email,
+// 		interistingInformation: information,
+// 		bookIdDB: bookId
+// 	});
+// }
 
-import { getDatabase, ref, child, get } from "firebase/database";
+// import { getDatabase, ref, child, get } from "firebase/database";
 
-const dbRef = ref(getDatabase());
+// const dbRef = ref(getDatabase());
 
-function readDatabase(userId) {
-	get(child(dbRef, `users/${userId}`)).then((snapshot) => {
-	if (snapshot.exists()) {
-		// console.log(snapshot.val());
-		console.log("Read");
-		console.log(snapshot.val().bookIdDB);
-	} else {
-		console.log("No data available");
-	}
-}).catch((error) => {
-	console.error(error);
-});
-}
+// function readDatabase(userId) {
+// 	get(child(dbRef, `users/${userId}`)).then((snapshot) => {
+// 	if (snapshot.exists()) {
+// 		// console.log(snapshot.val());
+// 		// console.log("Read");
+// 		console.log(snapshot.val().bookIdDB);
+// 	} else {
+// 		console.log("No data available");
+// 	}
+// }).catch((error) => {
+// 	console.error(error);
+// });
+// }
+
+// loginEmailPasswordWrite();
+// loginEmailPasswordRead();
