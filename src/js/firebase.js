@@ -1,4 +1,5 @@
 // Import the functions you need from the SDKs you need
+import { all } from "axios";
 import { initializeApp } from "firebase/app";
 import {
 	getAuth,
@@ -7,7 +8,7 @@ import {
 } from "firebase/auth";
 import { getDatabase, ref, set, onValue } from "firebase/database";
 // firestore
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, getDoc,query, where, orderBy, limit, arrayUnion, arrayRemove } from "firebase/firestore"; 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -25,67 +26,80 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
-
-const auth = getAuth();
-
-const email = "firesadsad22@gmail.com";
-const password = "1qaz2wsx";
-
-
-const loginEmailPassword = async () => {
-	const loginEmail = email;
-	const loginPassword = password;
-
-	
-	try {
-		const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-		console.log(userCredential);
-		console.log("It`s work:" + userCredential.user.email);
-		// writetoDB();
-	} catch (error) {
-		console.log(error);
-	}
-}
-
-const createAccount = async () => {
-	const loginEmail = email;
-	const loginPassword = password;
-
-	
-	try {
-		const userCredential = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword);
-		console.log(userCredential.user.uid);
-		writetoDB(userCredential.user.uid);
-	} catch (error) {
-		console.log(error);
-	}
-}
-// createAccount();
-
-// loginEmailPassword();
-// firestore
-
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(firebaseApp);
+const auth = getAuth();
 
-import { collection, addDoc, getDocs, doc, getDoc,query, where, orderBy, limit } from "firebase/firestore"; 
+const signInFormEl = document.querySelector(".sigh-in-form");
+const inputNameEl = document.querySelector(".input-name");
+const labelNameEl = document.querySelector(".form-label-name");
 
-const writetoDB = (userId) => {
+const inputEmailEl = document.querySelector(".input-email");
+const inputPasswordEl = document.querySelector(".input-password");
+
+signInFormEl.addEventListener("submit", (event) => {
+	event.preventDefault();
+
+	if (inputEmailEl.value.trim() === "" || inputPasswordEl.value.trim() === "") {
+		return console.log("Use all fields");
+	}
+	// Checking which form we use
+	if (labelNameEl.style.display === "none") {
+		loginEmailPassword(inputEmailEl.value, inputPasswordEl.value)
+		return console.log("Sign in!!!");
+	}
+	// Check for empty fields
+	if (inputNameEl.value.trim() === "" || inputEmailEl.value.trim() === "" || inputPasswordEl.value.trim() === "") {
+		return console.log("Use all fields");
+	}
+	createAccount(inputNameEl.value, inputEmailEl.value, inputPasswordEl.value);
+})
+
+const createAccount = async (name, email, password) => {
 	try {
-  const docRef = addDoc(collection(db, "users"), {
-    first: "Mykola",
-    last: "Hulk",
-	  born: 2001,
-	 userIdNum: userId
-  });
-  console.log("Document written with ID: ", docRef.id);
-} catch (e) {
-  console.error("Error adding document: ", e);
+		const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+		writetoDB(name, email, userCredential.user.uid);
+	} catch (error) {
+		if (error.message === "Firebase: Error (auth/email-already-in-use).") {
+			// Display email fail
+			return console.log("Ця адреса вже існує");
+		}
+		console.log(error);
+	}
 }
+
+const loginEmailPassword = async (email, password) => {
+	try {
+		const userCredential = await signInWithEmailAndPassword(auth, email, password);
+		console.log("It`s work:" + userCredential.user.uid);
+	} catch (error) {
+		if (error.message === "Firebase: Error (auth/wrong-password).") {
+			// Display email fail
+			return console.log("НЕВІРНИЙ ПАРОЛЬ");
+		}
+		if (error.message === "Firebase: Error (auth/user-not-found).") {
+			// Display email fail
+			return console.log("Ви ще не зареєструвались");
+		}
+		console.log(error);
+	}
+}
+
+const writetoDB = (name, email, userId) => {
+	try {
+		const docRef = addDoc(collection(db, "users"), {
+		name: name,
+		email: email,
+		userIdNum: userId,
+		booksId: []
+		});
+		console.log("Document written with ID: ", docRef.id);
+	} catch (e) {
+		console.error("Error adding document: ", e);
+	}
 }
 
 function readData (params) {
-
 	// const q = query(collection(db, "users"), where("capital", "==", true));
 	const q = query(collection(db, "users"), where("userIdNum", "==", "zRrq5yaA6uVILi87Jtd7sC4T6s52"));
 	const querySnapshot = getDocs(q);
@@ -98,64 +112,32 @@ function readData (params) {
 	})
 	})
 }
-readData();
 
 
+function findUserAndWriteBook() {
+	const userWithId = query(collection(db, "users"), where("userIdNum", "==", "qYLPbWN7oeVXUpb30olg4r7BEas2"));
+	
+	const userData = getDocs(userWithId);
+	userData.then(data => {
+		data.forEach((doc) => {
+			console.log(doc.data());
+			console.log(doc.id);
+			testWriteArray(doc.id, "work");
+		})
+	})
+}
 
+findUserAndWriteBook();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// database
-
-// const database = getDatabase();
-
-
-// function writeUserData(userId, name, email, information, bookId) {
-// 	const db = getDatabase();
-// 	set(ref(db, 'users/' + userId), {
-// 		username: name,
-// 		email: email,
-// 		interistingInformation: information,
-// 		bookIdDB: bookId
-// 	});
-// }
-
-// import { getDatabase, ref, child, get } from "firebase/database";
-
-// const dbRef = ref(getDatabase());
-
-// function readDatabase(userId) {
-// 	get(child(dbRef, `users/${userId}`)).then((snapshot) => {
-// 	if (snapshot.exists()) {
-// 		// console.log(snapshot.val());
-// 		// console.log("Read");
-// 		console.log(snapshot.val().bookIdDB);
-// 	} else {
-// 		console.log("No data available");
-// 	}
-// }).catch((error) => {
-// 	console.error(error);
-// });
-// }
-
-// loginEmailPasswordWrite();
-// loginEmailPasswordRead();
+function testWriteArray(userIdInBase, bookId) {
+	console.log(userIdInBase);
+	const userInBaseWithId = doc(db, "users", userIdInBase);
+	
+	try {
+		updateDoc(userInBaseWithId, {
+		booksId: arrayRemove(all)
+		})
+	} catch (e) {
+		console.error("Error adding document: ", e);
+	}
+}
