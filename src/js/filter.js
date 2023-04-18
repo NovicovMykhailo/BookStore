@@ -57,8 +57,8 @@ fetchCategories();
 // Create request and add filter markup <= need adding to local and if function
 
 function fetchCategories() {
-  if ('Categories-List' in localStorage) {
-    let response = localStorage.getItem('Categories-List');
+  if ('Categories-List' in sessionStorage) {
+    let response = sessionStorage.getItem('Categories-List');
     const filterMarkup = JSON.parse(response)
       .map(value => {
         return `<li class="filter__item" data-mark-active="${value.list_name}">${value.list_name}</li>`;
@@ -68,7 +68,7 @@ function fetchCategories() {
     return;
   } else {
     bookApi.getBooksCategoriesList().then(data => {
-      localStorage.setItem('Categories-List', JSON.stringify(data.data));
+      sessionStorage.setItem('Categories-List', JSON.stringify(data.data));
       const filterMarkup = data.data
         .map(value => {
           return `<li class="filter__item" data-mark-active="${value.list_name}">${value.list_name}</li>`;

@@ -7,8 +7,8 @@ import AOS from 'aos'; //animation lib
 AOS.init(); //animation lib init
 
 // window.addEventListener('beforeunload', () => {
-//   if ('topBooks' in localStorage) {
-//     localStorage.removeItem('topBooks');
+//   if ('topBooks' in sessionStorage) {
+//     sessionStorage.removeItem('topBooks');
 //   }
 // });
 
@@ -74,9 +74,9 @@ export function createMarcup(obj) {
 const bookApi = new BookAPI();
 
 export async function fetchAndRenderBooks() {
-  if ('topBooks' in localStorage) {
+  if ('topBooks' in sessionStorage) {
     // Block.standard('.gallery_container', spinnerOptions);
-    let response = localStorage.getItem('topBooks');
+    let response = sessionStorage.getItem('topBooks');
     createMainUl(JSON.parse(response));
     AOS.refresh();
     return;
@@ -86,7 +86,7 @@ export async function fetchAndRenderBooks() {
       const response = await bookApi.getTopBooks();
       createMainUl(response.data);
       AOS.refresh();
-      localStorage.setItem('topBooks', JSON.stringify(response.data));
+      sessionStorage.setItem('topBooks', JSON.stringify(response.data));
       Block.remove('.gallery_container');
     } catch (error) {
       Notify.failure('Oops somthing went wrong', notifyOptions);
