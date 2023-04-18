@@ -1,60 +1,60 @@
 .filter {
-	margin-bottom: 40px;
+  margin-bottom: 40px;
 
-	@media screen and (min-width: $tablet) {
-		margin-top: 0px;
-		width: 337px;
-		height: 472px;
-	}
+  @media screen and (min-width: $tablet) {
+    margin-top: 0px;
+    width: 337px;
+    height: 472px;
+  }
 }
 
 .filter__list {
-	max-height: 228px;
-	width: 335px;
-	overflow: scroll;
-	@media screen and (min-width: $tablet) {
-		max-height: 472px;
-	}
-	@media screen and (min-width: $tablet) {
-		width: 356px;
-	}
+  max-height: 228px;
 
-	&::-webkit-scrollbar {
-		width: 8px;
-	}
+  overflow: scroll;
+  @media screen and (min-width: $tablet) {
+    width: 335px;
+    max-height: 472px;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 356px;
+  }
 
-	&::-webkit-scrollbar-thumb {
-		width: 8px;
-		height: 114px;
-		border-radius: 12px;
-		border: 12px solid $scrollbar-color-light;
-	}
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 8px;
+    height: 114px;
+    border-radius: 12px;
+    border: 12px solid $scrollbar-color-light;
+  }
 }
 
-
 .filter__item {
-	padding-bottom: 24px;
-	padding-right: 20px;
+  padding-bottom: 24px;
+  padding-right: 20px;
 
-	font-family: 'DMSans';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 1.12;
+  font-family: 'DMSans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.12;
 
-	letter-spacing: -0.02em;
+  letter-spacing: -0.02em;
 
-	color: $grey-text-color;
+  color: $grey-text-color;
 
-	@media screen and (min-width: $tablet) {
-		font-size: 18px;
-		line-height: 1.33;
-	}
+  @media screen and (min-width: $tablet) {
+    font-size: 18px;
+    line-height: 1.33;
+  }
 }
 
 .filter__item--active {
-	font-weight: 700;
-	text-transform: uppercase;
+  font-weight: 700;
+  text-transform: uppercase;
 
-	color: $blue-accent-color;
+  color: $blue-accent-color;
 }

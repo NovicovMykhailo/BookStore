@@ -3,8 +3,9 @@ export function createBookCard(book, delay) {
   return `<li class="book-card" data-aos="flip-left" data-aos-delay="${delay}">
     <a href="#" class="book-card__link">
     <div class="book-card__thumb">
-    <img class="book-card__image" src="${book_image}" alt="${author} ${title}" loading="lazy" data-id="${_id}">
+    <img class="book-card__image" src="${book_image}" alt="${author} ${title}" loading="lazy">
     <p class="book-card__notification">Quick view</p>
+    <p class="book-card__id visually-hidden">${_id}</p>
     </div>
     <div class="book-card__info">
     <p class="info-item__title">${title}</p>
