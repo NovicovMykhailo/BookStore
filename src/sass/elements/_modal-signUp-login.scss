@@ -48,6 +48,7 @@
 
 .form-container {
   position: relative;
+  animation: all $animation-flow;
   margin: 0 auto;
   padding: 40px;
   border: 2px solid $main-text-color;

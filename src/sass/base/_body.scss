@@ -10,18 +10,18 @@ html {
 }
 
 body {
+	margin: 0 auto;
 	font-family: "DMSans", sans-serif;
-	// transition: all $animation-flow;
 
-	padding: 0 20px;
+	// padding: 0 20px;
 
-	@media screen and (min-width: $tablet) {
-		padding: 0 32px;
-	}
+	// @media screen and (min-width: $tablet) {
+	// 	padding: 0 32px;
+	// }
 
-	@media screen and (min-width: $desktop) {
-		padding: 0 24px;
-	}
+	// @media screen and (min-width: $desktop) {
+	// 	padding: 0 24px;
+	// }
 
 	background-color: $body-bg-color-light;
 	color: $main-text-color;

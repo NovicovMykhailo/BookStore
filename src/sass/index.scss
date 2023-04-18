@@ -8,12 +8,16 @@
 @import 'base/body';
 @import 'base/container';
 @import 'elements/top-book';
-@import './base/support-ukraine';
-@import './base/swiper.scss';
-@import './base/animation';
+@import 'elements/support-ukr';
 
 // Import elements
 @import 'elements/filter';
 @import 'elements/book-card';
 @import 'base/theme-switcher';
+@import 'base/nav';
+@import 'base/header';
+@import 'elements/support-ukr';
 @import 'elements/modal-signUp-login';
+@import 'elements/modal-pop_up';
+@import 'elements/fancybox-styles';
+@import 'base/mob-menu-animation';

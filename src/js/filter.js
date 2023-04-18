@@ -3,13 +3,14 @@ import { BookAPI } from './book-api';
 import { createBookCard } from './book-card-template';
 import { colorLastWordInTitle } from './color-last-words';
 import { fetchAndRenderBooks } from './top-book';
+import { backToTop } from './scroll-top-btn';
 import { Block } from 'notiflix/build/notiflix-block-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import AOS from 'aos'; //animation lib
 AOS.init(); //animation lib init
 
 
-// import { backToTop } from "./scroll-top-btn";
+
 const spinnerOptions = {
   // backgroundColor: 'blur(50px)',
   backgroundColor: 'rgba(255, 255, 255, 0.4)',
@@ -35,7 +36,8 @@ btnAllListener.addEventListener('click', event => {
     varWithCurrentCategoryValue = event.target.getAttribute('data-list-name');
 
     addGalleryMarkupAndChangeFilter(event);
-    // backToTop();
+
+    backToTop(galleryTitle.offsetTop - 60);
   } else {
     // Тут потрібно визивати модалку!!
     // console.log(event.target);

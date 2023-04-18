@@ -1,0 +1,16 @@
+.fancybox__backdrop {
+  --fancybox-bg: rgba(17, 17, 17, 0.4);
+}
+
+.f-button.is-close-btn {
+  display: none;
+}
+
+.modal.fancybox__content {
+  padding: 0;
+  background-color: transparent;
+}
+
+#navbar {
+  margin-right: var(--fancybox-scrollbar-compensate, 0px);
+}

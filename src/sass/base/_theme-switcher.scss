@@ -29,10 +29,63 @@
 }
 
 .dark-theme .filter__list::-webkit-scrollbar-thumb {
-  border: 12px solid$scrollbar-color-dark;
-  // background: $scrollbar-color-dark
+  border: 12px solid $scrollbar-color-dark;
 }
 
 // .dark-theme .(class-current-category) {
 //   color: $yellow-accent-color;
 //}
+.dark-theme {
+  & .book__description {
+    color: #ffffff;
+  }
+
+  & .modal__pop-up {
+    background: $body-bg-color-dark;
+  }
+
+  & .book__title,
+  .pop-up__btn-add {
+    color: #fff;
+  }
+
+  & .modal__pop-up {
+    border-color: white;
+  }
+
+  & .buy-links__icon.amazon {
+    filter: grayscale(100%) invert(1);
+  }
+
+  & .btn-close-icon {
+    stroke: white;
+  }
+}
+
+.dark-theme {
+  & .nav__link {
+    color: white;
+  }
+  & .header__link-icon {
+    fill: white;
+  }
+  & .header__singup-btn {
+    color: white;
+    &:hover {
+      color: black;
+    }
+  }
+  & .mob-menu__Log-out-btn {
+    color: black;
+    &:hover {
+      color: white;
+    }
+  }
+  & .header__mobile-menu {
+    stroke: white;
+    &:hover {
+      stroke: $blue-accent-color;
+    }
+    // & .header__singup-btn-mob-menu{color: white;}
+  }
+}

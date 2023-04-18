@@ -1,99 +1,108 @@
 @import 'visually-hidden';
 
 header {
-	height: 72px;
-	font-weight: 500;
-	display: flex;
-	align-items: center;
-	padding: 0 32px;
-	background: #ffffff;
-	border: $header-border;
-	border-radius: 0px 0px 8px 8px;
+  height: 72px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  background: #ffffff;
+  border: $header-border;
+  border-radius: 0px 0px 8px 8px;
+  @media screen and (min-width: $tablet) {
+    padding: 0 32px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding: 0 24px;
+  }
 }
 
 .logo {
-	display: flex;
-	gap: 8px;
-	align-items: center;
-	justify-content: center;
-	height: 24px;
-	transition: all $animation-flow;
-	z-index: 10;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  transition: all $animation-flow;
+  z-index: 10;
 }
 
 .logo-text {
-	fill: $main-text-color;
-	transition: all $animation-flow;
+  fill: $main-text-color;
+  transition: all $animation-flow;
 }
 
 .logo:hover {
-	transform: scale(1.2);
-	// & .logo-text{
-	//   fill: $grey-text-color
-	// }
+  transform: scale(1.2);
+  // & .logo-text{
+  //   fill: $grey-text-color
+  // }
 }
 
-
 nav {
-	display: flex;
-	gap: 16px;
-	align-items: center;
-	font-size: 14px;
-	line-height: 18px;
-	font-weight: 500;
-	font-style: normal;
-	margin-left: 99px;
-	text-transform: uppercase;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  font-style: normal;
+  margin-left: 99px;
+  text-transform: uppercase;
 }
 
 .main-page {
-	@media screen and (min-width: $tablet) and (max-width: calc($desktop - 1px)) {
-		display: flex;
-		flex-direction: column;
-	}
+  @media screen and (min-width: $tablet) and (max-width: calc($desktop - 1px)) {
+    display: flex;
+    flex-direction: column;
+  }
 
-	@media screen and (min-width: $desktop) {
-		margin-left: auto;
-		margin-right: auto;
-		display: flex;
-		margin-top: 40px;
-		width: calc($desktop - 48px);
-	}
+  @media screen and (min-width: $desktop) {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    margin-top: 40px;
+  }
 }
 
 .side-blocks {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	margin-top: 40px;
 
-	display: flex;
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 100px;
+    width: calc($tablet - 62px);
 
-	@media screen and (max-width: calc($tablet - 1px)) {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
 
-	@media screen and (min-width: $tablet) {
-		margin-bottom: 100px;
-		margin-left: auto;
-		margin-right: auto;
-		width: calc($tablet - 62px);
-
-		display: flex;
-		flex-wrap: nowrap;
-		gap: 32px;
-	}
-
-	@media screen and (min-width: $desktop) {
-		flex-direction: column;
-		max-width: 356px;
-		margin-left: 0;
-		margin-right: 0;
-		margin-top: 0;
-	}
+  @media screen and (min-width: $desktop) {
+    flex-direction: column;
+    max-width: 356px;
+    gap: 0;
+	margin-right: 40px;
+    margin-top: 0;
+  }
 }
 
 .book-cards {
-	display: flex;
-	justify-content: center;
-	gap: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+@media Screen and (min-width: 335px) {
+  .book-card__title {
+    width: 335px;
+  }
+  .gallery__list {
+    width: 335px;
+  }
+
+  .book-card__image {
+    height: 485px;
+  }
 }
