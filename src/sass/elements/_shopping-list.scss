@@ -1,12 +1,21 @@
 
-.shopping-list__container {
-  @media screen and (min-width: $mobile) {
+.support-ukraine.supports-in-shopping{
+  display:none;
+  @media screen and (min-width: $desktop){
     display: block;
-    // padding: 0 20px;
-    margin-left: auto;
-    margin-right: auto;
-    // max-width: 480px;
   }
+}
+
+
+.shopping-list__container {
+
+
+    // display: block;
+    // padding: 0 20px;
+    // margin-left: auto;
+    // margin-right: auto;
+    // max-width: 480px;
+
 
   @media screen and (min-width: $tablet) {
     // max-width: 768px;
@@ -42,10 +51,7 @@
 
 
 .shopping-list__page-empty {
-  @media screen and (min-width: $mobile) {
     background-image: url('../images/shopping-list-empty-bg/shoping-list-empty-mobile_sm.png');
-    
-
     width: 265px;
     height: 198px;
 
@@ -54,7 +60,7 @@
       (min-resolution: 2dppx) {
       background-image: url('../images/shopping-list-empty-bg/shoping-list-empty-mobile_sm-2x.png');
       background-size: contain;
-    }
+    
   }
 
   @media screen and (min-width: $tablet) {
@@ -86,10 +92,10 @@
   text-align: center;
 
   // ==== mobile
-  @media screen and (min-width: $mobile) {
+ 
     font-size: 14px;
     line-height: 1.29;
-  }
+
 
   @media screen and (min-width: $tablet) {
     font-size: 18px;
@@ -98,9 +104,9 @@
 }
 
 .empty-bookshelf {
-  @media screen and (min-width: $mobile) {
+ 
     width: 244px;
-  }
+ 
 
   @media screen and (min-width: $tablet) {
     width: 349px;
@@ -119,16 +125,16 @@
 
   list-style: none;
 
-  @media screen and (min-width: $mobile) {
+ 
     margin-bottom: 20px;
-  }
+ 
 
   @media screen and (min-width: $tablet) {
     margin-bottom: 40px;
   }
 }
 
-h1.shopping-list__title {
+.shopping-list__title {
   font-family: 'DMSans';
   font-style: normal;
   font-weight: 700;
@@ -138,13 +144,19 @@ h1.shopping-list__title {
 
   color: $main-text-color;
 
-  @media screen and (min-width: $mobile) {
+
     font-size: 32px;
     line-height: 1.19;
 
     margin-top: 40px;
     margin-bottom: 40px;
-  }
+.dark-theme &{
+  color: white ;
+}
+.shopping-list__blue-title{
+  color: $blue-accent-color;
+  
+}
 
   @media screen and (min-width: $tablet) {
     font-size: 48px;
@@ -173,10 +185,10 @@ h1.shopping-list__title {
   border-radius: 16px;
   background-color: #fff;
 
-  @media screen and (min-width: $mobile) {
+
     padding: 20px;
     min-width: 335px;
-  }
+  
 
   @media screen and (min-width: $tablet) {
     display: flex;
@@ -206,9 +218,9 @@ h1.shopping-list__title {
 .shopping-list__card-container {
   display: flex;
 
-  @media screen and (min-width: $mobile) {
+
     flex-direction: column;
-  }
+
 
   @media screen and (min-width: $tablet) {
     flex-direction: row;
@@ -225,10 +237,10 @@ h1.shopping-list__title {
 .shopping-list__image {
   border-radius: 8px;
 
-  @media screen and (min-width: $mobile) {
+
     width: 98;
     height: 139;
-  }
+
 
   @media screen and (min-width: $tablet) {
     width: 116;
@@ -255,9 +267,9 @@ h1.shopping-list__title {
 
   margin-bottom: 4px;
 
-  @media screen and (min-width: $mobile) {
+
     max-width: 144px;
-  }
+
 
   @media screen and (min-width: $tablet) {
     max-width: 100%;
@@ -275,9 +287,9 @@ h1.shopping-list__title {
 
   color: #b4afaf;
 
-  @media screen and (min-width: $mobile) {
+ 
     margin-bottom: 24px;
-  }
+
 
   @media screen and (min-width: $tablet) {
     margin-bottom: 14px;
@@ -287,9 +299,9 @@ h1.shopping-list__title {
 // .shopping-list__haed-part {
 //   display: flex;
 
-//   @media screen and (min-width: $mobile) {
+
 //     gap: 20px;
-//   }
+
 
 //   @media screen and (min-width: $tablet) {
 //     gap: 24px;
@@ -313,13 +325,13 @@ h1.shopping-list__title {
 .btn {
   position: absolute;
 
-  @media screen and (min-width: $mobile) {
+
     top: 14px;
     right: 14px;
 
     width: 28px;
     height: 28px;
-  }
+
 
   @media screen and (min-width: $tablet) {
     top: 24px;
@@ -360,12 +372,9 @@ h1.shopping-list__title {
   display: flex;
 
   align-items: center;
-
-  @media screen and (min-width: $mobile) {
     gap: 14px;
-
     max-width: 136px;
-  }
+
 
   @media screen and (min-width: $tablet) {
     gap: 16px;
@@ -403,10 +412,7 @@ h1.shopping-list__title {
   display: flex;
 
   justify-content: center;
-
-  @media screen and (min-width: $mobile) {
     gap: 14px;
-  }
 
   @media screen and (min-width: $tablet) {
     gap: 24px;
@@ -414,11 +420,9 @@ h1.shopping-list__title {
 }
 
 .btn-pagination__arrow-list {
-  display: flex;
-
-  @media screen and (min-width: $mobile) {
+  display: flex ;
     gap: 5px;
-  }
+
 
   @media screen and (min-width: $tablet) {
     gap: 8px;
@@ -427,10 +431,8 @@ h1.shopping-list__title {
 
 .btn-pagination__numeric-list {
   display: flex;
-
-  @media screen and (min-width: $mobile) {
     gap: 8px;
-  }
+
 
   @media screen and (min-width: $tablet) {
     gap: 10px;
@@ -442,10 +444,10 @@ h1.shopping-list__title {
 .btn-pagination__numeric,
 .btn-pagination__arrow-right,
 .btn-pagination__double-arrow-right {
-  @media screen and (min-width: $mobile) {
+
     width: 38px;
     height: 38px;
-  }
+
 
   @media screen and (min-width: $tablet) {
     width: 44px;
