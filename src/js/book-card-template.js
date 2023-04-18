@@ -1,6 +1,6 @@
-export function createBookCard(book) {
+export function createBookCard(book, delay) {
   const { _id, book_image, title, author } = book;
-  return `<li class="book-card">
+  return `<li class="book-card" data-aos="flip-left" data-aos-delay="${delay}">
     <a href="#" class="book-card__link">
     <div class="book-card__thumb">
     <img class="book-card__image" src="${book_image}" alt="${author} ${title}" loading="lazy">
