@@ -228,3 +228,14 @@ header {
     transform: translate3d(5px, 0, 0);
   }
 }
+.header__singup-btn-mob-menu:hover {
+  background-color: white;
+  color: black;
+
+  &:hover .header__singup-icon {
+    // width: 30px;
+    animation: bounceInLeft 900ms linear 800ms infinite;
+
+    stroke: blue;
+  }
+}
