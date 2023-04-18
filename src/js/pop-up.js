@@ -21,7 +21,7 @@ const fancyBoxOptions = {
       // Andrew Add end
     },
     close: () => {
-      setTimeout(deleteMarkup, 1000);
+      setTimeout(deleteMarkup, 500);
     },
   },
   autoFocus: false,

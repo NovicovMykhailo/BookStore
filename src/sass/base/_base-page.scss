@@ -5,10 +5,16 @@ header {
   font-weight: 500;
   display: flex;
   align-items: center;
-  padding: 0 32px;
+  padding: 0 20px;
   background: #ffffff;
   border: $header-border;
   border-radius: 0px 0px 8px 8px;
+  @media screen and (min-width: $tablet) {
+    padding: 0 32px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding: 0 24px;
+  }
 }
 
 .logo {
@@ -33,17 +39,17 @@ header {
   // }
 }
 
-// nav {
-//   display: flex;
-//   gap: 16px;
-//   align-items: center;
-//   font-size: 14px;
-//   line-height: 18px;
-//   font-weight: 500;
-//   font-style: normal;
-//   margin-left: 99px;
-//   text-transform: uppercase;
-// }
+nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  font-style: normal;
+  margin-left: 99px;
+  text-transform: uppercase;
+}
 
 .main-page {
   @media screen and (min-width: $tablet) and (max-width: calc($desktop - 1px)) {
@@ -56,28 +62,20 @@ header {
     margin-right: auto;
     display: flex;
     margin-top: 40px;
-    width: calc($desktop - 48px);
   }
 }
 
 .side-blocks {
-  margin-top: 40px;
-
-  display: flex;
-
-  @media screen and (max-width: calc($tablet - 1px)) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 40px;
 
   @media screen and (min-width: $tablet) {
     margin-bottom: 100px;
-    margin-left: auto;
-    margin-right: auto;
     width: calc($tablet - 62px);
 
-    display: flex;
+    flex-direction: row;
     flex-wrap: nowrap;
     gap: 32px;
   }
@@ -85,8 +83,8 @@ header {
   @media screen and (min-width: $desktop) {
     flex-direction: column;
     max-width: 356px;
-    margin-left: 0;
-    margin-right: 0;
+    gap: 0;
+	margin-right: 40px;
     margin-top: 0;
   }
 }
