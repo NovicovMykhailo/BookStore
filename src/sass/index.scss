@@ -15,9 +15,17 @@
 @import 'base/theme-switcher';
 @import 'base/nav';
 @import 'base/header';
+
+@import 'base/support-ukraine';
+// @import '../../node_modules/swiper/swiper.scss';
+@import '../../node_modules/swiper/modules/keyboard/keyboard.scss';
+@import '../../node_modules/swiper/modules/controller/controller.scss';
+@import '../../node_modules/swiper/modules/thumbs/thumbs.scss';
+@import '../../node_modules/swiper/modules/navigation/navigation.scss';
+@import '../../node_modules/swiper/modules/grid/grid.scss';
+@import 'base/swiper';
+
 @import 'elements/modal-signUp-login';
 @import 'elements/modal-pop_up';
 @import 'elements/fancybox-styles';
 @import 'base/mob-menu-animation';
-@import 'base/support-ukraine';
-@import 'base/swiper';
