@@ -1,4 +1,5 @@
 .support-ukraine {
+  display:none;
   width: 100%;
   max-height: 352px;
   padding-top: 24px;
@@ -87,6 +88,7 @@
 
 .company__img {
   height: 32px;
+  object-fit: contain;
   max-width: 150px;
 }
 
