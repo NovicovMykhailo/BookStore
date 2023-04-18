@@ -100,7 +100,6 @@ header {
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
-    // /* identical to box height, or 129% */
 
     letter-spacing: -0.04em;
 
@@ -109,6 +108,16 @@ header {
     background: $blue-accent-color;
     border: 1.5px solid $main-text-color;
     border-radius: 18px;
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+    &:hover .header__singup-icon {
+      width: 30px;
+      animation: bounceInLeft 600ms linear 800ms infinite;
+
+      stroke: blue;
+    }
   }
 }
 
@@ -125,7 +134,6 @@ header {
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
-  // /* identical to box height, or 129% */
 
   letter-spacing: -0.04em;
 
@@ -137,6 +145,7 @@ header {
 }
 .header__singup-icon {
   stroke: $yellow-accent-color;
+  position: relative;
 }
 
 //  ------- модалье вікно
@@ -169,11 +178,8 @@ header {
   z-index: 99;
 
   transform: translateX(100%);
-  // transition: transform 250ms ease-in-out;
+
   transition: all $animation-flow;
-  // transition-property: transform, opacity;
-  // transition-duration: 350ms;
-  // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .menu-container.is-open {
   opacity: 1;
@@ -203,4 +209,18 @@ header {
   background: $white-text-color;
   border: 1.5px solid $main-text-color;
   border-radius: 18px;
+}
+
+@keyframes bounceInLeft {
+  0% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  60% {
+    transform: translate3d(5px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(5px, 0, 0);
+  }
 }
