@@ -70,9 +70,18 @@
     fill: white;
   }
   & .header__singup-btn {
-    color:white }
+    color: white;
     &:hover {
       color: black;
     }
   }
 
+  & .header__mobile-menu {
+    stroke: white;
+       &:hover {
+        stroke: $blue-accent-color;
+    }
+   
+  }
+
+}
