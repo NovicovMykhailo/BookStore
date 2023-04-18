@@ -8,6 +8,7 @@ header {
   padding: 0 24px;
   background: $white-text-color;
   border: $header-border;
+  margin: 0 -20px;
   border-radius: 0px 0px 8px 8px;
 }
 
@@ -21,7 +22,7 @@ header {
 .header__link-icon {
   fill: $main-text-color;
   stroke-width: 0;
-} 
+}
 
 .menu-toggle {
   display: flex;
