@@ -96,3 +96,17 @@ header {
   justify-content: center;
   gap: 40px;
 }
+@media Screen and (min-width: 335px) {
+  .book-card__title {
+    width: 335px;
+  }
+  .gallery__list {
+    width: 335px;
+  }
+  .book-card__list {
+    height: 535px;
+  }
+  .book-card__image {
+    height: 485px;
+  }
+}
