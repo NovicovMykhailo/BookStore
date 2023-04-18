@@ -7,6 +7,7 @@ import './js/modal-signUp-login';
 import './js/mobile-menu';
 import './js/pop-up.js';
 import './js/loader.js';
-import './js/support-ukraine.js';
 import './js/swiper.js';
+import './js/support-ukraine.js';
+
 

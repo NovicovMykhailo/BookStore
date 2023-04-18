@@ -1,9 +1,9 @@
+// import Swiper from 'swiper';
+
 import Swiper, {
   Keyboard,
   Navigation,
-  Pagination,
   Scrollbar,
-  Keyboard,
   Grid,
   Zoom,
   Controller,
@@ -11,18 +11,25 @@ import Swiper, {
   Thumbs,
 } from 'swiper';
 
+// import Swiper from 'swiper/bundle';
+
 const swiper = new Swiper('.swiper', {
   modules: [
-    Navigation,
-    Pagination,
-    Scrollbar,
     Keyboard,
+    Navigation,
+    Scrollbar,
+
     Grid,
     Zoom,
     Controller,
+
     A11y,
     Thumbs,
   ],
+
+  // observer: true,
+  // observeParents: true,
+  // observeSlideChildren: true,
 
   loop: true,
   direction: 'vertical',
@@ -41,7 +48,7 @@ const swiper = new Swiper('.swiper', {
   slidesPerGroup: 1,
   spaceBetween: 20,
   speed: 250,
-  slidesPerView: 5,
+  slidesPerView: 6,
 });
 
 // breakpoints: {
