@@ -18,8 +18,8 @@ header {
   stroke: $blue-accent-color;
 }
 .header__link-icon {
-  stroke: currentColor;
-  stroke-width: 2%;
+  fill: $main-text-color;
+  stroke-width: 0;
 }
 
 .menu-toggle {
@@ -113,8 +113,8 @@ header {
       color: black;
     }
     &:hover .header__singup-icon {
-      width: 30px;
-      animation: bounceInLeft 600ms linear 800ms infinite;
+      // width: 30px;
+      animation: bounceInLeft 900ms linear 800ms infinite;
 
       stroke: blue;
     }
@@ -213,7 +213,7 @@ header {
 
 @keyframes bounceInLeft {
   0% {
-    transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-5px, 0, 0);
   }
 
   60% {

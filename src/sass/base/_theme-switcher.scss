@@ -30,7 +30,6 @@
 
 .dark-theme .filter__list::-webkit-scrollbar-thumb {
   border: 12px solid $scrollbar-color-dark;
-  // background: $scrollbar-color-dark
 }
 
 // .dark-theme .(class-current-category) {
@@ -62,3 +61,18 @@
     stroke: white;
   }
 }
+
+.dark-theme {
+  & .nav__link {
+    color: white;
+  }
+  & .header__link-icon {
+    fill: white;
+  }
+  & .header__singup-btn {
+    color:white }
+    &:hover {
+      color: black;
+    }
+  }
+
