@@ -1,4 +1,5 @@
 .filter {
+  width: 100%;
   margin-bottom: 40px;
 
   @media screen and (min-width: $tablet) {
@@ -6,18 +7,18 @@
     width: 337px;
     height: 472px;
   }
+  @media screen and (min-width: $desktop) {
+    width: 100%;
+	margin-bottom: 86px;
+  }
 }
 
 .filter__list {
   max-height: 228px;
-
+  width: 100%;
   overflow: scroll;
   @media screen and (min-width: $tablet) {
-    width: 335px;
     max-height: 472px;
-  }
-  @media screen and (min-width: $tablet) {
-    width: 356px;
   }
 
   &::-webkit-scrollbar {
@@ -45,6 +46,7 @@
   letter-spacing: -0.02em;
 
   color: $grey-text-color;
+  cursor: pointer;
 
   @media screen and (min-width: $tablet) {
     font-size: 18px;
