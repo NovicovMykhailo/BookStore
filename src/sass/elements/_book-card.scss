@@ -25,10 +25,12 @@
     display: flex;
     flex-wrap: wrap;
     gap: 25px;
+    row-gap: 40px;
   }
 
   @media screen and (min-width: $desktop) {
     gap: 24px;
+    row-gap: 40px;
   }
 }
 
