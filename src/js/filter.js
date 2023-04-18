@@ -9,10 +9,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import AOS from 'aos'; //animation lib
 AOS.init(); //animation lib init
 
-
-
 const spinnerOptions = {
-  // backgroundColor: 'blur(50px)',
   backgroundColor: 'rgba(255, 255, 255, 0.4)',
   svgColor: 'gray',
   svgSize: '100px',
@@ -72,17 +69,16 @@ filterListEl.addEventListener('click', event => {
   if (event.target.dataset.markActive !== 'All categories') {
     Block.standard('.gallery_container', spinnerOptions);
   }
-    if (
-      event.target.outerText.toLowerCase() ===
-      varWithCurrentCategoryValue.toLowerCase()
-    ) {
-      return;
-    }
+  if (
+    event.target.outerText.toLowerCase() ===
+    varWithCurrentCategoryValue.toLowerCase()
+  ) {
+    return;
+  }
 
-    varWithCurrentCategoryValue = event.target.outerText;
+  varWithCurrentCategoryValue = event.target.outerText;
 
-    addGalleryMarkupAndChangeFilter(event);
-  
+  addGalleryMarkupAndChangeFilter(event);
 });
 
 function addGalleryMarkupAndChangeFilter(event) {
@@ -109,26 +105,32 @@ function fetchToApiUseCatagory(value) {
     galleryListEl.innerHTML = '';
     fetchAndRenderBooks();
 
-
     return (galleryTitle.innerHTML = 'Best Sellers Books');
   }
 
   bookApi.category = value;
   galleryTitle.innerHTML = value;
 
-  return bookApi.getSelectedCategoryBooks().then(data => {
-    let delay = 0;
-    let galleryItemElems = data.data
-      .map(e => {
-        delay += 50;
-        return createBookCard(e, delay);
-      })
-      .join('');
+  return bookApi
+    .getSelectedCategoryBooks()
+    .then(data => {
+      let delay = 0;
+      let galleryItemElems = data.data
+        .map(e => {
+          delay += 50;
+          return createBookCard(e, delay);
+        })
+        .join('');
 
-    galleryListEl.innerHTML = '';
+      galleryListEl.innerHTML = '';
 
-    galleryListEl.insertAdjacentHTML('beforeend', galleryItemElems);
-    Block.remove('.gallery_container');
-  });
+      galleryListEl.insertAdjacentHTML('beforeend', galleryItemElems);
+      Block.remove('.gallery_container');
+    })
+    .catch(error => {
+      {
+        Notify.info(`oops we didn't find sutch category`, notifyOptions);
+      }
+    });
 }
-// console.log(window.querySelector('.Style-NotiflixBlockWrap-2'));
+
