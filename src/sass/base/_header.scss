@@ -139,11 +139,14 @@ header {
 
   letter-spacing: -0.04em;
 
-  color: $white-text-color;
+  color: white !important;
 
   background: $blue-accent-color;
   border: 1.5px solid $main-text-color;
   border-radius: 18px;
+  &:hover {
+    color: black !important;
+  }
 }
 .header__singup-icon {
   stroke: $yellow-accent-color;
@@ -228,3 +231,28 @@ header {
     transform: translate3d(5px, 0, 0);
   }
 }
+.header__singup-btn-mob-menu:hover {
+  background-color: white;
+  color: black;
+
+  &:hover .header__singup-icon {
+    // width: 30px;
+    animation: bounceInLeft 900ms linear 800ms infinite;
+
+    stroke: blue;
+  }
+}
+.mobile-inactive-link {
+  color: white;
+  & .header__link-icon {
+    fill: white;
+  }
+  
+  
+}
+.nav__link.mobile-inactive-link:hover {
+    color: black;
+      & .header__link-icon {
+    fill: black;
+  }
+  }

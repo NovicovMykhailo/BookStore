@@ -1,19 +1,25 @@
-const refs = {
-  openModalBtn: document.querySelector('.header__singup-btn'),
-  closeModalBtn: document.querySelector('[data-modal-close]'),
-  modal: document.querySelector('[data-modal]'),
-  formContainer: document.querySelector('.form-container'),
-  btnGrp: document.querySelectorAll('.btn-group'),
-  backdrop: document.querySelector('.modal__backdrop'),
-  nameForm: document.querySelector('.form-label-name'),
-  form: document.querySelector('.form-container > form'),
-  submitBtn: document.querySelector('.btn-signup'),
+function refsEl() {
+  return {
+    openModalBtn: document.querySelector('.header__singup-btn'),
+    closeModalBtn: document.querySelector('[data-modal-close]'),
+    modal: document.querySelector('[data-modal]'),
+    formContainer: document.querySelector('.form-container'),
+    btnGrp: document.querySelectorAll('.btn-group'),
+    backdrop: document.querySelector('.modal__backdrop'),
+    nameForm: document.querySelector('.form-label-name'),
+    form: document.querySelector('.form-container > form'),
+    submitBtn: document.querySelector('.btn-signup'),
+    mobileBtn: document.querySelector('.header__singup-btn-mob-menu'),
+  };
 };
 (() => {
+  let refs = refsEl()
   refs.openModalBtn.addEventListener('click', toggleModal);
   refs.closeModalBtn.addEventListener('click', toggleModal);
+  refs.mobileBtn.addEventListener('click', toggleModal);
 
   function toggleModal() {
+    const refs = refsEl();
     document.body.classList.toggle('modal-open');
     document.addEventListener('keydown', exitViaEsc);
 
@@ -31,6 +37,7 @@ const refs = {
 
 // sign-in fn
 function onClick(e) {
+  const refs = refsEl();
   let targetChoiceBtn = e.target.dataset.type;
 
   if (targetChoiceBtn !== 'sign-up') {
@@ -45,6 +52,7 @@ function onClick(e) {
 }
 
 function closeOnClick(e) {
+  const refs = refsEl();
   if (e.target.className === 'modal__backdrop') {
     refs.modal.classList.toggle('is-hidden');
     refs.formContainer.classList.toggle('is-hidden');
@@ -54,6 +62,7 @@ function closeOnClick(e) {
 }
 
 function exitViaEsc(e) {
+  const refs = refsEl();
   if (e.key === 'Escape') {
     refs.modal.classList.toggle('is-hidden');
     refs.formContainer.classList.toggle('is-hidden');
