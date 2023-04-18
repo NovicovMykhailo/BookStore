@@ -75,13 +75,16 @@
       color: black;
     }
   }
-
+  & .mob-menu__Log-out-btn {
+    color: black;
+    &:hover {
+      color: white;
+    }
+  }
   & .header__mobile-menu {
     stroke: white;
-       &:hover {
-        stroke: $blue-accent-color;
+    &:hover {
+      stroke: $blue-accent-color;
     }
-   
   }
-
 }

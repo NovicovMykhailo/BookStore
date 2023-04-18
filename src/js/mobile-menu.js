@@ -1,11 +1,11 @@
 import mobToggleIcon from '../images/svg-sprite.svg'
 
-console.log(mobToggleIcon)
 
 export function MobileMenu() {
   const mobileMenu = document.querySelector('.js-menu-container');
   const openMenuBtn = document.querySelector('.js-open-menu');
   const menuIcon = document.querySelector('#menu-icon');
+  const mobileBG = document.querySelector('.wrapper');
 
   const toggleMenu = () => {
     const isMenuOpen = mobileMenu.classList.contains('is-open');
@@ -15,9 +15,11 @@ export function MobileMenu() {
     if (isMenuOpen) {
       menuIcon.setAttribute('href', `${mobToggleIcon}#ham-menu-icon`);
       document.body.classList.remove('no-scroll');
+      mobileBG.classList.remove('.visually-hiddn')
     } else {
       menuIcon.setAttribute('href', `${mobToggleIcon}#x-close-icon`);
       document.body.classList.add('no-scroll');
+        mobileBG.classList.add('.visually-hiddn');
     }
   };
 
