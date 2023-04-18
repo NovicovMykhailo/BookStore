@@ -52,17 +52,33 @@ const galleryTitle = document.querySelector('.book-card__title');
 
 // Vars for datas
 let varWithCurrentCategoryValue = 'ALL CATEGORIES';
+fetchCategories();
 
-// Create request and add filter markup
-bookApi.getBooksCategoriesList().then(data => {
-  const filterMarkup = data.data
-    .map(value => {
-      return `<li class="filter__item" data-mark-active="${value.list_name}">${value.list_name}</li>`;
-    })
-    .join('');
+// Create request and add filter markup <= need adding to local and if function
 
-  filterListEl.insertAdjacentHTML('beforeend', filterMarkup);
-});
+function fetchCategories() {
+  if ('Categories-List' in localStorage) {
+    let response = localStorage.getItem('Categories-List');
+    const filterMarkup = JSON.parse(response)
+      .map(value => {
+        return `<li class="filter__item" data-mark-active="${value.list_name}">${value.list_name}</li>`;
+      })
+      .join('');
+    filterListEl.insertAdjacentHTML('beforeend', filterMarkup);
+    return;
+  } else {
+    bookApi.getBooksCategoriesList().then(data => {
+      localStorage.setItem('Categories-List', JSON.stringify(data.data));
+      const filterMarkup = data.data
+        .map(value => {
+          return `<li class="filter__item" data-mark-active="${value.list_name}">${value.list_name}</li>`;
+        })
+        .join('');
+
+      filterListEl.insertAdjacentHTML('beforeend', filterMarkup);
+    });
+  }
+}
 
 // Add listener which listen what catagory we choose
 filterListEl.addEventListener('click', event => {
@@ -133,4 +149,3 @@ function fetchToApiUseCatagory(value) {
       }
     });
 }
-

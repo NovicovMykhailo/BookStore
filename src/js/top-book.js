@@ -90,7 +90,6 @@ export async function fetchAndRenderBooks() {
       Block.remove('.gallery_container');
     } catch (error) {
       Notify.failure('Oops somthing went wrong', notifyOptions);
-      console.error(error);
     }
   }
 }
