@@ -51,12 +51,13 @@
   &:hover{
     
     transform: scale(1.05) translateX(10px);
-    // scale: 1.05;
+
   }
 
   @media screen and (min-width: $tablet) {
     font-size: 18px;
     line-height: 1.33;
+    padding-bottom: 32px;
   }
 }
 

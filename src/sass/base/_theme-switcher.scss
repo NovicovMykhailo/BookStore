@@ -131,11 +131,14 @@
     fill: $main-text-color;
   }
   & .btn-signup {
-    background-color: transparent;
-    border: 1px solid white;
-    color: white;
+    background-color: #F6F6F6;
+    overflow:hidden;
+    // border: 1px solid white;
+    color: #202024;
     &:hover {
+      background-color: #4F2EE8;
       border: 1px solid transparent;
+      color: #202024;
     }
   }
   & .modal__btn {
