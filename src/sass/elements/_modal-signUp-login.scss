@@ -246,39 +246,3 @@ form {
     right: 25px;
   }
 }
-// dark theme styles
-.darkFormContainer {
-  background-color: $main-text-color;
-  border-color: $white-text-color;
-}
-.darkModalCloseIcon {
-  stroke: $white-text-color;
-}
-.darkThemeInput {
-  background-color: $main-text-color;
-  outline-color: $white-text-color;
-  font-family: 'DMSans';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.13;
-  letter-spacing: -0.01em;
-  &::placeholder {
-    color: $white-text-color;
-  }
-}
-.darkThemeIcon {
-  stroke: $white-text-color;
-  fill: $main-text-color;
-}
-.darkThemeSignUpBtn {
-  background-color: transparent;
-  border: 1px solid white;
-  color: $main-text-color;
-  &:hover{
-    border: 1px solid transparent;
-  }
-}
-.darkThemeModalBtn {
-  color: rgba(246, 246, 246, 0.5);
-}
