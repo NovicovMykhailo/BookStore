@@ -8,6 +8,7 @@ import removeFromLocalStorage from './remove-from-shopping-list';
 // import { paginationBtnEl } from '../js/shopping-list__pagination';
 import { books } from './shopping-list__books';
 import murkupForTabletAndDesktop from './render-shopping-card';
+import imageOnEmptyBasket from './add-empty-basket-image'
 
 const paginationBtnEl = document.querySelector('.btn-pagination__list');
 const supUkrContainerEl = document.querySelector('.support-ukraine');
@@ -100,7 +101,7 @@ const getListObjectsOfPage = numberPage => {
   return arrayOfBooks;
 };
 // return marckup
-const murkupShoppingList = numberPage => {
+function murkupShoppingList( numberPage ){
   const arrayOfMurkup = [];
   getListObjectsOfPage(numberPage).map(book => {
     arrayOfMurkup.push(murkupForTabletAndDesktop(book));
@@ -343,32 +344,31 @@ function mainRenderingFunc(){
 
   if (
     localStorage.getItem('shopping-list') !== null &&
-    JSON.parse(localStorage.getItem('shopping-list') !== [])
+    JSON.parse(localStorage.getItem('shopping-list') && books.length !== 0)
   ) {
     ulEl.innerHTML = murkupShoppingList(currentPage);
-    // ulEl.insertAdjacentHTML('beforeend', murkupShoppingList(currentPage));
     renderPaginationBtn();
   } else {
-    
   }
+ 
 };
 
 try {
-  //console.log('Let`s go');
   mainRenderingFunc();
 } catch (error) {
-  //console.log(error);
+
 }
 // tresh icon-button fuctionality
 function moveToTrashItem() {
   const trashIcon = document.querySelectorAll('.btn');
   trashIcon.forEach(e => e.addEventListener('click', (r) => {
-    //book title when click on basket btn
+tn
     let currentBookTitle =
       r.currentTarget.parentElement.children[0].children[1].children[0]
         .textContent;
-    // console.log(currentBookTitle);
+
     removeItemFromBasket(currentBookTitle);
+     location.reload();
 
   }))
 }
@@ -376,12 +376,16 @@ function moveToTrashItem() {
 function removeItemFromBasket(title) { 
   books.map((b, i) => {
     
-    console.log(b.title === title);
+    // console.log(b.title === title);
     if (b.title === title) {
        books.splice(i, 1);
 
-      console.log(books);
+      // console.log(books);
       localStorage.setItem('shopping-list', JSON.stringify(books));
+      // ulEl.innerHTML = murkupShoppingList(books)
+    
+      
+
       return;
     }
       });
@@ -389,7 +393,3 @@ function removeItemFromBasket(title) {
 
 moveToTrashItem();
 
-// when empty list make image
-if (ulEl.children.length === 0) {
-  onEmptyBasketImg.style.display ='block'
-};
