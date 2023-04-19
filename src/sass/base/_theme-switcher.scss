@@ -86,6 +86,17 @@
     &:hover {
       stroke: $blue-accent-color;
     }
-    // & .header__singup-btn-mob-menu{color: white;}
+
+  }
+}
+
+.dark-theme {
+  & .shopping-list__card {
+    background-color: #111111;
+    border-color: $blue-accent-color;
+    
+  }
+  & .shopping-list__description{
+    color: white;
   }
 }
