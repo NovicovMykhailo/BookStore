@@ -4,7 +4,8 @@ import {
   currentBookObj,
 } from './modal-pop-up-template.js';
 // Andrew Add start
-import addToLocalStorage from './add-to-local-store.js';
+import addToLocalStorage from './add-to-shopping-list.js';
+import checkBookTitle from './add-to-shopping-list.js';
 import removeFromLocalStorage from './remove-from-shopping-list.js';
 // Andrew Add end
 // FancyBox Import
@@ -33,18 +34,42 @@ const bookAPI = new BookAPI();
 let bookCards = document.querySelectorAll('.gallery_container');
 // listening clicks on card
 bookCards.forEach(item => item.addEventListener('click', onCardClick));
+// refs
+function refsEls() {
+  return {
+    btnToggleAddEl: document.querySelector('.pop-up__btn-add'),
+    btnToggleRemoveEl: document.querySelector('.pop-up__btn-remove'),
+    textToggleRemoveEl: document.querySelector('.pop-up__text-info'),
+  };
+};
 // function on click
 function onCardClick(e) {
+
   e.preventDefault();
   if (e.target.className === 'book-card__image') {
-
     const bookId = e.target.parentNode.children[2].innerText;
     bookAPI.id = bookId;
     bookAPI.getBookInfo().then(response => {
       const book = response.data;
+
       const modalPopUp = createModalPopUpCard(book);
-  
+
       document.body.insertAdjacentHTML('beforeend', modalPopUp);
+      
+      // проверка для кнопки
+        const refs = refsEls();
+
+      if (checkBookTitle(book.title)) {
+        refs.btnToggleAddEl.classList.add('visually-hidden');
+        refs.btnToggleRemoveEl.classList.remove('visually-hidden');
+        refs.textToggleRemoveEl.classList.remove('visually-hidden');
+      } else if (!checkBookTitle(book.title)){
+        refs.btnToggleAddEl.classList.remove('visually-hidden');
+        refs.btnToggleRemoveEl.classList.add('visually-hidden');
+        refs.textToggleRemoveEl.classList.add('visually-hidden');
+      }
+      
+
       Fancybox.show([{ src: '#modal', type: 'inline' }], fancyBoxOptions);
       // find Fancybox-close-btn
       const facyCloseBtn = document.querySelector('.f-button.is-close-btn');
@@ -71,18 +96,17 @@ function closeModal() {
 }
 // Andrew Add start
 function addLocal() {
-  const btnToggleAddEl = document.querySelector('.pop-up__btn-add');
-  const btnToggleRemoveEl = document.querySelector('.pop-up__btn-remove');
-  const textToggleRemoveEl = document.querySelector('.pop-up__text-info');
-  btnToggleAddEl.addEventListener('click', event => {
-    event.preventDefault();
+  const refs = refsEls();
 
+  refs.btnToggleAddEl.addEventListener('click', event => {
+    event.preventDefault();
     addToLocalStorage(currentBookObj);
-    btnToggleAddEl.classList.add('visually-hidden');
-    btnToggleRemoveEl.classList.remove('visually-hidden');
-    textToggleRemoveEl.classList.remove('visually-hidden');
+    refs.btnToggleAddEl.classList.add('visually-hidden');
+    refs.btnToggleRemoveEl.classList.remove('visually-hidden');
+    refs.textToggleRemoveEl.classList.remove('visually-hidden');
   });
 }
+
 function removeLocal() {
   const btnToggleAddEl = document.querySelector('.pop-up__btn-add');
   const btnToggleRemoveEl = document.querySelector('.pop-up__btn-remove');
@@ -94,7 +118,6 @@ function removeLocal() {
     btnToggleAddEl.classList.remove('visually-hidden');
     btnToggleRemoveEl.classList.add('visually-hidden');
     textToggleRemoveEl.classList.add('visually-hidden');
-
   });
 }
 // Andrew Add end
