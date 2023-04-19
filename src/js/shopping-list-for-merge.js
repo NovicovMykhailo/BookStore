@@ -360,7 +360,6 @@ try {
 // tresh icon-button fuctionality
 function moveToTrashItem() {
   const trashIcon = document.querySelectorAll('.btn');
-
   trashIcon.forEach(e =>
     e.addEventListener('click', r => {
       let currentBookTitle =
@@ -371,7 +370,6 @@ function moveToTrashItem() {
       location.reload();
     })
   );
-
 }
 
 function removeItemFromBasket(title) {
