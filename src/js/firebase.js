@@ -33,23 +33,6 @@ const labelNameEl = document.querySelector(".form-label-name");
 const inputEmailEl = document.querySelector(".input-email");
 const inputPasswordEl = document.querySelector(".input-password");
 
-signInFormEl.addEventListener("submit", (event) => {
-	event.preventDefault();
-
-	if (inputEmailEl.value.trim() === "" || inputPasswordEl.value.trim() === "") {
-		return console.log("Use all fields");
-	}
-	// Checking which form we use
-	if (labelNameEl.style.display === "none") {
-		return loginEmailPassword(inputEmailEl.value, inputPasswordEl.value);
-	}
-	// Check for empty fields
-	if (inputNameEl.value.trim() === "" || inputEmailEl.value.trim() === "" || inputPasswordEl.value.trim() === "") {
-		return console.log("Use all fields");
-	}
-	createAccount(inputNameEl.value, inputEmailEl.value, inputPasswordEl.value);
-})
-
 class useFirebase {
 	constructor(test1, test2) {
 		this.test1 = test1;
@@ -78,7 +61,7 @@ class useFirebase {
 	createAccount = async (name, email, password) => {
 		try {
 			const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-			writeToDB(name, email, userCredential.user.uid);
+			this.writeToDB(name, email, userCredential.user.uid);
 			localStorage.setItem('userIdToLogin', JSON.stringify(userCredential.user.uid));
 		} catch (error) {
 			if (error.message === "Firebase: Error (auth/email-already-in-use).") {
@@ -96,7 +79,7 @@ class useFirebase {
 			name: name,
 			email: email,
 			userIdNum: userId,
-			booksId: {}
+			booksId: []
 			});
 			this.findUserAndDatabaseIdToLocalStorage(userId);
 			console.log("Write User to DB = DONE!");
@@ -119,7 +102,7 @@ class useFirebase {
 	}
 
 	// Receive book obj and write to base use userID to base from localStorage
-	testWriteArray(bookObj) {
+	writeBookArrayToDB(bookObj) {
 		const userIdInBase = JSON.parse(localStorage.getItem('userBooksIdToCategory'));
 		const userInBaseWithId = doc(db, "users", userIdInBase);
 		
@@ -144,10 +127,10 @@ class useFirebase {
 				const booksArray = doc.data().booksId;
 				booksArray.forEach(obj => {
 					// console.log(obj);
-					if (obj.bookId === bookId) {
+					if (obj._id === bookId) {
 						console.log(obj);
 						const bookObjForDelete = obj;
-						// deleteBookArray(bookObjForDelete);
+						this.deleteBookArray(bookObjForDelete);
 					}
 				})
 		})
@@ -167,39 +150,57 @@ class useFirebase {
 			console.error("Error adding document: ", e);
 		}
 	}
+
+	// Read all books data
+	readAllBooksDataUser() {
+		const q = query(collection(db, "users"), where("userIdNum", "==", JSON.parse(localStorage.getItem('userIdToLogin'))));
+		const querySnapshot = getDocs(q);
+
+		querySnapshot.then(data => {
+			data.forEach((doc) => {
+				// console.log(doc.data());
+				const booksArray = doc.data().booksId;
+				console.log(booksArray);
+			})
+		})
+	}
 }
 
+
+
+
 const bookObj = {
-		bookId: "444",
-		bookName: "Four",
-		bookPhotoUrl: "https://Four.com",
-		bookAuthor: "Four",
-		bookDesc: "Four",
-		bookAmazonLink: "amazonFour.com",
+		author: "Shannon Bream",
+		book_image: "https://storage.googleapis.com/du-prd/books/images/9780063226050.jpg",	
+		buy_links: [
+			{name: "Amazon", url: "https://www.amazon.com/dp/0063226057?tag=NYTBSREV-20"},
+			{ name: "Apple Books", url: "https://goto.applebooks.apple/9780063226050?at=10lIEQ" },
+			{ name: "Barnes and Noble", url: "https://www.anrdoezrs.net/click-7990613-11819508?url=https%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780063226050" }
+		],
+		description: "",
+		title: "THE LOVE STORIES OF THE BIBLE SPEAK",
+		_id: "643282b1e85766588626a0ba",
 	}
 
 const base = new useFirebase;
 // base.selectBookFromArray("111");
 // base.testWriteArray(bookObj);
+// base.readAllBooksDataUser();
+// base.selectBookFromArray("643282b1e85766588626a0ba");
 
+signInFormEl.addEventListener("submit", (event) => {
+	event.preventDefault();
 
-
-
-function readData (params) {
-	// const q = query(collection(db, "users"), where("capital", "==", true));
-	const q = query(collection(db, "users"), where("userIdNum", "==", "xxNneOnqZtUpeO74fcMaFGWmIUf1"));
-	const querySnapshot = getDocs(q);
-	console.log(querySnapshot);
-
-		// const querySnapshot = getDocs(collection(db, "users"), where("userIdNum", "===", "uYmsI9n9frVa1kuTEmHS9nrJltl2"));
-	querySnapshot.then(data => {
-		data.forEach((doc) => {
-			// console.log(doc.data().booksId);
-			const booksArray = doc.data().booksId;
-			booksArray.forEach(obj => {
-				console.log(obj.bookId);
-			})
-	})
-	})
-}
-
+	if (inputEmailEl.value.trim() === "" || inputPasswordEl.value.trim() === "") {
+		return console.log("Use all fields");
+	}
+	// Checking which form we use
+	if (labelNameEl.style.display === "none") {
+		return base.loginEmailPassword(inputEmailEl.value, inputPasswordEl.value);
+	}
+	// Check for empty fields
+	if (inputNameEl.value.trim() === "" || inputEmailEl.value.trim() === "" || inputPasswordEl.value.trim() === "") {
+		return console.log("Use all fields");
+	}
+	base.createAccount(inputNameEl.value, inputEmailEl.value, inputPasswordEl.value);
+})
