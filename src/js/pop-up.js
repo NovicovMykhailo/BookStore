@@ -4,8 +4,8 @@ import {
   currentBookObj,
 } from './modal-pop-up-template.js';
 // Andrew Add start
-// import addToLocalStorage from './add-to-shopping-list.js';
-// import removeFromLocalStorage from './remove-from-shopping-list.js';
+import addToLocalStorage from './add-to-local-store.js';
+import removeFromLocalStorage from './remove-from-shopping-list.js';
 // Andrew Add end
 // FancyBox Import
 import { Fancybox } from '@fancyapps/ui';
@@ -37,13 +37,13 @@ bookCards.forEach(item => item.addEventListener('click', onCardClick));
 function onCardClick(e) {
   e.preventDefault();
   if (e.target.className === 'book-card__image') {
-    // console.log('Book Id =>', e.target.parentNode.children[2].innerText);
+
     const bookId = e.target.parentNode.children[2].innerText;
     bookAPI.id = bookId;
     bookAPI.getBookInfo().then(response => {
       const book = response.data;
       const modalPopUp = createModalPopUpCard(book);
-      // console.log(currentBookObj)
+  
       document.body.insertAdjacentHTML('beforeend', modalPopUp);
       Fancybox.show([{ src: '#modal', type: 'inline' }], fancyBoxOptions);
       // find Fancybox-close-btn
@@ -76,15 +76,11 @@ function addLocal() {
   const textToggleRemoveEl = document.querySelector('.pop-up__text-info');
   btnToggleAddEl.addEventListener('click', event => {
     event.preventDefault();
-    console.log('currentBookObj: ', currentBookObj);
+
     addToLocalStorage(currentBookObj);
     btnToggleAddEl.classList.add('visually-hidden');
     btnToggleRemoveEl.classList.remove('visually-hidden');
     textToggleRemoveEl.classList.remove('visually-hidden');
-    console.log(
-      'fromLocal: ',
-      JSON.parse(localStorage.getItem('shopping-list'))
-    );
   });
 }
 function removeLocal() {
@@ -93,12 +89,12 @@ function removeLocal() {
   const textToggleRemoveEl = document.querySelector('.pop-up__text-info');
   btnToggleRemoveEl.addEventListener('click', event => {
     event.preventDefault();
-    console.log('currentBookObj: ', currentBookObj);
+
     removeFromLocalStorage(currentBookObj);
     btnToggleAddEl.classList.remove('visually-hidden');
     btnToggleRemoveEl.classList.add('visually-hidden');
     textToggleRemoveEl.classList.add('visually-hidden');
-    // console.log('fromLocal: ', JSON.parse(localStorage.getItem("shopping-list")));
+
   });
 }
 // Andrew Add end
