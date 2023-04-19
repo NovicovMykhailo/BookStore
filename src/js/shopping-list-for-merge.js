@@ -199,7 +199,7 @@ const isAvailableBtn = (...args) => {
   }
 };
 // pagination active page
-toAddCurrentClass = num => {
+const toAddCurrentClass = num => {
   const numberedNum = Number(num);
   if (num === '...') {
     return;
