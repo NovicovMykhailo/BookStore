@@ -8,7 +8,7 @@ header {
   padding: 0 24px;
   background: $white-text-color;
   border: $header-border;
-  margin: 0 -20px;
+  // margin: 0 -20px;
   border-radius: 0px 0px 8px 8px;
 }
 
@@ -160,6 +160,7 @@ header {
 }
 
 .menu-container {
+   display:block;
   position: fixed;
   top: 0;
   left: 0;
@@ -185,6 +186,9 @@ header {
   transform: translateX(100%);
 
   transition: all $animation-flow;
+  @media screen and (min-width:$tablet){
+    display:none;
+  }
 }
 .menu-container.is-open {
   opacity: 1;

@@ -28,7 +28,7 @@ export function createModalPopUpCard(book) {
       </button>
       <div class="pop-up__book">
         <div class="pop-up__book-container">
-          <img class="book__image" src="${book_image}" alt="" >
+          <img class="book__image" src="${book_image}" alt="${author}: ${title}" >
           <div>
             <div>
               <h2 class="book__title info-item__title">${title}</h2>
