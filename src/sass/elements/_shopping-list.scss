@@ -327,7 +327,7 @@ btn-arrow {
   margin-bottom: 4px;
   border-radius: 8px;
 
-  width: max-content;
+  width: 98px;
   height: 139px;
 
   @media screen and (min-width: $tablet) {
@@ -400,7 +400,7 @@ btn-arrow {
   font-weight: 400;
   font-size: 12px;
   line-height: 1.17;
-  white-space: nowrap;
+ 
 
   letter-spacing: -0.04em;
 
@@ -408,6 +408,7 @@ btn-arrow {
 
   margin-bottom: 20px;
   @media screen and (min-width: 768px) {
+     white-space: nowrap;
     margin-bottom: 0px;
     position: relative;
     right: -137px;
