@@ -358,3 +358,11 @@ try {
   //console.log(error);
 }
 
+function moveToTrashItem() {
+ const trashIcon = document.querySelectorAll('.btn');
+  trashIcon.forEach(e => e.addEventListener('click', (r) => {
+    let currentBtn = r.currentTarget
+  }))
+  
+}
+moveToTrashItem();
