@@ -1,39 +1,23 @@
-const booksCheckingInLocal =
-  localStorage.getItem('shopping-list') === null
-    ? []
-    : JSON.parse(localStorage.getItem('shopping-list')); // если есть объекта => парсит из локал
-
-
-
+import { books } from './shopping-list__books';
 export default function addToLocalStorage(bookObject) {
+  try {
+    const arrayOfId = [];
 
-  //добавляет в переменную
-const arrayOfBookObj = [];
-  arrayOfBookObj.push(bookObject);
-     localStorage.setItem('shopping-list', JSON.stringify(arrayOfBookObj));
+    console.log('books', books);
+    books.map(book => arrayOfId.push(book._id));
 
-  
+    console.log('arrayOfId: ', arrayOfId);
+    console.log('books.length', books.length);
 
-
-  if (localStorage.getItem('shopping-list') !== null) {
-    if (JSON.parse(localStorage.getItem('shopping-list')).map((obj) => { bookObject.title === obj })) {
-      console.log('You already have this Book');
-   
-    } else {
- 
-   
-      
+    if (!arrayOfId.includes(bookObject._id) || books.length === 0) {
+      books.unshift(bookObject);
+      localStorage.setItem('shopping-list', JSON.stringify(books));
     }
-    
 
+    if (arrayOfId.includes(bookObject._id)) {
+      console.log('You already have this Book'); // можно сделать на нттифашку, а можно ставить кнопки в зависимост от того есть ли эта книга в локал
+    }
+  } catch (error) {
+    console.log(error);
   }
- 
-
-  // if (
-  //   arrayOfBookObj.length === 0 ||
-  //   !arrayOfBookObj.find((obj, i) => (obj._id))
-  // ) {
-  //   arrayOfBookObj.unshift(bookObject);
-  //   localStorage.setItem('shopping-list', JSON.stringify(arrayOfBookObj));
-  // }
 }

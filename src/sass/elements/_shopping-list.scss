@@ -362,6 +362,7 @@ btn-arrow {
 
   @media screen and (min-width: $tablet) {
     // max-width: 100%;
+    white-space: nowrap;
     display: inline-block;
   }
 }
