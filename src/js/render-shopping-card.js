@@ -1,26 +1,50 @@
-<!-- <li class="shopping-list__card">
+import amazon1x from '../images/BookStoreIcons/amazon.png';
+import amazon2x from '../images/BookStoreIcons/amazon-2x.png';
+import appleBooks1x from '../images/BookStoreIcons/apple-books.png';
+import appleBooks2x from '../images/BookStoreIcons/apple-books-2x.png';
+import bookshop1x from '../images/BookStoreIcons/book-shop.png';
+import bookshop2x from '../images/BookStoreIcons/book-shop-2x.png';
+import spriteSvgEls from '../images/svg-sprite.svg';
+
+function isAvailableDescription (description){
+  if (description === '') {
+    return "Sorry, we can't find appropriate description :(";
+  }
+  return description;
+};
+
+
+
+export default function murkupForTabletAndDesktop({
+  author,
+  title,
+  book_image,
+  buy_links,
+  description,
+}) {
+  return `<li class="shopping-list__card">
   <div class="img-autor-container">
     <div class="image-container">
       <img
-        src="https://storage.googleapis.com/du-prd/books/images/9781250144058.jpg"
+        src="${book_image}"
         alt="book cover"
         class="shopping-list__image"
       />
-      <h3 class="shopping-list__author">"Barbara O'Connor"</h3>
+      <h3 class="shopping-list__author">${author}</h3>
     </div>
     <div class="card-container">
-      <h2 class="shopping-list__title-card">WISH</h2>
+      <h2 class="shopping-list__title-card">${title}</h2>
       <p class="shopping-list__sub-title">Middle Grade Paperback Monthly</p>
       <ul class="shopping-list__links">
         <li class="shopping-list__link-item">
           <a
-            href="https://www.amazon.com/Wish-Barbara-OConnor/dp/1250144051?tag=NYTBSREV-20"
+            href="${buy_links[0].url}"
             class="shopping-list__link"
             target="blank"
           >
             <img
               class="buy-links__icon"
-              src="./images/BookStoreIcons/amazon.png"
+              src="${amazon2x}" srcset="${amazon1x} 1x, ${amazon2x} 2x" 
               width="48"
               alt="platform-icon"
               class="shopping-list__link-icon"
@@ -29,13 +53,13 @@
         </li>
         <li class="shopping-list__link-item">
           <a
-            href="https://goto.applebooks.apple/9781250144058?at=10lIEQ"
+            href="${buy_links[1].url}"
             class="shopping-list__link"
             target="blank"
           >
             <img
               class="buy-links__icon"
-              src="./images/BookStoreIcons/apple-books.png"
+              src="${appleBooks2x}" srcset="${appleBooks1x} 1x, ${appleBooks2x} 2x" 
               width="28"
               alt="platform-icon"
               class="shopping-list__link-icon"
@@ -44,13 +68,13 @@
         </li>
         <li class="shopping-list__link-item">
           <a
-            href="https://du-gae-books-dot-nyt-du-prd.appspot.com/redirect?url1=https%3A%2F%2Fbookshop.org%2Fa%2F3546%2F9781250144058&url2=https%3A%2F%2Fbookshop.org%2Fbooks%3Faffiliate%3D3546%26keywords%3DWISH"
+            href="${buy_links[4].url}"
             class="shopping-list__link"
             target="blank"
           >
             <img
               class="buy-links__icon"
-              src="./images/BookStoreIcons/book-shop.png"
+              src="${bookshop2x}" srcset="${bookshop1x} 1x, ${bookshop2x} 2x" 
               width="32"
               alt="platform-icon"
               class="shopping-list__link-icon"
@@ -60,14 +84,13 @@
       </ul>
     </div>
   </div>
-  <p class="shopping-list__description">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo veritatis
-    porro vero ea provident optio, quis, similique, tenetur esse perferendis
-    recusandae eligendi itaque veniam excepturi.
-  </p>
+  <p class="shopping-list__description">${isAvailableDescription(
+    description
+  )}</p>
   <button class="btn">
     <svg class="trash-icon" width="16" height="16">
-      <use href="./images/svg-sprite.svg#trash-icon"></use>
+      <use href="${spriteSvgEls}#trash-icon"></use>
     </svg>
   </button>
-</li> -->
+</li>`
+}
