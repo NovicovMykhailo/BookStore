@@ -60,16 +60,6 @@ function onCardClick(e) {
       // проверка для кнопки
       const refs = refsEls();
 
-      // if (checkBookTitle(book.title)) {
-      //   refs.btnToggleAddEl.classList.add('visually-hidden');
-      //   refs.btnToggleRemoveEl.classList.remove('visually-hidden');
-      //   refs.textToggleRemoveEl.classList.remove('visually-hidden');
-      // } else if (!checkBookTitle(book.title)){
-      //   refs.btnToggleAddEl.classList.remove('visually-hidden');
-      //   refs.btnToggleRemoveEl.classList.add('visually-hidden');
-      //   refs.textToggleRemoveEl.classList.add('visually-hidden');
-      // }
-
       Fancybox.show([{ src: '#modal', type: 'inline' }], fancyBoxOptions);
       // find Fancybox-close-btn
       const facyCloseBtn = document.querySelector('.f-button.is-close-btn');

@@ -44,9 +44,15 @@
   line-height: 1.12;
 
   letter-spacing: -0.02em;
+ transition: all $animation-flow;
 
   color: $grey-text-color;
   cursor: pointer;
+  &:hover{
+    
+    transform: scale(1.05) translateX(10px);
+    // scale: 1.05;
+  }
 
   @media screen and (min-width: $tablet) {
     font-size: 18px;

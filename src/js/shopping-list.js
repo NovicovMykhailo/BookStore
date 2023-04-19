@@ -13,8 +13,7 @@ const supUkrContainerEl = document.querySelector('.support-ukraine');
 const ulEl = document.querySelector('.check');
 export const shoppingListSectionEl = document.querySelector('.shopping-list__page');
 const shoppingListContainer = shoppingListSectionEl.parentNode;
-// const paginationBtnEl = document.querySelector('.btn-pagination__list');
-// import const paginationBtnEl = document.querySelector('.btn-pagination__list');
+
 
 
 
@@ -44,7 +43,7 @@ export const murkupShoppingList = numberPage => {
 
     arrayOfMurkup.push(getAppropriateMurkup(book))
   })
-  // return `<ul class="check shopping-list">${arrayOfMurkup.join('')}</ul>`;
+
 
   return arrayOfMurkup.join('');
 
@@ -70,22 +69,6 @@ export const mainRenderingFunc = () => {
       <use href="../images/svg-sprite.svg#arrow-down-icon"></use>
     </svg>
   </button>`;
-  //   shoppingListContainer.insertAdjacentHTML('afterbegin', `<section class="support-ukraine">
-  //   <h2 class="support-ukraine__title">
-  //     <span class="support-title-container">
-  //       Support Ukraine
-  //       <svg class="logo-ukr" width="20" height="32">
-  //         <use href="../images/svg-sprite.svg#ukraine-arms"></use>
-  //       </svg>
-  //     </span>
-  //   </h2>
-  //   <ul class="support-companies"></ul>
-  //   <button type="button" class="support__load-more">
-  //     <svg class="button__icon" width="64" height="64">
-  //       <use href="../images/svg-sprite.svg#arrow-down-icon"></use>
-  //     </svg>
-  //   </button>
-  // </section>`);
   }
   if (checkCountOfPages() === 0) {
     shoppingListSectionEl.insertAdjacentHTML(

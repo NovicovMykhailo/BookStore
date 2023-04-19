@@ -55,6 +55,9 @@
 
   & .buy-links__icon.amazon {
     filter: grayscale(100%) invert(1);
+    &:hover{
+      filter:invert(0) grayscale(0) drop-shadow(2px 0px 6px white);
+    }
   }
 
   & .btn-close-icon {

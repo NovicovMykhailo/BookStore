@@ -1,9 +1,5 @@
 import spriteSvgEls from '../images/svg-sprite.svg';
-
-// import addToLocalStorage from './add-to-shopping-list';
 import removeFromLocalStorage from './remove-from-shopping-list';
-// import { renderPaginationBtn, currentPage } from '../js/shopping-list__pagination';
-// import { paginationBtnEl } from '../js/shopping-list__pagination';
 import { books } from './shopping-list__books';
 import murkupForTabletAndDesktop from './render-shopping-card';
 import imageOnEmptyBasket from './add-empty-basket-image';
@@ -177,7 +173,7 @@ const tabletAndDesktopRendering = array => {
     </ul>`;
 };
 // pagination styling
-isAvailableBtn = (...args) => {
+const isAvailableBtn = (...args) => {
   if (currentPage - 2 > 0) {
     args[0].classList.add('btn-available');
   } else {
@@ -264,7 +260,7 @@ const toAddListeners = (...args) => {
 // главная функция по рендеру списка кнопок
 
 function renderPaginationBtn() {
-  //console.log('books.length in buttons', books.length);
+
   if (books.length === 0 || books.length <= 3) {
     return;
   }
@@ -374,17 +370,11 @@ function moveToTrashItem() {
 
 function removeItemFromBasket(title) {
   books.map((b, i) => {
-    // console.log(b.title === title);
     if (b.title === title) {
       books.splice(i, 1);
-
-      // console.log(books);
       localStorage.setItem('shopping-list', JSON.stringify(books));
-      // ulEl.innerHTML = murkupShoppingList(books)
-
       return;
     }
   });
 }
 
-// moveToTrashItem();
