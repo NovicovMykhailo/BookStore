@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BookStore</title>
+    <title>Shopping List</title>
     <link rel="stylesheet" href="./sass/index.scss" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="shortcut icon" href="./favico/logo.svg" type="image/x-icon" />
@@ -21,21 +21,18 @@
       </a>
       <nav class="nav">
         <ul class="nav__list list">
-          <li class="nav-item nav-active">
+          <li class="nav-item">
             <a href="./index.html" class="nav__link active link"> Home</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item nav-active">
             <a href="./shopping-list.html" class="nav__link link">
               Shopping list
               <svg class="header__link-icon" width="20" height="20">
                 <use href="./images/svg-sprite.svg#bag"></use>
               </svg>
-
             </a>
           </li>
         </ul>
-        <!-- <nav>
-        <input type="checkbox" name="checkbox" class="theme-switch" /> -->
       </nav>
 
       <input
@@ -74,53 +71,64 @@
       </button> -->
     </header>
     <main>
-      <div class="main-page container">
-        <div class="side-blocks">
-          <!-- Filter -->
-          <section class="filter">
-            <h1 class="visually-hidden">Book Shop Categories</h1>
-            <ul class="filter__list">
-              <li
-                class="filter__item filter__item--active"
-                data-mark-active="All categories"
-              >
-                All categories
-              </li>
-            </ul>
-          </section>
-          <section class="support-ukraine">
-            <h2 class="support-ukraine__title">
-              <span class="support-title-container">
-                Support Ukraine
-                <svg class="logo-ukr" width="20" height="32">
-                  <use href="./images/svg-sprite.svg#ukraine-arms"></use>
-                </svg>
-              </span>
-            </h2>
-            <ul class="support-companies"></ul>
-            <button type="button" class="support__load-more">
-              <svg class="button__icon" width="64" height="64">
-                <use href="./images/svg-sprite.svg#arrow-down-icon"></use>
+      <div class="shopping-list__container container">
+        <!-- Support Block-->
+        <section class="support-ukraine supports-in-shopping">
+          <h2 class="support-ukraine__title">
+            <span class="support-title-container">
+              Support Ukraine
+              <svg class="logo-ukr" width="20" height="32">
+                <use href="./images/svg-sprite.svg#ukraine-arms"></use>
               </svg>
-            </button>
-          </section>
-        </div>
-        <section class="gallery">
-          <div class="gallery_container">
-            <h2 class="book-card__title">Best Sellers Books</h2>
-            <ul class="gallery__list list"></ul>
-          </div>
+            </span>
+          </h2>
+          <ul class="support-companies"></ul>
+          <button type="button" class="support__load-more">
+            <svg class="button__icon" width="64" height="64">
+              <use href="./images/svg-sprite.svg#arrow-down-icon"></use>
+            </svg>
+          </button>
+        </section>
+        <!-- shopping list block -->
+        <section class="shopping-list__page">
+          <h1 class="shopping-list__title" data-text="list">
+            shopping <span class="shopping-list__blue-title">list</span>
+          </h1>
+          <!-- basket to render cards -->
+          <ul class="shopping-list">
+            <!-- card -->
+            <!-- empty basket styles -->
+            <div class="on-empty-container">
+              <p class="empty-bookshelf__text">
+                This page is empty, add some books and proceed to order.
+              </p>
+              <img
+                srcset="
+                  images/shopping-list-empty-bg/shoping-list-empty-mobile_sm.png    265w,
+                  images/shopping-list-empty-bg/shoping-list-empty_lg.png           320w,
+                  images/shopping-list-empty-bg/shoping-list-empty-mobile_sm-2x.png 530w,
+                  images/shopping-list-empty-bg/shoping-list-empty_lg-2x.png        644w
+                "
+                sizes="(max-width: 768px) 265px,
+            (max-width: 1440px) 320px,
+            644px"
+                src="images/shopping-list-empty-bg/shoping-list-empty_lg-2x.png"
+                alt="Book Illustration"
+              />
+            </div>
+          </ul>
+
+          <!-- <div class="shopping-list__head-part">
+                  
+           
+                  
+                  <div class="shopping-list__card-container">
+                    > -->
+
+          <!-- paggination ul -->
+          <ul class="btn-pagination__list"></ul>
         </section>
       </div>
-      <!-- Vika render -->
-      <section class="book-cards">
-        <!-- <button class="trash-btn" type="button">
-                      <svg class="trash-icon" width="18" height="18">
-                        <use href="/src/images/svg-sprite.svg#trash-icon"></use>
-                      </svg>
-                    </button> -->
-        <!-- books markups -->
-      </section>
     </main>
 
     <button type="button" class="scroll-up-btn">
@@ -128,7 +136,7 @@
         <use href="./images/svg-sprite.svg#scroll-up"></use>
       </svg>
     </button>
-
+    <!-- mobile Menu -->
     <div class="menu-container js-menu-container" id="mobile-menu">
       <div class="wrapper .visually-hiddn">
         <div class="mobile-bg-wrapper">
@@ -142,7 +150,6 @@
             src="./images/mobileMenu_BG/mobile-menu-bg-2x.png"
             alt="books"
           />
- 
         </div>
       </div>
       <button type="button" class="btn-default header__singup-btn-mob-menu">
@@ -153,11 +160,13 @@
 
       <nav class="nav nav__mob-menu">
         <ul class="nav__list nav__list-mob-menu list">
-          <li class="nav-item nav-active">
-            <a href="./index.html" class="nav__link active link"> Home</a>
-          </li>
           <li class="nav-item">
-            <a href="./shopping-list.html" class="nav__link link mobile-inactive-link">
+            <a href="./index.html" class="nav__link link mobile-inactive-link">
+              Home</a
+            >
+          </li>
+          <li class="nav-item nav-active">
+            <a href="./shopping-list.html" class="nav__link link active">
               Shopping list
               <svg class="header__link-icon" width="20" height="20">
                 <use href="./images/svg-sprite.svg#bag"></use>
@@ -175,6 +184,6 @@
 
     <include src="./partials/modal-form-login.html"></include>
 
-    <script src="index.js" type="module"></script>
+    <script src="shopping-list-index.js" type="module"></script>
   </body>
 </html>
