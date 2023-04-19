@@ -361,7 +361,6 @@ function moveToTrashItem() {
   const trashIcon = document.querySelectorAll('.btn');
   trashIcon.forEach(e =>
     e.addEventListener('click', r => {
-      // tn;
       let currentBookTitle =
         r.currentTarget.parentElement.children[0].children[1].children[0]
           .textContent;
