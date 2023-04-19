@@ -57,6 +57,7 @@ const loginEmailPassword = async (email, password) => {
 	try {
 		const userCredential = await signInWithEmailAndPassword(auth, email, password);
 		console.log("It`s work sign in:" + userCredential.user.uid);
+		localStorage.setItem('userIdToLogin', JSON.stringify(userCredential.user.uid));
 		findUserAndDatabaseIdToLocalStorage(userCredential.user.uid);
 	} catch (error) {
 		if (error.message === "Firebase: Error (auth/wrong-password).") {
@@ -75,6 +76,7 @@ const createAccount = async (name, email, password) => {
 	try {
 		const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 		writeToDB(name, email, userCredential.user.uid);
+		localStorage.setItem('userIdToLogin', JSON.stringify(userCredential.user.uid));
 	} catch (error) {
 		if (error.message === "Firebase: Error (auth/email-already-in-use).") {
 			// Display email fail
@@ -114,11 +116,12 @@ function findUserAndDatabaseIdToLocalStorage(userIdInAuth) {
 }
 
 const bookObj = {
-	bookName: "The Love",
-	bookPhotoUrl: "https://1236545.com",
-	bookAuthor: "Sharon beb",
-	bookDesc: "Some information",
-	bookAmazonLink: "amazon.com",
+	bookId: "333",
+	bookName: "Three",
+	bookPhotoUrl: "https://Three.com",
+	bookAuthor: "Three",
+	bookDesc: "Three",
+	bookAmazonLink: "amazonThree.com",
 }
 
 function testWriteArray(bookObj) {
@@ -134,10 +137,34 @@ function testWriteArray(bookObj) {
 	}
 }
 
-testWriteArray(bookObj);
+// testWriteArray(bookObj);
 
-function testDeleteArray(userIdInBase, bookObj) {
-	// console.log(bookObj);
+
+
+function selectBookFromArray(bookId) {
+	const q = query(collection(db, "users"), where("userIdNum", "==", JSON.parse(localStorage.getItem('userIdToLogin'))));
+	const querySnapshot = getDocs(q);
+	console.log(querySnapshot);
+
+	querySnapshot.then(data => {
+		data.forEach((doc) => {
+			// console.log(doc.data().booksId);
+			const booksArray = doc.data().booksId;
+			booksArray.forEach(obj => {
+				// console.log(obj);
+				if (obj.bookId === bookId) {
+					console.log(obj);
+					const bookObjForDelete = obj;
+					// deleteBookArray(bookObjForDelete);
+				}
+			})
+	})
+	})
+}
+selectBookFromArray("333");
+
+function deleteBookArray(bookObj) {
+	const userIdInBase = JSON.parse(localStorage.getItem('userBooksIdToCategory'));
 	const userInBaseWithId = doc(db, "users", userIdInBase);
 	
 	try {
@@ -148,6 +175,8 @@ function testDeleteArray(userIdInBase, bookObj) {
 		console.error("Error adding document: ", e);
 	}
 }
+
+
 
 function readData (params) {
 	// const q = query(collection(db, "users"), where("capital", "==", true));
@@ -169,22 +198,4 @@ function readData (params) {
 
 // readData();
 
-function deleteBookFromArray() {
-	const q = query(collection(db, "users"), where("userIdNum", "==", "xxNneOnqZtUpeO74fcMaFGWmIUf1"));
-	const querySnapshot = getDocs(q);
 
-	querySnapshot.then(data => {
-		data.forEach((doc) => {
-			// console.log(doc.data().booksId);
-			const booksArray = doc.data().booksId;
-			booksArray.forEach(obj => {
-				console.log(obj);
-				if (obj.bookId === "1qaz2wsx3edsxTWO") {
-					console.log("DeleteObj");
-					const bookObjForDelete = obj;
-					testDeleteArray("fjRUh7xIUcOZisoY3QLX", bookObjForDelete);
-				}
-			})
-	})
-	})
-}
