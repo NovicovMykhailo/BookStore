@@ -1,5 +1,3 @@
-// import Swiper from 'swiper';
-
 import Swiper, {
   Keyboard,
   Navigation,
@@ -16,11 +14,9 @@ const swiper = new Swiper('.swiper', {
     Keyboard,
     Navigation,
     Scrollbar,
-
     Grid,
     Zoom,
     Controller,
-
     A11y,
     Thumbs,
   ],
@@ -43,7 +39,7 @@ const swiper = new Swiper('.swiper', {
   },
 
   simulateTouch: false,
-  slidesPerGroup: 1,
+  // slidesPerGroup: 1,
   spaceBetween: 20,
   speed: 250,
   slidesPerView: 4,
