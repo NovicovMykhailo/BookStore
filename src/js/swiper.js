@@ -11,8 +11,6 @@ import Swiper, {
   Thumbs,
 } from 'swiper';
 
-// import Swiper from 'swiper/bundle';
-
 const swiper = new Swiper('.swiper', {
   modules: [
     Keyboard,
@@ -48,7 +46,7 @@ const swiper = new Swiper('.swiper', {
   slidesPerGroup: 1,
   spaceBetween: 20,
   speed: 250,
-  slidesPerView: 6,
+  slidesPerView: 5,
 });
 
 // breakpoints: {
