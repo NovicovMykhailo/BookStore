@@ -6,6 +6,11 @@ import {
 // Andrew Add start
 // import { checkBookTitle } from './add-to-shopping-list.js';
 import addToLocalStorage from './add-to-local-store.js';
+
+// Import Database
+import { useFirebase } from './firebase.js';
+const firebase = new useFirebase;
+
 import removeFromLocalStorage from './remove-from-shopping-list.js';
 // Andrew Add end
 // FancyBox Import
@@ -100,7 +105,9 @@ function addLocal() {
 
   refs.btnToggleAddEl.addEventListener('click', event => {
     event.preventDefault();
-    addToLocalStorage(currentBookObj);
+	//   addToLocalStorage(currentBookObj);
+		// use firebase
+	  firebase.writeBookArrayToDB(currentBookObj);
     refs.btnToggleAddEl.classList.add('visually-hidden');
     refs.btnToggleRemoveEl.classList.remove('visually-hidden');
     refs.textToggleRemoveEl.classList.remove('visually-hidden');
@@ -114,7 +121,10 @@ function removeLocal() {
   btnToggleRemoveEl.addEventListener('click', event => {
     event.preventDefault();
 
-    removeFromLocalStorage(currentBookObj);
+	//   removeFromLocalStorage(currentBookObj);
+	//   console.log(currentBookObj._id);
+	//   use firebase
+	  firebase.selectBookFromArray(currentBookObj._id);
     btnToggleAddEl.classList.remove('visually-hidden');
     btnToggleRemoveEl.classList.add('visually-hidden');
     textToggleRemoveEl.classList.add('visually-hidden');

@@ -7,18 +7,22 @@ import {
 } from "firebase/auth";
 // import { getDatabase, ref, set, onValue } from "firebase/database";
 // firestore
-import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, getDoc,query, where, arrayUnion, arrayRemove } from "firebase/firestore"; 
+import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, getDoc, query, where, arrayUnion, arrayRemove } from "firebase/firestore";
+// Import Notiflix
+// import { Notiflix } from "notiflix";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Notiflix } from "notiflix";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAJl6Ad8jyFnNkdyvWS-vuWG1MshoteFzQ",
-  authDomain: "fir-test-66ebf.firebaseapp.com",
-  projectId: "fir-test-66ebf",
-  storageBucket: "fir-test-66ebf.appspot.com",
-  messagingSenderId: "523632472781",
-  appId: "1:523632472781:web:4fa322122471b6e0be2f84",
-  measurementId: "G-VSQ4DDXZKJ"
+	apiKey: "AIzaSyAJl6Ad8jyFnNkdyvWS-vuWG1MshoteFzQ",
+	authDomain: "fir-test-66ebf.firebaseapp.com",
+	projectId: "fir-test-66ebf",
+	storageBucket: "fir-test-66ebf.appspot.com",
+	messagingSenderId: "523632472781",
+	appId: "1:523632472781:web:4fa322122471b6e0be2f84",
+	measurementId: "G-VSQ4DDXZKJ"
 };
 
 // Initialize Firebase
@@ -27,46 +31,56 @@ const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 const auth = getAuth();
 
+// Notify
+const notifyOptions = {
+	fontFamily: 'DMSans',
+	zindex: 10001,
+};
+
 const signInFormEl = document.querySelector(".sigh-in-form");
 const inputNameEl = document.querySelector(".input-name");
 const labelNameEl = document.querySelector(".form-label-name");
 const inputEmailEl = document.querySelector(".input-email");
 const inputPasswordEl = document.querySelector(".input-password");
 
-class useFirebase {
-	constructor(test1, test2) {
+export class useFirebase {
+	constructor(test1, test2, array) {
 		this.test1 = test1;
 		this.test2 = test2;
+		this.array = array;
 	}
 
 	loginEmailPassword = async (email, password) => {
 		try {
 			const userCredential = await signInWithEmailAndPassword(auth, email, password);
-			console.log("It`s work sign in:" + userCredential.user.uid);
 			localStorage.setItem('userIdToLogin', JSON.stringify(userCredential.user.uid));
 			this.findUserAndDatabaseIdToLocalStorage(userCredential.user.uid);
 		} catch (error) {
 			if (error.message === "Firebase: Error (auth/wrong-password).") {
 				// Display email fail
-				return console.log("НЕВІРНИЙ ПАРОЛЬ");
+				return Notify.failure(`Wrong password!`, notifyOptions);
 			}
 			if (error.message === "Firebase: Error (auth/user-not-found).") {
 				// Display email fail
-				return console.log("Ви ще не зареєструвались");
+				return Notify.failure(`You should sign up before!`, notifyOptions);
 			}
 			console.log(error);
 		}
 	}
+
+
+
 
 	createAccount = async (name, email, password) => {
 		try {
 			const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 			this.writeToDB(name, email, userCredential.user.uid);
 			localStorage.setItem('userIdToLogin', JSON.stringify(userCredential.user.uid));
+			Notify.success(`You log up!`, notifyOptions);
 		} catch (error) {
 			if (error.message === "Firebase: Error (auth/email-already-in-use).") {
-				// Display email fail
-				return console.log("Ця адреса вже існує");
+				// Display email fail 
+				return Notify.failure(`You have already used this email!`, notifyOptions);
 			}
 			console.log(error);
 		}
@@ -76,10 +90,10 @@ class useFirebase {
 	writeToDB = async (name, email, userId) => {
 		try {
 			const docRef = await addDoc(collection(db, "users"), {
-			name: name,
-			email: email,
-			userIdNum: userId,
-			booksId: []
+				name: name,
+				email: email,
+				userIdNum: userId,
+				booksId: []
 			});
 			this.findUserAndDatabaseIdToLocalStorage(userId);
 			console.log("Write User to DB = DONE!");
@@ -90,6 +104,9 @@ class useFirebase {
 
 	// It`s for write id which use user in DB
 	findUserAndDatabaseIdToLocalStorage(userIdInAuth) {
+
+		// Write books array to local storage
+		this.findAndAddBooksArrayToLocalStorage();
 		// console.log(userIdInAuth);
 		const userWithId = query(collection(db, "users"), where("userIdNum", "==", userIdInAuth));
 
@@ -102,24 +119,45 @@ class useFirebase {
 	}
 
 	// Receive book obj and write to base use userID to base from localStorage
-	writeBookArrayToDB(bookObj) {
+	async writeBookArrayToDB(bookObj) {
 		const userIdInBase = JSON.parse(localStorage.getItem('userBooksIdToCategory'));
 		const userInBaseWithId = doc(db, "users", userIdInBase);
-		
+
 		try {
-			updateDoc(userInBaseWithId, {
+			await updateDoc(userInBaseWithId, {
 				booksId: arrayUnion(bookObj),
 			})
-		} catch (e) {		
+			this.findAndAddBooksArrayToLocalStorage();
+		} catch (e) {
 			console.error("Error adding document: ", e);
 		}
+	}
+
+	// Check and reload books from DB to localStorage
+	findAndAddBooksArrayToLocalStorage() {
+		const booksArrayForLocalStorage = this.readAllBooksDataUser();
+		setTimeout(() => {
+			let array;
+			booksArrayForLocalStorage.forEach(data => {
+				array = data.booksId;
+			})
+			localStorage.setItem('shopping-list', JSON.stringify(array));
+		}, 1000);
+	}
+	findAndAddBooksArrayToLocalStorageAfterDelete() {
+		const booksArrayForLocalStorage = this.readAllBooksDataUser();
+
+		let array;
+		booksArrayForLocalStorage.forEach(data => {
+			array = data.booksId;
+		})
+		localStorage.setItem('shopping-list', JSON.stringify(array));
 	}
 
 	// Fun find book use book id
 	selectBookFromArray(bookId) {
 		const q = query(collection(db, "users"), where("userIdNum", "==", JSON.parse(localStorage.getItem('userIdToLogin'))));
 		const querySnapshot = getDocs(q);
-		console.log(querySnapshot);
 
 		querySnapshot.then(data => {
 			data.forEach((doc) => {
@@ -133,19 +171,20 @@ class useFirebase {
 						this.deleteBookArray(bookObjForDelete);
 					}
 				})
-		})
+			})
 		})
 	}
-	
+
 	// fun which delete book array from DB use 
-	deleteBookArray(bookObj) {
+	async deleteBookArray(bookObj) {
 		const userIdInBase = JSON.parse(localStorage.getItem('userBooksIdToCategory'));
 		const userInBaseWithId = doc(db, "users", userIdInBase);
-	
+
 		try {
-			updateDoc(userInBaseWithId, {
+			await updateDoc(userInBaseWithId, {
 				booksId: arrayRemove(bookObj),
-			})
+			});
+			this.findAndAddBooksArrayToLocalStorage();
 		} catch (e) {
 			console.error("Error adding document: ", e);
 		}
@@ -155,44 +194,28 @@ class useFirebase {
 	readAllBooksDataUser() {
 		const q = query(collection(db, "users"), where("userIdNum", "==", JSON.parse(localStorage.getItem('userIdToLogin'))));
 		const querySnapshot = getDocs(q);
+		const array = [];
 
 		querySnapshot.then(data => {
+
 			data.forEach((doc) => {
-				// console.log(doc.data());
-				const booksArray = doc.data().booksId;
-				console.log(booksArray);
+				const booksArray = doc.data();
+				array.push(booksArray);
+				// return booksArray.booksId;
 			})
 		})
+		return array;
 	}
 }
 
-
-
-
-const bookObj = {
-		author: "Shannon Bream",
-		book_image: "https://storage.googleapis.com/du-prd/books/images/9780063226050.jpg",	
-		buy_links: [
-			{name: "Amazon", url: "https://www.amazon.com/dp/0063226057?tag=NYTBSREV-20"},
-			{ name: "Apple Books", url: "https://goto.applebooks.apple/9780063226050?at=10lIEQ" },
-			{ name: "Barnes and Noble", url: "https://www.anrdoezrs.net/click-7990613-11819508?url=https%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780063226050" }
-		],
-		description: "",
-		title: "THE LOVE STORIES OF THE BIBLE SPEAK",
-		_id: "643282b1e85766588626a0ba",
-	}
-
 const base = new useFirebase;
-// base.selectBookFromArray("111");
-// base.testWriteArray(bookObj);
-// base.readAllBooksDataUser();
-// base.selectBookFromArray("643282b1e85766588626a0ba");
 
 signInFormEl.addEventListener("submit", (event) => {
 	event.preventDefault();
 
 	if (inputEmailEl.value.trim() === "" || inputPasswordEl.value.trim() === "") {
-		return console.log("Use all fields");
+		Notify.failure(`Fill all fields!`, notifyOptions);
+		return;
 	}
 	// Checking which form we use
 	if (labelNameEl.style.display === "none") {
@@ -200,7 +223,11 @@ signInFormEl.addEventListener("submit", (event) => {
 	}
 	// Check for empty fields
 	if (inputNameEl.value.trim() === "" || inputEmailEl.value.trim() === "" || inputPasswordEl.value.trim() === "") {
-		return console.log("Use all fields");
+		Notify.failure(`Fill all fields!`, notifyOptions);
+		return;
 	}
 	base.createAccount(inputNameEl.value, inputEmailEl.value, inputPasswordEl.value);
 })
+
+
+
