@@ -348,6 +348,7 @@ function mainRenderingFunc() {
     JSON.parse(localStorage.getItem('shopping-list') && books.length !== 0)
   ) {
     ulEl.innerHTML = murkupShoppingList(currentPage);
+    moveToTrashItem();
     renderPaginationBtn();
   } else {
   }
@@ -386,4 +387,4 @@ function removeItemFromBasket(title) {
   });
 }
 
-moveToTrashItem();
+// moveToTrashItem();
