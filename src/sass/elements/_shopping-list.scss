@@ -353,7 +353,7 @@ btn-arrow {
   letter-spacing: -0.04em;
   text-transform: uppercase;
 
-  color: $main-text-color;
+  color: #111111;
 
   margin-bottom: 4px;
 
@@ -363,6 +363,9 @@ btn-arrow {
     // max-width: 100%;
     white-space: nowrap;
     display: inline-block;
+  }
+  .dark-theme &{
+    color: white;
   }
 }
 
