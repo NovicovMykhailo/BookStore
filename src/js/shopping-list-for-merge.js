@@ -3,7 +3,7 @@ import spriteSvgEls from '../images/svg-sprite.svg';
 
 
 // import addToLocalStorage from './add-to-shopping-list';
-// import removeFromLocalStorage from './remove-from-shopping-list';
+import removeFromLocalStorage from './remove-from-shopping-list';
 // import { renderPaginationBtn, currentPage } from '../js/shopping-list__pagination';
 // import { paginationBtnEl } from '../js/shopping-list__pagination';
 import { books } from './shopping-list__books';
@@ -359,10 +359,36 @@ try {
 }
 
 function moveToTrashItem() {
- const trashIcon = document.querySelectorAll('.btn');
+  const trashIcon = document.querySelectorAll('.btn');
   trashIcon.forEach(e => e.addEventListener('click', (r) => {
-    let currentBtn = r.currentTarget
+    //book title when click on basket btn
+    let currentBookTitle =
+      r.currentTarget.parentElement.children[0].children[1].children[0]
+        .textContent;
+    // console.log(currentBookTitle);
+    removeItemFromBasket(currentBookTitle);
+
   }))
-  
 }
+  
+
+function removeItemFromBasket(title) {
+  // const books =
+  //   localStorage.getItem('shopping-list') === null
+  //     ? []
+  //     : JSON.parse(localStorage.getItem('shopping-list'));
+  
+  books.map((b, i) => {
+    
+    console.log(b.title === title);
+    if (b.title === title) {
+       books.splice(i, 1);
+
+      console.log(books);
+      localStorage.setItem('shopping-list', JSON.stringify(books));
+      return;
+    }
+      });
+}
+
 moveToTrashItem();
