@@ -5,12 +5,12 @@ export default function addToLocalStorage(bookObject) {
  
 
   if (checkBookTitle(bookObject.title)) {
-     console.log('check title', checkBookTitle(bookObject.title));
-    console.log('You already have this Book');
+     //console.log('check title', checkBookTitle(bookObject.title));
+    //console.log('You already have this Book');
     // можно сделать на нттифашку, а можно ставить кнопки в зависимост от того есть ли эта книга в локал
     return;
   } else if (!checkBookTitle(bookObject.title)) {
-    console.log('check title', checkBookTitle(bookObject.title))
+    //console.log('check title', checkBookTitle(bookObject.title))
     arrayOfId.push(bookObject);
     localStorage.setItem('shopping-list', JSON.stringify(arrayOfId));
     return false;

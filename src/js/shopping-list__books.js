@@ -1,7 +1,4 @@
-export function books() {
-    if (localStorage.getItem('shopping-list') === null)
-        return [];
-    else {
-        JSON.parse(localStorage.getItem('shopping-list'));
-    }
-}
+export const books =
+  localStorage.getItem('shopping-list') === null
+    ? []
+    : JSON.parse(localStorage.getItem('shopping-list'));

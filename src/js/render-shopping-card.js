@@ -15,14 +15,14 @@ function isAvailableDescription (description){
 
 
 
-export default function murkupForTabketAndDeskto({
+export default function murkupForTabketAndDesktop({
   author,
   title,
   book_image,
   buy_links,
   description,
 }) {
-  return `<!-- <li class="shopping-list__card">
+  return `<li class="shopping-list__card">
   <div class="img-autor-container">
     <div class="image-container">
       <img
@@ -92,5 +92,5 @@ export default function murkupForTabketAndDeskto({
       <use href="${spriteSvgEls}#trash-icon"></use>
     </svg>
   </button>
-</li>`;
+</li>`
 }
