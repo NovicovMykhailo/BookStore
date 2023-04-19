@@ -3,7 +3,7 @@
 // import { renderPaginationBtn, currentPage } from '../js/shopping-list__pagination';
 // import { paginationBtnEl } from '../js/shopping-list__pagination';
 import { books } from './shopping-list__books';
-import {murkupForTabketAndDesktop} from './render-shopping-card'
+import murkupForTabletAndDesktop from './render-shopping-card'
 
 const paginationBtnEl = document.querySelector('.btn-pagination__list');
 const supUkrContainerEl = document.querySelector('.support-ukraine');
@@ -101,7 +101,7 @@ const getListObjectsOfPage = numberPage => {
 const murkupShoppingList = numberPage => {
   const arrayOfMurkup = [];
   getListObjectsOfPage(numberPage).map(book => {
-    arrayOfMurkup.push(murkupForTabketAndDesktop(book));
+    arrayOfMurkup.push(murkupForTabletAndDesktop(book));
   });
 
   return arrayOfMurkup.join('');
@@ -344,21 +344,30 @@ const renderPaginationBtn = () => {
 
 
 const mainRenderingFunc = () => {
-  
-  if (countPages === 0) {
-    // shoppingListSectionEl.insertAdjacentHTML(
-    //   'beforeend',
-    //   '<div class="empty-bookshelf"><p class="empty-bookshelf__text">This page is empty, add some books and proceed to order.</p><div class="empty-bookshelf__image"></div></div>'
-    // );
+  // if localstorage has object
 
-    onEmptyBasketImg.style.display = "block"
-
-    return;
+  if (
+    new Boolean(localStorage.getItem('shopping-list')) &&
+    JSON.parse(localStorage.getItem('shopping-list') === [])
+  ) {
+    onEmptyBasketImg.style.display = 'none';
+    ulEl.insertAdjacentHTML('beforeend', murkupShoppingList(currentPage));
   }
 
+  //  
+
+  //     // shoppingListSectionEl.insertAdjacentHTML(
+  //     //   'beforeend',
+  //     //   '<div class="empty-bookshelf"><p class="empty-bookshelf__text">This page is empty, add some books and proceed to order.</p><div class="empty-bookshelf__image"></div></div>'
+  //     // );
+
+  //     onEmptyBasketImg.style.display = 'none';
+
+  //     return;
+  //   }
+
   //console.log('books.length', books.length);
-  ulEl.insertAdjacentHTML('beforend', murkupShoppingList(currentPage))
-  console.log('mainRenderingFunc -> murkupShoppingList(currentPage)', murkupShoppingList(currentPage))
+  // ulEl.insertAdjacentHTML('beforeend', murkupShoppingList(currentPage))
 
   // renderPaginationBtn();
 };
@@ -369,4 +378,4 @@ try {
 } catch (error) {
   //console.log(error);
 }
- mainRenderingFunc();
+//  mainRenderingFunc();

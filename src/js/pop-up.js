@@ -4,8 +4,7 @@ import {
   currentBookObj,
 } from './modal-pop-up-template.js';
 // Andrew Add start
-import addToLocalStorage from './add-to-shopping-list.js';
-import checkBookTitle from './add-to-shopping-list.js';
+import { addToLocalStorage, checkBookTitle } from './add-to-shopping-list.js';
 import removeFromLocalStorage from './remove-from-shopping-list.js';
 // Andrew Add end
 // FancyBox Import
@@ -55,7 +54,7 @@ function onCardClick(e) {
       const modalPopUp = createModalPopUpCard(book);
 
       document.body.insertAdjacentHTML('beforeend', modalPopUp);
-      
+
       // проверка для кнопки
         const refs = refsEls();
 

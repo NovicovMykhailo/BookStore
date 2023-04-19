@@ -15,7 +15,7 @@ function isAvailableDescription (description){
 
 
 
-export default function murkupForTabketAndDesktop({
+export default function murkupForTabletAndDesktop({
   author,
   title,
   book_image,
