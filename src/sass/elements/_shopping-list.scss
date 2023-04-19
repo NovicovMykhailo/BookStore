@@ -276,12 +276,10 @@ btn-arrow {
     min-width: 335px;
     gap: 24px;
     padding: 24px;
-  
   }
 
   @media screen and (min-width: $tablet) {
-
-     height: 213px;
+    height: 213px;
     gap: 24px;
 
     padding: 24px;
@@ -335,7 +333,8 @@ btn-arrow {
   @media screen and (min-width: $tablet) {
     margin: 0;
     width: 116px;
-    height: max-content;
+    height: 165px;
+    object-fit: cover;
   }
 
   // @media screen and (min-width: $desktop) {
@@ -510,5 +509,12 @@ btn-arrow {
   @media screen and (min-width: $desktop) {
     width: 808px;
     top: -123px;
+  }
+}
+.image-container {
+  @media screen and (min-width: $tablet) {
+    width: 116px;
+
+    // overflow: hidden;
   }
 }
