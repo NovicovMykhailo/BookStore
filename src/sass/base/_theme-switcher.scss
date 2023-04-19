@@ -48,7 +48,7 @@
   .pop-up__btn-add {
     color: #fff;
   }
-  &.pop-up__text-info{
+  &.pop-up__text-info {
     color: #fff;
   }
 
@@ -58,8 +58,8 @@
 
   & .buy-links__icon.amazon {
     filter: grayscale(100%) invert(1);
-    &:hover{
-      filter:invert(0) grayscale(0) drop-shadow(2px 0px 6px white);
+    &:hover {
+      filter: invert(0) grayscale(0) drop-shadow(2px 0px 6px white);
     }
   }
 
@@ -92,7 +92,6 @@
     &:hover {
       stroke: $blue-accent-color;
     }
-
   }
 }
 
@@ -100,9 +99,46 @@
   & .shopping-list__card {
     background-color: #111111;
     border-color: $blue-accent-color;
-    
   }
-  & .shopping-list__description{
+  & .shopping-list__description {
     color: white;
+  }
+}
+
+.dark-theme {
+  & .form-container {
+    background-color: $main-text-color;
+    border-color: $white-text-color;
+  }
+  & .modal__closeIcon {
+    stroke: $white-text-color;
+  }
+  & .form-input {
+    background-color: $main-text-color;
+    outline-color: $white-text-color;
+    font-family: 'DMSans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.13;
+    letter-spacing: -0.01em;
+    &::placeholder {
+      color: $white-text-color;
+    }
+  }
+  & .modal__input-icon  {
+    stroke: $white-text-color;
+    fill: $main-text-color;
+  }
+  & .btn-signup {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    &:hover {
+      border: 1px solid transparent;
+    }
+  }
+  & .modal__btn {
+    color: rgba(246, 246, 246, 0.5);
   }
 }
