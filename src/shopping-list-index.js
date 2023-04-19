@@ -4,3 +4,5 @@ import './js/modal-signUp-login';
 import './js/support-companies.js';
 import './js/mobile-menu';
 import './js/loader.js';
+// shopping basket js files
+// import './js/shopping-list.js';
