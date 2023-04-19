@@ -9,5 +9,3 @@ import './js/pop-up.js';
 import './js/loader.js';
 import './js/swiper.js';
 import './js/support-ukraine.js';
-
-
