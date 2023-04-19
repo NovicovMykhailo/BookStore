@@ -44,7 +44,7 @@ const swiper = new Swiper('.swiper', {
 
   simulateTouch: false,
   slidesPerGroup: 1,
-  // spaceBetween: 20,
+  spaceBetween: 20,
   speed: 250,
   slidesPerView: 4,
 
