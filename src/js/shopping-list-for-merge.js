@@ -337,17 +337,19 @@ function renderPaginationBtn() {
 
 //============    RENDER MARKUP ========= !!!!!DO NOT TOUCH
 
-const mainRenderingFunc = () => {
+function mainRenderingFunc(){
   // if localstorage has object
+  
 
   if (
     localStorage.getItem('shopping-list') !== null &&
     JSON.parse(localStorage.getItem('shopping-list') !== [])
   ) {
-    onEmptyBasketImg.style.display = 'none';
     ulEl.innerHTML = murkupShoppingList(currentPage);
     // ulEl.insertAdjacentHTML('beforeend', murkupShoppingList(currentPage));
     renderPaginationBtn();
+  } else {
+    
   }
 };
 
@@ -357,7 +359,7 @@ try {
 } catch (error) {
   //console.log(error);
 }
-
+// tresh icon-button fuctionality
 function moveToTrashItem() {
   const trashIcon = document.querySelectorAll('.btn');
   trashIcon.forEach(e => e.addEventListener('click', (r) => {
@@ -371,13 +373,7 @@ function moveToTrashItem() {
   }))
 }
   
-
-function removeItemFromBasket(title) {
-  // const books =
-  //   localStorage.getItem('shopping-list') === null
-  //     ? []
-  //     : JSON.parse(localStorage.getItem('shopping-list'));
-  
+function removeItemFromBasket(title) { 
   books.map((b, i) => {
     
     console.log(b.title === title);
@@ -392,3 +388,8 @@ function removeItemFromBasket(title) {
 }
 
 moveToTrashItem();
+
+// when empty list make image
+if (ulEl.children.length === 0) {
+  onEmptyBasketImg.style.display ='block'
+};
