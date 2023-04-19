@@ -21,9 +21,6 @@ const swiper = new Swiper('.swiper', {
     Thumbs,
   ],
 
-  // observer: true,
-  // observeParents: true,
-  // observeSlideChildren: true,
 
   loop: true,
   direction: 'vertical',
