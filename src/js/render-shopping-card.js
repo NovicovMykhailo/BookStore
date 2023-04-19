@@ -43,7 +43,7 @@ export default function murkupForTabletAndDesktop({
             target="blank"
           >
             <img
-              class="buy-links__icon"
+              class="buy-links__icon amazon"
               src="${amazon2x}" srcset="${amazon1x} 1x, ${amazon2x} 2x" 
               width="48"
               alt="platform-icon"
@@ -92,5 +92,5 @@ export default function murkupForTabletAndDesktop({
       <use href="${spriteSvgEls}#trash-icon"></use>
     </svg>
   </button>
-</li>`
+</li>`;
 }
