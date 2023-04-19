@@ -13,7 +13,7 @@
 }
 
 .dark-theme .btn-default {
-  color: $gray-text-dark-theme;
+  color: #FFFFFF;
 }
 
 .dark-theme .filter__item {
@@ -122,6 +122,7 @@
     font-size: 16px;
     line-height: 1.13;
     letter-spacing: -0.01em;
+    color:white;
     &::placeholder {
       color: $white-text-color;
     }
@@ -138,7 +139,7 @@
     &:hover {
       background-color: #4F2EE8;
       border: 1px solid transparent;
-      color: #202024;
+      color: #FFFFFF;
     }
   }
   & .modal__btn {

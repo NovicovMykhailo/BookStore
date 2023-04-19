@@ -1,3 +1,5 @@
+const { formToJSON } = require("axios");
+
 function refsEl() {
   return {
     openModalBtn: document.querySelector('.header__singup-btn'),
@@ -18,6 +20,13 @@ function refsEl() {
   refs.openModalBtn.addEventListener('click', toggleModal);
   refs.closeModalBtn.addEventListener('click', toggleModal);
   refs.mobileBtn.addEventListener('click', toggleModal);
+  refs.form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    toggleModal()
+
+
+    
+  })
 
   function toggleModal() {
     const refs = refsEl();
