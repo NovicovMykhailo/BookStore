@@ -1,14 +1,12 @@
 import spriteSvgEls from '../images/svg-sprite.svg';
 
-
-
 // import addToLocalStorage from './add-to-shopping-list';
 import removeFromLocalStorage from './remove-from-shopping-list';
 // import { renderPaginationBtn, currentPage } from '../js/shopping-list__pagination';
 // import { paginationBtnEl } from '../js/shopping-list__pagination';
 import { books } from './shopping-list__books';
 import murkupForTabletAndDesktop from './render-shopping-card';
-import imageOnEmptyBasket from './add-empty-basket-image'
+import imageOnEmptyBasket from './add-empty-basket-image';
 
 const paginationBtnEl = document.querySelector('.btn-pagination__list');
 const supUkrContainerEl = document.querySelector('.support-ukraine');
@@ -101,14 +99,14 @@ const getListObjectsOfPage = numberPage => {
   return arrayOfBooks;
 };
 // return marckup
-function murkupShoppingList( numberPage ){
+function murkupShoppingList(numberPage) {
   const arrayOfMurkup = [];
   getListObjectsOfPage(numberPage).map(book => {
     arrayOfMurkup.push(murkupForTabletAndDesktop(book));
   });
 
   return arrayOfMurkup.join('');
-};
+}
 
 // ============    PAGINATION ============
 //pagination
@@ -317,8 +315,12 @@ function renderPaginationBtn() {
     '.btn-pagination__double-arrow-left'
   );
   const arrowLeftBtnEl = document.querySelector('.btn-pagination__arrow-left');
-  const arrowRightBtnEl = document.querySelector( '.btn-pagination__arrow-right' );
-  const arrowDoubleRightBtnEl = document.querySelector('.btn-pagination__double-arrow-right');
+  const arrowRightBtnEl = document.querySelector(
+    '.btn-pagination__arrow-right'
+  );
+  const arrowDoubleRightBtnEl = document.querySelector(
+    '.btn-pagination__double-arrow-right'
+  );
 
   // добавляет классы доступа до страничек (если есть след. стр, то добавляет btn-available)
   isAvailableBtn(
@@ -338,9 +340,8 @@ function renderPaginationBtn() {
 
 //============    RENDER MARKUP ========= !!!!!DO NOT TOUCH
 
-function mainRenderingFunc(){
+function mainRenderingFunc() {
   // if localstorage has object
-  
 
   if (
     localStorage.getItem('shopping-list') !== null &&
@@ -350,46 +351,40 @@ function mainRenderingFunc(){
     renderPaginationBtn();
   } else {
   }
- 
-};
+}
 
 try {
   mainRenderingFunc();
-} catch (error) {
-
-}
+} catch (error) {}
 // tresh icon-button fuctionality
 function moveToTrashItem() {
   const trashIcon = document.querySelectorAll('.btn');
-  trashIcon.forEach(e => e.addEventListener('click', (r) => {
-tn
-    let currentBookTitle =
-      r.currentTarget.parentElement.children[0].children[1].children[0]
-        .textContent;
+  trashIcon.forEach(e =>
+    e.addEventListener('click', r => {
+      // tn;
+      let currentBookTitle =
+        r.currentTarget.parentElement.children[0].children[1].children[0]
+          .textContent;
 
-    removeItemFromBasket(currentBookTitle);
-     location.reload();
-
-  }))
+      removeItemFromBasket(currentBookTitle);
+      location.reload();
+    })
+  );
 }
-  
-function removeItemFromBasket(title) { 
+
+function removeItemFromBasket(title) {
   books.map((b, i) => {
-    
     // console.log(b.title === title);
     if (b.title === title) {
-       books.splice(i, 1);
+      books.splice(i, 1);
 
       // console.log(books);
       localStorage.setItem('shopping-list', JSON.stringify(books));
       // ulEl.innerHTML = murkupShoppingList(books)
-    
-      
 
       return;
     }
-      });
+  });
 }
 
 moveToTrashItem();
-
