@@ -1,6 +1,4 @@
 // Import the functions you need from the SDKs you need
-import { async } from "@firebase/util";
-import { all } from "axios";
 import { initializeApp } from "firebase/app";
 import {
 	getAuth,
@@ -9,7 +7,7 @@ import {
 } from "firebase/auth";
 // import { getDatabase, ref, set, onValue } from "firebase/database";
 // firestore
-import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, getDoc,query, where, orderBy, limit, arrayUnion, arrayRemove } from "firebase/firestore"; 
+import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, getDoc,query, where, arrayUnion, arrayRemove } from "firebase/firestore"; 
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -32,7 +30,6 @@ const auth = getAuth();
 const signInFormEl = document.querySelector(".sigh-in-form");
 const inputNameEl = document.querySelector(".input-name");
 const labelNameEl = document.querySelector(".form-label-name");
-
 const inputEmailEl = document.querySelector(".input-email");
 const inputPasswordEl = document.querySelector(".input-password");
 
@@ -53,128 +50,138 @@ signInFormEl.addEventListener("submit", (event) => {
 	createAccount(inputNameEl.value, inputEmailEl.value, inputPasswordEl.value);
 })
 
-const loginEmailPassword = async (email, password) => {
-	try {
-		const userCredential = await signInWithEmailAndPassword(auth, email, password);
-		console.log("It`s work sign in:" + userCredential.user.uid);
-		localStorage.setItem('userIdToLogin', JSON.stringify(userCredential.user.uid));
-		findUserAndDatabaseIdToLocalStorage(userCredential.user.uid);
-	} catch (error) {
-		if (error.message === "Firebase: Error (auth/wrong-password).") {
-			// Display email fail
-			return console.log("НЕВІРНИЙ ПАРОЛЬ");
-		}
-		if (error.message === "Firebase: Error (auth/user-not-found).") {
-			// Display email fail
-			return console.log("Ви ще не зареєструвались");
-		}
-		console.log(error);
+class useFirebase {
+	constructor(test1, test2) {
+		this.test1 = test1;
+		this.test2 = test2;
 	}
-}
 
-const createAccount = async (name, email, password) => {
-	try {
-		const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-		writeToDB(name, email, userCredential.user.uid);
-		localStorage.setItem('userIdToLogin', JSON.stringify(userCredential.user.uid));
-	} catch (error) {
-		if (error.message === "Firebase: Error (auth/email-already-in-use).") {
-			// Display email fail
-			return console.log("Ця адреса вже існує");
+	loginEmailPassword = async (email, password) => {
+		try {
+			const userCredential = await signInWithEmailAndPassword(auth, email, password);
+			console.log("It`s work sign in:" + userCredential.user.uid);
+			localStorage.setItem('userIdToLogin', JSON.stringify(userCredential.user.uid));
+			this.findUserAndDatabaseIdToLocalStorage(userCredential.user.uid);
+		} catch (error) {
+			if (error.message === "Firebase: Error (auth/wrong-password).") {
+				// Display email fail
+				return console.log("НЕВІРНИЙ ПАРОЛЬ");
+			}
+			if (error.message === "Firebase: Error (auth/user-not-found).") {
+				// Display email fail
+				return console.log("Ви ще не зареєструвались");
+			}
+			console.log(error);
 		}
-		console.log(error);
 	}
-}
 
-// WriteNewUserToDB
-const writeToDB = async (name, email, userId) => {
-	try {
-		const docRef = await addDoc(collection(db, "users"), {
-		name: name,
-		email: email,
-		userIdNum: userId,
-		booksId: {}
-		});
-		findUserAndDatabaseIdToLocalStorage(userId);
-		console.log("Write User to DB = DONE!");
-	} catch (e) {
-		console.error("Error adding document: ", e);
+	createAccount = async (name, email, password) => {
+		try {
+			const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+			writeToDB(name, email, userCredential.user.uid);
+			localStorage.setItem('userIdToLogin', JSON.stringify(userCredential.user.uid));
+		} catch (error) {
+			if (error.message === "Firebase: Error (auth/email-already-in-use).") {
+				// Display email fail
+				return console.log("Ця адреса вже існує");
+			}
+			console.log(error);
+		}
 	}
-}
 
-// It`s for write id which use user in DB
-function findUserAndDatabaseIdToLocalStorage(userIdInAuth) {
-	// console.log(userIdInAuth);
-	const userWithId = query(collection(db, "users"), where("userIdNum", "==", userIdInAuth));
+	// WriteNewUserToDB
+	writeToDB = async (name, email, userId) => {
+		try {
+			const docRef = await addDoc(collection(db, "users"), {
+			name: name,
+			email: email,
+			userIdNum: userId,
+			booksId: {}
+			});
+			this.findUserAndDatabaseIdToLocalStorage(userId);
+			console.log("Write User to DB = DONE!");
+		} catch (e) {
+			console.error("Error adding document: ", e);
+		}
+	}
 
-	const userData = getDocs(userWithId);
-	userData.then(data => {
-		data.forEach((doc) => {
-			localStorage.setItem('userBooksIdToCategory', JSON.stringify(doc.id));
+	// It`s for write id which use user in DB
+	findUserAndDatabaseIdToLocalStorage(userIdInAuth) {
+		// console.log(userIdInAuth);
+		const userWithId = query(collection(db, "users"), where("userIdNum", "==", userIdInAuth));
+
+		const userData = getDocs(userWithId);
+		userData.then(data => {
+			data.forEach((doc) => {
+				localStorage.setItem('userBooksIdToCategory', JSON.stringify(doc.id));
+			})
 		})
-	})
+	}
+
+	// Receive book obj and write to base use userID to base from localStorage
+	testWriteArray(bookObj) {
+		const userIdInBase = JSON.parse(localStorage.getItem('userBooksIdToCategory'));
+		const userInBaseWithId = doc(db, "users", userIdInBase);
+		
+		try {
+			updateDoc(userInBaseWithId, {
+				booksId: arrayUnion(bookObj),
+			})
+		} catch (e) {		
+			console.error("Error adding document: ", e);
+		}
+	}
+
+	// Fun find book use book id
+	selectBookFromArray(bookId) {
+		const q = query(collection(db, "users"), where("userIdNum", "==", JSON.parse(localStorage.getItem('userIdToLogin'))));
+		const querySnapshot = getDocs(q);
+		console.log(querySnapshot);
+
+		querySnapshot.then(data => {
+			data.forEach((doc) => {
+				// console.log(doc.data().booksId);
+				const booksArray = doc.data().booksId;
+				booksArray.forEach(obj => {
+					// console.log(obj);
+					if (obj.bookId === bookId) {
+						console.log(obj);
+						const bookObjForDelete = obj;
+						// deleteBookArray(bookObjForDelete);
+					}
+				})
+		})
+		})
+	}
+	
+	// fun which delete book array from DB use 
+	deleteBookArray(bookObj) {
+		const userIdInBase = JSON.parse(localStorage.getItem('userBooksIdToCategory'));
+		const userInBaseWithId = doc(db, "users", userIdInBase);
+	
+		try {
+			updateDoc(userInBaseWithId, {
+				booksId: arrayRemove(bookObj),
+			})
+		} catch (e) {
+			console.error("Error adding document: ", e);
+		}
+	}
 }
 
 const bookObj = {
-	bookId: "333",
-	bookName: "Three",
-	bookPhotoUrl: "https://Three.com",
-	bookAuthor: "Three",
-	bookDesc: "Three",
-	bookAmazonLink: "amazonThree.com",
-}
-
-function testWriteArray(bookObj) {
-	const userIdInBase = JSON.parse(localStorage.getItem('userBooksIdToCategory'));
-	const userInBaseWithId = doc(db, "users", userIdInBase);
-
-	try {
-		updateDoc(userInBaseWithId, {
-			booksId: arrayUnion(bookObj),
-		})
-	} catch (e) {
-		console.error("Error adding document: ", e);
+		bookId: "444",
+		bookName: "Four",
+		bookPhotoUrl: "https://Four.com",
+		bookAuthor: "Four",
+		bookDesc: "Four",
+		bookAmazonLink: "amazonFour.com",
 	}
-}
 
-// testWriteArray(bookObj);
+const base = new useFirebase;
+// base.selectBookFromArray("111");
+// base.testWriteArray(bookObj);
 
-
-
-function selectBookFromArray(bookId) {
-	const q = query(collection(db, "users"), where("userIdNum", "==", JSON.parse(localStorage.getItem('userIdToLogin'))));
-	const querySnapshot = getDocs(q);
-	console.log(querySnapshot);
-
-	querySnapshot.then(data => {
-		data.forEach((doc) => {
-			// console.log(doc.data().booksId);
-			const booksArray = doc.data().booksId;
-			booksArray.forEach(obj => {
-				// console.log(obj);
-				if (obj.bookId === bookId) {
-					console.log(obj);
-					const bookObjForDelete = obj;
-					// deleteBookArray(bookObjForDelete);
-				}
-			})
-	})
-	})
-}
-selectBookFromArray("333");
-
-function deleteBookArray(bookObj) {
-	const userIdInBase = JSON.parse(localStorage.getItem('userBooksIdToCategory'));
-	const userInBaseWithId = doc(db, "users", userIdInBase);
-	
-	try {
-		updateDoc(userInBaseWithId, {
-			booksId: arrayRemove(bookObj),
-		})
-	} catch (e) {
-		console.error("Error adding document: ", e);
-	}
-}
 
 
 
@@ -195,7 +202,4 @@ function readData (params) {
 	})
 	})
 }
-
-// readData();
-
 
