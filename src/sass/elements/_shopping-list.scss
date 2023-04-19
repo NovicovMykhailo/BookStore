@@ -43,6 +43,9 @@
   font-size: 14px;
   line-height: 1.29;
   width: 100%;
+  .dark-theme &{
+    color: rgba(255, 255, 255, 0.6);
+  }
 
   @media screen and (min-width: $mobile) {
     font-size: 18px;
