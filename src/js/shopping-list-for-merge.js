@@ -1,19 +1,8 @@
 import spriteSvgEls from '../images/svg-sprite.svg';
-
-
-
-// import addToLocalStorage from './add-to-shopping-list';
 import removeFromLocalStorage from './remove-from-shopping-list';
-// import { renderPaginationBtn, currentPage } from '../js/shopping-list__pagination';
-// import { paginationBtnEl } from '../js/shopping-list__pagination';
 import { books } from './shopping-list__books';
 import murkupForTabletAndDesktop from './render-shopping-card';
-import imageOnEmptyBasket from './add-empty-basket-image'
-// Import Database
-import { useFirebase } from './firebase.js';
-import { async } from '@firebase/util';
-import { resolve } from 'path';
-const firebase = new useFirebase;
+import imageOnEmptyBasket from './add-empty-basket-image';
 
 const paginationBtnEl = document.querySelector('.btn-pagination__list');
 const supUkrContainerEl = document.querySelector('.support-ukraine');
@@ -113,7 +102,7 @@ function murkupShoppingList(numberPage) {
 	});
 
 	return arrayOfMurkup.join('');
-};
+}
 
 // ============    PAGINATION ============
 //pagination
@@ -184,7 +173,7 @@ const tabletAndDesktopRendering = array => {
     </ul>`;
 };
 // pagination styling
-isAvailableBtn = (...args) => {
+const isAvailableBtn = (...args) => {
 	if (currentPage - 2 > 0) {
 		args[0].classList.add('btn-available');
 	} else {
@@ -210,7 +199,7 @@ isAvailableBtn = (...args) => {
 	}
 };
 // pagination active page
-toAddCurrentClass = num => {
+const toAddCurrentClass = num => {
 	const numberedNum = Number(num);
 	if (num === '...') {
 		return;
@@ -271,7 +260,7 @@ const toAddListeners = (...args) => {
 // главная функция по рендеру списка кнопок
 
 function renderPaginationBtn() {
-	//console.log('books.length in buttons', books.length);
+
 	if (books.length === 0 || books.length <= 3) {
 		return;
 	}
@@ -322,8 +311,12 @@ function renderPaginationBtn() {
 		'.btn-pagination__double-arrow-left'
 	);
 	const arrowLeftBtnEl = document.querySelector('.btn-pagination__arrow-left');
-	const arrowRightBtnEl = document.querySelector('.btn-pagination__arrow-right');
-	const arrowDoubleRightBtnEl = document.querySelector('.btn-pagination__double-arrow-right');
+	const arrowRightBtnEl = document.querySelector(
+		'.btn-pagination__arrow-right'
+	);
+	const arrowDoubleRightBtnEl = document.querySelector(
+		'.btn-pagination__double-arrow-right'
+	);
 
 	// добавляет классы доступа до страничек (если есть след. стр, то добавляет btn-available)
 	isAvailableBtn(
@@ -406,6 +399,4 @@ function removeItemFromBasket(title) {
 		}
 	});
 }
-
-moveToTrashItem();
 

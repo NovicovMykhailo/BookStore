@@ -1,6 +1,6 @@
 <div class="modal__backdrop is-hidden" data-modal>
   <div class="form-container is-hidden">
-    <form class="sigh-in-form" action="SignUp" novalidate>
+    <form action="SignUp" autocomplete="off">
       <button type="button" class="modal__close-button" data-modal-close>
         <svg class="modal__closeIcon" width="20" height="20">
           <use href="./images/svg-sprite.svg#x-close-icon"></use>
@@ -14,7 +14,6 @@
           placeholder="name"
           class="form-input input-name"
           required
-          autocomplete="off"
       /></label>
 
       <label for="email" class="form-label form-label-email">
@@ -25,7 +24,6 @@
           placeholder="email"
           class="form-input input-email"
           required
-          autocomplete="off"
         />
         <svg class="modal__input-icon" width="18" height="18">
           <use href="./images/svg-sprite.svg#letter-icon"></use>
@@ -40,7 +38,6 @@
           placeholder="password"
           class="form-input input-password"
           required
-          autocomplete="off"
         />
         <svg class="modal__input-icon" width="18" height="18">
           <use href="./images/svg-sprite.svg#lock-icon"></use>
@@ -50,7 +47,7 @@
       <button type="submit" class="btn-signup btn-default">sign up</button>
     </form>
     <div class="btn-group">
-      <button type="submit" class="modal__btn" data-type="sign-up">
+      <button type="submit" class="modal__btn active-form" data-type="sign-up">
         sing up
       </button>
       <button type="submit" class="modal__btn" data-type="sign-in">

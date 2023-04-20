@@ -44,13 +44,20 @@
   line-height: 1.12;
 
   letter-spacing: -0.02em;
+ transition: all $animation-flow;
 
   color: $grey-text-color;
   cursor: pointer;
+  &:hover{
+    
+    transform: scale(1.05) translateX(10px);
+
+  }
 
   @media screen and (min-width: $tablet) {
     font-size: 18px;
     line-height: 1.33;
+    padding-bottom: 32px;
   }
 }
 
