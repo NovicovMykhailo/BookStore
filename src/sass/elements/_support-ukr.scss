@@ -83,7 +83,7 @@
   line-height: 1.29;
   letter-spacing: -0.04em;
   transition: all $animation-flow;
-  &:hover{
+  &:hover {
     transform: translate(10px);
   }
 }
@@ -113,8 +113,13 @@
     width: 38px;
     height: 38px;
   }
+
+  &--top .button__icon {
+    transform: rotate(-180deg);
+  }
 }
 
 .button__icon {
   fill: $main-text-color;
+  transition: transform $animation-flow;
 }

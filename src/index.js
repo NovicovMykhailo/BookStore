@@ -8,3 +8,4 @@ import './js/support-companies.js';
 import './js/mobile-menu';
 import './js/pop-up.js';
 import './js/loader.js';
+import './js/support-list-swiper.js';
