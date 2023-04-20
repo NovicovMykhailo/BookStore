@@ -9,3 +9,4 @@ import './js/firebase.js';
 import './js/mobile-menu';
 import './js/pop-up.js';
 import './js/loader.js';
+import './js/header-change.js';

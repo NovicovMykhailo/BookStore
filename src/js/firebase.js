@@ -8,8 +8,6 @@ import {
 // import { getDatabase, ref, set, onValue } from "firebase/database";
 // firestore
 import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, getDoc, query, where, arrayUnion, arrayRemove } from "firebase/firestore";
-// Import Notiflix
-// import { Notiflix } from "notiflix";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 // Your web app's Firebase configuration
