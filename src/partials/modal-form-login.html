@@ -1,19 +1,19 @@
 <div class="modal__backdrop is-hidden" data-modal>
   <div class="form-container is-hidden">
-    <form action="SignUp" autocomplete="off">
+    <form class="sigh-in-form" action="SignUp" autocomplete="off">
       <button type="button" class="modal__close-button" data-modal-close>
         <svg class="modal__closeIcon" width="20" height="20">
           <use href="./images/svg-sprite.svg#x-close-icon"></use>
         </svg>
       </button>
-      <label class="form-label form-label-name" for="name" >
+      <label class="form-label form-label-name" for="name">
         <input
           type="text"
           id="name"
           name="name"
           placeholder="name"
           class="form-input input-name"
-          required 
+          required
       /></label>
 
       <label for="email" class="form-label form-label-email">
@@ -23,7 +23,7 @@
           name="email"
           placeholder="email"
           class="form-input input-email"
-          required 
+          required
         />
         <svg class="modal__input-icon" width="18" height="18">
           <use href="./images/svg-sprite.svg#letter-icon"></use>
@@ -37,7 +37,7 @@
           name="password"
           placeholder="password"
           class="form-input input-password"
-          required 
+          minlength="8" required
         />
         <svg class="modal__input-icon" width="18" height="18">
           <use href="./images/svg-sprite.svg#lock-icon"></use>
@@ -47,8 +47,12 @@
       <button type="submit" class="btn-signup btn-default">sign up</button>
     </form>
     <div class="btn-group">
-      <button type="submit" class="modal__btn  active-form" data-type="sign-up">sing up</button>
-      <button type="submit" class="modal__btn" data-type="sign-in">sing in</button>
+      <button type="submit" class="modal__btn active-form" data-type="sign-up">
+        sign up
+      </button>
+      <button type="submit" class="modal__btn" data-type="sign-in">
+        sign in
+      </button>
     </div>
   </div>
 </div>

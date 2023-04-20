@@ -16,7 +16,7 @@ export  function addToLocalStorage(bookObject) {
 }
 
 export function checkBookTitle(bookTitle) {
-  console.log(books)
+  // console.log(books)
 
 
     const storedBooks = JSON.parse(localStorage.getItem('shopping-list'));

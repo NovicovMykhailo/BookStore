@@ -5,6 +5,8 @@ import './js/color-last-words.js';
 import './js/theme-switcher.js';
 import './js/modal-signUp-login';
 import './js/support-companies.js';
+import './js/firebase.js';
 import './js/mobile-menu';
 import './js/pop-up.js';
 import './js/loader.js';
+import './js/header-change.js';
