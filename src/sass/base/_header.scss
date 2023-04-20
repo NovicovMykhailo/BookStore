@@ -259,6 +259,7 @@ header {
   }
 }
 .header__logout-btn {
+  display: none;
   border-radius: 18px;
   border-color: #111111;
   text-transform: none;
@@ -267,16 +268,22 @@ header {
   line-height: 18px;
   transition: all $animation-flow;
 
+  background-color: white;
+
+  @media screen and (min-width: $tablet) {
+    justify-content: space-between;
     position: absolute;
     right: 23px;
     width: 186px;
     padding: 12px;
+  }
+  &:hover {
     background-color: white;
-    justify-content: space-between;
-    .dark-theme &{
-      color: black;
-
-    }
+    color: black;
+  }
+  .dark-theme & {
+    color: black;
+  }
 }
 .user-info-bar {
   display: inline-flex;
@@ -284,8 +291,6 @@ header {
   align-items: center;
   margin-top: 104px;
   margin-left: 20px;
-
-
 
   height: 37px;
   & > .user-name {
