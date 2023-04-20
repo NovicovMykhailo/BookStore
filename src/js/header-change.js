@@ -1,4 +1,4 @@
-import {isLogged } from './firebase'
+import isLogged  from './firebase'
 
 const refs = {
   navItem: document.querySelector('.nav__list').children[1],
