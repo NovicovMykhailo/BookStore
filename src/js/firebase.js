@@ -11,7 +11,6 @@ import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, getDoc, quer
 // Import Notiflix
 // import { Notiflix } from "notiflix";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { Notiflix } from "notiflix";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -55,6 +54,7 @@ export class useFirebase {
 			const userCredential = await signInWithEmailAndPassword(auth, email, password);
 			localStorage.setItem('userIdToLogin', JSON.stringify(userCredential.user.uid));
 			this.findUserAndDatabaseIdToLocalStorage(userCredential.user.uid);
+			Notify.success(`You sign in!`, notifyOptions);
 		} catch (error) {
 			if (error.message === "Firebase: Error (auth/wrong-password).") {
 				// Display email fail
@@ -76,7 +76,7 @@ export class useFirebase {
 			const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 			this.writeToDB(name, email, userCredential.user.uid);
 			localStorage.setItem('userIdToLogin', JSON.stringify(userCredential.user.uid));
-			Notify.success(`You log up!`, notifyOptions);
+			Notify.success(`You sign in!`, notifyOptions);
 		} catch (error) {
 			if (error.message === "Firebase: Error (auth/email-already-in-use).") {
 				// Display email fail 
