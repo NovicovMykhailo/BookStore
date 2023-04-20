@@ -1,4 +1,4 @@
-import {isLogged } from './firebase.js'
+
 // console.log('isLogged', isLogged)
 
 const refs = {

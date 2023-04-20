@@ -24,7 +24,7 @@ import {
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 // Your web app's Firebase configuration
-export let isLogged = false;
+
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: 'AIzaSyAJl6Ad8jyFnNkdyvWS-vuWG1MshoteFzQ',
@@ -74,7 +74,7 @@ export class useFirebase {
       );
       this.findUserAndDatabaseIdToLocalStorage(userCredential.user.uid);
       Notify.success(`You sign in!`, notifyOptions);
-      isLogged = true;
+
       location.reload();
     } catch (error) {
       if (error.message === 'Firebase: Error (auth/wrong-password).') {
@@ -102,7 +102,7 @@ export class useFirebase {
         JSON.stringify(userCredential.user.uid)
       );
       Notify.success(`You sign in!`, notifyOptions);
-      isLogged = true;
+
     } catch (error) {
       if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
         // Display email fail
@@ -128,7 +128,7 @@ export class useFirebase {
       Notify.success('Conrgatulation - yoy are registered!', {
         fontFamily: 'DMSans',
       });
-      isLogged = true;
+
       location.reload();
       // console.log("Write User to DB = DONE!");
     } catch (e) {
