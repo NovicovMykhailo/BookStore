@@ -22,7 +22,7 @@ import {
   arrayRemove,
 } from 'firebase/firestore';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-export let isLoagged;
+
 // Your web app's Firebase configuration
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -74,7 +74,11 @@ export class useFirebase {
       );
       this.findUserAndDatabaseIdToLocalStorage(userCredential.user.uid);
       Notify.success(`You sign in!`, notifyOptions);
-      isLoagged = true;
+     setTimeout(() => {
+       location.reload();
+       // removeLoader()
+     }, 2500);
+
     } catch (error) {
       if (error.message === 'Firebase: Error (auth/wrong-password).') {
         // Display email fail
@@ -85,9 +89,7 @@ export class useFirebase {
         return Notify.failure(`You should sign up before!`, notifyOptions);
       }
       // console.log(error);
-    } finally {
-      location.reload()
-    }
+    } 
   };
 
   createAccount = async (name, email, password) => {
@@ -130,14 +132,16 @@ export class useFirebase {
         fontFamily: 'DMSans',
       });
       isLoagged = true;
+      setTimeout(() => {
+        location.reload();
+        // removeLoader()
+      }, 2500);
       // console.log("Write User to DB = DONE!");
     } catch (e) {
       Notify.warning('Oops something went wrong, Please try again', {
         fontFamily: 'DMSans',
       });
       // console.error("Error adding document: ", e);
-    }finally {
-      location.reload();
     }
   };
 

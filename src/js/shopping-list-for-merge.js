@@ -376,17 +376,16 @@ async function trashTest(r) {
 			.textContent;
 
 	try {
-		await books.forEach((book) => {
-			const bookIdToDelete = book._id;
-			if (book.title === currentBookTitle) {
-				// console.log("BookIdForDelete: " + bookIdToDelete);
-				firebase.selectBookFromArray(bookIdToDelete);
-				showLoadingIndicator()
-			}
-		})
-	} finally {
-		// location.reload();
-	}
+    await books.forEach(book => {
+      const bookIdToDelete = book._id;
+      if (book.title === currentBookTitle) {
+        // console.log("BookIdForDelete: " + bookIdToDelete);
+        firebase.selectBookFromArray(bookIdToDelete);
+        showLoadingIndicator();
+      }
+    });
+  } catch (error) {}
+		
 
 
 	setTimeout(() => {

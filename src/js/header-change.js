@@ -1,4 +1,4 @@
-import {isLoagged} from './firebase'
+
 
 const refs = {
   navItem: document.querySelector('.nav__list').children[1],
@@ -56,6 +56,13 @@ refs.logOutBtn.addEventListener('click', onLogoutClick);
 refs.logOutBtnMob.addEventListener('click', onLogoutClick);
 
 function onLogoutClick() {
-   setTimeout(localStorage.clear(), 3000);;
-  setTimeout(location.reload(), 3000);
+  setTimeout(() => {
+    localStorage.clear();
+
+  }, 1000);
+  setTimeout(() => {
+    location.reload();
+
+  }, 1000);
+
 }
