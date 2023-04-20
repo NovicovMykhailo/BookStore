@@ -94,7 +94,7 @@
   max-width: 150px;
 }
 
-.support__load-more {
+.swiper-button-next {
   margin-top: 0;
   margin-right: auto;
   margin-left: auto;
@@ -113,13 +113,12 @@
     width: 38px;
     height: 38px;
   }
-
-  &--top .button__icon {
-    transform: rotate(-180deg);
+  &--rotated .button__icon {
+    transform: rotateX(180deg);
   }
 }
+  .button__icon {
+    fill: $main-text-color;
+    transition: transform $animation-flow;
+  }
 
-.button__icon {
-  fill: $main-text-color;
-  transition: transform $animation-flow;
-}

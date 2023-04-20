@@ -24,36 +24,3 @@ function leadingZeros(num) {
 }
 
 createSupportList();
-
-// const btnEl = document.querySelector('.support__load-more');
-// const supportList = document.querySelector('.support-companies');
-
-// btnEl.addEventListener('click', onLoadMoreBtnClick);
-
-// function onLoadMoreBtnClick () {
-//   const { height: itemHeight } = companiesList.firstElementChild.getBoundingClientRect();
-
-//   supportList.scrollBy({
-//     top: itemHeight * 4,
-//     behavior: 'smooth',
-//   });
-// }
-
-// companiesList.addEventListener('scroll', onScrollChangeBtn);
-
-// function onScrollChangeBtn () {
-// if (window.scrollHeights === window.clientHeight) {
-// btnEl.removeEventListener('click', onLoadMoreBtnClick);
-// btnEl.classListAdd('.support__load-more--top');
-// btnEl.addEventListener('click', onSupportScrollTop);
-// }
-// }
-
-// function onSupportScrollTop () {
-//   const { height: itemHeight } = companiesList.lastElementChild.getBoundingClientRect();
-
-//   supportList.scrollBy({
-//     bottom: itemHeight * 4,
-//     behavior: 'smooth',
-//   });
-// }
