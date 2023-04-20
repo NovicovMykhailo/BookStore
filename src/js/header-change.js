@@ -1,3 +1,5 @@
+import {isLogged } from './firebase'
+
 const refs = {
   navItem: document.querySelector('.nav__list').children[1],
   navItemMob: document.querySelector('.nav__mob-menu').children[0].children[1],
@@ -10,47 +12,36 @@ const refs = {
 
   logOutBtn: document.querySelector('.header__logout-btn'),
   logOutBtnMob: document.querySelector('.mob-menu__Log-out-btn'),
-  //
+
 };
 
 function notRegisteredView() {
   refs.logOutBtn.style.display = 'none';
   refs.userBar.style.display = 'none';
   refs.userBarMob.style.display = 'none';
-    refs.signUpBtn.style.display = 'flex'
   refs.logOutBtnMob.style.display = 'none';
-
   refs.userBar.style.display = 'none';
   refs.navItem.style.display = 'none';
   refs.navItemMob.style.display = 'none';
 }
 
-function hoverOnUserBar() {
-  refs.userBar.addEventListener('mouseenter', () => {
-    refs.logOutBtn.style.display = 'flex';
 
-    refs.logOutBtn.addEventListener('mouseleave', () => {
-      refs.logOutBtn.style.display = 'none';
-    });
-  });
-}
+export function registeredView() {
+    const mediaQuery = window.matchMedia('(min-width: 768px)');
+    //userBar
+    if (mediaQuery.matches) {
+      refs.userBar.style.display = 'flex';
+      refs.userBar.addEventListener('mouseenter', () => {
+        refs.logOutBtn.style.display = 'flex';
 
-
-function registeredView() {
-    refs.signUpBtnMob.style.display = 'none';
-    // refs.userBar.stle.display = 'flex';
-
-    if (window.matchMedia('(max-width: 700px)')) {
-      
-    refs.userBar.style.display = 'flex';
-    refs.userBar.addEventListener('mouseenter', () => {
-      refs.logOutBtn.style.display = 'flex';
-
-      refs.logOutBtn.addEventListener('mouseleave', () => {
-        refs.logOutBtn.style.display = 'none';
+        refs.logOutBtn.addEventListener('mouseleave', () => {
+          refs.logOutBtn.style.display = 'none';
+        });
       });
-    });
     }
+    refs.userBarMob.style.display = "inline-flex"
+    refs.signUpBtnMob.style.display = 'none'
+    refs.logOutBtnMob.style.display = 'flex'
 
 
 
@@ -59,4 +50,19 @@ function registeredView() {
   refs.signUpBtn.style.display = 'none';
 }
 notRegisteredView();
-registeredView();
+
+if (localStorage.getItem('register') !== null || isLogged === true) {
+  registeredView();
+} else if (isLogged === false) {
+  notRegisteredView();
+}
+refs.logOutBtn.addEventListener('click', onLogoutClick)
+refs.logOutBtnMob.addEventListener('click', onLogoutClick);
+
+
+function onLogoutClick() {
+    isLogged = false;
+    localStorage.clear();
+    location.reload();
+ 
+}

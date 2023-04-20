@@ -6,11 +6,13 @@ import {
 	signInWithEmailAndPassword
 } from "firebase/auth";
 // import { getDatabase, ref, set, onValue } from "firebase/database";
+
 // firestore
 import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, getDoc, query, where, arrayUnion, arrayRemove } from "firebase/firestore";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 // Your web app's Firebase configuration
+export let isLogged = false
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
 	apiKey: "AIzaSyAJl6Ad8jyFnNkdyvWS-vuWG1MshoteFzQ",
@@ -53,6 +55,9 @@ export class useFirebase {
 			localStorage.setItem('userIdToLogin', JSON.stringify(userCredential.user.uid));
 			this.findUserAndDatabaseIdToLocalStorage(userCredential.user.uid);
 			Notify.success(`You sign in!`, notifyOptions);
+			isLogged = true;
+			location.reload()
+
 		} catch (error) {
 			if (error.message === "Firebase: Error (auth/wrong-password).") {
 				// Display email fail
@@ -75,6 +80,7 @@ export class useFirebase {
 			this.writeToDB(name, email, userCredential.user.uid);
 			localStorage.setItem('userIdToLogin', JSON.stringify(userCredential.user.uid));
 			Notify.success(`You sign in!`, notifyOptions);
+			isLogged = true;
 		} catch (error) {
 			if (error.message === "Firebase: Error (auth/email-already-in-use).") {
 				// Display email fail 
@@ -96,7 +102,8 @@ export class useFirebase {
 			this.findUserAndDatabaseIdToLocalStorage(userId);
 			Notify.success('Conrgatulation - yoy are registered!', {
         fontFamily: 'DMSans',
-      });
+			}); isLogged = true;
+			location.reload();
 			// console.log("Write User to DB = DONE!");
 		} catch (e) {
 			Notify.warning('Oops something went wrong, Please try again', {
