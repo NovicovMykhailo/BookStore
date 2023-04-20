@@ -1,4 +1,5 @@
-// import isLogged  from './firebase'
+
+
 
 const refs = {
   navItem: document.querySelector('.nav__list').children[1],
@@ -51,18 +52,18 @@ export function registeredView() {
 }
 notRegisteredView();
 
-// if (localStorage.getItem('register') !== null || isLogged === true) {
-//   registeredView();
-// } else if (isLogged === false) {
-//   notRegisteredView();
-// }
-// refs.logOutBtn.addEventListener('click', onLogoutClick)
-// refs.logOutBtnMob.addEventListener('click', onLogoutClick);
+if (localStorage.getItem('register') !== null) {
+  registeredView();
+} else {
+  notRegisteredView();
+}
+refs.logOutBtn.addEventListener('click', onLogoutClick)
+refs.logOutBtnMob.addEventListener('click', onLogoutClick);
 
 
-// function onLogoutClick() {
-//     isLogged = false;
-//     localStorage.clear();
-//     location.reload();
+function onLogoutClick() {
+
+    localStorage.clear();
+    location.reload();
  
-// }
+}

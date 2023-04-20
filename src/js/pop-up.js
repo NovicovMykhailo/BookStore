@@ -127,8 +127,8 @@ function addLocal() {
       refs.textToggleRemoveEl.classList.remove('visually-hidden');
       return;
     }
-      // firebase.writeBookArrayToDB(currentBookObj);
-    Notiflix.Notify.info(' You may be registered to use this option')
+    // firebase.writeBookArrayToDB(currentBookObj);
+    Notiflix.Notify.info(' You may be registered to use this option');
     // refs.btnToggleAddEl.classList.add('visually-hidden');
     // refs.btnToggleRemoveEl.classList.remove('visually-hidden');
     // refs.textToggleRemoveEl.classList.remove('visually-hidden');
