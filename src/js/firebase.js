@@ -116,6 +116,7 @@ export class useFirebase {
 				localStorage.setItem('userBooksIdToCategory', JSON.stringify(doc.id));
 			})
 		})
+		localStorage.setItem('register', true);
 	}
 
 	// Receive book obj and write to base use userID to base from localStorage
@@ -213,12 +214,11 @@ const base = new useFirebase;
 signInFormEl.addEventListener("submit", (event) => {
 	event.preventDefault();
 
-	if (inputEmailEl.value.trim() === "" || inputPasswordEl.value.trim() === "") {
-		Notify.failure(`Fill all fields!`, notifyOptions);
-		return;
-	}
 	// Checking which form we use
 	if (labelNameEl.style.display === "none") {
+		if (inputEmailEl.value.trim() === "" || inputPasswordEl.value.trim() === "") {
+			Notify.failure(`Fill all fields!`, notifyOptions);
+		}
 		return base.loginEmailPassword(inputEmailEl.value, inputPasswordEl.value);
 	}
 	// Check for empty fields

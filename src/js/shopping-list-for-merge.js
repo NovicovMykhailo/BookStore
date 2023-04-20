@@ -3,12 +3,16 @@ import removeFromLocalStorage from './remove-from-shopping-list';
 import { books } from './shopping-list__books';
 import murkupForTabletAndDesktop from './render-shopping-card';
 import imageOnEmptyBasket from './add-empty-basket-image';
+import { useFirebase } from './firebase';
+const firebase = new useFirebase;
 
 const paginationBtnEl = document.querySelector('.btn-pagination__list');
 const supUkrContainerEl = document.querySelector('.support-ukraine');
 const shoppingListSectionEl = document.querySelector('.shopping-list__page');
 const onEmptyBasketImg = document.querySelector('.on-empty-container');
 const ulEl = document.querySelector('.shopping-list');
+
+
 
 const countPages = Math.ceil(books.length / 3);
 let currentPage = 1;
@@ -359,6 +363,7 @@ try {
 // tresh icon-button fuctionality
 function moveToTrashItem() {
 	const trashIcon = document.querySelectorAll('.btn');
+	console.log(trashIcon);
 	trashIcon.forEach(e => e.addEventListener('click', (r) => trashTest(r)))
 }
 async function trashTest(r) {
@@ -381,6 +386,7 @@ async function trashTest(r) {
 
 }
 
+moveToTrashItem();
 
 function removeItemFromBasket(title) {
 	books.map((b, i) => {
