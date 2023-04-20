@@ -381,8 +381,6 @@ async function trashTest(r) {
 
 }
 
-moveToTrashItem();
-
 
 function removeItemFromBasket(title) {
 	books.map((b, i) => {
