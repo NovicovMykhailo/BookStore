@@ -55,6 +55,7 @@ export class useFirebase {
 			const userCredential = await signInWithEmailAndPassword(auth, email, password);
 			localStorage.setItem('userIdToLogin', JSON.stringify(userCredential.user.uid));
 			this.findUserAndDatabaseIdToLocalStorage(userCredential.user.uid);
+			Notify.success(`You sign in!`, notifyOptions);
 		} catch (error) {
 			if (error.message === "Firebase: Error (auth/wrong-password).") {
 				// Display email fail
@@ -76,7 +77,7 @@ export class useFirebase {
 			const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 			this.writeToDB(name, email, userCredential.user.uid);
 			localStorage.setItem('userIdToLogin', JSON.stringify(userCredential.user.uid));
-			Notify.success(`You log up!`, notifyOptions);
+			Notify.success(`You sign up!`, notifyOptions);
 		} catch (error) {
 			if (error.message === "Firebase: Error (auth/email-already-in-use).") {
 				// Display email fail 
