@@ -16,8 +16,8 @@ const refs = {
 function notRegisteredView() {
   refs.logOutBtn.style.display = 'none';
   refs.userBar.style.display = 'none';
-  refs.userBarMob.style.diaplay = 'none';
-
+  refs.userBarMob.style.display = 'none';
+    refs.signUpBtn.style.display = 'flex'
   refs.logOutBtnMob.style.display = 'none';
 
   refs.userBar.style.display = 'none';
@@ -37,11 +37,12 @@ function hoverOnUserBar() {
 
 
 function registeredView() {
-        refs.signUpBtnMob.style.display = 'none';
+    refs.signUpBtnMob.style.display = 'none';
+    // refs.userBar.stle.display = 'flex';
 
     if (window.matchMedia('(max-width: 700px)')) {
       
-    // refs.userBar.style.display = 'flex';
+    refs.userBar.style.display = 'flex';
     refs.userBar.addEventListener('mouseenter', () => {
       refs.logOutBtn.style.display = 'flex';
 
@@ -52,12 +53,10 @@ function registeredView() {
     }
 
 
-  // refs.logOutBtnMob.style.display = 'none';
 
-  // refs.userBar.style.display = 'none';
   refs.navItem.style.display = 'block';
   refs.navItemMob.style.display = 'block';
   refs.signUpBtn.style.display = 'none';
 }
-// notRegisteredView();
+notRegisteredView();
 registeredView();
