@@ -57,11 +57,17 @@
   gap: 12px;
 }
 .support-companies {
+  display: flex;
   padding-left: 40px;
   margin-bottom: 16px;
 
   gap: 20px;
   color: $white-text-color;
+  max-height: 188px;
+
+  @media screen and (min-width: 768px) {
+    max-height: 292px;
+  }
   @media screen and (min-width: $tablet) {
     margin-bottom: 32px;
   }
@@ -81,10 +87,10 @@
   transition: all $animation-flow;
 }
 
-.company__link{
+.company__link {
   transition: all $animation-flow;
 }
-.company__link:hover{
+.company__link:hover {
   transform: translate(10px);
 }
 
@@ -121,7 +127,7 @@
     transform: rotateX(180deg);
   }
 }
-.numbers{
+.numbers {
   font-family: 'DMSans';
   font-style: normal;
   font-weight: 400;

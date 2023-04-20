@@ -13,13 +13,13 @@ const swiper = new Swiper('.swiper', {
   navigation: {
     nextEl: '.swiper-button-next',
   },
-  mousewheel: true,
   rewind: true,
+  mousewheel: true,
   allowTouchMove: false,
   spaceBetween: 20,
   slidesPerView: 'auto',
   slidesPerGroup: 4,
-  breakpoints: {
+    breakpoints: {
     768: {
       slidesPerGroup: 6,
     },
