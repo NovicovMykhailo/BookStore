@@ -46,6 +46,7 @@ const auth = getAuth();
 const notifyOptions = {
   fontFamily: 'DMSans',
   zindex: 10001,
+  clickToClose: true,
 };
 
 const signInFormEl = document.querySelector('.sigh-in-form');

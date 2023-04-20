@@ -2,6 +2,7 @@
 
 const refs = {
   navItem: document.querySelector('.nav__list').children[1],
+  homeBtn: document.querySelector('.nav__list').children[0],
   navItemMob: document.querySelector('.nav__mob-menu').children[0].children[1],
 
   signUpBtn: document.querySelector('.header__singup-btn'),
@@ -22,6 +23,8 @@ function notRegisteredView() {
   refs.userBar.style.display = 'none';
   refs.navItem.style.display = 'none';
   refs.navItemMob.style.display = 'none';
+  refs.homeBtn.style.display = 'none';
+  ;
 }
 
 export function registeredView() {
@@ -42,6 +45,7 @@ export function registeredView() {
   refs.userBarMob.style.display = 'inline-flex';
   refs.signUpBtnMob.style.display = 'none';
   refs.logOutBtnMob.style.display = 'flex';
+  refs.homeBtn.style.display = 'block'
 
   refs.navItem.style.display = 'block';
   refs.navItemMob.style.display = 'block';
