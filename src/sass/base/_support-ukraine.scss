@@ -36,11 +36,10 @@
   letter-spacing: -0.04em;
   color: $white-text-color;
 
-  &hover,
-  &focus {
-    -webkit-text-stroke: 1px solid #000000;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
+  &:hover,
+  &:focus {
+    text-shadow: 1px 0 0 $main-text-color, 0 -1px 0 $main-text-color, 0 1px 4px $main-text-color, -1px 0 0 $main-text-color;
+     }
 }
 
 .logo-ukr {
@@ -77,5 +76,5 @@
 }
 
 .button__icon {
-  fill: $main-text-color;
+  fill: $blue-accent-color;
 }
