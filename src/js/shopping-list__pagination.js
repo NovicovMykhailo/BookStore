@@ -11,6 +11,18 @@ export const paginationBtnEl = document.querySelector('.btn-pagination__list');
 const numericBtnEl = document.querySelector('.btn-pagination__numeric-list');
 const liofNumbersEl = document.querySelector('.btn-paggination__numbers');
 
+//
+// const ll = paginationBtnEl.children[0];
+//
+
+// const arrowDoubleLeftBtnEl = document.querySelector(
+//   '.btn-pagination__double-arrow-left'
+// );
+// const arrowLeftBtnEl = document.querySelector('btn-pagination__arrow-left');
+// const arrowRightBtnEl = document.querySelector('btn-pagination__arrow-right');
+// const arrowDoubleRightBtnEl = document.querySelector(
+//   '.btn-pagination__double-arrow-right'
+// );
 
 export const countPages = Math.ceil(books.length / 3);
 export let currentPage = 1;
@@ -120,10 +132,83 @@ isAvailableBtn = (...args) => {
     args[3].classList.add('btn-not-available');
   }
 
- 
+  // как добавить и убрать класс btn-current
 };
 
+// export const handleBtnPaginationClick = event => {
+//   try {
+//     console.log(event.target);
+//   } catch (error) {
+//     console.log(error);
+//   }
 
+//   if (
+//     event.target.classList[0] === 'btn-pagination__list' ||
+//     event.target.classList[0] === 'btn-pagination__numeric-list' ||
+//     event.target.classList[0] === 'btn-pagination__arrow-list'
+//   ) {
+//     return;
+//   }
+
+//   const selectedBtn = event.target.localName;
+
+//   // теперь нужно добавить навешивание и снятие классов
+
+//   if (
+//     selectedBtn === 'svg' &&
+//     event.target.parentNode.classList.contains(
+//       'btn-pagination__double-arrow-right'
+//     ) &&
+//     event.target.parentNode.classList.contains('btn-available')
+//     // (selectedBtn.classList[0] ===
+//     //   'btn-pagination__double-arrow-right' &&
+//     //   selectedBtn.contains('btn-available'))
+//   ) {
+//     console.log('we can go');
+//     murkupShoppingList(currentPage + 2); // or textContent
+//     currentPage += 2;
+//     liofNumbersEl.innerHTML = renderNumbers();
+//   }
+
+//   if (
+//     selectedBtn.classList[0] === 'btn-pagination__arrow-right' &&
+//     selectedBtn.contains('btn-available')
+//   ) {
+//     murkupShoppingList(currentPage + 1); // or textContent
+//     currentPage += 1;
+//     liofNumbersEl.innerHTML = renderNumbers();
+//   }
+
+//   if (
+//     selectedBtn.classList[0] === 'btn-pagination__double-arrow-left' &&
+//     selectedBtn.contains('btn-available')
+//   ) {
+//     murkupShoppingList(currentPage - 2); // or textContent
+//     currentPage -= 2;
+//     liofNumbersEl.innerHTML = renderNumbers();
+//   }
+
+//   if (
+//     selectedBtn.classList[0] === 'btn-pagination__arrow-left' &&
+//     selectedBtn.contains('btn-available')
+//   ) {
+//     murkupShoppingList(currentPage - 1); // or textContent
+//     currentPage -= 1;
+//     liofNumbersEl.innerHTML = renderNumbers();
+//   }
+
+//   if (
+//     selectedBtn.classList[0] === 'btn-pagination__numeric' &&
+//     selectedBtn.classList[0].firstElementChild.textContent !== '...'
+//   ) {
+//     currentPage = Number(
+//       selectedBtn.classList[0].firstElementChild.textContent
+//     );
+//     murkupShoppingList(currentPage);
+
+//     liofNumbersEl.innerHTML = renderNumbers();
+//   }
+// };
 
 const renderNumbers = () => {
   if (window.screen.width >= 768) {
@@ -250,5 +335,5 @@ export const renderPaginationBtn = () => {
     arrowDoubleRightBtnEl
   );
 
-
+  // paginationBtnEl.addEventListener('click', handleBtnPaginationClick);
 };

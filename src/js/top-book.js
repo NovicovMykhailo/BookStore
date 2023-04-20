@@ -6,6 +6,11 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import AOS from 'aos'; //animation lib
 AOS.init(); //animation lib init
 
+// window.addEventListener('beforeunload', () => {
+//   if ('topBooks' in sessionStorage) {
+//     sessionStorage.removeItem('topBooks');
+//   }
+// });
 
 const spinnerOptions = {
 
@@ -30,7 +35,7 @@ addEventListener('resize', () => {
     (window.innerWidth < 768 && currentRenderWidth > 767)
   ) {
     location.reload();
-
+    // fetchAndRenderBooks();
   }
 });
 

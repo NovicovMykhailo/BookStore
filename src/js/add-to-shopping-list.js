@@ -5,7 +5,7 @@ export  function addToLocalStorage(bookObject) {
  
 
   if (checkBookTitle(bookObject.title)) {
-
+    // можно сделать на нттифашку, а можно ставить кнопки в зависимост от того есть ли эта книга в локал
     return;
   } else if (!checkBookTitle(bookObject.title)) {
     arrayOfId.push(bookObject);

@@ -1,5 +1,3 @@
-const { formToJSON } = require("axios");
-
 function refsEl() {
   return {
     openModalBtn: document.querySelector('.header__singup-btn'),
@@ -12,21 +10,13 @@ function refsEl() {
     form: document.querySelector('.form-container > form'),
     submitBtn: document.querySelector('.btn-signup'),
     mobileBtn: document.querySelector('.header__singup-btn-mob-menu'),
-    buttonGroup: document.querySelector('.btn-group'),
   };
-}
+};
 (() => {
-  let refs = refsEl();
+  let refs = refsEl()
   refs.openModalBtn.addEventListener('click', toggleModal);
   refs.closeModalBtn.addEventListener('click', toggleModal);
   refs.mobileBtn.addEventListener('click', toggleModal);
-  refs.form.addEventListener('submit', (e) => {
-    e.preventDefault()
-    toggleModal()
-
-
-    
-  })
 
   function toggleModal() {
     const refs = refsEl();
@@ -49,21 +39,15 @@ function refsEl() {
 function onClick(e) {
   const refs = refsEl();
   let targetChoiceBtn = e.target.dataset.type;
-  const signInBtn = refs.buttonGroup.children[0];
-  const signUpBtn = refs.buttonGroup.children[1];
 
   if (targetChoiceBtn !== 'sign-up') {
     refs.nameForm.style.display = 'none';
     refs.form.style.marginTop = '20px';
     refs.submitBtn.textContent = 'Sign In';
-    signInBtn.classList.remove('active-form');
-    signUpBtn.classList.add('active-form');
   } else {
     refs.nameForm.style.display = 'inline-block';
     refs.form.style.marginTop = '0px';
     refs.submitBtn.textContent = 'Sign Up';
-    signUpBtn.classList.remove('active-form');
-    signInBtn.classList.add('active-form');
   }
 }
 
@@ -87,5 +71,3 @@ function exitViaEsc(e) {
     return;
   }
 }
-
-// dark Theme

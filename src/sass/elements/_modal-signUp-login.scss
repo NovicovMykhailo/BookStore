@@ -165,7 +165,6 @@ form {
 
   &::before {
     content: '';
-    z-index:-2;
     position: absolute;
     top: 0;
     left: 0;
@@ -199,7 +198,6 @@ form {
   justify-content: center;
 }
 
-
 .modal__btn {
   padding: 0;
   border: none;
@@ -213,9 +211,6 @@ form {
   letter-spacing: -0.01em;
   text-transform: uppercase;
   cursor: pointer;
-  &.active-form{
-  color: blue;
-}
 
   &:hover,
   &:focus {
@@ -246,4 +241,6 @@ form {
     top: 16px;
     right: 25px;
   }
+  // fill: $main-text-color;   для тёмной темы
+  // stroke: $white-text-color;
 }

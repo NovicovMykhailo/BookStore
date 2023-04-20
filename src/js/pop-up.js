@@ -1,5 +1,4 @@
 import { BookAPI } from './book-api.js';
-import { books } from './shopping-list__books.js';
 import {
   createModalPopUpCard,
   currentBookObj,
@@ -25,7 +24,6 @@ const fancyBoxOptions = {
       // Andrew Add start
       addLocal(); //
       removeLocal();
-      checkExistanceInLocal();
       // Andrew Add end
     },
     close: () => {
@@ -48,9 +46,10 @@ function refsEls() {
     btnToggleRemoveEl: document.querySelector('.pop-up__btn-remove'),
     textToggleRemoveEl: document.querySelector('.pop-up__text-info'),
   };
-}
+};
 // function on click
 function onCardClick(e) {
+
   e.preventDefault();
   if (e.target.className === 'book-card__image') {
     const bookId = e.target.parentNode.children[2].innerText;
@@ -63,7 +62,18 @@ function onCardClick(e) {
       document.body.insertAdjacentHTML('beforeend', modalPopUp);
 
       // проверка для кнопки
-      const refs = refsEls();
+        const refs = refsEls();
+
+      // if (checkBookTitle(book.title)) {
+      //   refs.btnToggleAddEl.classList.add('visually-hidden');
+      //   refs.btnToggleRemoveEl.classList.remove('visually-hidden');
+      //   refs.textToggleRemoveEl.classList.remove('visually-hidden');
+      // } else if (!checkBookTitle(book.title)){
+      //   refs.btnToggleAddEl.classList.remove('visually-hidden');
+      //   refs.btnToggleRemoveEl.classList.add('visually-hidden');
+      //   refs.textToggleRemoveEl.classList.add('visually-hidden');
+      // }
+      
 
       Fancybox.show([{ src: '#modal', type: 'inline' }], fancyBoxOptions);
       // find Fancybox-close-btn
@@ -90,34 +100,6 @@ function closeModal() {
   });
 }
 // Andrew Add start
-function checkExistanceInLocal() {
-  const refs = refsEls();
-  let check = 0;
-
-  if (books.length === 0) {
-    refs.btnToggleAddEl.classList.remove('visually-hidden');
-    refs.btnToggleRemoveEl.classList.add('visually-hidden');
-    refs.textToggleRemoveEl.classList.add('visually-hidden');
-    return;
-  }
-  
-  books.map(b => {
-    if (b.title === currentBookObj.title) {
-      check = 1;
-    }
-  });
-  
-
-  if (check === 1) {
-    refs.btnToggleAddEl.classList.add('visually-hidden');
-    refs.btnToggleRemoveEl.classList.remove('visually-hidden');
-    refs.textToggleRemoveEl.classList.remove('visually-hidden');  
-  } else {
-    refs.btnToggleAddEl.classList.remove('visually-hidden');
-    refs.btnToggleRemoveEl.classList.add('visually-hidden');
-    refs.textToggleRemoveEl.classList.add('visually-hidden');
-  }
-}
 function addLocal() {
   const refs = refsEls();
 
