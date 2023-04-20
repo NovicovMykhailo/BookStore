@@ -375,20 +375,24 @@ async function trashTest(r) {
 		r.currentTarget.parentElement.children[0].children[1].children[0]
 			.textContent;
 
-	await books.forEach((book) => {
-		const bookIdToDelete = book._id;
-		if (book.title === currentBookTitle) {
-			// console.log("BookIdForDelete: " + bookIdToDelete);
-			firebase.selectBookFromArray(bookIdToDelete);
-			showLoadingIndicator()
-		}
-	})
-
-
-	setTimeout(() => {
+	try {
+		await books.forEach((book) => {
+			const bookIdToDelete = book._id;
+			if (book.title === currentBookTitle) {
+				// console.log("BookIdForDelete: " + bookIdToDelete);
+				firebase.selectBookFromArray(bookIdToDelete);
+				showLoadingIndicator()
+			}
+		})
+	} finally {
 		location.reload();
-		// removeLoader()
-	}, 2500);
+	}
+
+
+	// setTimeout(() => {
+	// 	location.reload();
+	// 	// removeLoader()
+	// }, 2500);
 
 }
 

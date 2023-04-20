@@ -118,9 +118,11 @@ function addLocal() {
     //   addToLocalStorage(currentBookObj);
     // use firebase
     if (
-      localStorage.getItem('register') &&
+      localStorage.getItem('register')
+      &&
       localStorage.getItem('shopping-list')
     ) {
+
       firebase.writeBookArrayToDB(currentBookObj);
       refs.btnToggleAddEl.classList.add('visually-hidden');
       refs.btnToggleRemoveEl.classList.remove('visually-hidden');
