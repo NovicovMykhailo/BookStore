@@ -1,5 +1,4 @@
-
-
+import {isLoagged} from './firebase'
 
 const refs = {
   navItem: document.querySelector('.nav__list').children[1],
@@ -13,7 +12,6 @@ const refs = {
 
   logOutBtn: document.querySelector('.header__logout-btn'),
   logOutBtnMob: document.querySelector('.mob-menu__Log-out-btn'),
-
 };
 
 function notRegisteredView() {
@@ -26,25 +24,22 @@ function notRegisteredView() {
   refs.navItemMob.style.display = 'none';
 }
 
-
 export function registeredView() {
-    const mediaQuery = window.matchMedia('(min-width: 768px)');
-    //userBar
-    if (mediaQuery.matches) {
-      refs.userBar.style.display = 'flex';
-      refs.userBar.addEventListener('mouseenter', () => {
-        refs.logOutBtn.style.display = 'flex';
+  const mediaQuery = window.matchMedia('(min-width: 768px)');
+  //userBar
+  if (mediaQuery.matches) {
+    refs.userBar.style.display = 'flex';
+    refs.userBar.addEventListener('mouseenter', () => {
+      refs.logOutBtn.style.display = 'flex';
 
-        refs.logOutBtn.addEventListener('mouseleave', () => {
-          refs.logOutBtn.style.display = 'none';
-        });
+      refs.logOutBtn.addEventListener('mouseleave', () => {
+        refs.logOutBtn.style.display = 'none';
       });
-    }
-    refs.userBarMob.style.display = "inline-flex"
-    refs.signUpBtnMob.style.display = 'none'
-    refs.logOutBtnMob.style.display = 'flex'
-
-
+    });
+  }
+  refs.userBarMob.style.display = 'inline-flex';
+  refs.signUpBtnMob.style.display = 'none';
+  refs.logOutBtnMob.style.display = 'flex';
 
   refs.navItem.style.display = 'block';
   refs.navItemMob.style.display = 'block';
@@ -57,13 +52,10 @@ if (localStorage.getItem('register') !== null) {
 } else {
   notRegisteredView();
 }
-refs.logOutBtn.addEventListener('click', onLogoutClick)
+refs.logOutBtn.addEventListener('click', onLogoutClick);
 refs.logOutBtnMob.addEventListener('click', onLogoutClick);
 
-
 function onLogoutClick() {
-
-    localStorage.clear();
-    location.reload();
- 
+  localStorage.clear();
+  setTimeout(location.reload(), 3000);
 }
