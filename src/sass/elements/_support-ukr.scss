@@ -145,3 +145,12 @@
   fill: $blue-accent-color;
   transition: transform $animation-flow;
 }
+.swiper{
+  margin:0 !important;
+  margin-left: 40px !important;
+  .swiper-slide{
+    display: flex;
+     height: 32px;
+     width: 100%;
+  }
+}
