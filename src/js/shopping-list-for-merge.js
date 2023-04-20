@@ -385,14 +385,14 @@ async function trashTest(r) {
 			}
 		})
 	} finally {
-		location.reload();
+		// location.reload();
 	}
 
 
-	// setTimeout(() => {
-	// 	location.reload();
-	// 	// removeLoader()
-	// }, 2500);
+	setTimeout(() => {
+		location.reload();
+		// removeLoader()
+	}, 2500);
 
 }
 
