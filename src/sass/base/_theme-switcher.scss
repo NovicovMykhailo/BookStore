@@ -13,7 +13,7 @@
 }
 
 .dark-theme .btn-default {
-  color: $gray-text-dark-theme;
+  color: #FFFFFF;
 }
 
 .dark-theme .filter__item {
@@ -48,6 +48,9 @@
   .pop-up__btn-add {
     color: #fff;
   }
+  &.pop-up__text-info {
+    color: #fff;
+  }
 
   & .modal__pop-up {
     border-color: white;
@@ -55,6 +58,9 @@
 
   & .buy-links__icon.amazon {
     filter: grayscale(100%) invert(1);
+    &:hover {
+      filter: invert(0) grayscale(0) drop-shadow(2px 0px 6px white);
+    }
   }
 
   & .btn-close-icon {
@@ -86,7 +92,6 @@
     &:hover {
       stroke: $blue-accent-color;
     }
-
   }
 }
 
@@ -94,9 +99,50 @@
   & .shopping-list__card {
     background-color: #111111;
     border-color: $blue-accent-color;
-    
   }
-  & .shopping-list__description{
+  & .shopping-list__description {
     color: white;
+  }
+}
+
+.dark-theme {
+  & .form-container {
+    background-color: $main-text-color;
+    border-color: $white-text-color;
+  }
+  & .modal__closeIcon {
+    stroke: $white-text-color;
+  }
+  & .form-input {
+    background-color: $main-text-color;
+    outline-color: $white-text-color;
+    font-family: 'DMSans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.13;
+    letter-spacing: -0.01em;
+    color:white;
+    &::placeholder {
+      color: $white-text-color;
+    }
+  }
+  & .modal__input-icon  {
+    stroke: $white-text-color;
+    fill: $main-text-color;
+  }
+  & .btn-signup {
+    background-color: #F6F6F6;
+    overflow:hidden;
+    // border: 1px solid white;
+    color: #202024;
+    &:hover {
+      background-color: #4F2EE8;
+      border: 1px solid transparent;
+      color: #FFFFFF;
+    }
+  }
+  & .modal__btn {
+    color: rgba(246, 246, 246, 0.5);
   }
 }
