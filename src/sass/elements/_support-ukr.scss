@@ -74,6 +74,14 @@
   @media screen and (min-width: $desktop) {
     margin-bottom: 40px;
   }
+  &.swiper {
+    display: flex;
+    max-height: 188px;
+
+    @media screen and (min-width: 768px) {
+      max-height: 292px;
+    }
+  }
 }
 
 .company__item {
