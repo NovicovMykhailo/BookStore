@@ -4,12 +4,13 @@ const refs = {
   signUpBtn: document.querySelector('.header__singup-btn'),
   signUpBtnMob: document.querySelector('.header__singup-btn-mob-menu'),
   UserBtn: document.querySelector('.header__singin-btn'),
-//   logOutBtn: document.querySelector(''),
+    logOutBtn: document.querySelector('.header__logout-btn'),
   logOutBtnMob: document.querySelector('.mob-menu__Log-out-btn'),
   //
 };
 
-refs.logOutBtnMob.style.display='none'
-refs.UserBtn.style.display = 'none'
+refs.logOutBtnMob.style.display = 'none'
+// refs.logOutBtnMob.style.display = 'none';
+// refs.UserBtn.style.display = 'none'
 refs.navItem.style.display='none'
 refs.navItemMob.style.display = 'none'

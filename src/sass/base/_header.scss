@@ -265,6 +265,18 @@ header {
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
+  transition: all $animation-flow;
+
+    position: absolute;
+    right: 23px;
+    width: 186px;
+    padding: 12px;
+    background-color: white;
+    justify-content: space-between;
+    .dark-theme &{
+      color: black;
+
+    }
 }
 .user-info-bar {
   display: inline-flex;
