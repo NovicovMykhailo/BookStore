@@ -36,6 +36,8 @@ export function registeredView() {
         refs.logOutBtn.style.display = 'none';
       });
     });
+  } else if (!mediaQuery.matches){
+    refs.userBar.style.display = 'none';
   }
   refs.userBarMob.style.display = 'inline-flex';
   refs.signUpBtnMob.style.display = 'none';
