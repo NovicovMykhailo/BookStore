@@ -25,7 +25,7 @@ export class BookAPI {
 
   //   Метод для отримання інформації про книгу за її унікальним ідентифікатором
 	getBookInfo() {
-	  console.log(this.id);
+	  // console.log(this.id);
     return axios.get(`${this.#BASE_URL}/${this.id}`);
   }
 }

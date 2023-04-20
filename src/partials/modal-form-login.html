@@ -37,7 +37,7 @@
           name="password"
           placeholder="password"
           class="form-input input-password"
-          required
+          minlength="8" required
         />
         <svg class="modal__input-icon" width="18" height="18">
           <use href="./images/svg-sprite.svg#lock-icon"></use>
@@ -48,10 +48,10 @@
     </form>
     <div class="btn-group">
       <button type="submit" class="modal__btn active-form" data-type="sign-up">
-        sing up
+        sign up
       </button>
       <button type="submit" class="modal__btn" data-type="sign-in">
-        sing in
+        sign in
       </button>
     </div>
   </div>

@@ -64,7 +64,7 @@ export class useFirebase {
 				// Display email fail
 				return Notify.failure(`You should sign up before!`, notifyOptions);
 			}
-			console.log(error);
+			// console.log(error);
 		}
 	}
 
@@ -82,7 +82,7 @@ export class useFirebase {
 				// Display email fail 
 				return Notify.failure(`You have already used this email!`, notifyOptions);
 			}
-			console.log(error);
+			// console.log(error);
 		}
 	}
 
@@ -96,9 +96,15 @@ export class useFirebase {
 				booksId: []
 			});
 			this.findUserAndDatabaseIdToLocalStorage(userId);
-			console.log("Write User to DB = DONE!");
+			Notify.success('Conrgatulation - yoy are registered!', {
+        fontFamily: 'DMSans',
+      });
+			// console.log("Write User to DB = DONE!");
 		} catch (e) {
-			console.error("Error adding document: ", e);
+			Notify.warning('Oops something went wrong, Please try again', {
+        fontFamily: 'DMSans',
+      });
+			// console.error("Error adding document: ", e);
 		}
 	}
 
@@ -130,7 +136,10 @@ export class useFirebase {
 			})
 			this.findAndAddBooksArrayToLocalStorage();
 		} catch (e) {
-			console.error("Error adding document: ", e);
+			Notify.failure('oops error writing to host ', {
+        fontFamily: 'DMSans',
+      });
+			// console.error("Error adding document: ", e);
 		}
 	}
 
@@ -187,7 +196,10 @@ export class useFirebase {
 			});
 			this.findAndAddBooksArrayToLocalStorage();
 		} catch (e) {
-			console.error("Error adding document: ", e);
+			Notify.failure('oops error writing to host ', {
+        fontFamily: 'DMSans',
+      });
+			// console.error("Error adding document: ", e);
 		}
 	}
 

@@ -4,6 +4,9 @@ import { books } from './shopping-list__books';
 import murkupForTabletAndDesktop from './render-shopping-card';
 import imageOnEmptyBasket from './add-empty-basket-image';
 import { useFirebase } from './firebase';
+import { showLoadingIndicator, removeLoader } from './loader'
+import Notiflix from 'notiflix';
+
 const firebase = new useFirebase;
 
 const paginationBtnEl = document.querySelector('.btn-pagination__list');
@@ -358,12 +361,12 @@ function mainRenderingFunc() {
 try {
 	mainRenderingFunc();
 } catch (error) {
-
+ Notiflix.failure('oops something went wrong');
 }
 // tresh icon-button fuctionality
 function moveToTrashItem() {
 	const trashIcon = document.querySelectorAll('.btn');
-	console.log(trashIcon);
+	// console.log(trashIcon);
 	trashIcon.forEach(e => e.addEventListener('click', (r) => trashTest(r)))
 }
 async function trashTest(r) {
@@ -375,13 +378,16 @@ async function trashTest(r) {
 	await books.forEach((book) => {
 		const bookIdToDelete = book._id;
 		if (book.title === currentBookTitle) {
-			console.log("BookIdForDelete: " + bookIdToDelete);
+			// console.log("BookIdForDelete: " + bookIdToDelete);
 			firebase.selectBookFromArray(bookIdToDelete);
+			showLoadingIndicator()
 		}
 	})
 
+
 	setTimeout(() => {
 		location.reload();
+		// removeLoader()
 	}, 2500);
 
 }
@@ -406,3 +412,4 @@ function removeItemFromBasket(title) {
 	});
 }
 
+// checking title
