@@ -57,17 +57,13 @@
   gap: 12px;
 }
 .support-companies {
-  max-height: 188px;
   padding-left: 40px;
   margin-bottom: 16px;
 
-  overflow: scroll;
-  display: flex;
-  flex-direction: column;
   gap: 20px;
   color: $white-text-color;
   @media screen and (min-width: $tablet) {
-    max-height: 292px;
+    margin-bottom: 32px;
   }
   @media screen and (min-width: $desktop) {
     margin-bottom: 40px;
@@ -83,15 +79,19 @@
   line-height: 1.29;
   letter-spacing: -0.04em;
   transition: all $animation-flow;
-  &:hover {
-    transform: translate(10px);
-  }
+}
+
+.company__link{
+  transition: all $animation-flow;
+}
+.company__link:hover{
+  transform: translate(10px);
 }
 
 .company__img {
+  max-width: 159px;
   height: 32px;
   object-fit: contain;
-  max-width: 150px;
 }
 
 .swiper-button-next {
@@ -112,13 +112,22 @@
   @media screen and (min-width: $tablet) {
     width: 38px;
     height: 38px;
+    margin-bottom: 14px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 24px;
   }
   &--rotated .button__icon {
     transform: rotateX(180deg);
   }
 }
-  .button__icon {
-    fill: $main-text-color;
-    transition: transform $animation-flow;
-  }
+.numbers{
+  font-family: 'DMSans';
+  font-style: normal;
+  font-weight: 400;
+}
 
+.button__icon {
+  fill: $blue-accent-color;
+  transition: transform $animation-flow;
+}
