@@ -1,4 +1,4 @@
-const { formToJSON } = require("axios");
+
 
 function refsEl() {
 	return {
@@ -24,8 +24,6 @@ function refsEl() {
 	refs.form.addEventListener('submit', (e) => {
 		e.preventDefault()
 		toggleModal()
-
-
 
 	})
 

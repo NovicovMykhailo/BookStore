@@ -1,8 +1,7 @@
-import addToLocalStorage from './add-to-shopping-list';
-import removeFromLocalStorage from './remove-from-shopping-list';
+// import addToLocalStorage from './add-to-shopping-list';
+// import removeFromLocalStorage from './remove-from-shopping-list';
+// import { paginationBtnEl } from '../js/shopping-list__pagination';
 import { renderPaginationBtn, currentPage } from '../js/shopping-list__pagination';
-// import renderPaginationBtn from '../js/shopping-list__pagination';
-import { paginationBtnEl } from '../js/shopping-list__pagination';
 import { books } from './shopping-list__books';
 
 
@@ -31,7 +30,7 @@ const getListObjectsOfPage = numberPage => {
 
 const getAppropriateMurkup = (book) => {
   if (window.screen.width < 768) {
-    return murkupForMobile(book); // !!! может быть ошибка с передачей строки
+    return murkupForMobile(book);
   }
 
   return murkupForTabketAndDesktop(book);

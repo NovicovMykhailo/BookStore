@@ -355,7 +355,6 @@ function mainRenderingFunc() {
 		renderPaginationBtn();
 	} else {
 	}
-
 };
 
 try {

@@ -1,4 +1,4 @@
-import { books } from './shopping-list__books';
+
 const arrayOfId = [];
  
 export  function addToLocalStorage(bookObject) {

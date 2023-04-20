@@ -4,16 +4,11 @@ import {
   createModalPopUpCard,
   currentBookObj,
 } from './modal-pop-up-template.js';
-// Andrew Add start
-// import { checkBookTitle } from './add-to-shopping-list.js';
-import addToLocalStorage from './add-to-local-store.js';
 
 // Import Database
 import { useFirebase } from './firebase.js';
 const firebase = new useFirebase();
 
-import removeFromLocalStorage from './remove-from-shopping-list.js';
-// Andrew Add end
 // FancyBox Import
 import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
@@ -26,15 +21,12 @@ const fancyBoxOptions = {
       // Andrew Add start
       addLocal(); //
       removeLocal();
-      // checkExistanceInLocal();
-      // Andrew Add end
     },
     close: () => {
       setTimeout(deleteMarkup, 500);
     },
   },
   autoFocus: false,
-  // ClickAction | ((any?: any) => ClickAction | void)
 };
 // Book Api Init
 const bookAPI = new BookAPI();
@@ -115,7 +107,6 @@ function addLocal() {
 
   refs.btnToggleAddEl.addEventListener('click', event => {
     event.preventDefault();
-    //   addToLocalStorage(currentBookObj);
     // use firebase
     if (
       localStorage.getItem('register') &&
@@ -127,11 +118,7 @@ function addLocal() {
       refs.textToggleRemoveEl.classList.remove('visually-hidden');
       return;
     }
-    // firebase.writeBookArrayToDB(currentBookObj);
     Notiflix.Notify.info(' You may be registered to use this option');
-    // refs.btnToggleAddEl.classList.add('visually-hidden');
-    // refs.btnToggleRemoveEl.classList.remove('visually-hidden');
-    // refs.textToggleRemoveEl.classList.remove('visually-hidden');
   });
 }
 
@@ -141,9 +128,6 @@ function removeLocal() {
   const textToggleRemoveEl = document.querySelector('.pop-up__text-info');
   btnToggleRemoveEl.addEventListener('click', event => {
     event.preventDefault();
-
-    //   removeFromLocalStorage(currentBookObj);
-    //   console.log(currentBookObj._id);
     //   use firebase
     firebase.selectBookFromArray(currentBookObj._id);
     btnToggleAddEl.classList.remove('visually-hidden');
