@@ -74,8 +74,7 @@ export class useFirebase {
       );
       this.findUserAndDatabaseIdToLocalStorage(userCredential.user.uid);
       Notify.success(`You sign in!`, notifyOptions);
-
-      location.reload();
+		setTimeout(location.reload(), 3000)
     } catch (error) {
       if (error.message === 'Firebase: Error (auth/wrong-password).') {
         // Display email fail
@@ -128,8 +127,8 @@ export class useFirebase {
       Notify.success('Conrgatulation - yoy are registered!', {
         fontFamily: 'DMSans',
       });
-
-      location.reload();
+	  setTimeout( location.reload(),3000)
+    //   location.reload();
       // console.log("Write User to DB = DONE!");
     } catch (e) {
       Notify.warning('Oops something went wrong, Please try again', {

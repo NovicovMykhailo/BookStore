@@ -1,5 +1,5 @@
 
-// console.log('isLogged', isLogged)
+
 
 const refs = {
   navItem: document.querySelector('.nav__list').children[1],
@@ -52,9 +52,9 @@ export function registeredView() {
 }
 notRegisteredView();
 
-if (localStorage.getItem('register') !== null || isLogged === true) {
+if (localStorage.getItem('register') !== null) {
   registeredView();
-} else if (isLogged === false) {
+} else {
   notRegisteredView();
 }
 refs.logOutBtn.addEventListener('click', onLogoutClick)
@@ -62,7 +62,7 @@ refs.logOutBtnMob.addEventListener('click', onLogoutClick);
 
 
 function onLogoutClick() {
-    isLogged = false;
+
     localStorage.clear();
     location.reload();
  

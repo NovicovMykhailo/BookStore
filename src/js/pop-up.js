@@ -118,19 +118,17 @@ function addLocal() {
     //   addToLocalStorage(currentBookObj);
     // use firebase
     if (
-      localStorage.getItem('register')
-      &&
+      localStorage.getItem('register') &&
       localStorage.getItem('shopping-list')
     ) {
-
       firebase.writeBookArrayToDB(currentBookObj);
       refs.btnToggleAddEl.classList.add('visually-hidden');
       refs.btnToggleRemoveEl.classList.remove('visually-hidden');
       refs.textToggleRemoveEl.classList.remove('visually-hidden');
       return;
     }
-      // firebase.writeBookArrayToDB(currentBookObj);
-    Notiflix.Notify.info(' You may be registered to use this option')
+    // firebase.writeBookArrayToDB(currentBookObj);
+    Notiflix.Notify.info(' You may be registered to use this option');
     // refs.btnToggleAddEl.classList.add('visually-hidden');
     // refs.btnToggleRemoveEl.classList.remove('visually-hidden');
     // refs.textToggleRemoveEl.classList.remove('visually-hidden');
