@@ -56,6 +56,6 @@ refs.logOutBtn.addEventListener('click', onLogoutClick);
 refs.logOutBtnMob.addEventListener('click', onLogoutClick);
 
 function onLogoutClick() {
-  localStorage.clear();
+   setTimeout(localStorage.clear(), 3000);;
   setTimeout(location.reload(), 3000);
 }
