@@ -20,6 +20,7 @@ export default function addToLocalStorage(bookObject) {
 
     }
   } catch (error) {
-    console.log(error);
+     Notiflix.Notify.failure('You already have this Book', notifyOptions);
+    // console.log(error);
   }
 }

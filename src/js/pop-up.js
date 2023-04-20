@@ -7,11 +7,17 @@ import {
 // Andrew Add start
 // import { checkBookTitle } from './add-to-shopping-list.js';
 import addToLocalStorage from './add-to-local-store.js';
+
+// Import Database
+import { useFirebase } from './firebase.js';
+const firebase = new useFirebase();
+
 import removeFromLocalStorage from './remove-from-shopping-list.js';
 // Andrew Add end
 // FancyBox Import
 import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
+import Notiflix from 'notiflix';
 // Fancybox Options
 const fancyBoxOptions = {
   on: {
@@ -20,7 +26,7 @@ const fancyBoxOptions = {
       // Andrew Add start
       addLocal(); //
       removeLocal();
-      checkExistanceInLocal();
+      // checkExistanceInLocal();
       // Andrew Add end
     },
     close: () => {
@@ -57,10 +63,28 @@ function onCardClick(e) {
 
       document.body.insertAdjacentHTML('beforeend', modalPopUp);
 
+      Fancybox.show([{ src: '#modal', type: 'inline' }], fancyBoxOptions);
+
       // проверка для кнопки
       const refs = refsEls();
+      // проверка на наличие в списка
+      if (
+        localStorage.getItem('register') &&
+        localStorage.getItem('shopping-list')
+      ) {
+        let bookFound = checkBookTitle(book.title);
+        if (bookFound) {
+          console.log(true);
+          refs.btnToggleAddEl.classList.add('visually-hidden');
+          refs.btnToggleRemoveEl.classList.remove('visually-hidden');
+          refs.textToggleRemoveEl.classList.remove('visually-hidden');
+        } else if (!bookFound) {
+          refs.btnToggleAddEl.classList.remove('visually-hidden');
+          refs.btnToggleRemoveEl.classList.add('visually-hidden');
+          refs.textToggleRemoveEl.classList.add('visually-hidden');
+        }
+      }
 
-      Fancybox.show([{ src: '#modal', type: 'inline' }], fancyBoxOptions);
       // find Fancybox-close-btn
       const facyCloseBtn = document.querySelector('.f-button.is-close-btn');
       // find modal close btn
@@ -85,43 +109,29 @@ function closeModal() {
   });
 }
 // Andrew Add start
-function checkExistanceInLocal() {
-  const refs = refsEls();
-  let check = 0;
 
-  if (books.length === 0) {
-    refs.btnToggleAddEl.classList.remove('visually-hidden');
-    refs.btnToggleRemoveEl.classList.add('visually-hidden');
-    refs.textToggleRemoveEl.classList.add('visually-hidden');
-    return;
-  }
-  
-  books.map(b => {
-    if (b.title === currentBookObj.title) {
-      check = 1;
-    }
-  });
-  
-
-  if (check === 1) {
-    refs.btnToggleAddEl.classList.add('visually-hidden');
-    refs.btnToggleRemoveEl.classList.remove('visually-hidden');
-    refs.textToggleRemoveEl.classList.remove('visually-hidden');  
-  } else {
-    refs.btnToggleAddEl.classList.remove('visually-hidden');
-    refs.btnToggleRemoveEl.classList.add('visually-hidden');
-    refs.textToggleRemoveEl.classList.add('visually-hidden');
-  }
-}
 function addLocal() {
   const refs = refsEls();
 
   refs.btnToggleAddEl.addEventListener('click', event => {
     event.preventDefault();
-    addToLocalStorage(currentBookObj);
-    refs.btnToggleAddEl.classList.add('visually-hidden');
-    refs.btnToggleRemoveEl.classList.remove('visually-hidden');
-    refs.textToggleRemoveEl.classList.remove('visually-hidden');
+    //   addToLocalStorage(currentBookObj);
+    // use firebase
+    if (
+      localStorage.getItem('register') &&
+      localStorage.getItem('shopping-list')
+    ) {
+      firebase.writeBookArrayToDB(currentBookObj);
+      refs.btnToggleAddEl.classList.add('visually-hidden');
+      refs.btnToggleRemoveEl.classList.remove('visually-hidden');
+      refs.textToggleRemoveEl.classList.remove('visually-hidden');
+      return;
+    }
+      // firebase.writeBookArrayToDB(currentBookObj);
+    Notiflix.Notify.info(' You may be registered to use this option')
+    // refs.btnToggleAddEl.classList.add('visually-hidden');
+    // refs.btnToggleRemoveEl.classList.remove('visually-hidden');
+    // refs.textToggleRemoveEl.classList.remove('visually-hidden');
   });
 }
 
@@ -132,7 +142,10 @@ function removeLocal() {
   btnToggleRemoveEl.addEventListener('click', event => {
     event.preventDefault();
 
-    removeFromLocalStorage(currentBookObj);
+    //   removeFromLocalStorage(currentBookObj);
+    //   console.log(currentBookObj._id);
+    //   use firebase
+    firebase.selectBookFromArray(currentBookObj._id);
     btnToggleAddEl.classList.remove('visually-hidden');
     btnToggleRemoveEl.classList.add('visually-hidden');
     textToggleRemoveEl.classList.add('visually-hidden');
@@ -142,4 +155,18 @@ function removeLocal() {
 function deleteMarkup() {
   const el = document.querySelector('#modal');
   el.parentElement.removeChild(el);
+}
+
+// check for exsisting
+export function checkBookTitle(bookTitle) {
+  const refs = refsEls();
+
+  const storedBooks = JSON.parse(localStorage.getItem('shopping-list'));
+  if (storedBooks.some(book => book.title === bookTitle)) {
+    // Если название книги найдено в массиве объектов
+    return true;
+  } else {
+    // Если название книги не найдено в массиве объектов
+    return false;
+  }
 }

@@ -21,23 +21,25 @@
       </a>
       <nav class="nav">
         <ul class="nav__list list">
-          <li class="nav-item">
-            <a href="./index.html" class="nav__link active link"> Home</a>
+          <li class="nav-item ">
+            <a href="./index.html" class="nav__link  link"> Home</a>
           </li>
           <li class="nav-item nav-active">
-            <a href="./shopping-list.html" class="nav__link link">
+            <a href="./shopping-list.html" class="nav__link active link">
               Shopping list
               <svg class="header__link-icon" width="20" height="20">
                 <use href="./images/svg-sprite.svg#bag"></use>
               </svg>
+
             </a>
           </li>
         </ul>
+
       </nav>
 
       <input
         type="checkbox"
-        name="checkbox"
+        name="theme switcher"
         id="theme-switch"
         class="theme-switch"
       />
@@ -60,7 +62,7 @@
           <use href="./images/svg-sprite.svg#arrow-right-icon"></use>
         </svg>
       </button>
-      <!-- <button type="button" class="btn-default header__singin-btn">
+      <button type="button" class="btn-default header__singin-btn">
         <svg class="header__singin-icon" width="19" height="19">
           <use href="./images/svg-sprite.svg#user-default-icon"></use>
         </svg>
@@ -68,7 +70,13 @@
         <svg class="header__singin-down-icon" width="23" height="26">
           <use href="./images/svg-sprite.svg#user-arrow-down-icon"></use>
         </svg>
-      </button> -->
+      </button>
+      <button type="button" class="btn-default header__logout-btn">
+         Log out<svg class="header__singup-icon" width="20" height="20">
+          <use href="./images/svg-sprite.svg#arrow-right-icon"></use>
+        </svg>
+
+      </button>
     </header>
     <main>
       <div class="shopping-list__container container">
@@ -141,6 +149,7 @@
             src="./images/mobileMenu_BG/mobile-menu-bg-2x.png"
             alt="books"
           />
+ 
         </div>
       </div>
       <button type="button" class="btn-default header__singup-btn-mob-menu">
@@ -148,16 +157,19 @@
           <use href="./images/svg-sprite.svg#arrow-right-icon"></use>
         </svg>
       </button>
+      <div class="user-info-bar">
+        <svg class="header__singin-icon" width="19" height="19">
+          <use href="./images/svg-sprite.svg#user-default-icon"></use>
+        </svg><p class="user-name">Stephen</p>
+      </div>
 
       <nav class="nav nav__mob-menu">
         <ul class="nav__list nav__list-mob-menu list">
-          <li class="nav-item">
-            <a href="./index.html" class="nav__link link mobile-inactive-link">
-              Home</a
-            >
-          </li>
           <li class="nav-item nav-active">
-            <a href="./shopping-list.html" class="nav__link link active">
+            <a href="./index.html" class="nav__link mobile-inactive-link"> Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="./shopping-list.html" class="nav__link link  active link">
               Shopping list
               <svg class="header__link-icon" width="20" height="20">
                 <use href="./images/svg-sprite.svg#bag"></use>
@@ -166,11 +178,11 @@
           </li>
         </ul>
       </nav>
-      <!-- <button type="button" class="btn-default mob-menu__Log-out-btn">
+      <button type="button" class="btn-default mob-menu__Log-out-btn">
         Log out<svg class="header__singup-icon" width="20" height="20">
           <use href="./images/svg-sprite.svg#arrow-right-icon"></use>
         </svg>
-      </button> -->
+      </button>
     </div>
 
     <include src="./partials/modal-form-login.html"></include>
