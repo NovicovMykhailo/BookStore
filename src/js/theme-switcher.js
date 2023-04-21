@@ -16,3 +16,22 @@ themeSwitch.addEventListener('change', function() {
   }
 });
 
+// window
+//   .matchMedia('(prefers-color-scheme: dark)')
+//   .addEventListener('change', () => {
+
+//   });
+
+  // Check to see if Media-Queries are supported
+if (window.matchMedia) {
+  // Check if the dark-mode Media-Query matches
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    // Dark
+    body.classList.add('dark-theme');
+    themeSwitch.checked = true;
+  } else {
+    // Light
+    localStorage.setItem('theme', 'light');
+    body.classList.remove('dark-theme');
+  }
+} 
