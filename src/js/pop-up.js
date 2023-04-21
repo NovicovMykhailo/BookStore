@@ -1,5 +1,5 @@
 import { BookAPI } from './book-api.js';
-import { books } from './shopping-list__books.js';
+// import { books } from './shopping-list__books.js';
 import {
   createModalPopUpCard,
   currentBookObj,

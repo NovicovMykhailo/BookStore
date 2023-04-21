@@ -4,6 +4,7 @@ const refs = {
   navItem: document.querySelector('.nav__list').children[1],
   homeBtn: document.querySelector('.nav__list').children[0],
   navItemMob: document.querySelector('.nav__mob-menu').children[0].children[1],
+  homeItemMob: document.querySelector('.nav__mob-menu').children[0].children[0],
 
   signUpBtn: document.querySelector('.header__singup-btn'),
   signUpBtnMob: document.querySelector('.header__singup-btn-mob-menu'),
@@ -24,12 +25,14 @@ function notRegisteredView() {
   refs.navItem.style.display = 'none';
   refs.navItemMob.style.display = 'none';
   refs.homeBtn.style.display = 'none';
-  ;
+  refs.homeItemMob.style.display = 'none';
 }
 
 export function registeredView() {
   const mediaQuery = window.matchMedia('(min-width: 768px)');
+        refs.signUpBtnMob.style.display = 'none';
   //userBar
+  
   if (mediaQuery.matches) {
     refs.userBar.style.display = 'flex';
     refs.userBar.addEventListener('mouseenter', () => {
@@ -41,11 +44,13 @@ export function registeredView() {
     });
   } else if (!mediaQuery.matches){
     refs.userBar.style.display = 'none';
+
   }
+
   refs.userBarMob.style.display = 'inline-flex';
-  refs.signUpBtnMob.style.display = 'none';
   refs.logOutBtnMob.style.display = 'flex';
   refs.homeBtn.style.display = 'block'
+  refs.homeItemMob.style.display = 'flex';
 
   refs.navItem.style.display = 'block';
   refs.navItemMob.style.display = 'block';

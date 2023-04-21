@@ -43,7 +43,7 @@
   font-size: 14px;
   line-height: 1.29;
   width: 100%;
-  .dark-theme &{
+  .dark-theme & {
     color: rgba(255, 255, 255, 0.6);
   }
 
@@ -141,10 +141,6 @@
   }
 }
 
-// .shopping-list__title-span {
-//   color: $blue-accent-color;
-// }
-
 .btn-pagination__list {
   display: flex;
 
@@ -200,31 +196,22 @@
 
   &.btn-available {
     background-color: #eac645;
-
+    transition: all 150ms linear;
     fill: #000;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
-
-  // & > .trash-icon {
-  //   display: inline-block;
-  //   width: 1em;
-  //   height: 1em;
-  //   stroke-width: 0;
-  //   fill: $white-text-color;
-  //   // stroke: $white-text-color;
-  //   transition: all $animation-flow;
-  // }
-  // &:hover {
-  //   background-color: $blue-accent-color;
-  //   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  //   & .trash-icon {
-  //     fill: $main-text-color;
-  //     // stroke: $main-text-color;
-  //   }
-  // }
 }
 
-// .btn-available {
-//   background-color: #eac645;
+.btn-pagination__numeric.btn-current {
+  background-color: #eac645;
+}
+// .btn-pagination__numeric.undefined {
+//   transition: all 150ms linear;
+//   &:hover {
+//     transform: scale(1.1);
+//   }
 // }
 
 .btn-not-available,
@@ -236,8 +223,6 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 1.22;
-  /* identical to box height, or 122% */
-
   color: #000000;
 }
 
@@ -245,7 +230,7 @@
   color: #ffffff;
 }
 
-btn-arrow {
+.btn-arrow {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -321,11 +306,6 @@ btn-arrow {
   flex-grow: 2;
 }
 
-// .shopping-list__haed-part__mobile {
-//   display: flex;
-//   gap: 20px;
-// }
-
 .shopping-list__image {
   margin-bottom: 4px;
   border-radius: 8px;
@@ -367,7 +347,7 @@ btn-arrow {
     white-space: nowrap;
     display: inline-block;
   }
-  .dark-theme &{
+  .dark-theme & {
     color: white;
   }
 }
@@ -406,7 +386,6 @@ btn-arrow {
   font-weight: 400;
   font-size: 12px;
   line-height: 1.17;
- 
 
   letter-spacing: -0.04em;
 
@@ -414,7 +393,7 @@ btn-arrow {
 
   margin-bottom: 20px;
   @media screen and (min-width: 768px) {
-     white-space: nowrap;
+    white-space: nowrap;
     margin-bottom: 0px;
     position: relative;
     right: -137px;
@@ -450,7 +429,7 @@ btn-arrow {
   border: none;
   cursor: pointer;
   background-color: $blue-accent-color;
-  transition: all $animation-flow;
+  transition: all 150ms linear;
 
   & > .trash-icon {
     display: inline-block;
@@ -458,13 +437,14 @@ btn-arrow {
     height: 1em;
     stroke-width: 0;
     stroke: $white-text-color;
-    transition: all $animation-flow;
+    transition: all 150ms linear;
   }
   &:hover {
+    transform: scale(1.1);
     background-color: $blue-accent-color;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     & .trash-icon {
-      stroke: $main-text-color;
+      stroke: $yellow-accent-color;
     }
   }
 }
