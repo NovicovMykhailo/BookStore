@@ -170,6 +170,10 @@
   }
 }
 
+.btn-pagination__numeric {
+  cursor: auto;
+}
+
 .btn-pagination__double-arrow-left,
 .btn-pagination__arrow-left,
 .btn-pagination__numeric,
@@ -189,12 +193,16 @@
 
   border-radius: 50%;
   border: 1px solid #111111;
-  cursor: pointer;
+
   fill: #fff;
   // background-color: $blue-accent-color;
   transition: all $animation-flow;
 
   &.btn-available {
+    
+  cursor: pointer;
+
+
     background-color: #eac645;
     transition: all 150ms linear;
     fill: #000;
