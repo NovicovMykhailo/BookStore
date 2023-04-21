@@ -15,7 +15,7 @@ const swiper = new Swiper('.swiper', {
   },
   rewind: true,
   mousewheel: true,
-  allowTouchMove: false,
+  allowTouchMove: true,
   spaceBetween: 20,
   slidesPerView: 'auto',
   slidesPerGroup: 4,
