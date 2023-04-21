@@ -8,8 +8,16 @@ header {
   padding: 0 24px;
   background: $white-text-color;
   border: $header-border;
-  // margin: 0 -20px;
   border-radius: 0px 0px 8px 8px;
+  @media screen and (max-width:$desktop){
+    
+    top: 0;
+    position: fixed;
+    width: 100vw;
+    body{
+      padding-top: 72px;
+    }
+  }
 }
 
 .header__mobile-menu {

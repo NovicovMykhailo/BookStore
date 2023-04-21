@@ -19,9 +19,9 @@ body {
 	// 	padding: 0 32px;
 	// }
 
-	// @media screen and (min-width: $desktop) {
-	// 	padding: 0 24px;
-	// }
+	@media screen and (max-width: $desktop) {
+		    padding-top: 72px;
+	}
 
 	background-color: $body-bg-color-light;
 	color: $main-text-color;
