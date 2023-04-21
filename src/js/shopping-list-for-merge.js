@@ -1,11 +1,11 @@
 import spriteSvgEls from '../images/svg-sprite.svg';
-import removeFromLocalStorage from './remove-from-shopping-list';
 import { books } from './shopping-list__books';
 import murkupForTabletAndDesktop from './render-shopping-card';
-import imageOnEmptyBasket from './add-empty-basket-image';
 import { useFirebase } from './firebase';
 import { showLoadingIndicator, removeLoader } from './loader'
 import Notiflix from 'notiflix';
+
+
 
 const firebase = new useFirebase;
 
@@ -93,7 +93,7 @@ const getListObjectsOfPage = numberPage => {
 	const arrayOfBooks = [];
 
 	for (let i = indexOfStart; i < indexOfStart + 3; i += 1) {
-		// console.log('i: ', i);
+
 		if (i <= books.length - 1) {
 			arrayOfBooks.push(books[i]);
 		}
@@ -265,7 +265,6 @@ const toAddListeners = (...args) => {
 	);
 };
 // главная функция по рендеру списка кнопок
-
 function renderPaginationBtn() {
 
 	if (books.length === 0 || books.length <= 3) {
@@ -378,7 +377,6 @@ async function trashTest(r) {
     await books.forEach(book => {
       const bookIdToDelete = book._id;
       if (book.title === currentBookTitle) {
-        // console.log("BookIdForDelete: " + bookIdToDelete);
         firebase.selectBookFromArray(bookIdToDelete);
         showLoadingIndicator();
       }
@@ -389,7 +387,7 @@ async function trashTest(r) {
 
 	setTimeout(() => {
 		location.reload();
-		// removeLoader()
+
 	}, 2500);
 
 }
@@ -399,13 +397,12 @@ moveToTrashItem();
 function removeItemFromBasket(title) {
 	books.map((b, i) => {
 
-		// console.log(b.title === title);
 		if (b.title === title) {
 			books.splice(i, 1);
 
-			// console.log(books);
+
 			localStorage.setItem('shopping-list', JSON.stringify(books));
-			// ulEl.innerHTML = murkupShoppingList(books)
+	
 
 
 
@@ -414,4 +411,4 @@ function removeItemFromBasket(title) {
 	});
 }
 
-// checking title
+
