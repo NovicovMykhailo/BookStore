@@ -1,10 +1,9 @@
+const reloadDelay = 2500;
+
 const refs = {
   logOutBtn: document.querySelector('.header__singin-btn'),
   logOutBtnMob: document.querySelector('.mob-menu__Log-out-btn'),
-  //   header__singin-btn
 };
-
-const reloadDelay = 1000;
 
 if (localStorage.getItem('register') !== null) {
   document.body.classList.add('is-registered');

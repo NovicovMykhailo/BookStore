@@ -42,13 +42,13 @@ const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 const auth = getAuth();
 
-// Notify
+// Notify Options
 const notifyOptions = {
   fontFamily: 'DMSans',
   zindex: 10001,
   clickToClose: true,
 };
-
+const delay = 2500;
 const signInFormEl = document.querySelector('.sigh-in-form');
 const inputNameEl = document.querySelector('.input-name');
 const labelNameEl = document.querySelector('.form-label-name');
@@ -77,8 +77,7 @@ export class useFirebase {
       Notify.success(`You sign in!`, notifyOptions);
      setTimeout(() => {
        location.reload();
-       // removeLoader()
-     }, 2500);
+     }, delay);
 
     } catch (error) {
       if (error.message === 'Firebase: Error (auth/wrong-password).') {
@@ -135,8 +134,7 @@ export class useFirebase {
       isLoagged = true;
       setTimeout(() => {
         location.reload();
-        // removeLoader()
-      }, 2500);
+      }, delay);
       // console.log("Write User to DB = DONE!");
     } catch (e) {
       Notify.warning('Oops something went wrong, Please try again', {
@@ -226,7 +224,7 @@ export class useFirebase {
         booksArray.forEach(obj => {
           // console.log(obj);
           if (obj._id === bookId) {
-            console.log(obj);
+            // console.log(obj);
             const bookObjForDelete = obj;
             this.deleteBookArray(bookObjForDelete);
           }

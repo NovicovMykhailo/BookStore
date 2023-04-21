@@ -14,6 +14,7 @@ const supUkrContainerEl = document.querySelector('.support-ukraine');
 const shoppingListSectionEl = document.querySelector('.shopping-list__page');
 const onEmptyBasketImg = document.querySelector('.on-empty-container');
 const ulEl = document.querySelector('.shopping-list');
+const reloadDelay = 2500;
 
 
 
@@ -236,6 +237,7 @@ const toAddListeners = (...args) => {
 			) {
 				currentPage -= 2;
 				mainRenderingFunc(currentPage);
+
 			}
 
 			if (
@@ -244,6 +246,7 @@ const toAddListeners = (...args) => {
 			) {
 				currentPage -= 1;
 				mainRenderingFunc(currentPage);
+
 			}
 
 			if (
@@ -252,6 +255,7 @@ const toAddListeners = (...args) => {
 			) {
 				currentPage += 1;
 				mainRenderingFunc(currentPage);
+
 			}
 
 			if (
@@ -260,6 +264,7 @@ const toAddListeners = (...args) => {
 			) {
 				currentPage += 2;
 				mainRenderingFunc(currentPage);
+
 			}
 		})
 	);
@@ -352,8 +357,9 @@ function mainRenderingFunc() {
 	) {
 		ulEl.innerHTML = murkupShoppingList(currentPage);
 		renderPaginationBtn();
-	} else {
-	}
+		moveToTrashItem();
+		
+	} 
 };
 
 try {
@@ -364,20 +370,23 @@ try {
 // tresh icon-button fuctionality
 function moveToTrashItem() {
 	const trashIcon = document.querySelectorAll('.btn');
-	// console.log(trashIcon);
 	trashIcon.forEach(e => e.addEventListener('click', (r) => trashTest(r)))
+
+
 }
 async function trashTest(r) {
+
 
 	let currentBookTitle =
 		r.currentTarget.parentElement.children[0].children[1].children[0]
 			.textContent;
 
 	try {
-    await books.forEach(book => {
+		await books.forEach(book => {
       const bookIdToDelete = book._id;
       if (book.title === currentBookTitle) {
-        firebase.selectBookFromArray(bookIdToDelete);
+		  firebase.selectBookFromArray(bookIdToDelete);
+		  
         showLoadingIndicator();
       }
     });
@@ -386,29 +395,29 @@ async function trashTest(r) {
 
 
 	setTimeout(() => {
-		location.reload();
-
-	}, 2500);
+    location.reload();
+  }, reloadDelay);
 
 }
 
-moveToTrashItem();
 
-function removeItemFromBasket(title) {
-	books.map((b, i) => {
+// function removeItemFromBasket(title) {
+// 	books.map((b, i) => {
 
-		if (b.title === title) {
-			books.splice(i, 1);
+// 		if (b.title === title) {
+// 			books.splice(i, 1);
 
 
-			localStorage.setItem('shopping-list', JSON.stringify(books));
+// 			localStorage.setItem('shopping-list', JSON.stringify(books));
 	
 
 
 
-			return;
-		}
-	});
-}
+// 			return;
+// 		}
+// 	});
+// }
 
+
+// const currentPage = document.querySelector('.btn-pagination__numeric.btn-current')
 
