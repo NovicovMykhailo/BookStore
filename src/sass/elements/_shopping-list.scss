@@ -175,6 +175,14 @@
 .btn-pagination__numeric {
   cursor: auto;
 }
+.btn-pagination__numeric.undefined{
+  cursor:pointer;
+  transition: all $animation-flow;
+      &:hover {
+      transform: scale(1.1);
+    }
+
+}
 
 .btn-pagination__double-arrow-left,
 .btn-pagination__arrow-left,
@@ -197,7 +205,6 @@
   border: 1px solid #111111;
 
   fill: #fff;
-  // background-color: $blue-accent-color;
   transition: all $animation-flow;
 
   &.btn-available {
@@ -214,6 +221,7 @@
 
 .btn-pagination__numeric.btn-current {
   background-color: #eac645;
+  cursor: auto;
 }
 
 .btn-not-available,
@@ -537,4 +545,10 @@
     transform: translateZ(0);
      animation-play-state: paused;
   }
+}
+@media screen and(max-width:$tablet){
+  .btn-pagination__double-arrow-right,.btn-pagination__double-arrow-left{
+  display: none;
+}
+
 }
