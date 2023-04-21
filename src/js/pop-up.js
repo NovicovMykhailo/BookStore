@@ -1,5 +1,5 @@
 import { BookAPI } from './book-api.js';
-// import { books } from './shopping-list__books.js';
+
 import {
   createModalPopUpCard,
   currentBookObj,
@@ -12,7 +12,6 @@ const firebase = new useFirebase();
 // FancyBox Import
 import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
-import Notiflix from 'notiflix';
 // Fancybox Options
 const fancyBoxOptions = {
   on: {
@@ -28,6 +27,15 @@ const fancyBoxOptions = {
   },
   autoFocus: false,
 };
+import Notiflix from 'notiflix';
+// Notify Options
+const notifyOptions = {
+  fontFamily: 'DMSans',
+  zindex: 10001,
+  clickToClose: true,
+  position: 'center-top',
+};
+
 // Book Api Init
 const bookAPI = new BookAPI();
 // Cards container select
@@ -118,7 +126,10 @@ function addLocal() {
       refs.textToggleRemoveEl.classList.remove('visually-hidden');
       return;
     }
-    Notiflix.Notify.info(' You may be registered to use this option');
+    Notiflix.Notify.info(
+      ' You may be registered to use this option',
+      notifyOptions
+    );
   });
 }
 

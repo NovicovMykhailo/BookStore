@@ -1,3 +1,5 @@
+import {showLoadingIndicator} from './loader'
+
 const reloadDelay = 2500;
 
 const refs = {
@@ -21,6 +23,8 @@ refs.logOutBtn.addEventListener('click', onLogoutClick);
 refs.logOutBtnMob.addEventListener('click', onLogoutClick);
 
 function onLogoutClick() {
+  showLoadingIndicator()
+
   setTimeout(() => {
     localStorage.clear();
   }, reloadDelay);

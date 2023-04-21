@@ -451,4 +451,3 @@ function paginationNumbersPress() {
   }
 }
 
-// shopping - list;

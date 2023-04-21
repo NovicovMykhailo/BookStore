@@ -25,6 +25,8 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 // Your web app's Firebase configuration
 
+//import Loader
+import { showLoadingIndicator } from './loader';
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: 'AIzaSyAJl6Ad8jyFnNkdyvWS-vuWG1MshoteFzQ',
@@ -47,6 +49,7 @@ const notifyOptions = {
   fontFamily: 'DMSans',
   zindex: 10001,
   clickToClose: true,
+  position: 'center-top',
 };
 const delay = 2500;
 const signInFormEl = document.querySelector('.sigh-in-form');
@@ -74,7 +77,11 @@ export class useFirebase {
         JSON.stringify(userCredential.user.uid)
       );
       this.findUserAndDatabaseIdToLocalStorage(userCredential.user.uid);
-      Notify.success(`You sign in!`, notifyOptions);
+
+      Notify.success(`Signing in!`, notifyOptions);
+      showLoadingIndicator();
+
+
      setTimeout(() => {
        location.reload();
      }, delay);
@@ -131,16 +138,17 @@ export class useFirebase {
       Notify.success('Conrgatulation - yoy are registered!', {
         fontFamily: 'DMSans',
       });
+      showLoadingIndicator()
       isLoagged = true;
       setTimeout(() => {
         location.reload();
       }, delay);
-      // console.log("Write User to DB = DONE!");
+
     } catch (e) {
       Notify.warning('Oops something went wrong, Please try again', {
         fontFamily: 'DMSans',
       });
-      // console.error("Error adding document: ", e);
+
     }
   };
 
