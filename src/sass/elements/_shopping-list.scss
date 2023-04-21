@@ -146,9 +146,11 @@
 
   justify-content: center;
   gap: 14px;
+  margin-bottom: 28px;
 
   @media screen and (min-width: $tablet) {
     gap: 24px;
+    margin-bottom: 0;
   }
 }
 
@@ -301,8 +303,6 @@
 }
 
 .shopping-list__head-part {
-  // display: flex;
-  // flex-direction: column;
   width: 100%;
 }
 
@@ -341,10 +341,7 @@
     object-fit: cover;
   }
 
-  // @media screen and (min-width: $desktop) {
-  //   width: 98;
-  //   height:  max-content;
-  // }
+
 }
 
 .shopping-list__title-card {
@@ -446,6 +443,7 @@
   align-items: center;
   justify-content: center;
 
+
   border-radius: 50%;
   border: none;
   cursor: pointer;
@@ -461,13 +459,22 @@
     transition: all 150ms linear;
   }
   &:hover {
-    transform: scale(1.1);
+    animation: rotate linear 600ms;
+    animation-iteration-count: 1;
     background-color: $blue-accent-color;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     & .trash-icon {
       stroke: $yellow-accent-color;
     }
   }
+  @keyframes rotate{
+    from {
+          transform: scale(1) rotateY(0) ;
+    }
+    to {
+        transform: scale(1.5) rotateY(45deg) ;
+    }
+}
 }
 
 .shopping-list__links {
@@ -488,14 +495,7 @@
   }
 }
 
-// .shopping-list__link{
-//   width: auto;
-//   height: auto;
-// }
 
-// .shopping-list__bye-link-icon{
-//   max-width: 45px;
-// }
 
 .shopping-list__description {
   font-style: normal;

@@ -13,7 +13,7 @@
 }
 
 .dark-theme .btn-default {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .dark-theme .filter__item {
@@ -55,6 +55,9 @@
   & .modal__pop-up {
     border-color: white;
   }
+  & .pop-up__text-info{
+    color:rgba(255, 255, 255, 0.5);;
+  }
 
   & .buy-links__icon.amazon {
     filter: grayscale(100%) invert(1);
@@ -62,7 +65,17 @@
       filter: invert(0) grayscale(0) drop-shadow(2px 0px 6px white);
     }
   }
+  & .shopping-list__link-item:nth-child(3) .buy-links__icon {
+    &:hover {
+      filter: grayscale(100%)  invert(1) sepia(50%);
+    }
+  }
+  & .book__item:nth-child(3){
+     &:hover {
+      filter: grayscale(100%)  invert(1) sepia(50%);
+    }
 
+  }
   & .btn-close-icon {
     stroke: white;
   }
@@ -122,24 +135,24 @@
     font-size: 16px;
     line-height: 1.13;
     letter-spacing: -0.01em;
-    color:white;
+    color: white;
     &::placeholder {
       color: $white-text-color;
     }
   }
-  & .modal__input-icon  {
+  & .modal__input-icon {
     stroke: $white-text-color;
     fill: $main-text-color;
   }
   & .btn-signup {
-    background-color: #F6F6F6;
-    overflow:hidden;
+    background-color: #f6f6f6;
+    overflow: hidden;
     // border: 1px solid white;
     color: #202024;
     &:hover {
-      background-color: #4F2EE8;
+      background-color: #4f2ee8;
       border: 1px solid transparent;
-      color: #FFFFFF;
+      color: #ffffff;
     }
   }
   & .modal__btn {
