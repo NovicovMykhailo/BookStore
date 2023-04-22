@@ -29,9 +29,5 @@ if (window.matchMedia) {
     // Dark
     body.classList.add('dark-theme');
     themeSwitch.checked = true;
-  } else {
-    // Light
-    localStorage.setItem('theme', 'light');
-    body.classList.remove('dark-theme');
-  }
+  } 
 } 
