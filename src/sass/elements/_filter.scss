@@ -48,12 +48,12 @@
   line-height: 1.12;
 
   letter-spacing: -0.02em;
- transition: all $animation-flow;
+ transition: all ease-in-out 160ms;
 
   color: $grey-text-color;
   cursor: pointer;
   &:hover{
-    
+    // zoom: 101%;
     transform: scale(1.05) translateX(10px);
 
   }
