@@ -30,31 +30,16 @@
               <svg class="header__link-icon" width="20" height="20">
                 <use href="./images/svg-sprite.svg#bag"></use>
               </svg>
-
             </a>
           </li>
         </ul>
-
       </nav>
 
-      <input
-        type="checkbox"
-        name="theme switcher"
-        id="theme-switch"
-        class="theme-switch"
-      />
+      <input type="checkbox" name="theme switcher" id="theme-switch" class="theme-switch" />
 
-      <button
-        class="menu-toggle js-open-menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
+      <button class="menu-toggle js-open-menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg class="header__mobile-menu" width="28" height="28">
-          <use
-            class="menu-icon"
-            id="menu-icon"
-            href="./images/svg-sprite.svg#ham-menu-icon"
-          ></use>
+          <use class="menu-icon" id="menu-icon" href="./images/svg-sprite.svg#ham-menu-icon"></use>
         </svg>
       </button>
       <button type="button" class="btn-default header__singup-btn">
@@ -72,10 +57,9 @@
         </svg>
       </button>
       <button type="button" class="btn-default header__logout-btn">
-         Log out<svg class="header__singup-icon" width="20" height="20">
+        Log out<svg class="header__singup-icon" width="20" height="20">
           <use href="./images/svg-sprite.svg#arrow-right-icon"></use>
         </svg>
-
       </button>
     </header>
     <main>
@@ -85,12 +69,7 @@
           <section class="filter">
             <h1 class="visually-hidden">Book Shop Categories</h1>
             <ul class="filter__list">
-              <li
-                class="filter__item filter__item--active"
-                data-mark-active="All categories"
-              >
-                All categories
-              </li>
+              <li class="filter__item filter__item--active" data-mark-active="All categories">All categories</li>
             </ul>
           </section>
           <section class="support-ukraine">
@@ -131,17 +110,19 @@
     <div class="menu-container js-menu-container" id="mobile-menu">
       <div class="wrapper .visually-hiddn">
         <div class="mobile-bg-wrapper">
-          <img
-            class="mobile-bg primary"
-            src="./images/mobileMenu_BG/mobile-menu-bg-2x.png"
-            alt="books"
-          />
-          <img
-            class="mobile-bg secondary"
-            src="./images/mobileMenu_BG/mobile-menu-bg-2x.png"
-            alt="books"
-          />
- 
+          <picture class="mobile-bg primary">
+            <source srcset="./images/mobileMenu_BG/mobile-menu-bg-2x.webp" type="image/webp" />
+            <source srcset="./images/mobileMenu_BG/mobile-menu-bg-2x.png" type="image/png" />
+
+            <img src="./images/mobileMenu_BG/mobile-menu-bg-2x.png" alt="books" style="width: 100%" />
+          </picture>
+
+          <picture class="mobile-bg secondary">
+            <source srcset="./images/mobileMenu_BG/mobile-menu-bg-2x.webp" type="image/webp" />
+            <source srcset="./images/mobileMenu_BG/mobile-menu-bg-2x.png" type="image/png" />
+
+            <img src="./images/mobileMenu_BG/mobile-menu-bg-2x.png" alt="books" style="width: 100%" />
+          </picture>
         </div>
       </div>
       <button type="button" class="btn-default header__singup-btn-mob-menu">
@@ -152,7 +133,8 @@
       <div class="user-info-bar">
         <svg class="header__singin-icon" width="19" height="19">
           <use href="./images/svg-sprite.svg#user-default-icon"></use>
-        </svg><p class="user-name">Stephen</p>
+        </svg>
+        <p class="user-name">Stephen</p>
       </div>
 
       <nav class="nav nav__mob-menu">
