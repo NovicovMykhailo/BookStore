@@ -77,12 +77,10 @@ export async function fetchAndRenderBooks() {
     return;
   } else {
     try {
-      Block.standard('.gallery_container', spinnerOptions);
       const response = await bookApi.getTopBooks();
       createMainUl(response.data);
       AOS.refresh();
       sessionStorage.setItem('topBooks', JSON.stringify(response.data));
-      Block.remove('.gallery_container');
     } catch (error) {
       Notify.failure('Oops somthing went wrong', notifyOptions);
     }
