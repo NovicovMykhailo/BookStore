@@ -182,7 +182,7 @@ header {
   pointer-events: none;
 
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - calc(100vh - 100%));
 
   background: radial-gradient(
     183.6% 183.01% at 59.76% -23.42%,
