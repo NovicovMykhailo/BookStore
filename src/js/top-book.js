@@ -6,9 +6,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import AOS from 'aos'; //animation lib
 AOS.init(); //animation lib init
 
-
 const spinnerOptions = {
-
   backgroundColor: 'transparent',
   svgColor: 'gray',
   svgSize: '100px',
@@ -30,7 +28,6 @@ addEventListener('resize', () => {
     (window.innerWidth < 768 && currentRenderWidth > 767)
   ) {
     location.reload();
-
   }
 });
 
@@ -43,8 +40,7 @@ function createMainUl(obj) {
     amountRenderedBooks = 5;
   }
 
-  document.querySelector('.gallery__list').innerHTML =
-    createMarcup(obj).join('');
+  document.querySelector('.gallery__list').innerHTML = createMarcup(obj).join('');
 }
 
 export function createMarcup(obj) {
@@ -67,20 +63,23 @@ export function createMarcup(obj) {
   });
 }
 const bookApi = new BookAPI();
-
 export async function fetchAndRenderBooks() {
   if ('topBooks' in sessionStorage) {
-    // Block.standard('.gallery_container', spinnerOptions);
+    Block.standard('.gallery_container', spinnerOptions);
+    Block.remove('.gallery_container');
     let response = sessionStorage.getItem('topBooks');
     createMainUl(JSON.parse(response));
+
     AOS.refresh();
     return;
   } else {
     try {
+      Block.standard('.gallery_container', spinnerOptions);
       const response = await bookApi.getTopBooks();
       createMainUl(response.data);
       AOS.refresh();
       sessionStorage.setItem('topBooks', JSON.stringify(response.data));
+      Block.remove('.gallery_container');
     } catch (error) {
       Notify.failure('Oops somthing went wrong', notifyOptions);
     }

@@ -82,13 +82,11 @@ function fetchCategories() {
 
 // Add listener which listen what catagory we choose
 filterListEl.addEventListener('click', event => {
-  if (event.target.dataset.markActive !== 'All categories') {
-    Block.standard('.gallery_container', spinnerOptions);
-  }
-  if (
-    event.target.outerText.toLowerCase() ===
-    varWithCurrentCategoryValue.toLowerCase()
-  ) {
+
+  // if (event.target.dataset.markActive !== 'All categories') {
+  //   Block.standard('.gallery_container', spinnerOptions);
+  // }
+  if (event.target.outerText.toLowerCase() === varWithCurrentCategoryValue.toLowerCase()) {
     return;
   }
 
@@ -98,9 +96,7 @@ filterListEl.addEventListener('click', event => {
 });
 
 function addGalleryMarkupAndChangeFilter(event) {
-  const targetEl = document.querySelector(
-    `[data-mark-active="${varWithCurrentCategoryValue}"]`
-  );
+  const targetEl = document.querySelector(`[data-mark-active="${varWithCurrentCategoryValue}"]`);
 
   varWithActiveValueFilter.classList.remove('filter__item--active');
 
@@ -124,6 +120,11 @@ function fetchToApiUseCatagory(value) {
     return (galleryTitle.innerHTML = 'Best Sellers Books');
   }
 
+// =========
+  console.log = function () { };// HA HA)))
+// =========  
+
+  Block.standard('.gallery_container', spinnerOptions);
   bookApi.category = value;
   galleryTitle.innerHTML = value;
 
@@ -142,6 +143,7 @@ function fetchToApiUseCatagory(value) {
 
       galleryListEl.insertAdjacentHTML('beforeend', galleryItemElems);
       Block.remove('.gallery_container');
+
     })
     .catch(error => {
       {
