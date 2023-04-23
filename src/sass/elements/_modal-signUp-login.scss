@@ -119,12 +119,7 @@ form {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.3) 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
     opacity: 0;
     z-index: -1;
     transition: opacity 0.3s ease;
@@ -165,7 +160,7 @@ form {
 
   &::before {
     content: '';
-    z-index:-2;
+    z-index: -2;
     position: absolute;
     top: 0;
     left: 0;
@@ -199,7 +194,6 @@ form {
   justify-content: center;
 }
 
-
 .modal__btn {
   padding: 0;
   border: none;
@@ -213,9 +207,9 @@ form {
   letter-spacing: -0.01em;
   text-transform: uppercase;
   cursor: pointer;
-  &.active-form{
-  color: blue;
-}
+  &.active-form {
+    color: blue;
+  }
 
   &:hover,
   &:focus {
@@ -245,5 +239,58 @@ form {
     height: 28px;
     top: 16px;
     right: 25px;
+  }
+}
+.form-input {
+  &.input-name {
+    &:valid {
+      box-shadow: 0 0 3px 2px #82eb9b, 0 0px #82eb9b, 0 0 12px 1px #82eb9b;
+      outline: transparent;
+      & ~ .modal__input-icon {
+        stroke: #82eb9b;
+      }
+    }
+
+    &:not(:placeholder-shown):invalid {
+      box-shadow: 0 0 3px 2px #f48b5a, 0 0px #f48b5a, 0 0 12px 1px #f48b5a;
+      outline: transparent;
+      & ~ .modal__input-icon {
+        stroke: #f48b5a;
+      }
+    }
+  }
+  &.input-email {
+    &:valid {
+      box-shadow: 0 0 3px 2px #82eb9b, 0 0px #82eb9b, 0 0 12px 1px #82eb9b;
+      outline: transparent;
+      & ~ .modal__input-icon {
+        stroke: #82eb9b;
+      }
+    }
+
+    &:not(:placeholder-shown):invalid {
+      box-shadow: 0 0 3px 2px #f48b5a, 0 0px #f48b5a, 0 0 12px 1px #f48b5a;
+      outline: transparent;
+      & ~ .modal__input-icon {
+        stroke: #f48b5a;
+      }
+    }
+  }
+  &.input-password {
+    &:valid {
+      box-shadow: 0 0 3px 2px #82eb9b, 0 0px #82eb9b, 0 0 12px 1px #82eb9b;
+      outline: transparent;
+      & ~ .modal__input-icon {
+        stroke: #82eb9b;
+      }
+    }
+
+    &:not(:placeholder-shown):invalid {
+      box-shadow: 0 0 3px 2px #f48b5a, 0 0px #f48b5a, 0 0 12px 1px #f48b5a;
+      outline: transparent;
+      & ~ .modal__input-icon {
+        stroke: #f48b5a;
+      }
+    }
   }
 }
