@@ -57,8 +57,7 @@ fetchCategories();
 // Create request and add filter markup <= need adding to local and if function
 
 async function fetchCategories() {
-  try {
-    if ('Categories-List' in sessionStorage) {
+  if ('Categories-List' in sessionStorage) {
     let response = sessionStorage.getItem('Categories-List');
     const filterMarkup = JSON.parse(response)
       .map(value => {
@@ -68,25 +67,26 @@ async function fetchCategories() {
     filterListEl.insertAdjacentHTML('beforeend', filterMarkup);
     return;
   } else {
-    await bookApi.getBooksCategoriesList().then(data => {
-      sessionStorage.setItem('Categories-List', JSON.stringify(data.data));
-      const filterMarkup = data.data
-        .map(value => {
-          return `<li class="filter__item" data-mark-active="${value.list_name}">${value.list_name}</li>`;
-        })
-        .join('');
+    try {
+      await bookApi.getBooksCategoriesList().then(data => {
+        sessionStorage.setItem('Categories-List', JSON.stringify(data.data));
+        const filterMarkup = data.data
+          .map(value => {
+            return `<li class="filter__item" data-mark-active="${value.list_name}">${value.list_name}</li>`;
+          })
+          .join('');
 
-      filterListEl.insertAdjacentHTML('beforeend', filterMarkup);
-    });
-  }}
-  catch (error) {
-    Notify.info(`Oops something going wrong`, notifyOptions);;
+        filterListEl.insertAdjacentHTML('beforeend', filterMarkup);
+      });
+    } catch (error) {
+      Notify.info(`Oops something going wrong`, notifyOptions);
+      filterListEl.innerHTML=`Oops something going wrong. Error 404`;
+    }
   }
 }
 
 // Add listener which listen what catagory we choose
 filterListEl.addEventListener('click', event => {
-
   // if (event.target.dataset.markActive !== 'All categories') {
   //   Block.standard('.gallery_container', spinnerOptions);
   // }
@@ -118,24 +118,22 @@ function addGalleryMarkupAndChangeFilter(event) {
 async function fetchToApiUseCatagory(value) {
   // Cheking "all categories" value
   try {
-  if (value === 'All categories') {
-    galleryListEl.innerHTML = '';
-    await fetchAndRenderBooks();
+    if (value === 'All categories') {
+      galleryListEl.innerHTML = '';
+      await fetchAndRenderBooks();
 
-    return (galleryTitle.innerHTML = 'Best Sellers Books');
-  }
+      return (galleryTitle.innerHTML = 'Best Sellers Books');
+    }
 
-// =========
-  console.log = function () { };// HA HA)))
-// =========  
+    // =========
+    console.log = function () {}; // HA HA)))
+    // =========
 
-  Block.standard('.gallery_container', spinnerOptions);
-  bookApi.category = value;
-  galleryTitle.innerHTML = value;
+    Block.standard('.gallery_container', spinnerOptions);
+    bookApi.category = value;
+    galleryTitle.innerHTML = value;
 
-  return await bookApi
-    .getSelectedCategoryBooks()
-    .then(data => {
+    return await bookApi.getSelectedCategoryBooks().then(data => {
       let delay = 0;
       let galleryItemElems = data.data
         .map(e => {
@@ -148,11 +146,10 @@ async function fetchToApiUseCatagory(value) {
 
       galleryListEl.insertAdjacentHTML('beforeend', galleryItemElems);
       Block.remove('.gallery_container');
-
-    })}
-    catch(error){
-      {
-        Notify.info(`Oops we didn't find such category`, notifyOptions);
-      }
-    };
+    });
+  } catch (error) {
+    {
+      Notify.info(`Oops we didn't find such category`, notifyOptions);
+    }
+  }
 }
