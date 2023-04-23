@@ -56,8 +56,9 @@ fetchCategories();
 
 // Create request and add filter markup <= need adding to local and if function
 
-function fetchCategories() {
-  if ('Categories-List' in sessionStorage) {
+async function fetchCategories() {
+  try {
+    if ('Categories-List' in sessionStorage) {
     let response = sessionStorage.getItem('Categories-List');
     const filterMarkup = JSON.parse(response)
       .map(value => {
@@ -67,7 +68,7 @@ function fetchCategories() {
     filterListEl.insertAdjacentHTML('beforeend', filterMarkup);
     return;
   } else {
-    bookApi.getBooksCategoriesList().then(data => {
+    await bookApi.getBooksCategoriesList().then(data => {
       sessionStorage.setItem('Categories-List', JSON.stringify(data.data));
       const filterMarkup = data.data
         .map(value => {
@@ -77,6 +78,9 @@ function fetchCategories() {
 
       filterListEl.insertAdjacentHTML('beforeend', filterMarkup);
     });
+  }}
+  catch (error) {
+    Notify.info(`Oops something going wrong`, notifyOptions);;
   }
 }
 
@@ -111,11 +115,12 @@ function addGalleryMarkupAndChangeFilter(event) {
 }
 
 // Request to bookApi and add books markup
-function fetchToApiUseCatagory(value) {
+async function fetchToApiUseCatagory(value) {
   // Cheking "all categories" value
+  try {
   if (value === 'All categories') {
     galleryListEl.innerHTML = '';
-    fetchAndRenderBooks();
+    await fetchAndRenderBooks();
 
     return (galleryTitle.innerHTML = 'Best Sellers Books');
   }
@@ -128,7 +133,7 @@ function fetchToApiUseCatagory(value) {
   bookApi.category = value;
   galleryTitle.innerHTML = value;
 
-  return bookApi
+  return await bookApi
     .getSelectedCategoryBooks()
     .then(data => {
       let delay = 0;
@@ -144,10 +149,10 @@ function fetchToApiUseCatagory(value) {
       galleryListEl.insertAdjacentHTML('beforeend', galleryItemElems);
       Block.remove('.gallery_container');
 
-    })
-    .catch(error => {
+    })}
+    catch(error){
       {
-        Notify.info(`oops we didn't find sutch category`, notifyOptions);
+        Notify.info(`Oops we didn't find such category`, notifyOptions);
       }
-    });
+    };
 }
