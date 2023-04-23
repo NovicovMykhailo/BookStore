@@ -374,7 +374,7 @@ function moveToTrashItem() {
   trashIcon.forEach(e => e.addEventListener('click', r => trashTest(r)));
 }
 async function trashTest(r) {
-  pageNumOnDelete = document.querySelector(
+  let pageNumOnDelete = document.querySelector(
     '.btn-pagination__numeric.btn-current'
   ).textContent;
   storeCurrentPage(pageNumOnDelete);
@@ -391,8 +391,6 @@ async function trashTest(r) {
 
 		   if (ulEl.childNodes.length === 1) {
 		  storeCurrentPage(pageNumOnDelete-1);}
-		
-
         showLoadingIndicator();
       }
     });
