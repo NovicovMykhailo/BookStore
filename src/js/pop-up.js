@@ -53,8 +53,15 @@ function refsEls() {
 // function on click
 function onCardClick(e) {
   e.preventDefault();
-  if (e.target.className === 'book-card__image') {
-    const bookId = e.target.parentNode.children[2].innerText;
+
+  if (
+    e.target.className === 'book-card__image' ||
+    e.target.className === 'info-item__title' ||
+    e.target.className === 'info-item__author' ||
+    e.target.className === 'book-card__notification'
+  ) {
+    const bookId = e.target.parentElement.parentNode.children[0].children[2].innerText;
+
     bookAPI.id = bookId;
     bookAPI.getBookInfo().then(response => {
       const book = response.data;
@@ -68,10 +75,7 @@ function onCardClick(e) {
       // проверка для кнопки
       const refs = refsEls();
       // проверка на наличие в списка
-      if (
-        localStorage.getItem('register') &&
-        localStorage.getItem('shopping-list')
-      ) {
+      if (localStorage.getItem('register') && localStorage.getItem('shopping-list')) {
         let bookFound = checkBookTitle(book.title);
         if (bookFound) {
           console.log(true);
@@ -92,8 +96,7 @@ function onCardClick(e) {
       // adding a description if there is none
       const bookDescription = document.querySelector('.book__description');
       if (bookDescription.textContent.trim() === '') {
-        bookDescription.textContent =
-          'There is currently no description available for this book';
+        bookDescription.textContent = 'There is currently no description available for this book';
       }
     });
   }
