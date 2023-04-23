@@ -120,7 +120,7 @@ const mobileRendering = array => {
     </ul>`;
   }
   return `<ul class="btn-pagination__numeric-list">
-    <li><button class="btn-pagination__numeric btn-current ${toAddCurrentClass(
+    <li><button class="btn-pagination__numeric ${toAddCurrentClass(
       array[0]
     )}">
       <span class="text-numeric">${array[0]}</span>
