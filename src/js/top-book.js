@@ -81,7 +81,7 @@ export async function fetchAndRenderBooks() {
       sessionStorage.setItem('topBooks', JSON.stringify(response.data));
       Block.remove('.gallery_container');
     } catch (error) {
-      Notify.failure('Oops somthing went wrong', notifyOptions);
+      Notify.failure('Oops something went wrong', notifyOptions);
     }
   }
 }
