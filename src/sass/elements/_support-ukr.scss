@@ -119,6 +119,7 @@
   border: none;
 
   cursor: pointer;
+  transition: background-color $animation-flow, transform $animation-flow;
 
   @media screen and (min-width: $tablet) {
     width: 38px;
@@ -129,6 +130,10 @@
   }
   &--rotated .button__icon {
     transform: rotateX(180deg);
+  }
+
+  &:hover {
+    transform: scale(1.1);
   }
 }
 .numbers {
