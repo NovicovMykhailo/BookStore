@@ -88,6 +88,9 @@
   line-height: 1.29;
   letter-spacing: -0.04em;
   transition: all $animation-flow;
+  &.swiper-slide {
+    display: flex;
+  }
 }
 
 .company__link {
