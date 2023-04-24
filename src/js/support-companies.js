@@ -11,7 +11,7 @@ function createSupportList() {
       return `<li class="company__item swiper-slide">
       <span class="numbers">${leadingZeros(counter)}</span>
       <a class="company__link" href="${url}" target="_blank" rel="noopener noreferrer">
-      <img class="company__img" src="${img2}" srcset="${img} 1x, ${img2} 2x" alt="${title}" loading="lazy"/>
+      <img class="company__img"  width="159" height="32" src="${img2}" srcset="${img} 1x, ${img2} 2x" alt="${title}" loading="lazy"/>
       </a>
       </li>`;
     })

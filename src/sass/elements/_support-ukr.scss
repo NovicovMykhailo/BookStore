@@ -3,17 +3,12 @@
   max-height: 352px;
   padding-top: 24px;
   margin-bottom: 40px;
-  background: radial-gradient(
-    183.6% 183.01% at 59.76% -23.42%,
-    $blue-accent-color 18.03%,
-    $white-text-color 100%
-  );
+
+  background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, $blue-accent-color 18.03%, $white-text-color 100%);
   box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
   border-radius: 16px;
 
   @media screen and (min-width: $tablet) {
-    display: flex;
-    flex-direction: column;
     width: 335px;
     max-height: 472px;
     margin-bottom: 0;
@@ -57,31 +52,30 @@
   align-items: center;
   gap: 12px;
 }
-.support-companies {
-  display: flex;
-  padding-left: 40px;
-  margin-bottom: 16px;
 
-  gap: 20px;
-  color: $white-text-color;
+.support-companies {
   max-height: 188px;
 
+  @media screen and (min-width: $tablet) {
+    max-height: 292px;
+  }
+}
+
+.swiper.swiper-vertical {
+  display: flex;
+  height: 188px;
+  padding-left: 40px;
+  margin-bottom: 16px;
+  gap: 20px;
+
+  color: $white-text-color;
 
   @media screen and (min-width: $tablet) {
+    height: 292px;
     margin-bottom: 32px;
-         max-height: 328px;
-     max-height: 324px;
   }
   @media screen and (min-width: $desktop) {
     margin-bottom: 40px;
-  }
-  &.swiper {
-    display: flex;
-    max-height: 188px;
-
-    @media screen and (min-width: 768px) {
-      max-height: 292px;
-    }
   }
 }
 
@@ -104,31 +98,31 @@
 }
 
 .company__img {
-  max-width: 159px;
-  height: 32px;
   object-fit: contain;
+  object-position: left;
 }
 
 .swiper-button-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+
   margin-top: 0;
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 20px;
   width: 32px;
   height: 32px;
+
   border-radius: 50%;
   border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
 
   cursor: pointer;
+
   @media screen and (min-width: $tablet) {
     width: 38px;
     height: 38px;
-    margin-top:32px;
-
   }
   @media screen and (min-width: $desktop) {
     margin-bottom: 24px;
@@ -146,15 +140,4 @@
 .button__icon {
   fill: $blue-accent-color;
   transition: transform $animation-flow;
-}
-.swiper{
-  margin:0 !important;
-  margin-left: 40px !important;
-
-  
-  .swiper-slide{
-    display: flex;
-     height: 32px;
-     width: 100%;
-  }
 }
