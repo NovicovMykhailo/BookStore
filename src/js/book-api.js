@@ -9,23 +9,23 @@ export class BookAPI {
   }
 
   //   Метод для отримання списку категорій (повертає масив з назвами категорій)
-  getBooksCategoriesList() {
-    return axios.get(`${this.#BASE_URL}/category-list`);
+  async getBooksCategoriesList() {
+    return await axios.get(`${this.#BASE_URL}/category-list`);
   }
 
   //   Метод для отримання списку бестселлерів по категоріях (повертає масив)
-  getTopBooks() {
-    return axios.get(`${this.#BASE_URL}/top-books`);
+  async getTopBooks() {
+    return await axios.get(`${this.#BASE_URL}/top-books`);
   }
 
   //   Метод для отримання масиву книг з обраної категорії
-  getSelectedCategoryBooks() {
-    return axios.get(`${this.#BASE_URL}/category?category=${this.category}`);
+  async getSelectedCategoryBooks() {
+    return await axios.get(`${this.#BASE_URL}/category?category=${this.category}`);
   }
 
   //   Метод для отримання інформації про книгу за її унікальним ідентифікатором
-	getBookInfo() {
+	async getBookInfo() {
 	  // console.log(this.id);
-    return axios.get(`${this.#BASE_URL}/${this.id}`);
+    return await axios.get(`${this.#BASE_URL}/${this.id}`);
   }
 }
