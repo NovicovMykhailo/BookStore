@@ -90,6 +90,8 @@
   transition: all $animation-flow;
   &.swiper-slide {
     display: flex;
+    height: 32px;
+    width: 100%;
   }
 }
 
