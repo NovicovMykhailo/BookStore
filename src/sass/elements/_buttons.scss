@@ -5,6 +5,7 @@
   font-size: 18px;
   line-height: 24px;
   letter-spacing: -0.01em;
+  background-color: transparent;
 
   color: $main-text-color;
   display: flex;
@@ -29,6 +30,9 @@
 .theme-switch {
   appearance: none;
   position: relative;
+
+  margin-left: auto;
+
   &::before {
     content: '';
     display: block;
@@ -38,7 +42,7 @@
     height: 20px;
     padding: 1px;
     border-radius: 20px;
-    transition: all $animation-flow ;
+    transition: all $animation-flow;
     background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
   }
@@ -64,7 +68,7 @@
   }
   &:checked {
     &::before {
-        transition: all $animation-flow ;
+      transition: all $animation-flow;
       background: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);
     }
     &::after {
@@ -77,8 +81,8 @@
   cursor: pointer;
 
   position: sticky;
-  bottom: 20px;
-  left: 50%;
+  bottom: 30px;
+  left: 100%;
   width: 70px;
   height: 70px;
 
@@ -126,8 +130,7 @@
     background-color: $blue-accent-color;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     & .trash-icon {
-      stroke: $main-text-color;
-      
+      stroke: $yellow-accent-color;
     }
   }
 }

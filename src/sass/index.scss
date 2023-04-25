@@ -1,12 +1,26 @@
-@import './base/fonts';
-@import './base/vars';
-@import './elements/typography';
-@import './base/breakpoints';
-@import './base/common';
-@import './elements/buttons';
-@import './base/base-page';
-@import './base/body';
-@import './base/container';
-@import './base/animation';
-@import './base/swiper';
-@import './base/support-Ukraine';
+
+@import 'base/fonts';
+@import 'base/vars';
+@import 'elements/typography';
+@import 'base/breakpoints';
+@import 'base/common';
+@import 'elements/buttons';
+@import 'base/base-page';
+@import 'base/body';
+@import 'elements/registered-styles';
+@import 'base/container';
+@import 'elements/top-book';
+@import 'elements/support-ukr';
+@import 'elements/shopping-list';
+
+// Import elements
+@import 'elements/filter';
+@import 'elements/book-card';
+@import 'base/theme-switcher';
+@import 'base/nav';
+@import 'base/header';
+@import 'elements/support-ukr';
+@import 'elements/modal-signUp-login';
+@import 'elements/modal-pop_up';
+@import 'elements/fancybox-styles';
+@import 'base/mob-menu-animation';

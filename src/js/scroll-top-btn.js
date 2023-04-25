@@ -15,7 +15,7 @@ function scrollFunction() {
 
 scrollToTopBtnEl.addEventListener('click', backToTop);
 
-function backToTop() {
+export function backToTop(value = 0) {
   document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
+  document.documentElement.scrollTop = value;
 }

@@ -1,0 +1,155 @@
+// Import another JS
+import { BookAPI } from './book-api';
+import { createBookCard } from './book-card-template';
+import { colorLastWordInTitle } from './color-last-words';
+import { fetchAndRenderBooks } from './top-book';
+import { backToTop } from './scroll-top-btn';
+import { Block } from 'notiflix/build/notiflix-block-aio';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import AOS from 'aos'; //animation lib
+AOS.init(); //animation lib init
+
+const spinnerOptions = {
+  backgroundColor: 'rgba(255, 255, 255, 0.4)',
+  svgColor: 'gray',
+  svgSize: '100px',
+  querySelectorLimit: 20,
+};
+
+const notifyOptions = {
+  fontFamily: 'DMSans',
+};
+
+// Create first markup
+fetchAndRenderBooks();
+
+// Test zone
+
+let btnAllListener = document.querySelector('.gallery__list');
+
+// Listenr for btn and gallery to open modal window
+btnAllListener.addEventListener('click', event => {
+  if (event.target.localName === 'button') {
+    varWithCurrentCategoryValue = event.target.getAttribute('data-list-name');
+
+    addGalleryMarkupAndChangeFilter(event);
+
+    backToTop(galleryTitle.offsetTop - 60);
+  } else {
+    // Тут потрібно визивати модалку!!
+    // console.log(event.target);
+  }
+});
+
+// Initialize bookApi
+const bookApi = new BookAPI();
+
+// Find elements from DOM for work
+const filterListEl = document.querySelector('.filter__list');
+let varWithActiveValueFilter = document.querySelector('.filter__item--active');
+const galleryListEl = document.querySelector('.gallery__list');
+const galleryTitle = document.querySelector('.book-card__title');
+
+// Vars for datas
+let varWithCurrentCategoryValue = 'ALL CATEGORIES';
+fetchCategories();
+
+// Create request and add filter markup <= need adding to local and if function
+
+async function fetchCategories() {
+  if ('Categories-List' in sessionStorage) {
+    let response = sessionStorage.getItem('Categories-List');
+    const filterMarkup = JSON.parse(response)
+      .map(value => {
+        return `<li class="filter__item" data-mark-active="${value.list_name}">${value.list_name}</li>`;
+      })
+      .join('');
+    filterListEl.insertAdjacentHTML('beforeend', filterMarkup);
+    return;
+  } else {
+    try {
+      await bookApi.getBooksCategoriesList().then(data => {
+        sessionStorage.setItem('Categories-List', JSON.stringify(data.data));
+        const filterMarkup = data.data
+          .map(value => {
+            return `<li class="filter__item" data-mark-active="${value.list_name}">${value.list_name}</li>`;
+          })
+          .join('');
+
+        filterListEl.insertAdjacentHTML('beforeend', filterMarkup);
+      });
+    } catch (error) {
+      Notify.info(`Oops something going wrong`, notifyOptions);
+      filterListEl.innerHTML=`Oops something going wrong. Error 404`;
+    }
+  }
+}
+
+// Add listener which listen what catagory we choose
+filterListEl.addEventListener('click', event => {
+  // if (event.target.dataset.markActive !== 'All categories') {
+  //   Block.standard('.gallery_container', spinnerOptions);
+  // }
+  if (event.target.outerText.toLowerCase() === varWithCurrentCategoryValue.toLowerCase()) {
+    return;
+  }
+
+  varWithCurrentCategoryValue = event.target.outerText;
+
+  addGalleryMarkupAndChangeFilter(event);
+});
+
+function addGalleryMarkupAndChangeFilter(event) {
+  const targetEl = document.querySelector(`[data-mark-active="${varWithCurrentCategoryValue}"]`);
+
+  varWithActiveValueFilter.classList.remove('filter__item--active');
+
+  targetEl.classList.add('filter__item--active');
+
+  varWithActiveValueFilter = targetEl;
+
+  fetchToApiUseCatagory(varWithCurrentCategoryValue);
+
+  // Color title words
+  colorLastWordInTitle();
+}
+
+// Request to bookApi and add books markup
+async function fetchToApiUseCatagory(value) {
+  // Cheking "all categories" value
+  try {
+    if (value === 'All categories') {
+      galleryListEl.innerHTML = '';
+      await fetchAndRenderBooks();
+
+      return (galleryTitle.innerHTML = 'Best Sellers Books');
+    }
+
+    // =========
+    console.log = function () {}; // HA HA)))
+    // =========
+
+    Block.standard('.gallery_container', spinnerOptions);
+    bookApi.category = value;
+    galleryTitle.innerHTML = value;
+
+    return await bookApi.getSelectedCategoryBooks().then(data => {
+      let delay = 0;
+      let galleryItemElems = data.data
+        .map(e => {
+          delay += 50;
+          return createBookCard(e, delay);
+        })
+        .join('');
+
+      galleryListEl.innerHTML = '';
+
+      galleryListEl.insertAdjacentHTML('beforeend', galleryItemElems);
+      Block.remove('.gallery_container');
+    });
+  } catch (error) {
+    {
+      Notify.info(`Oops we didn't find such category`, notifyOptions);
+    }
+  }
+}

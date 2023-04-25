@@ -1,14 +1,22 @@
 @import 'visually-hidden';
+
 header {
   height: 72px;
   font-weight: 500;
   display: flex;
   align-items: center;
-  padding: 0 32px;
+  padding: 0 20px;
   background: #ffffff;
   border: $header-border;
   border-radius: 0px 0px 8px 8px;
+  @media screen and (min-width: $tablet) {
+    padding: 0 32px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding: 0 24px;
+  }
 }
+
 .logo {
   display: flex;
   gap: 8px;
@@ -18,10 +26,12 @@ header {
   transition: all $animation-flow;
   z-index: 10;
 }
+
 .logo-text {
   fill: $main-text-color;
   transition: all $animation-flow;
 }
+
 .logo:hover {
   transform: scale(1.2);
   // & .logo-text{
@@ -41,17 +51,41 @@ nav {
   text-transform: uppercase;
 }
 
-main {
-  display: flex;
-}
-.side-blocks {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  gap: 86px;
+.main-page {
+  @media screen and (min-width: $tablet) and (max-width: calc($desktop - 1px)) {
+    display: flex;
+    flex-direction: column;
+  }
 
-  @media screen and(max-width: 767px) {
-    display: none;
+  @media screen and (min-width: $desktop) {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    margin-top: 40px;
+  }
+}
+
+.side-blocks {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 40px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 100px;
+    width: calc($tablet - 62px);
+
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    flex-direction: column;
+    max-width: 356px;
+    gap: 0;
+	margin-right: 40px;
+    margin-top: 0;
   }
 }
 
@@ -59,4 +93,16 @@ main {
   display: flex;
   justify-content: center;
   gap: 40px;
+}
+@media Screen and (min-width: 335px) {
+  .book-card__title {
+    width: 335px;
+  }
+  .gallery__list {
+    width: 335px;
+  }
+
+  .book-card__image {
+    height: 485px;
+  }
 }

@@ -1,0 +1,73 @@
+.filter {
+  width: 100%;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: $tablet) {
+    margin-top: 0px;
+    margin-bottom: 0;
+    width: 337px;
+    height: 472px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 100%;
+	margin-bottom: 86px;
+  }
+}
+
+.filter__list {
+  max-height: 228px;
+  width: 100%;
+  // overflow: scroll;
+  //   width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @media screen and (min-width: $tablet) {
+    max-height: 472px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 8px;
+    height: 114px;
+    border-radius: 12px;
+    border: 12px solid $scrollbar-color-light;
+  }
+}
+
+.filter__item {
+  padding-bottom: 24px;
+  padding-right: 20px;
+
+  font-family: 'DMSans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.12;
+
+  letter-spacing: -0.02em;
+ transition: all ease-in-out 160ms;
+
+  color: $grey-text-color;
+  cursor: pointer;
+  &:hover{
+    // zoom: 101%;
+    transform: scale(1.05) translateX(10px);
+
+  }
+
+  @media screen and (min-width: $tablet) {
+    font-size: 18px;
+    line-height: 1.33;
+    padding-bottom: 32px;
+  }
+}
+
+.filter__item--active {
+  font-weight: 700;
+  text-transform: uppercase;
+
+  color: $blue-accent-color;
+}

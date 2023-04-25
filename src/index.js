@@ -1,3 +1,13 @@
-import './js/scroll-top-btn';
-import './js/support-ukraine-scroll';
-import './js/swiper';
+import './js/scroll-top-btn.js';
+import './js/top-book.js';
+import './js/filter.js';
+import './js/color-last-words.js';
+import './js/theme-switcher.js';
+import './js/modal-signUp-login';
+import './js/support-companies.js';
+import './js/support-list-swiper.js';
+import './js/firebase.js';
+import './js/mobile-menu';
+import './js/pop-up.js';
+import './js/loader.js';
+import './js/header-change.js';
