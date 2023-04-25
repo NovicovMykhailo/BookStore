@@ -8,10 +8,6 @@
     <link rel="stylesheet" href="./sass/index.scss" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="shortcut icon" href="./favico/logo.svg" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-    />
   </head>
   <body class="not-registered">
     <header>
@@ -67,37 +63,44 @@
       </button>
     </header>
     <main>
-      <div class="side-blocks">
-        <section class="categories">
-          <h2 class="visually-hidden">Book Categories</h2>
-          <ul class="book-categories">
-            <!-- left side book categories place -->
-          </ul>
-        </section>
-        <section class="support-ukraine">
-          <h2 class="visually-hidden">Support Ukraine</h2>
-          <ul class="support-companies">
-            <!-- left side support ukraine companies -->
-          </ul>
+      <div class="main-page container">
+        <div class="side-blocks">
+          <!-- Filter -->
+          <section class="filter">
+            <h1 class="visually-hidden">Book Shop Categories</h1>
+            <ul class="filter__list">
+              <li class="filter__item filter__item--active" data-mark-active="All categories">All categories</li>
+            </ul>
+          </section>
+          <section class="support-ukraine">
+            <h2 class="support-ukraine__title">
+              <span class="support-title-container">
+                Support Ukraine
+                <svg class="logo-ukr" width="20" height="32">
+                  <use href="./images/svg-sprite.svg#ukraine-arms"></use>
+                </svg>
+              </span>
+            </h2>
+            <div class="swiper">
+              <ul class="support-companies swiper-wrapper"></ul>
+            </div>
+            <button type="button" class="swiper-button-next" aria-label="More companies">
+              <svg class="button__icon" width="64" height="64">
+                <use href="./images/svg-sprite.svg#arrow-down-icon"></use>
+              </svg>
+            </button>
+          </section>
+        </div>
+        <section class="gallery">
+          <div class="gallery_container">
+            <h2 class="book-card__title">Best Sellers Books</h2>
+            <ul class="gallery__list list"></ul>
+          </div>
         </section>
       </div>
       <section class="book-cards">
         <h2 class="visually-hidden">Book Cards List</h2>
       </section>
-      <div class="wrapper">
-        <div class="mobile-bg-wrapper">
-          <img
-            class="mobile-bg primary"
-            src="./images/mobileMenu_BG/mobile-menu-bg.png"
-            alt="books"
-          />
-          <img
-            class="mobile-bg secondary"
-            src="./images/mobileMenu_BG/mobile-menu-bg.png"
-            alt="books"
-          />
-        </div>
-      </div>
     </main>
 
     <button type="button" class="scroll-up-btn">
@@ -105,6 +108,60 @@
         <use href="./images/svg-sprite.svg#scroll-up"></use>
       </svg>
     </button>
+
+    <div class="menu-container js-menu-container" id="mobile-menu">
+      <div class="wrapper .visually-hiddn">
+        <div class="mobile-bg-wrapper">
+          <picture class="mobile-bg primary">
+            <source srcset="./images/mobileMenu_BG/mobile-menu-bg-2x.webp" type="image/webp" />
+            <source srcset="./images/mobileMenu_BG/mobile-menu-bg-2x.png" type="image/png" />
+
+            <img src="./images/mobileMenu_BG/mobile-menu-bg-2x.png" alt="books" style="width: 100%" />
+          </picture>
+
+          <picture class="mobile-bg secondary">
+            <source srcset="./images/mobileMenu_BG/mobile-menu-bg-2x.webp" type="image/webp" />
+            <source srcset="./images/mobileMenu_BG/mobile-menu-bg-2x.png" type="image/png" />
+
+            <img src="./images/mobileMenu_BG/mobile-menu-bg-2x.png" alt="books" style="width: 100%" />
+          </picture>
+        </div>
+      </div>
+      <button type="button" class="btn-default header__singup-btn-mob-menu">
+        Sign up<svg class="header__singup-icon" width="20" height="20">
+          <use href="./images/svg-sprite.svg#arrow-right-icon"></use>
+        </svg>
+      </button>
+      <div class="user-info-bar">
+        <svg class="header__singin-icon" width="19" height="19">
+          <use href="./images/svg-sprite.svg#user-default-icon"></use>
+        </svg>
+        <p class="user-name">Stephen</p>
+      </div>
+
+      <nav class="nav nav__mob-menu">
+        <ul class="nav__list nav__list-mob-menu list">
+          <li class="nav-item nav-active">
+            <a href="./index.html" class="nav__link active link"> Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="./shopping-list.html" class="nav__link link mobile-inactive-link">
+              Shopping list
+              <svg class="header__link-icon" width="20" height="20">
+                <use href="./images/svg-sprite.svg#bag"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <button type="button" class="btn-default mob-menu__Log-out-btn">
+        Log out<svg class="header__singup-icon" width="20" height="20">
+          <use href="./images/svg-sprite.svg#arrow-right-icon"></use>
+        </svg>
+      </button>
+    </div>
+
+    <include src="./partials/modal-form-login.html"></include>
 
     <script src="index.js" type="module"></script>
   </body>
