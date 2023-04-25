@@ -1,0 +1,31 @@
+@import '../base/breakpoints';
+
+.support-ukraine {
+	margin-bottom: 40px;
+}
+
+.support-ukraine .swiper {
+  height: 188px;
+
+  margin: 20 0 16 0;
+
+  @media screen and(min-width: $tablet) {
+    height: 292px;
+    margin: 40 0 32 0;
+  }
+
+  @media screen and(min-width: $desktop) {
+    margin: 40 0;
+  }
+}
+
+.swiper .swiper-slide {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.04em;
+}
