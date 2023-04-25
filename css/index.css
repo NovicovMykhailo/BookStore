@@ -1,51 +1,50 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
-/* @import 'swiper/css'; */
 @font-face {
-  font-family: 'DMSans';
+  font-family: "DMSans";
   src: url(../fonts/DMSans-Regular.ttf);
   font-weight: normal;
 }
 @font-face {
-  font-family: 'DMSans';
+  font-family: "DMSans";
   src: url(../fonts/DMSans-Medium.ttf);
   font-weight: Medium;
 }
 @font-face {
-  font-family: 'DMSans';
+  font-family: "DMSans";
   src: url(../fonts/DMSans-Bold.ttf);
   font-weight: bold;
 }
 @font-face {
-  font-family: 'DMSans';
+  font-family: "DMSans";
   src: url(../fonts/DMSans-Italic.ttf);
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
-  font-family: 'DMSans';
+  font-family: "DMSans";
   src: url(../fonts/DMSans-MediumItalic.ttf);
   font-weight: medium;
   font-style: italic;
 }
 @font-face {
-  font-family: 'DMSans';
+  font-family: "DMSans";
   src: url(../fonts/DMSans-BoldItalic.ttf);
   font-weight: bold;
   font-style: italic;
 }
 .block-title {
-  font-family: 'DMSans';
+  font-family: "DMSans";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #b4afaf;
+  color: #B4AFAF;
 }
 
 .card-title {
-  font-family: 'DMSans';
+  font-family: "DMSans";
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -55,17 +54,17 @@
 }
 
 .card-caption {
-  font-family: 'DMSans';
+  font-family: "DMSans";
   font-style: italic;
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: -0.04em;
-  color: #b4afaf;
+  color: #B4AFAF;
 }
 
 .section-title {
-  font-family: 'DMSans';
+  font-family: "DMSans";
   font-style: normal;
   font-weight: 700;
   font-size: 48px;
@@ -82,7 +81,7 @@
 }
 
 .category-text {
-  font-family: 'DMSans';
+  font-family: "DMSans";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -100,7 +99,7 @@
 }
 
 .description-text {
-  font-family: 'DMSans';
+  font-family: "DMSans";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -120,7 +119,7 @@
   z-index: 10;
 }
 .nav-item::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   transform: scaleX(0);
@@ -175,7 +174,7 @@ ul {
 }
 
 .btn-default {
-  font-family: 'DMSans';
+  font-family: "DMSans";
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
@@ -193,20 +192,19 @@ ul {
   border: 2px solid #4f2ee8;
   transition: all 300ms ease 0ms;
 }
-.btn-default:hover,
-.btn-default:focus {
+.btn-default:hover, .btn-default:focus {
   background: #4f2ee8;
   color: #ffffff;
 }
 
 .theme-switch {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   position: relative;
 }
 .theme-switch::before {
-  content: '';
+  content: "";
   display: block;
   cursor: pointer;
   width: 40px;
@@ -218,10 +216,9 @@ ul {
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 .theme-switch::after {
-  content: '';
+  content: "";
   cursor: pointer;
-  background-image: url(/src/images/switch-texture.svg),
-    linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+  background-image: url(/src/images/switch-texture.svg), linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
   width: 18px;
   height: 18px;
   display: block;
@@ -233,8 +230,7 @@ ul {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1),
-    1px 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1), 1px 2px 4px rgba(0, 0, 0, 0.1);
 }
 .theme-switch:checked::before {
   transition: all 300ms ease 0ms;
@@ -262,11 +258,7 @@ ul {
 }
 .scroll-up-btn:hover {
   transform: scale(1.2);
-  filter: drop-shadow(
-    1px 1px 2px rgba(0, 0, 0, 0.1),
-    0px 2px 2px rgba(0, 0, 0, 0.1),
-    1px 2px 4px rgba(0, 0, 0, 0.1)
-  );
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1), 1px 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .trash-btn {
@@ -307,7 +299,7 @@ ul {
   padding: 0;
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
+          clip-path: inset(50%);
   margin: -1px;
 }
 
@@ -387,9 +379,9 @@ html {
 }
 
 body {
-  font-family: 'DMSans', sans-serif;
+  font-family: "DMSans", sans-serif;
   padding: 0 24px;
-  background-color: #f6f6f6;
+  background-color: #F6F6F6;
   color: #111111;
 }
 
@@ -433,7 +425,7 @@ body {
 
 .filter__item {
   padding-bottom: 24px;
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -444,12 +436,12 @@ body {
 }
 
 .filter__item--active {
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   font-weight: 700;
   font-size: 16px;
   line-height: 18px;
   /* identical to box height, or 112% */
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  color: #4f2ee8;
+  color: #4F2EE8;
 }
