@@ -1,16 +1,25 @@
 .mobile-bg {
-   display:block;
   position: absolute;
   left: 0%;
   top: 0%;
+  will-change: transform;
 
-   padding: 0 3.7vw;
+  padding: 0 3.4vw;
 
-  width: inherit;
-  height: inherit;
-  @media screen and (min-width: $tablet){
-    display:none;
+  @media screen and (min-width: $tablet) {
+    display: none;
   }
+}
+
+.mobile-bg-wrapper {
+  width: 118vw;
+  height: auto;
+  z-index: -1;
+  pointer-events: none;
+  position: relative;
+  bottom: calc(100vh - calc(70vh - 100%));
+  // bottom: 15vh;
+  transform: translateY(525px) translateX(-79px) rotate(-15deg);
 }
 
 .primary {
@@ -18,38 +27,23 @@
 }
 
 .secondary {
-
   animation: secondary 8s linear infinite;
 }
 
-
 @keyframes primary {
   from {
-    left: 0%;
+    transform: translateX(0%);
   }
   to {
-    left: -100%;
+    transform: translateX(-100%);
   }
 }
 
 @keyframes secondary {
   from {
-    left: 100%;
+    transform: translate(100%);
   }
   to {
-    left: 0%;
+    transform: translate(0%);
   }
 }
-
-
-
-.mobile-bg-wrapper {
-    width: 118vw;
-    height: auto;
-    z-index: -1;
-    pointer-events: none;
-    position: relative;
-    bottom: 15vh;
-    transform: translateY(525px)translateX(-79px)rotate(-15deg);
-}
-

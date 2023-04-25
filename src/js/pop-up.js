@@ -1,13 +1,14 @@
 import { BookAPI } from './book-api.js';
+
 import {
   createModalPopUpCard,
   currentBookObj,
 } from './modal-pop-up-template.js';
-// Andrew Add start
-// import { checkBookTitle } from './add-to-shopping-list.js';
-import addToLocalStorage from './add-to-local-store.js';
-import removeFromLocalStorage from './remove-from-shopping-list.js';
-// Andrew Add end
+
+// Import Database
+import { useFirebase } from './firebase.js';
+const firebase = new useFirebase();
+
 // FancyBox Import
 import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
@@ -19,15 +20,22 @@ const fancyBoxOptions = {
       // Andrew Add start
       addLocal(); //
       removeLocal();
-      // Andrew Add end
     },
     close: () => {
       setTimeout(deleteMarkup, 500);
     },
   },
   autoFocus: false,
-  // ClickAction | ((any?: any) => ClickAction | void)
 };
+import Notiflix from 'notiflix';
+// Notify Options
+const notifyOptions = {
+  fontFamily: 'DMSans',
+  zindex: 10001,
+  clickToClose: true,
+  position: 'center-top',
+};
+
 // Book Api Init
 const bookAPI = new BookAPI();
 // Cards container select
@@ -41,13 +49,19 @@ function refsEls() {
     btnToggleRemoveEl: document.querySelector('.pop-up__btn-remove'),
     textToggleRemoveEl: document.querySelector('.pop-up__text-info'),
   };
-};
+}
 // function on click
 function onCardClick(e) {
-
   e.preventDefault();
-  if (e.target.className === 'book-card__image') {
-    const bookId = e.target.parentNode.children[2].innerText;
+
+  if (
+    e.target.className === 'book-card__image' ||
+    e.target.className === 'info-item__title' ||
+    e.target.className === 'info-item__author' ||
+    e.target.className === 'book-card__notification'
+  ) {
+    const bookId = e.target.parentElement.parentNode.children[0].children[2].innerText;
+
     bookAPI.id = bookId;
     bookAPI.getBookInfo().then(response => {
       const book = response.data;
@@ -56,21 +70,25 @@ function onCardClick(e) {
 
       document.body.insertAdjacentHTML('beforeend', modalPopUp);
 
-      // проверка для кнопки
-        const refs = refsEls();
-
-      // if (checkBookTitle(book.title)) {
-      //   refs.btnToggleAddEl.classList.add('visually-hidden');
-      //   refs.btnToggleRemoveEl.classList.remove('visually-hidden');
-      //   refs.textToggleRemoveEl.classList.remove('visually-hidden');
-      // } else if (!checkBookTitle(book.title)){
-      //   refs.btnToggleAddEl.classList.remove('visually-hidden');
-      //   refs.btnToggleRemoveEl.classList.add('visually-hidden');
-      //   refs.textToggleRemoveEl.classList.add('visually-hidden');
-      // }
-      
-
       Fancybox.show([{ src: '#modal', type: 'inline' }], fancyBoxOptions);
+
+      // проверка для кнопки
+      const refs = refsEls();
+      // проверка на наличие в списка
+      if (localStorage.getItem('register') && localStorage.getItem('shopping-list')) {
+        let bookFound = checkBookTitle(book.title);
+        if (bookFound) {
+          console.log(true);
+          refs.btnToggleAddEl.classList.add('visually-hidden');
+          refs.btnToggleRemoveEl.classList.remove('visually-hidden');
+          refs.textToggleRemoveEl.classList.remove('visually-hidden');
+        } else if (!bookFound) {
+          refs.btnToggleAddEl.classList.remove('visually-hidden');
+          refs.btnToggleRemoveEl.classList.add('visually-hidden');
+          refs.textToggleRemoveEl.classList.add('visually-hidden');
+        }
+      }
+
       // find Fancybox-close-btn
       const facyCloseBtn = document.querySelector('.f-button.is-close-btn');
       // find modal close btn
@@ -78,8 +96,7 @@ function onCardClick(e) {
       // adding a description if there is none
       const bookDescription = document.querySelector('.book__description');
       if (bookDescription.textContent.trim() === '') {
-        bookDescription.textContent =
-          'There is currently no description available for this book';
+        bookDescription.textContent = 'There is currently no description available for this book';
       }
     });
   }
@@ -95,15 +112,27 @@ function closeModal() {
   });
 }
 // Andrew Add start
+
 function addLocal() {
   const refs = refsEls();
 
   refs.btnToggleAddEl.addEventListener('click', event => {
     event.preventDefault();
-    addToLocalStorage(currentBookObj);
-    refs.btnToggleAddEl.classList.add('visually-hidden');
-    refs.btnToggleRemoveEl.classList.remove('visually-hidden');
-    refs.textToggleRemoveEl.classList.remove('visually-hidden');
+    // use firebase
+    if (
+      localStorage.getItem('register') &&
+      localStorage.getItem('shopping-list')
+    ) {
+      firebase.writeBookArrayToDB(currentBookObj);
+      refs.btnToggleAddEl.classList.add('visually-hidden');
+      refs.btnToggleRemoveEl.classList.remove('visually-hidden');
+      refs.textToggleRemoveEl.classList.remove('visually-hidden');
+      return;
+    }
+    Notiflix.Notify.info(
+      ' You may be registered to use this option',
+      notifyOptions
+    );
   });
 }
 
@@ -113,8 +142,8 @@ function removeLocal() {
   const textToggleRemoveEl = document.querySelector('.pop-up__text-info');
   btnToggleRemoveEl.addEventListener('click', event => {
     event.preventDefault();
-
-    removeFromLocalStorage(currentBookObj);
+    //   use firebase
+    firebase.selectBookFromArray(currentBookObj._id);
     btnToggleAddEl.classList.remove('visually-hidden');
     btnToggleRemoveEl.classList.add('visually-hidden');
     textToggleRemoveEl.classList.add('visually-hidden');
@@ -124,4 +153,18 @@ function removeLocal() {
 function deleteMarkup() {
   const el = document.querySelector('#modal');
   el.parentElement.removeChild(el);
+}
+
+// check for exsisting
+export function checkBookTitle(bookTitle) {
+  const refs = refsEls();
+
+  const storedBooks = JSON.parse(localStorage.getItem('shopping-list'));
+  if (storedBooks.some(book => book.title === bookTitle)) {
+    // Если название книги найдено в массиве объектов
+    return true;
+  } else {
+    // Если название книги не найдено в массиве объектов
+    return false;
+  }
 }

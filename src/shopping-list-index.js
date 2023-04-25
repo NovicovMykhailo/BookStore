@@ -7,3 +7,5 @@ import './js/loader.js';
 // shopping basket js files
 // import './js/shopping-list.js';
 import './js/shopping-list-for-merge.js'
+import './js/support-list-swiper.js';
+import './js/header-change.js';

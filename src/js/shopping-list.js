@@ -1,8 +1,7 @@
-import addToLocalStorage from './add-to-shopping-list';
-import removeFromLocalStorage from './remove-from-shopping-list';
+// import addToLocalStorage from './add-to-shopping-list';
+// import removeFromLocalStorage from './remove-from-shopping-list';
+// import { paginationBtnEl } from '../js/shopping-list__pagination';
 import { renderPaginationBtn, currentPage } from '../js/shopping-list__pagination';
-// import renderPaginationBtn from '../js/shopping-list__pagination';
-import { paginationBtnEl } from '../js/shopping-list__pagination';
 import { books } from './shopping-list__books';
 
 
@@ -13,8 +12,7 @@ const supUkrContainerEl = document.querySelector('.support-ukraine');
 const ulEl = document.querySelector('.check');
 export const shoppingListSectionEl = document.querySelector('.shopping-list__page');
 const shoppingListContainer = shoppingListSectionEl.parentNode;
-// const paginationBtnEl = document.querySelector('.btn-pagination__list');
-// import const paginationBtnEl = document.querySelector('.btn-pagination__list');
+
 
 
 
@@ -32,7 +30,7 @@ const getListObjectsOfPage = numberPage => {
 
 const getAppropriateMurkup = (book) => {
   if (window.screen.width < 768) {
-    return murkupForMobile(book); // !!! может быть ошибка с передачей строки
+    return murkupForMobile(book);
   }
 
   return murkupForTabketAndDesktop(book);
@@ -44,7 +42,7 @@ export const murkupShoppingList = numberPage => {
 
     arrayOfMurkup.push(getAppropriateMurkup(book))
   })
-  // return `<ul class="check shopping-list">${arrayOfMurkup.join('')}</ul>`;
+
 
   return arrayOfMurkup.join('');
 
@@ -70,22 +68,6 @@ export const mainRenderingFunc = () => {
       <use href="../images/svg-sprite.svg#arrow-down-icon"></use>
     </svg>
   </button>`;
-  //   shoppingListContainer.insertAdjacentHTML('afterbegin', `<section class="support-ukraine">
-  //   <h2 class="support-ukraine__title">
-  //     <span class="support-title-container">
-  //       Support Ukraine
-  //       <svg class="logo-ukr" width="20" height="32">
-  //         <use href="../images/svg-sprite.svg#ukraine-arms"></use>
-  //       </svg>
-  //     </span>
-  //   </h2>
-  //   <ul class="support-companies"></ul>
-  //   <button type="button" class="support__load-more">
-  //     <svg class="button__icon" width="64" height="64">
-  //       <use href="../images/svg-sprite.svg#arrow-down-icon"></use>
-  //     </svg>
-  //   </button>
-  // </section>`);
   }
   if (checkCountOfPages() === 0) {
     shoppingListSectionEl.insertAdjacentHTML(

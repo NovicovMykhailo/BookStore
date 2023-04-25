@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="shortcut icon" href="./favico/logo.svg" type="image/x-icon" />
   </head>
-  <body>
+  <body class="not-registered">
     <header>
       <a href="./index.html" class="logo">
         <svg class="logo-icon" width="22" height="22">
@@ -22,10 +22,10 @@
       <nav class="nav">
         <ul class="nav__list list">
           <li class="nav-item">
-            <a href="./index.html" class="nav__link active link"> Home</a>
+            <a href="./index.html" class="nav__link link"> Home</a>
           </li>
           <li class="nav-item nav-active">
-            <a href="./shopping-list.html" class="nav__link link">
+            <a href="./shopping-list.html" class="nav__link active link">
               Shopping list
               <svg class="header__link-icon" width="20" height="20">
                 <use href="./images/svg-sprite.svg#bag"></use>
@@ -35,24 +35,11 @@
         </ul>
       </nav>
 
-      <input
-        type="checkbox"
-        name="checkbox"
-        id="theme-switch"
-        class="theme-switch"
-      />
+      <input type="checkbox" name="theme switcher" id="theme-switch" class="theme-switch" />
 
-      <button
-        class="menu-toggle js-open-menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
+      <button class="menu-toggle js-open-menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg class="header__mobile-menu" width="28" height="28">
-          <use
-            class="menu-icon"
-            id="menu-icon"
-            href="./images/svg-sprite.svg#ham-menu-icon"
-          ></use>
+          <use class="menu-icon" id="menu-icon" href="./images/svg-sprite.svg#ham-menu-icon"></use>
         </svg>
       </button>
       <button type="button" class="btn-default header__singup-btn">
@@ -60,7 +47,7 @@
           <use href="./images/svg-sprite.svg#arrow-right-icon"></use>
         </svg>
       </button>
-      <!-- <button type="button" class="btn-default header__singin-btn">
+      <button type="button" class="btn-default header__singin-btn">
         <svg class="header__singin-icon" width="19" height="19">
           <use href="./images/svg-sprite.svg#user-default-icon"></use>
         </svg>
@@ -68,7 +55,12 @@
         <svg class="header__singin-down-icon" width="23" height="26">
           <use href="./images/svg-sprite.svg#user-arrow-down-icon"></use>
         </svg>
-      </button> -->
+      </button>
+      <button type="button" class="btn-default header__logout-btn">
+        Log out<svg class="header__singup-icon" width="20" height="20">
+          <use href="./images/svg-sprite.svg#arrow-right-icon"></use>
+        </svg>
+      </button>
     </header>
     <main>
       <div class="shopping-list__container container">
@@ -82,8 +74,10 @@
               </svg>
             </span>
           </h2>
-          <ul class="support-companies"></ul>
-          <button type="button" class="support__load-more">
+          <div class="swiper">
+            <ul class="support-companies swiper-wrapper"></ul>
+          </div>
+          <button type="button" class="swiper-button-next" aria-label="More companies">
             <svg class="button__icon" width="64" height="64">
               <use href="./images/svg-sprite.svg#arrow-down-icon"></use>
             </svg>
@@ -91,17 +85,13 @@
         </section>
         <!-- shopping list block -->
         <section class="shopping-list__page">
-          <h1 class="shopping-list__title" data-text="list">
-            shopping <span class="shopping-list__blue-title">list</span>
-          </h1>
+          <h1 class="shopping-list__title" data-text="list">shopping <span class="shopping-list__blue-title">list</span></h1>
           <!-- basket to render cards -->
           <ul class="shopping-list">
             <!-- card -->
             <!-- empty basket styles -->
-            <div class="on-empty-container">
-              <p class="empty-bookshelf__text">
-                This page is empty, add some books and proceed to order.
-              </p>
+            <li class="on-empty-container">
+              <p class="empty-bookshelf__text">This page is empty, add some books and proceed to order.</p>
               <img
                 srcset="
                   images/shopping-list-empty-bg/shoping-list-empty-mobile_sm.png    265w,
@@ -115,17 +105,8 @@
                 src="images/shopping-list-empty-bg/shoping-list-empty_lg-2x.png"
                 alt="Book Illustration"
               />
-            </div>
+            </li>
           </ul>
-
-          <!-- <div class="shopping-list__head-part">
-                  
-           
-                  
-                  <div class="shopping-list__card-container">
-                    > -->
-
-          <!-- paggination ul -->
           <ul class="btn-pagination__list"></ul>
         </section>
       </div>
@@ -140,16 +121,8 @@
     <div class="menu-container js-menu-container" id="mobile-menu">
       <div class="wrapper .visually-hiddn">
         <div class="mobile-bg-wrapper">
-          <img
-            class="mobile-bg primary"
-            src="./images/mobileMenu_BG/mobile-menu-bg-2x.png"
-            alt="books"
-          />
-          <img
-            class="mobile-bg secondary"
-            src="./images/mobileMenu_BG/mobile-menu-bg-2x.png"
-            alt="books"
-          />
+          <img class="mobile-bg primary" src="./images/mobileMenu_BG/mobile-menu-bg-2x.png" alt="books" />
+          <img class="mobile-bg secondary" src="./images/mobileMenu_BG/mobile-menu-bg-2x.png" alt="books" />
         </div>
       </div>
       <button type="button" class="btn-default header__singup-btn-mob-menu">
@@ -157,16 +130,20 @@
           <use href="./images/svg-sprite.svg#arrow-right-icon"></use>
         </svg>
       </button>
+      <div class="user-info-bar">
+        <svg class="header__singin-icon" width="19" height="19">
+          <use href="./images/svg-sprite.svg#user-default-icon"></use>
+        </svg>
+        <p class="user-name">Stephen</p>
+      </div>
 
       <nav class="nav nav__mob-menu">
         <ul class="nav__list nav__list-mob-menu list">
           <li class="nav-item">
-            <a href="./index.html" class="nav__link link mobile-inactive-link">
-              Home</a
-            >
+            <a href="./index.html" class="nav__link mobile-inactive-link"> Home</a>
           </li>
           <li class="nav-item nav-active">
-            <a href="./shopping-list.html" class="nav__link link active">
+            <a href="./shopping-list.html" class="nav__link link active link">
               Shopping list
               <svg class="header__link-icon" width="20" height="20">
                 <use href="./images/svg-sprite.svg#bag"></use>
@@ -175,11 +152,11 @@
           </li>
         </ul>
       </nav>
-      <!-- <button type="button" class="btn-default mob-menu__Log-out-btn">
+      <button type="button" class="btn-default mob-menu__Log-out-btn">
         Log out<svg class="header__singup-icon" width="20" height="20">
           <use href="./images/svg-sprite.svg#arrow-right-icon"></use>
         </svg>
-      </button> -->
+      </button>
     </div>
 
     <include src="./partials/modal-form-login.html"></include>

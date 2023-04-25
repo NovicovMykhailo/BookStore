@@ -91,8 +91,11 @@
 
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-
+  transition: all $animation-flow;;
   overflow: hidden;
+  &:hover{
+    scale: 1.03;
+  }
 
   @media screen and (min-width: $tablet) {
     width: 192px;
@@ -160,14 +163,23 @@
 .buy-links__icon {
   filter: grayscale(100%);
 
-  transition: all $animation-flow;
+  transition: all linear 50ms;
 
   &:hover,
   &:focus {
-    filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+      transform: scale(1.2);
+    filter: grayscale(0) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+ 
   }
 }
+.book__item{
+  transition: all $animation-flow;
+}
+.book__item:hover{
 
+  scale: 1.10;
+
+}
 .pop-up__btn-add {
   min-width: 211px;
   min-height: 46px;

@@ -1,0 +1,102 @@
+.is-registered {
+  & .nav-item:nth-child(1) {
+    display: flex;
+  }
+  & .nav-item:nth-child(2) {
+    display: flex;
+  }
+  & .header__singup-btn {
+    display: none;
+  }
+  & .header__singin-btn {
+    display: none;
+
+    transition: all $animation-flow;
+    &:before {
+      content: '';
+      transform: scale(0);
+      opacity: 0;
+      transition-duration: 400ms;
+
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      right: 40px;
+      z-index: 2;
+      background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.33325 10H16.6666M16.6666 10L11.6666 5M16.6666 10L11.6666 15' stroke='%23EAC645' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    &:after {
+      content: 'Log out';
+      transform: rotateY(90deg);
+      opacity: 0;
+      font-family: 'DMSans';
+      border-radius: 18px;
+      text-transform: none;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+      height: 45px;
+      transition: all $animation-flow;
+      text-align: left;
+
+      background-color: white;
+      border: 2px solid #111111;
+      color: black;
+
+      @media screen and (min-width: $tablet) {
+        position: absolute;
+        right: 23px;
+        width: 186px;
+        padding: 12px;
+      }
+    }
+    &:hover {
+      &:after {
+        transform: rotateY(0deg);
+        opacity: 1;
+      }
+      &:before {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    @media screen and(min-width:$tablet) {
+      display: flex;
+    }
+  }
+  & .header__singup-btn-mob-menu {
+    display: none;
+  }
+
+  & .user-info-bar {
+    display: none;
+  }
+  & .mob-menu__Log-out-btn {
+    display: none;
+  }
+    & .mob-menu__Log-out-btn {
+    display: flex;
+  }
+    & .user-info-bar {
+    display: flex;
+  }
+}
+.not-registered {
+  & .nav-item:nth-child(1) {
+    display: none;
+  }
+  & .nav-item:nth-child(2) {
+    display: none;
+  }
+  & .header__singin-btn {
+    display: none;
+  }
+  & .user-info-bar {
+    display: none;
+  }
+  & .mob-menu__Log-out-btn {
+    display: none;
+  }
+}

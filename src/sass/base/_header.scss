@@ -8,8 +8,16 @@ header {
   padding: 0 24px;
   background: $white-text-color;
   border: $header-border;
-  // margin: 0 -20px;
   border-radius: 0px 0px 8px 8px;
+  @media screen and (max-width:$desktop){
+    
+    top: 0;
+    position: fixed;
+    width: 100vw;
+    body{
+      padding-top: 72px;
+    }
+  }
 }
 
 .header__mobile-menu {
@@ -160,7 +168,7 @@ header {
 }
 
 .menu-container {
-   display:block;
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
@@ -173,8 +181,8 @@ header {
   visibility: hidden;
   pointer-events: none;
 
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: calc(100vh - calc(100vh - 100%));
 
   background: radial-gradient(
     183.6% 183.01% at 59.76% -23.42%,
@@ -186,8 +194,8 @@ header {
   transform: translateX(100%);
 
   transition: all $animation-flow;
-  @media screen and (min-width:$tablet){
-    display:none;
+  @media screen and (min-width: $tablet) {
+    display: none;
   }
 }
 .menu-container.is-open {
@@ -251,12 +259,31 @@ header {
   & .header__link-icon {
     fill: white;
   }
-  
-  
 }
 .nav__link.mobile-inactive-link:hover {
-    color: black;
-      & .header__link-icon {
+  color: black;
+  & .header__link-icon {
     fill: black;
   }
+}
+.header__logout-btn {
+  display: none;
+}
+.user-info-bar {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  margin-top: 104px;
+  margin-left: 20px;
+
+  height: 37px;
+  & > .user-name {
+    font-family: 'DMSans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 29px;
+    letter-spacing: -0.02em;
+    color: white;
   }
+}
