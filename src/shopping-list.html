@@ -21,8 +21,8 @@
       </a>
       <nav class="nav">
         <ul class="nav__list list">
-          <li class="nav-item ">
-            <a href="./index.html" class="nav__link  link"> Home</a>
+          <li class="nav-item">
+            <a href="./index.html" class="nav__link link"> Home</a>
           </li>
           <li class="nav-item nav-active">
             <a href="./shopping-list.html" class="nav__link active link">
@@ -30,31 +30,16 @@
               <svg class="header__link-icon" width="20" height="20">
                 <use href="./images/svg-sprite.svg#bag"></use>
               </svg>
-
             </a>
           </li>
         </ul>
-
       </nav>
 
-      <input
-        type="checkbox"
-        name="theme switcher"
-        id="theme-switch"
-        class="theme-switch"
-      />
+      <input type="checkbox" name="theme switcher" id="theme-switch" class="theme-switch" />
 
-      <button
-        class="menu-toggle js-open-menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
+      <button class="menu-toggle js-open-menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg class="header__mobile-menu" width="28" height="28">
-          <use
-            class="menu-icon"
-            id="menu-icon"
-            href="./images/svg-sprite.svg#ham-menu-icon"
-          ></use>
+          <use class="menu-icon" id="menu-icon" href="./images/svg-sprite.svg#ham-menu-icon"></use>
         </svg>
       </button>
       <button type="button" class="btn-default header__singup-btn">
@@ -72,10 +57,9 @@
         </svg>
       </button>
       <button type="button" class="btn-default header__logout-btn">
-         Log out<svg class="header__singup-icon" width="20" height="20">
+        Log out<svg class="header__singup-icon" width="20" height="20">
           <use href="./images/svg-sprite.svg#arrow-right-icon"></use>
         </svg>
-
       </button>
     </header>
     <main>
@@ -90,8 +74,10 @@
               </svg>
             </span>
           </h2>
-          <ul class="support-companies swiper"></ul>
-          <button type="button" class="swiper-button-next">
+          <div class="swiper">
+            <ul class="support-companies swiper-wrapper"></ul>
+          </div>
+          <button type="button" class="swiper-button-next" aria-label="More companies">
             <svg class="button__icon" width="64" height="64">
               <use href="./images/svg-sprite.svg#arrow-down-icon"></use>
             </svg>
@@ -99,17 +85,13 @@
         </section>
         <!-- shopping list block -->
         <section class="shopping-list__page">
-          <h1 class="shopping-list__title" data-text="list">
-            shopping <span class="shopping-list__blue-title">list</span>
-          </h1>
+          <h1 class="shopping-list__title" data-text="list">shopping <span class="shopping-list__blue-title">list</span></h1>
           <!-- basket to render cards -->
           <ul class="shopping-list">
             <!-- card -->
             <!-- empty basket styles -->
             <li class="on-empty-container">
-              <p class="empty-bookshelf__text">
-                This page is empty, add some books and proceed to order.
-              </p>
+              <p class="empty-bookshelf__text">This page is empty, add some books and proceed to order.</p>
               <img
                 srcset="
                   images/shopping-list-empty-bg/shoping-list-empty-mobile_sm.png    265w,
@@ -139,17 +121,8 @@
     <div class="menu-container js-menu-container" id="mobile-menu">
       <div class="wrapper .visually-hiddn">
         <div class="mobile-bg-wrapper">
-          <img
-            class="mobile-bg primary"
-            src="./images/mobileMenu_BG/mobile-menu-bg-2x.png"
-            alt="books"
-          />
-          <img
-            class="mobile-bg secondary"
-            src="./images/mobileMenu_BG/mobile-menu-bg-2x.png"
-            alt="books"
-          />
- 
+          <img class="mobile-bg primary" src="./images/mobileMenu_BG/mobile-menu-bg-2x.png" alt="books" />
+          <img class="mobile-bg secondary" src="./images/mobileMenu_BG/mobile-menu-bg-2x.png" alt="books" />
         </div>
       </div>
       <button type="button" class="btn-default header__singup-btn-mob-menu">
@@ -160,16 +133,17 @@
       <div class="user-info-bar">
         <svg class="header__singin-icon" width="19" height="19">
           <use href="./images/svg-sprite.svg#user-default-icon"></use>
-        </svg><p class="user-name">Stephen</p>
+        </svg>
+        <p class="user-name">Stephen</p>
       </div>
 
       <nav class="nav nav__mob-menu">
         <ul class="nav__list nav__list-mob-menu list">
-          <li class="nav-item ">
+          <li class="nav-item">
             <a href="./index.html" class="nav__link mobile-inactive-link"> Home</a>
           </li>
           <li class="nav-item nav-active">
-            <a href="./shopping-list.html" class="nav__link link  active link">
+            <a href="./shopping-list.html" class="nav__link link active link">
               Shopping list
               <svg class="header__link-icon" width="20" height="20">
                 <use href="./images/svg-sprite.svg#bag"></use>
