@@ -9,3 +9,5 @@ import './js/loader.js';
 import './js/shopping-list-for-merge.js'
 import './js/support-list-swiper.js';
 import './js/header-change.js';
+
+
