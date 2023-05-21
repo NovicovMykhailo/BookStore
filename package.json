@@ -5,7 +5,8 @@
   "homepage": "https://novicovmykhailo.github.io/BookStore/",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /BookStore/  --dist-dir public"
+    "build": "parcel build src/*.html --public-url /BookStore/"
+    
   },
   "repository": {
     "type": "git",
