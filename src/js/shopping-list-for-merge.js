@@ -374,10 +374,14 @@ function moveToTrashItem() {
   trashIcon.forEach(e => e.addEventListener('click', r => trashTest(r)));
 }
 async function trashTest(r) {
-  let pageNumOnDelete = document.querySelector(
+  if(document.querySelector(
     '.btn-pagination__numeric.btn-current'
-  ).textContent;
-  storeCurrentPage(pageNumOnDelete);
+  )) {
+    let pageNumOnDelete = document.querySelector('.btn-pagination__numeric.btn-current').textContent;
+    storeCurrentPage(pageNumOnDelete);
+    
+  }
+  
 
   let currentBookTitle =
     r.currentTarget.parentElement.children[0].children[1].children[0]
