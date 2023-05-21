@@ -145,11 +145,14 @@ export class useFirebase {
       }, delay);
 
     } catch (e) {
-      Notify.warning('Oops something went wrong, Please try again', {
-        fontFamily: 'DMSans',
-      });
+      console.log('loading')
+      // Notify.warning('Oops something went wrong, Please try again', {
+      //   fontFamily: 'DMSans',
+      // });
 
-    }
+    }finally{setTimeout(() => {
+      location.reload();
+    }, delay);}
   };
 
   // It`s for write id which use user in DB
